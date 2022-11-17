@@ -1,0 +1,97 @@
+{
+  "name": "PlayerZero",
+  "logo": {
+    "light": "/logo/light-logo.svg",
+    "dark": "/logo/dark-logo.svg"
+  },
+  "favicon": "/favicon.png",
+  "colors": {
+    "primary": "#008FFF",
+    "light": "#82C8FF",
+    "dark": "#3A81E0",
+    "ultraLight": "#E3F3FF",
+    "ultraDark": "#0654BD"
+  },
+  "topbarCtaButton": {
+    "name": "Sign Up",
+    "url": "https://go.playerzero.app/"
+  },
+  "topbarLinks": [
+    {
+      "name": "Login",
+      "url": "https://go.playerzero.app/"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "Blog",
+      "icon": "newspaper",
+      "url": "https://www.playerzero.app/blog"
+    },
+    {
+      "name": "Changelog",
+      "icon": "list-check",
+      "url": "https://changelog.playerzero.app/changelog"
+    },
+    {
+      "name": "Community",
+      "icon": "slack",
+      "url": "https://playerzerocom-uhb1146.slack.com/join/shared_invite/zt-1i4nsidth-bmObDACsU_Ci8Lw2ttExXg#/shared-invite/email"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Home",
+      "pages": ["introduction"]
+    },
+    {
+      "group": "Setup",
+      "pages": [
+        "setup/getting-started",
+        "setup/web-sdk",
+        "setup/instrument-js-snippet",
+        "setup/enable-with-segment",
+        "setup/domain-controls"
+      ]
+    },
+    {
+      "group": "Architecture & Product",
+      "pages": [
+        "architecture-and-product/playerzero-philosophy",
+        "architecture-and-product/features"
+      ]
+    },
+    {
+      "group": "How To's",
+      "pages": [
+        "how-to/shareable-devtools-1",
+        "how-to/setup-permission-and-sharing-controls",
+        "how-to/build-a-custom-styled-button",
+        "how-to/work-around-graphql-issues"
+      ]
+    },
+    {
+      "group": "Integrations",
+      "pages": [
+        "integrations/slack",
+        "integrations/intercom",
+        "integrations/jira"
+      ]
+    },
+    {
+      "group": "Data",
+      "pages": ["data/data-collection", "data/performance"]
+    }
+  ],
+  "footerSocials": {
+    "website": "https://www.playerzero.app/",
+    "linkedin": "https://www.linkedin.com/company/playerzero/",
+    "twitter": "https://twitter.com/goplayerzero",
+    "slack": "https://playerzerocom-uhb1146.slack.com/join/shared_invite/zt-1i4nsidth-bmObDACsU_Ci8Lw2ttExXg#/shared-invite/email"
+  },
+  "classes": {
+    "anchors": "group-hover:bg-gradient-to-tr from-[#5A3DF5] to-[#008FFF]",
+    "activeAnchors": "bg-gradient-to-tr"
+  },
+  "backgroundImage": "/background.png"
+}
