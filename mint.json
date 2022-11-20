@@ -10,7 +10,14 @@
     "light": "#82C8FF",
     "dark": "#3A81E0",
     "ultraLight": "#E3F3FF",
-    "ultraDark": "#0654BD"
+    "ultraDark": "#0654BD",
+    "anchors": {
+      "from": "#5A3DF5",
+      "to": "#008FFF"
+    },
+    "background": {
+      "dark": "#121212"
+    }
   },
   "topbarCtaButton": {
     "name": "Sign Up",
@@ -88,10 +95,6 @@
     "linkedin": "https://www.linkedin.com/company/playerzero/",
     "twitter": "https://twitter.com/goplayerzero",
     "slack": "https://playerzerocom-uhb1146.slack.com/join/shared_invite/zt-1i4nsidth-bmObDACsU_Ci8Lw2ttExXg#/shared-invite/email"
-  },
-  "classes": {
-    "anchors": "group-hover:bg-gradient-to-tr from-[#5A3DF5] to-[#008FFF]",
-    "activeAnchors": "bg-gradient-to-tr"
   },
   "backgroundImage": "/background.png"
 }
