@@ -9,8 +9,6 @@
     "primary": "#008FFF",
     "light": "#82C8FF",
     "dark": "#3A81E0",
-    "ultraLight": "#E3F3FF",
-    "ultraDark": "#0654BD",
     "anchors": {
       "from": "#5A3DF5",
       "to": "#008FFF"
@@ -74,7 +72,8 @@
         "how-to/shareable-devtools-1",
         "how-to/setup-permission-and-sharing-controls",
         "how-to/build-a-custom-styled-button",
-        "how-to/work-around-graphql-issues"
+        "how-to/work-around-graphql-issues",
+        "how-to/flows"
       ]
     },
     {
