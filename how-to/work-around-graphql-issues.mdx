@@ -1,0 +1,53 @@
+---
+title: "Working with GraphQL"
+---
+
+<Warning>
+Only for Apollo GraphQL
+ 
+This only has to be done if you are building on Apollo's GraphQL library. Otherwise, you can safely ignore this page.
+
+</Warning>
+
+PlayerZero wraps `window.fetch` and `XMLHttpRequest` calls during the regular
+course of it monitoring in order to capture performance & network errors and
+build better devtools. Out of the box we also detect and separate different
+graphql calls based on the `operationName` parameter.
+
+If you use an [Apollo GraphQL](https://www.apollographql.com) server to host
+your GraphQL endpoint, you need to do one additional step to enable PlayerZero
+completely.
+
+Embed this snippet in addition to your regular [setup](/docs/getting-started) as
+the first tag in your `<head/>` of the `index.html` file. This helps PlayerZero
+get access to the fetch object first before the page loads.
+
+```html
+<script>
+  const originalFetch = window.fetch;
+  if (!window["playerzero"]) window["playerzero"] = {};
+
+  window["playerzero"]["monkey_patch_ts"] = performance.now();
+  window.fetch = function (url, options) {
+    // preserve arity
+    if (
+      window["playerzero"] &&
+      window["playerzero"]["before_fetch_apply"] &&
+      window["playerzero"]["after_fetch_apply"]
+    ) {
+      const beforeFetchApplyResult = window["playerzero"]["before_fetch_apply"](
+        url,
+        options
+      );
+      const args = arguments;
+      return new Promise((resolve) => {
+        originalFetch.apply(this, args).then((response) => {
+          return window["playerzero"]
+            ["after_fetch_apply"](response, beforeFetchApplyResult)
+            .finally(() => resolve(response));
+        });
+      });
+    } else return originalFetch.apply(this, arguments);
+  };
+</script>
+```

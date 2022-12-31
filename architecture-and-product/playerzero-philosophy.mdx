@@ -1,0 +1,75 @@
+---
+title: "The PlayerZero Philosophy"
+description:
+  "We're an opinionated product trying to make product quality better for
+  everyone."
+---
+
+PlayerZero was designed from the beginning to streamline some of the most
+fundamental decisions product & engineering teams have to make every day about
+their product quality. A key feature of PlayerZero's design is around the
+**capture and inference of identity to build contextual relationships between
+issues and the things that they may affect.**
+
+At it's core PlayerZero is a correlation engine between two types of streaming
+events:
+
+- Product analytics data
+- Engineering monitoring data
+
+With PlayerZero fully configured, the end result is a system that accounts for
+the errors and other product quality quality signals in your application and
+semantically tells you the impact of those signals in terms of their effect on
+analytics events. For example, if you had a Javascript error that was happening
+on the profile page, PlayerZero would be able to detect that users who run into
+that Javascript error often can't continue to save their profiles a few steps
+down.
+
+This is useful because it allows us to surface the issues that are causing a
+measurable change in behavior. We call these high impact issues. And just as
+this mechanism allows us to positively select issues that are impactful to your
+users, the same mechanism also allows us to negatively select out issues that
+don't seem to bother your users too. Together, these properties enable
+PlayerZero to automatically curate & notify you when new, impactful, and
+interesting issues are happening...and then can tell you why they're interesting
+as well.
+
+### Building Blocks
+
+In order to achieve this, PlayerZero has to build an intuition about what the
+user _should_ have done if the error weren't present, and then compare that to
+what they _actually_ do.
+
+This implies a few architectural pieces that are central to understanding &
+building PlayerZero.
+
+#### Identity
+
+As we mentioned earlier, identity is a core part of what makes PlayerZero
+special. Wether you propagate your own application identity with
+`playerzero.identify()` or you use our default anonymous identity, PlayerZero in
+the background is tracking the story of that identity over time, and comparing
+it live to the behavior of all of their peers. This means that if we take a
+signal processing view of PlayerZero, we're operating over identity to achieve
+our result as opposed to other monitoring tools which operate over the error
+itself as their core unit. This piece of architecture, while subtle, actually
+underlines the entire philosophy at PlayerZero.
+
+A question we often find ourselves asking is:
+
+> If an issue doesn't impact anybody, is it still an important issue?
+
+It's a philosophical question at heart because the terms "impact" and
+"important" are truly subjective, and their definitions live in a select few
+people's mental space. Chances are if you're reading this, you're probably one
+of those few people.
+
+But if you're trying to bring the entire team on the same page (literally), we
+have to be able to tell a compelling story that resonates with anyone.
+
+Identity (even anonymous identity) is important because it enables PlayerZero to
+take an opinionated stance on this topic.
+
+**We believe that issues become important when they begin influencing a
+measurable change in your system's behavior. With analytics, we can measure that
+change, and with identity we can tell the story of that change.**

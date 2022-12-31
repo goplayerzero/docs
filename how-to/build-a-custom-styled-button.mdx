@@ -1,0 +1,52 @@
+---
+title: "Build a custom styled button"
+description: "Build a custom button that triggers the PlayerZero devtools window."
+---
+
+The blue button to share your devtools is great for internal use, but many teams
+don't want to expose an off-brand button on their production site. In fact, for
+all environments except localhost, the button is actually turned off by default!
+
+We're left with two options here.
+
+- Use the CMD / Ctrl + K shortcut to trigger the share workflow.
+- **Or build a button into a dedicated place in your product so that users can
+  share their devtools without a shortcut**
+
+### tldr;
+
+The PlayerZero snippet exposes a function called `prompt()` on its window object
+to trigger this flow. You can call it whenever you'd like to make the popup come
+up.
+
+<CodeGroup>
+
+```javascript HTML Snippet or Segment
+playerzero.prompt();
+```
+
+```javascript SDK
+import PlayerZero from "@playerzero/sdk-web";
+
+PlayerZero.prompt();
+```
+
+</CodeGroup>
+
+In fact you could test this by running `playerzero.prompt()` in the console of
+your real devtools of an application that has PlayerZero enabled. Depending on
+your application's architecture, you can call this function `onClick` to fit
+into the share workflow.
+
+### Example
+
+<iframe
+  className="w-full h-96"
+  width="446"
+  height="480"
+  src="https://www.youtube.com/embed/N0QBH9d9uXc"
+  title="Upload Trigger Customization Using the PlayerZero Javascript API"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>

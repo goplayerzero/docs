@@ -1,0 +1,97 @@
+---
+title: "Web Configuration"
+description:
+  "PlayerZero can be configured at the domain level so you can control what we
+  capture and what we don't."
+---
+
+### Where is this?
+
+You can explore these controls on the
+[Settings > Web Config](https://go.playerzero.app/setting/web) page of your
+project. You'll see a page that looks something like this:
+
+![SDK Configuration](/images/8c18356-Screen_Shot_2022-10-19_at_1.49.18_PM.png)![SDK Configuration](/images/8c18356-Screen_Shot_2022-10-19_at_1.49.18_PM.png "Click to close...")
+
+### Domain Level Controls
+
+Each added domain has three toggles.
+
+1. **Enabled** \- If this is off, the recorder will be completely disabled for
+   that particular domain.
+2. **Show Share Devtools Button** \- By default this is on for localhost to
+   enable easy sharing and off everywhere else. If you want to have a button
+   built into your own site to prompt a share, you can use the Javascript API
+   `playerzero.prompt()` call. `Ctrl + K` works everywhere however.
+3. **Monitoring** \- If monitoring is off, it means that we won't capture any
+   errors or product analytics events from that domain. By default we have this
+   on everywhere except localhost, since local development on `localhost` tends
+   to generate a lot of unnecessary noise. We recommend having monitoring on for
+   your production and staging environments, and off everywhere else.
+
+You can also **add a domain** as well to configure these three levers in your
+own way. (Glob patterns are supported to wildcard match subdomains)
+
+<Warning>
+  Adding a domain - a few quirks to keep your eye out for * When adding a
+  domain, make sure to include the `www.` prepending your domain if your domain
+  truly starts with that. Often times browsers hide the `www.` portion. If it's
+  a different subdomain, you have nothing to worry about! * Rules are pulled
+  from the first matching domain. So if you have `_.amazon.com` as the first
+  domain and then `www.amazon.com` as the second, the rules of `_.amazon.com`
+  will take precedence because it is first.
+</Warning>
+
+#### Example Domain Setup
+
+At PlayerZero here's how we've set up our environments.
+
+![](/images/Screen_Shot_2022-10-19_at_2.00.40_PM.png)![](/images/Screen_Shot_2022-10-19_at_2.00.40_PM.png "Click to close...")
+
+**Here's why:**
+
+1. **Domain 1: `localhost`** On localhost we want to be able to share devtools,
+   but we don't want to have monitoring on.
+2. **Domain 2: `go.playerzero.app`** This is our production, and we definitely
+   want to capture all issues and therefore have monitoring on. However we don't
+   want a blue button on every page and therefore built it into our support page
+   using the API.
+3. **Domain 3: `*.playerzero.app`** Our QA and staging environments are
+   subdomains of `*.playerzero.app`. Therefore when we're testing our code we
+   want easy shareability of devtools with the button, and monitoring since our
+   QA environments are relatively stable.
+4. **Domain 3: `All other domains`** Well, we don't have any deployments outside
+   of our main domain, so we don't want to capture any data from outside of our
+   domains.
+
+### Network Performance Threshold
+
+PlayerZero will track moments where an API response takes > 8000 ms to resolve
+from the clients perspective. If you want to tweak this threshold based on your
+goals, feel free to tweak it to what's most meaningful to you.
+
+### Special API Error Phrases
+
+Sometimes systems return 200 status codes, but are actually failing. This is
+rare. If you have any special phrases to look out for in the response bodies,
+let us know by creating a Special API Error Phrase. If we ever see it, we'll
+start building a story around it for you.
+
+### Key Filtering (Beta)
+
+By default we capture API requests and responses, and use a series of industry
+standard regexes and filtering to remove most of the basic PII & PCI information
+we can find. This includes, but is not limited to:
+
+- Emails
+- SSN
+- Telephone numbers
+- Addresses
+- Names
+- Credit card numbers
+- Authorization
+- And many, many more filters.
+
+But it's always possible for us to miss something. If there's a particular JSON
+key you don't want us to capture, you can tell us here and we'll redact it on
+the browser side before it ever hits our server.

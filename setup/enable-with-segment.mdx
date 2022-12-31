@@ -1,0 +1,101 @@
+---
+title: "Setup with Segment"
+description: "Deploy PlayerZero via Segment"
+---
+
+### PlayerZero + Segment
+
+PlayerZero and Segment have a partnership to enable Segment users to fully
+enable PlayerZero in a matter of seconds, without any code changes.
+
+### Setup
+
+#### 1. Visit the PlayerZero destination link in Segment
+
+<Card
+  title="PlayerZero destination in Segment"
+  icon={
+    <svg
+      className="h-6 w-6"
+      xmlns="http://www.w3.org/2000/svg"
+      width="64"
+      height="64"
+      viewBox="0 0 64 64"
+    >
+      <g transform="matrix(.768307 0 0 .768307 0 2.304922)">
+        <path
+          d="M51.9 52.8H4c-2.2 0-4-1.8-4-4s1.8-4 4-4h47.9c2.2 0 4 1.8 4 4s-1.8 4-4 4z"
+          fill="#99cfac"
+        />
+        <path
+          d="M41.7 77.3c-3.9 0-7.8-.6-11.5-1.7-2.1-.7-3.3-2.9-2.6-5s2.9-3.3 5-2.6c2.9.9 6 1.4 9.1 1.4 13.6 0 25.4-8.7 29.3-21.7.6-2.1 2.9-3.3 5-2.7s3.3 2.9 2.7 5c-5.1 16.3-19.9 27.3-37 27.3z"
+          fill="#49b881"
+        />
+        <path
+          d="M79.3 32.5H31.4c-2.2 0-4-1.8-4-4s1.8-4 4-4h47.9c2.2 0 4 1.8 4 4s-1.8 4-4 4z"
+          fill="#99cfac"
+        />
+        <path
+          d="M8.5 32.5c-.4 0-.8-.1-1.2-.2-2.1-.6-3.3-2.9-2.7-5C9.7 11 24.5 0 41.7 0c3.9 0 7.8.6 11.5 1.7 2.1.7 3.3 2.9 2.6 5s-2.9 3.3-5 2.6c-2.9-.9-6-1.4-9.1-1.4-13.6 0-25.4 8.7-29.3 21.7-.6 1.8-2.2 2.9-3.9 2.9z"
+          fill="#49b881"
+        />
+        <g fill="#99cfac">
+          <circle r="4" cy="13.3" cx="65.4" />
+          <circle r="4" cy="64.1" cx="17.9" />
+        </g>
+      </g>
+    </svg>
+  }
+  href="https://app.segment.com/goto-my-workspace/destinations/catalog/actions-playerzero-web"
+>
+  Open destination
+</Card>
+
+Then click
+
+- Configure PlayerZero Web
+- Select your soruce (the one that relates to your website)
+- Name the destination, we recommend `PlayerZero Web`
+- And you'll end up on a page that looks like this
+
+![](/images/Screen_Shot_2022-10-19_at_11.51.06_AM.png)![](/images/Screen_Shot_2022-10-19_at_11.51.06_AM.png "Click to close...")
+
+#### 2. Copy paste the `projectId` into Segment
+
+- In PlayerZero, visit the
+  [Settings > Data Collection](https://go.playerzero.app/setting/data) page and
+  click into the Segment option.
+- In
+  [Segment](https://app.segment.com/goto-my-workspace/destinations/catalog/actions-playerzero-web),
+  paste the project id into the field labeled PlayerZero Project Id
+
+#### 3. Enable the destination
+
+In Segment, make sure to enable the destination and then click Save Changes.
+
+![](/images/Screen_Shot_2022-10-19_at_11.52.23_AM.png)![](/images/Screen_Shot_2022-10-19_at_11.52.23_AM.png "Click to close...")
+
+And that's all!
+
+### Configure your domains
+
+You can control how we collect data and turn on and off specific features based
+on your preferences via the dashboard. Take a look at the
+[Web Configuration](/docs/domain-controls) page for more. Most teams don't have
+to change these, but they're always there for you.
+
+### What's happening under the hood
+
+Under the hood, when you enable the PlayerZero Web destination we're setting up
+3 things for you automatically:
+
+1. Segment will inject the snippet automatically into your client frontend. The
+   snippet will automatically instrument a basic set of analytics events such as
+   button clicks and page loads, and will also start capturing JS and API issues
+   happening in the browser.
+2. Segment will also forward any `track()` calls that you make to
+   `analytics.js`( the Segment library) to PlayerZero. This will enable you to
+   understand the impact of your issues relative to the higher order events you
+   may have instrumented, automatically.
+3. Segment will forward any `identify()` calls so that users that are identified
+   in Segment will also be identified in PlayerZero.

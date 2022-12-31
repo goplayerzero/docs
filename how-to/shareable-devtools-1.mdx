@@ -1,0 +1,77 @@
+---
+title: "Shareable Devtools"
+description:
+  "Enable your users and teammates to instantly share full sessions, including
+  technical context, with a shareable URL."
+---
+
+<Tip>
+Shareable Devtools are available for free in every plan until 2024 🎉
+
+Make sure you have PlayerZero enabled in all the environments you want to use
+this feature in. [Learn how to enable PlayerZero here.](/docs/getting-started)
+
+</Tip>
+
+PlayerZero gives you a direct line of technical communication to every user in
+your application. Take for example, a user is running into an issue that is
+blocking them from completeing a task – you can now easily ask them to trigger
+an upload. By doing this, PlayerZero will package their user session into a
+shareable, interactive reports so your engineering team can efficiently
+communicate about and debug the issue.
+
+By default, the user session data will be stored locally on the user's browser
+until they trigger the upload. At which point, they can send you the information
+that you need to solve the problem at hand. Read more
+[here](/docs/customizing-data-collection).
+
+> Quickstart: hit CMD + K (Mac) or CTRL + K (Windows) to share your first
+> devtools link.
+
+![](/images/Screen_Shot_2022-10-19_at_5.01.31_PM.png)![](/images/Screen_Shot_2022-10-19_at_5.01.31_PM.png "Click to close...")
+
+### Options for triggering a session upload
+
+In order to enable direct uploading, we have built a set of intuitive upload
+triggers, depending on the workflow that works best for your team!
+
+- **PlayerZero widget:** This widget is completely optional, but extremely
+  functional. It can live at the bottom of your page in case any user or
+  internal team member runs across an issue.
+- **Key command shortcut:** On a call with a user and want them to send up their
+  devtools? Or maybe you don’t want the distraction of the widget living on your
+  site? Just ask them to hit Command-K(Mac) or Ctrl+K(PC)!
+- **Javascript API:** We’ve given you the flexibility to capture these sessions
+  from users in a way that best fits your existing workflow. You can prompt a
+  user to share their devtools from a custom button using the
+  `playerzero.prompt()` API.
+- **Integrations:** Support is your first line of defense, and for those
+  companies that use Intercom, we’ve made it that much easier to ask your users
+  for an PlayerZero issue report!
+
+![](/images/Group_1653_1.png)![](/images/Group_1653_1.png "Click to close...")
+
+### Retrieving the user's session
+
+The team can then jump into the upload report to learn more about the issue in
+question a unique. There are two unique ways to grab this specific session:
+
+- Copy and send the link directly from the upload experience
+- Go into the PlayerZero app and find it under "All Uploads".
+
+![](/images/Group_1654.png)![](/images/Group_1654.png "Click to close...")
+
+### Linking Devtools to a trending issue
+
+If monitoring is enabled for your project, devtools will actually link to the
+issues they contain. For example if a single user uploads a report, you'll
+immediately be able to know how many other users ran into the same issue.
+
+<Info>
+Auto-capturing devtools
+
+If you have monitoring setup, we will automatically capture devtools when an
+issue happens so you have full context to fix it. You can enable monitoring on
+the [Web Configuration](/docs/domain-controls)
+
+</Info>

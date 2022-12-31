@@ -1,0 +1,81 @@
+---
+title: "Data Collection"
+description: "What data we do and don't collect"
+---
+
+## tldr;
+
+**All data capturing processes can be configured by your team depending on your
+application and setup.**
+
+The two unique data capturing process directly relate to the key product
+workflows:
+
+**Automated Impact Capturing:** PlayerZero automatically captures all user
+session data to build. This information allows p\[0\] to build predictive usage
+models and identify and analyze the impact of specific issues in your
+application.
+
+**Shared Devtools:** PlayerZero does not collect any user data until permission
+is granted by the end user; all session information is held locally on the end
+user's browser until they upload it onto our servers.
+
+Along with manual and active session uploading controls, your team also has
+**multiple** levels of control through custom filtering. By default, PlayerZero
+will scrape PII data based on "projected" keys (names, CC info, SSN, passwords,
+etc). However, your team also has the ability to setup customer JSON key filters
+through configuration.
+
+## What information is recorded?
+
+A website using PlayerZero may be recording any of the following information:
+
+Interactions with your application:
+
+- Clicks
+- Scrolls
+- Hovers
+- Typing (see below for how we filter out many forms of sensitive information
+  before it reaches our servers)
+- Pages visited
+- Session start time and duration
+- URL query parameters
+- Referrers
+- Script errors
+- Network requests and responses
+
+The technical specifications of your user. Specifically, their:
+
+- Browser
+- Device type & operating system
+- Viewfinder size
+- IP address
+
+## How do you handle sensitive information?
+
+PlayerZero has multiple levels of security and filtering in place to limit the
+type and amount of sensitive data that could potentially reach our servers.
+
+### Client Side Filtering
+
+By default, PlayerZero filters our many forms of standard PII information
+directly on the browser before it is ever sent to our servers. For example, we
+use a series of industry standard regular expressions (text pattern matchers)
+and input types to preemptively filter out sensitive fields such as:
+
+- Credit card numbers
+- CVV codes
+- Social Security numbers
+- Email addresses
+- Telephone numbers
+
+### Domain Level Controls
+
+You can also disable data collection from specific domains entirely. For
+example, you can configure our snippet to only collect information from your
+staging site and turn off recording entirely for your production site.
+
+### PII/PHI Filtering
+
+For more information on custom JSON key filtering checkout the
+[Web Configuration](/docs/domain-controls) settings.

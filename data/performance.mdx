@@ -1,0 +1,56 @@
+---
+title: "Performance"
+description: "The PlayerZero snippet is designed to be fast."
+---
+
+**Will PlayerZero have a negligible impact on my site's performance?**
+
+### tldr;
+
+The PlayerZero snippet will have a negligible impact on your site’s performance.
+
+### Is the PlayerZero snippet large?
+
+Nope! In fact, it is about 105 KB, which is smaller than most web resources.
+
+### How does PlayerZero record data? Is there a lot of slow computation required?
+
+We utilize event listeners and observers to detect user interactions, console
+logs/errors, network requests, and more! To avoid any potential slowdown in
+these areas, our system is designed to simply record the data as it happens and
+perform more involved processing later on. In fact, a large portion of our
+algorithms either run on the server side or are scheduled to run during idle
+periods of the browser so that it is completely imperceivable to the user.
+
+### What is the impact of event processing, uploading data, or more involved tasks?
+
+The majority of the time we are simply collecting data (that resolves itself in
+fractions of a millisecond), but at times we need to do additional processing or
+uploading of the data. However, even these more complex functions have been
+engineered to resolve quickly and the majority of executions resolve in a few
+milliseconds with 0 total blocking time.
+
+You can see a list of the longest function calls from a session on a popular
+ecommerce site on the right.
+
+When it comes to the upload, we've spent a lot of time ensuring our process
+doesn't impact the user. Most of the time, our communications with PlayerZero
+servers contain a small amount of data, which allows our server to perform more
+complex algorithms and return results asynchronously. And when we need to upload
+entire sessions, our approach utilizes efficiencies such as input streams and
+compressed resources to seamlessly transfer data.
+
+![](/images/Screen_Shot_2022-10-19_at_4.34.44_PM.png)![](/images/Screen_Shot_2022-10-19_at_4.34.44_PM.png "Click to close...")
+
+### What if the PlayerZero snippet errors in my application?
+
+In the unlikely event that our data collection system errors, we prevent any
+impact on your own site or the capturing of irrelevant data and instantly report
+the necessary information to our engineering team. Because of this, we have
+consistently improved our data collection system, without any effect on the end
+user.
+
+### Will the PlayerZero script loading impact my site?
+
+Not at all! Our snippet loads asynchronously, so it will not delay the rendering
+or interactivity of your site.
