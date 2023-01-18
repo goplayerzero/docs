@@ -95,5 +95,10 @@
     "twitter": "https://twitter.com/goplayerzero",
     "slack": "https://playerzerocom-uhb1146.slack.com/join/shared_invite/zt-1i4nsidth-bmObDACsU_Ci8Lw2ttExXg#/shared-invite/email"
   },
-  "backgroundImage": "/background.png"
+  "backgroundImage": "/background.png",
+  "analytics": {
+    "gtm": {
+        "tagId": "GTM-5T6DH5S"
+    }
+}
 }
