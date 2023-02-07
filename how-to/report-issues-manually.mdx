@@ -1,5 +1,5 @@
 ---
-title: "Build a custom styled button"
+title: "Report issues manually"
 description: "Build a custom button that triggers the PlayerZero devtools window."
 ---
 
@@ -9,7 +9,7 @@ all environments except localhost, the button is actually turned off by default!
 
 We're left with two options here.
 
-- Use the CMD / Ctrl + K shortcut to trigger the share workflow.
+- Use the CMD + K key shortcut (activate in Settings > Web Config) or configure your own key command.
 - **Or build a button into a dedicated place in your product so that users can
   share their devtools without a shortcut**
 
@@ -37,6 +37,8 @@ In fact you could test this by running `playerzero.prompt()` in the console of
 your real devtools of an application that has PlayerZero enabled. Depending on
 your application's architecture, you can call this function `onClick` to fit
 into the share workflow.
+
+To create a custom key command, you can add the following event listener:
 
 ### Example
 
