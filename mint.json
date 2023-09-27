@@ -31,12 +31,12 @@
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://www.playerzero.app/blog"
+      "url": "https://www.playerzero.ai/blog"
     },
     {
-      "name": "Changelog",
+      "name": "Connectors",
       "icon": "list-check",
-      "url": "https://changelog.playerzero.app/changelog"
+      "url": "https://www.playerzero.ai/connector"
     },
     {
       "name": "Community",
@@ -50,20 +50,19 @@
       "pages": ["introduction"]
     },
     {
-      "group": "Setup",
+      "group": "Setup Analytics SDK",
       "pages": [
-        "setup/getting-started",
-        "setup/web-sdk",
-        "setup/instrument-js-snippet",
-        "setup/enable-with-segment",
-        "setup/domain-controls"
+        "analytics/getting-started",
+        "analytics/web-sdk",
+        "analytics/instrument-js-snippet",
+        "analytics/enable-with-segment",
+        "analytics/domain-controls"
       ]
     },
     {
       "group": "Architecture & Product",
       "pages": [
-        "architecture-and-product/playerzero-philosophy",
-        "architecture-and-product/features"
+        "architecture-and-product/playerzero-philosophy"
       ]
     },
     {
@@ -72,16 +71,7 @@
         "how-to/shareable-devtools-1",
         "how-to/setup-permission-and-sharing-controls",
         "how-to/build-a-custom-styled-button",
-        "how-to/work-around-graphql-issues",
-        "how-to/flows"
-      ]
-    },
-    {
-      "group": "Integrations",
-      "pages": [
-        "integrations/slack",
-        "integrations/intercom",
-        "integrations/jira"
+        "how-to/work-around-graphql-issues"
       ]
     },
     {
@@ -90,7 +80,7 @@
     }
   ],
   "footerSocials": {
-    "website": "https://www.playerzero.app/",
+    "website": "https://www.playerzero.ai/",
     "linkedin": "https://www.linkedin.com/company/playerzero/",
     "twitter": "https://twitter.com/goplayerzero",
     "slack": "https://playerzerocom-uhb1146.slack.com/join/shared_invite/zt-1i4nsidth-bmObDACsU_Ci8Lw2ttExXg#/shared-invite/email"
