@@ -31,7 +31,7 @@ paths:
           name: X-PlayerZeroScope
           schema:
             type: string
-          description: The first argument is a boolean (true / false) that describes if this data is tagged as production or not. The second tag is an arbitrary string, without ticks, that sets the name of the dataset. We highly recommend setting this to make it easier to organize your data in PlayerZero.
+          description: The first argument is a boolean (true / false) that describes if this data is tagged as production or not. The second tag is an arbitrary string, without ticks, that sets the name of the dataset. We highly recommend setting this to make it easier to organize your data in PlayerZero. For example, if this were an iOS device, you could set this value to `true mobile-ios` to set that this data is coming from production as a part of the `mobile-ios` dataset.
           required: true
       requestBody:
         required: true
