@@ -17,14 +17,24 @@
       "dark": "#121212"
     }
   },
+  "tabs": [
+    {
+      "name": "Data Connectors",
+      "url": "connectors"
+    },
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    }
+  ],
   "topbarCtaButton": {
-    "name": "Sign Up",
+    "name": "Login",
     "url": "https://go.playerzero.app/"
   },
   "topbarLinks": [
     {
-      "name": "Login",
-      "url": "https://go.playerzero.app/"
+      "name": "Request Demo",
+      "url": "https://www.playerzero.ai/book-demo"
     }
   ],
   "anchors": [
@@ -77,6 +87,12 @@
     {
       "group": "Data",
       "pages": ["data/data-collection", "data/performance"]
+    },
+    {
+      "group": "Telemetry API",
+      "pages": [
+        "api-reference/telemetry"
+      ]
     }
   ],
   "footerSocials": {
@@ -85,10 +101,16 @@
     "twitter": "https://twitter.com/goplayerzero",
     "slack": "https://playerzerocom-uhb1146.slack.com/join/shared_invite/zt-1i4nsidth-bmObDACsU_Ci8Lw2ttExXg#/shared-invite/email"
   },
-  "backgroundImage": "/background.png",
   "analytics": {
     "gtm": {
         "tagId": "GTM-5T6DH5S"
     }
-}
+  },
+  "api": {
+    "baseUrl": "https://sdk.playerzero.app",
+    "auth": {
+      "method": "bearer"
+    }
+  },
+  "openapi": ["/openapi.yml"]
 }

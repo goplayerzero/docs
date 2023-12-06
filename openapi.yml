@@ -1,0 +1,79 @@
+openapi: 3.0.0
+info:
+  title: Data Ingestion API
+  description: Send analytics and telemetry events to this endpoint
+  version: 1.0.0
+
+servers:
+  - url: http://sdk.playerzero.app
+
+components:
+  securitySchemes:
+    bearerAuth:            # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: Token    # optional, arbitrary value for documentation purposes
+
+# 2) Apply the security globally to all operations
+security:
+  - bearerAuth: []         # use the same name as above
+
+paths:
+  /data:
+    post:
+      summary: Send a list of events to PlayerZero
+      description: Send a list of telemetry events to PlayerZero.
+      responses:
+        '204':    # status code
+          description: Success, no content is expected in response
+      parameters:
+        - in: header
+          name: X-PlayerZeroScope
+          schema:
+            type: string
+          description: The first argument is a boolean (true / false) that describes if this data is tagged as production or not. The second tag is an arbitrary string, without ticks, that sets the name of the dataset. We highly recommend setting this to make it easier to organize your data in PlayerZero.
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                required:
+                  - type
+                  - ts
+                properties:
+                  id:
+                    type: string
+                    description: A string id that uniquely identifies the event. If not set, we will generate an id on the server side.
+                  type:
+                    type: string
+                    description: |
+                      One of `Tracked`, `Signal`, or `Logged`.  
+                       - `Tracked` if you are sending an analytics event. 
+                       - `Signal` if you are sending an server error. 
+                       - `Logged` if you are sending a server log.
+                  subtype:
+                    type: string
+                    description: The event subtype. For example `Javascript Error` or `Mixpanel Event`. Not required.
+                  ts:
+                    type: string
+                    description: The timestamp of the event in JSON format (ie. `2023-11-25T13:08:50.782Z`)
+                  identity:
+                    type: object
+                    properties:
+                      UserId:
+                        type: string
+                        description: A unique identifier that you use to identify the user, often the database identifier.
+                      Email:
+                        type: string
+                        description: The email address of the user. We recommend passing this in if available since it makes it easier to match data across different datasets (such as support ticketing).
+                      Group:
+                        type: string
+                        description: The group this customer is a part of (for example, an account or company name)
+                  properties:
+                    type: object
+                    description: A key, value pairing of arbitrary event metadata that is useful to tag to your event.
+
