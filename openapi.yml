@@ -43,7 +43,7 @@ paths:
                 type: object
                 required:
                   - type
-                  - ts
+                  - value
                 properties:
                   id:
                     type: string
@@ -58,6 +58,13 @@ paths:
                   subtype:
                     type: string
                     description: The event subtype. For example `Javascript Error` or `Mixpanel Event`. Not required.
+                  value:
+                    type: string
+                    description: |
+                      The value of the event itself. *For example*, if the event is:
+                       - `Tracked` type, you might be sending a value of the event a user completed, such as `Completed Onboarding`
+                       - `Signal` type, you might be sending the title of the error, such as `NullPointerException: Value X does not exist`
+                       - `Logged` type, you might be sending the value of a log statement, such as `Hello world, I just got to this line`
                   ts:
                     type: string
                     description: The timestamp of the event in JSON format (ie. `2023-11-25T13:08:50.782Z`)
