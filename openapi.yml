@@ -77,10 +77,19 @@ paths:
                       Email:
                         type: string
                         description: The email address of the user. We recommend passing this in if available since it makes it easier to match data across different datasets (such as support ticketing).
-                      Group:
-                        type: string
-                        description: The group this customer is a part of (for example, an account or company name)
                   properties:
                     type: object
                     description: A key, value pairing of arbitrary event metadata that is useful to tag to your event.
+                    properties:
+                      identity:
+                        type: object
+                        description: Extra information that helps identify the user such as name and group.
+                        properties:
+                          name:
+                            type: string
+                          group:
+                            type: string
+                      metadata:
+                        type: object
+                        description: An arbitrary map of extra metadata associated with the event.
 
