@@ -62,6 +62,7 @@ paths:
                        - `Logged` type, you might be sending the value of a log statement, such as `Hello world, I just got to this line`
                       
                       If this is a signal, do **NOT** set this field, we will compute it for you based on the `properties`.
+                      For `Signal` events, we use the `error` and `title` fields in `properties` to generate a group fingerprint for the issue.
                   ts:
                     type: string
                     description: The timestamp of the event in JSON format (ie. `2023-11-25T13:08:50.782Z`)
