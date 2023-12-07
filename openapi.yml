@@ -55,9 +55,6 @@ paths:
                        - `Tracked` if you are sending an analytics event. 
                        - `Signal` if you are sending an server error. 
                        - `Logged` if you are sending a server log.
-                  subtype:
-                    type: string
-                    description: The event subtype. For example `Javascript Error` or `Mixpanel Event`. Not required.
                   value:
                     type: string
                     description: |
