@@ -43,7 +43,6 @@ paths:
                 type: object
                 required:
                   - type
-                  - value
                 properties:
                   id:
                     type: string
@@ -58,10 +57,11 @@ paths:
                   value:
                     type: string
                     description: |
-                      The value of the event itself. *For example*, if the event is:
+                      The value of the event itself, as long as it is not a `Signal`. *For example*, if the event is:
                        - `Tracked` type, you might be sending a value of the event a user completed, such as `Completed Onboarding`
-                       - `Signal` type, you might be sending the title of the error, such as `NullPointerException: Value X does not exist`
                        - `Logged` type, you might be sending the value of a log statement, such as `Hello world, I just got to this line`
+                      
+                      If this is a signal, do **NOT** set this field, we will compute it for you based on the `properties`.
                   ts:
                     type: string
                     description: The timestamp of the event in JSON format (ie. `2023-11-25T13:08:50.782Z`)
@@ -89,4 +89,12 @@ paths:
                       metadata:
                         type: object
                         description: An arbitrary map of extra metadata associated with the event.
+                      title:
+                        type: string
+                        description: |
+                          If this is a `Signal` type, the title of the error. 
+                          For example `NullPointerException: Value X does not exist`
+                      error:
+                        type: string
+                        description: The stacktrace of the error, if it is a `Signal` type.
 
