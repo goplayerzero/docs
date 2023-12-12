@@ -39,17 +39,7 @@
   ],
   "anchors": [
     {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://www.playerzero.ai/blog"
-    },
-    {
-      "name": "Connectors",
-      "icon": "list-check",
-      "url": "https://www.playerzero.ai/connector"
-    },
-    {
-      "name": "Community",
+      "name": "Community Support",
       "icon": "slack",
       "url": "https://playerzerocom-uhb1146.slack.com/join/shared_invite/zt-1i4nsidth-bmObDACsU_Ci8Lw2ttExXg#/shared-invite/email"
     }
@@ -60,13 +50,19 @@
       "pages": ["introduction"]
     },
     {
-      "group": "Setup Analytics SDK",
+      "group": "Web Monitoring",
       "pages": [
-        "analytics/getting-started",
-        "analytics/web-sdk",
-        "analytics/instrument-js-snippet",
-        "analytics/enable-with-segment",
-        "analytics/domain-controls"
+        "api-reference/web/web-sdk",
+        "api-reference/web/domain-controls",
+        {
+          "group": "Advanced",
+          "pages": [
+            "api-reference/web/advanced/shareable-devtools",
+            "api-reference/web/advanced/setup-permission-and-sharing-controls",
+            "api-reference/web/advanced/build-a-custom-styled-button",
+            "api-reference/web/advanced/work-around-graphql-issues"
+          ]
+        }
       ]
     },
     {
@@ -76,17 +72,10 @@
       ]
     },
     {
-      "group": "How To's",
-      "pages": [
-        "how-to/shareable-devtools-1",
-        "how-to/setup-permission-and-sharing-controls",
-        "how-to/build-a-custom-styled-button",
-        "how-to/work-around-graphql-issues"
-      ]
-    },
-    {
       "group": "Data",
-      "pages": ["data/data-collection", "data/performance"]
+      "pages": [
+        "data/performance"
+      ]
     },
     {
       "group": "Telemetry API",
@@ -112,5 +101,8 @@
       "method": "bearer"
     }
   },
-  "openapi": ["/openapi.yml"]
+  "openapi": ["/openapi.yml"],
+  "feedback": {
+    "thumbsRating": true
+  }
 }
