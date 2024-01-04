@@ -1,0 +1,166 @@
+---
+title: "npm library"
+description: "Monitor your customers on your web application."
+---
+
+PlayerZero's browser SDK lets you manage PlayerZero on your site, identify your
+users, as well as generate links to devtools and send your own custom events.
+
+The SDK itself is published as an `npm` package and hosted on
+[Github](https://github.com/goplayerzero/sdk-web) with an MIT license.
+
+Let's get started!
+
+### Install the SDK
+
+<CodeGroup>
+
+    ```bash npm
+    npm i @goplayerzero/sdk-web --save
+    ```
+
+    ```bash yarn
+    yarn add @goplayerzero/sdk-web
+    ```
+
+</CodeGroup>
+
+### Initialize the SDK
+
+Call the `PlayerZero.init(<PROJECT_ID>)` function with your Project ID as soon
+as you can in your website startup process. You can find your projectId in the
+[Setting > Data Collection](https://go.playerzero.app/setting/data) section in
+your project.
+
+<Warning>
+    Calling init a second time after successful initialization will trigger
+    console warnings. If you need to programmatically check if PlayerZero has been
+    initialized at some point in your code, you can call
+    `PlayerZero.isInitialized()`.
+</Warning>
+
+<CodeGroup>
+
+    ```jsx React
+    import React from "react";
+    import ReactDOM from "react-dom";
+    import "./index.css";
+    import App from "./App";
+    import PlayerZero from "@goplayerzero/sdk-web";
+
+    PlayerZero.init("your project id here");
+
+    ReactDOM.render(<App />, document.getElementById("root"));
+    ```
+
+    ```jsx Angular
+    import { Component } from "@angular/core";
+    import PlayerZero from "@goplayerzero/sdk-web";
+    import { environment } from "../environments/environment";
+
+    @Component({
+        selector: "app-root",
+        templateUrl: "app.component.html",
+        styleUrls: ["./app.component.scss"],
+    })
+    export class AppComponent {
+        constructor() {
+        PlayerZero.init("<your project id here>");
+    }
+    }
+    ```
+
+    ```jsx Vue
+    import Vue from "vue";
+    import App from "./App.vue";
+    import PlayerZero from "@goplayerzero/sdk-web";
+
+    PlayerZero.init("your project id here");
+        Vue.prototype.$PlayerZero = PlayerZero;
+
+        new Vue({
+            render: (h) => h(App),
+        }).$mount("#app");
+    ```
+
+    ```jsx Vue 3
+    import { createApp } from "vue";
+    import App from "./App.vue";
+    import PlayerZero from "@goplayerzero/sdk-web";
+
+    PlayerZero.init("your project id here");
+
+        const app = createApp(App);
+        app.config.globalProperties.$PlayerZero = PlayerZero;
+        app.mount("#app");
+        ```
+
+        ```jsx JavaScript/Other
+        import PlayerZero from "@goplayerzero/sdk-web";
+
+        // put this somewhere in your main file, and make sure it only get's called once!
+        PlayerZero.init("your project id here");
+    ```
+</CodeGroup>
+
+### Setup user Identity
+
+Once PlayerZero is initialized, you can make calls to the PlayerZero SDK. The
+best next step is to set up user identity. This snippet is best placed in your
+codebase wherever you establish identity or know who the user is. For many, this
+means its can be placed as a side effect of your authorization logic.
+
+```jsx
+PlayerZero.identify("userId", {
+name: "Billy Joel",
+    email: "[[email protected]](/cdn-cgi/l/email-protection)",
+    group: "Pied Piper",
+});
+```
+
+### Configure your domains
+
+You can control how we collect data and turn on and off specific features based
+on your preferences via the dashboard. Take a look at the
+[Web Configuration](/docs/domain-controls) page for more. Most teams don't have
+to change these, but they're always there for you.
+
+You should be all set up & ready to go! Explore the PlayerZero API below.
+
+### Advanced Usage
+
+Once PlayerZero is initialized, you can make calls to the PlayerZero SDK. These
+are optional, but you may find yourself needing them one day.
+
+#### Track custom analytics events
+
+```jsx
+PlayerZero.track("checkout", { item: "chocolate" });
+```
+
+#### Generate a Devtools URL
+
+```jsx
+PlayerZero.devtoolsUrl().then((url) =>
+console.log("PlayerZero Devtools URL", url)
+);
+```
+
+#### PlayerZero API
+
+- `PlayerZero.init(projectId: string)` \- Initialize PlayerZero on your site
+with the specific Project ID. The project id can be found on the
+[Settings > Data Collection page](https://go.playerzero.app/setting/data)
+- `PlayerZero.isInitialized(): Boolean` \- Check if PlayerZero is initialized in
+your application.
+- `PlayerZero.identify(userId: string, metadata: Record<string, unknown>)` \-
+Identify your user with PlayerZero
+- `PlayerZero.setUserVars(metadata: Record<string, unknown>)` \- Set user
+properties & metadata without resetting the identity`
+- `PlayerZero.track(event: string, metadata?: Record<string, unknown>)` \- Send
+an analytics event to PlayerZero
+- `PlayerZero.prompt()` \- Prompt the user to upload their Devtools Report`
+- `PlayerZero.devtoolsUrl(): Promise<string>` \- Generate a Devtools URL for the
+    current session
+    - `PlayerZero.kill()` \- Shut down PlayerZero immediately. PlayerZero cannot be
+    reinitialized after this is called.

@@ -20,7 +20,7 @@
   "tabs": [
     {
       "name": "Data Connectors",
-      "url": "connectors"
+      "url": "connector"
     },
     {
       "name": "API Reference",
@@ -47,13 +47,25 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": ["introduction"]
+      "pages": [
+        "introduction",
+        "quickstart"
+      ]
     },
     {
-      "group": "Web Monitoring",
+      "group": "Web Applications",
       "pages": [
         "api-reference/web/web-sdk",
+        {
+          "group": "Setup",
+          "pages": [
+            "api-reference/web/setup/npm",
+            "api-reference/web/setup/script-tag",
+            "api-reference/web/setup/segment"
+          ]
+        },
         "api-reference/web/domain-controls",
+        "api-reference/web/performance",
         {
           "group": "Advanced",
           "pages": [
@@ -66,21 +78,58 @@
       ]
     },
     {
+      "group": "Node.js",
+      "pages": [
+        "api-reference/node/setup"
+      ]
+    },
+    {
+      "group": "Open Telemetry",
+      "pages": [
+        "api-reference/open-telemetry/setup"
+      ]
+    },
+    {
       "group": "Architecture & Product",
       "pages": [
         "architecture-and-product/playerzero-philosophy"
       ]
     },
     {
-      "group": "Data",
-      "pages": [
-        "data/performance"
-      ]
-    },
-    {
       "group": "Telemetry API",
       "pages": [
         "api-reference/telemetry"
+      ]
+    },
+    {
+      "group": "Introduction",
+      "pages": ["connector/introduction"]
+    },
+    {
+      "group": "Code",
+      "pages": [
+        "connector/code/github",
+        "connector/code/azure",
+        "connector/code/bitbucket"
+      ]
+    },
+    {
+      "group": "Project Management",
+      "pages": [
+        "connector/pm/jira",
+        "connector/pm/linear",
+        "connector/pm/azure-devops",
+        "connector/pm/gitlab"
+      ]
+    },
+    {
+      "group": "Customer Tickets",
+      "pages": [
+        "connector/ticketing/zendesk",
+        "connector/ticketing/intercom",
+        "connector/ticketing/salesforce",
+        "connector/ticketing/jira-service",
+        "connector/ticketing/front"
       ]
     }
   ],

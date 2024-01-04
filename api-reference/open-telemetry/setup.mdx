@@ -1,0 +1,27 @@
+---
+title: "Open Telemetry Exporter"
+description: "Capture errors and traces from your backend system with OpenTelemetry."
+---
+
+## Overview
+The PlayerZero exporter is an otlphttp exporter for logs with a fatal or error status. You can configure it through environment/system variables, a config file, or however else you have setup your OpenTelemetry agent.
+If you have not yet set up OpenTelemetry check out the [open telemetry docs](https://opentelemetry.io/docs/getting-started/dev/) or see if one of our other connectors makes more sense.
+
+## Configuration
+```text
+Endpoint = "https://sdk.playerzero.app/otlp"
+Headers = {"Authorization": "Bearer <your-playerzero-api-token>"}
+```
+
+### Config File Example
+Copy the following into your OpenTelemetry `config.yml` file:
+```yaml
+exporters:
+  otlphttp/playerzero:
+    endpoint: "https://sdk.playerzero.app/otlp"
+    headers:
+      Authorization: "Bearer <your-playerzero-api-token>"
+```
+
+This should enable forwarding errors to PlayerZero automatically.
+

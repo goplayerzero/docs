@@ -4,376 +4,81 @@ description: "Monitor your customers on your web application."
 ---
 
 There are 3 unique ways to get PlayerZero set up on your web application. Choose the one you're most comfortable with.
-
-<Tabs>
-    <Tab title="npm package">
-        PlayerZero's browser SDK lets you manage PlayerZero on your site, identify your
-        users, as well as generate links to devtools and send your own custom events.
-
-        The SDK itself is published as an `npm` package and hosted on
-        [Github](https://github.com/goplayerzero/sdk-web) with an MIT license.
-
-        Let's get started!
-
-        ### Install the SDK
-
-        <CodeGroup>
-
-            ```bash npm
-            npm i @goplayerzero/sdk-web --save
-            ```
-
-            ```bash yarn
-            yarn add @goplayerzero/sdk-web
-            ```
-
-        </CodeGroup>
-
-        ### Initialize the SDK
-
-        Call the `PlayerZero.init(<PROJECT_ID>)` function with your Project ID as soon
-        as you can in your website startup process. You can find your projectId in the
-        [Setting > Data Collection](https://go.playerzero.app/setting/data) section in
-        your project.
-
-        <Warning>
-            Calling init a second time after successful initialization will trigger
-            console warnings. If you need to programmatically check if PlayerZero has been
-            initialized at some point in your code, you can call
-            `PlayerZero.isInitialized()`.
-        </Warning>
-
-        <CodeGroup>
-
-            ```jsx React
-            import React from "react";
-            import ReactDOM from "react-dom";
-            import "./index.css";
-            import App from "./App";
-            import PlayerZero from "@goplayerzero/sdk-web";
-
-            PlayerZero.init("<your project id here>");
-
-            ReactDOM.render(<App />, document.getElementById("root"));
-            ```
-
-            ```jsx Angular
-            import { Component } from "@angular/core";
-            import PlayerZero from "@goplayerzero/sdk-web";
-            import { environment } from "../environments/environment";
-
-            @Component({
-                selector: "app-root",
-                templateUrl: "app.component.html",
-                styleUrls: ["./app.component.scss"],
-            })
-            export class AppComponent {
-                constructor() {
-                PlayerZero.init("<your project id here>");
-            }
-            }
-            ```
-
-            ```jsx Vue
-            import Vue from "vue";
-            import App from "./App.vue";
-            import PlayerZero from "@goplayerzero/sdk-web";
-
-            PlayerZero.init("<your project id here>");
-                Vue.prototype.$PlayerZero = PlayerZero;
-
-                new Vue({
-                    render: (h) => h(App),
-                }).$mount("#app");
-                ```
-
-                ```jsx Vue 3
-                import { createApp } from "vue";
-                import App from "./App.vue";
-                import PlayerZero from "@goplayerzero/sdk-web";
-
-                PlayerZero.init("<your project id here>");
-
-                    const app = createApp(App);
-                    app.config.globalProperties.$PlayerZero = PlayerZero;
-                    app.mount("#app");
-                    ```
-
-                    ```jsx JavaScript/Other
-                    import PlayerZero from "@goplayerzero/sdk-web";
-
-                    // put this somewhere in your main file, and make sure it only get's called once!
-                    PlayerZero.init("<your project id here>");
-                        ```
-
-        </CodeGroup>
-
-        ### Setup user Identity
-
-        Once PlayerZero is initialized, you can make calls to the PlayerZero SDK. The
-        best next step is to set up user identity. This snippet is best placed in your
-        codebase wherever you establish identity or know who the user is. For many, this
-        means its can be placed as a side effect of your authorization logic.
-
-        ```jsx
-        PlayerZero.identify("userId", {
-            name: "Billy Joel",
-            email: "[[email protected]](/cdn-cgi/l/email-protection)",
-            group: "Pied Piper",
-        });
-        ```
-
-        ### Configure your domains
-
-        You can control how we collect data and turn on and off specific features based
-        on your preferences via the dashboard. Take a look at the
-        [Web Configuration](/docs/domain-controls) page for more. Most teams don't have
-        to change these, but they're always there for you.
-
-        You should be all set up & ready to go! Explore the PlayerZero API below.
-
-        ### Advanced Usage
-
-        Once PlayerZero is initialized, you can make calls to the PlayerZero SDK. These
-        are optional, but you may find yourself needing them one day.
-
-        #### Track custom analytics events
-
-        ```jsx
-        PlayerZero.track("checkout", { item: "chocolate" });
-        ```
-
-        #### Generate a Devtools URL
-
-        ```jsx
-        PlayerZero.devtoolsUrl().then((url) =>
-        console.log("PlayerZero Devtools URL", url)
-        );
-        ```
-
-        #### PlayerZero API
-
-        - `PlayerZero.init(projectId: string)` \- Initialize PlayerZero on your site
-        with the specific Project ID. The project id can be found on the
-        [Settings > Data Collection page](https://go.playerzero.app/setting/data)
-        - `PlayerZero.isInitialized(): Boolean` \- Check if PlayerZero is initialized in
-        your application.
-        - `PlayerZero.identify(userId: string, metadata: Record<string, unknown>)` \-
-        Identify your user with PlayerZero
-        - `PlayerZero.setUserVars(metadata: Record<string, unknown>)` \- Set user
-        properties & metadata without resetting the identity`
-        - `PlayerZero.track(event: string, metadata?: Record<string, unknown>)` \- Send
-        an analytics event to PlayerZero
-        - `PlayerZero.prompt()` \- Prompt the user to upload their Devtools Report`
-        - `PlayerZero.devtoolsUrl(): Promise<string>` \- Generate a Devtools URL for the
-            current session
-            - `PlayerZero.kill()` \- Shut down PlayerZero immediately. PlayerZero cannot be
-            reinitialized after this is called.
-    </Tab>
-    <Tab title="<script/> tag">
-        The script tag is probably the simplest and most universal way to enable
-        PlayerZero.
-
-        In order to do this you will need to make sure you have:
-
-        - Made an account in PlayerZero
-        - Created your first project
-        - Navigated to the
-        [Settings > Setup Data Collection](https://go.playerzero.app/setting/data)
-        page
-
-        ### Embed the Script Tag
-
-        Each project in PlayerZero represents a unique application, not environment.
-        Therefore most teams that use PlayerZero only have one project. Each project has
-        a unique project Id and therefore its own unique script tag to properly separate
-        the data the we collect from that tag and manage the configuration. You can find
-        your project's `script` tag on the
-        [Settings > Setup Data Collection](https://go.playerzero.app/setting/data) page.
-        It should look a little something like this.
-
-        Include it as one of the first elements in the `<head>` tag of your `index.html`
-        file.
-
-        ```jsx
-        <script
-            type="text/javascript"
-            src="https://go.playerzero.app/record/<your project id>"
-            async
-            crossorigin
-        ></script>
-        ```
-
-        ### Setup User Identity
-
-        Once the script is loaded, we expose the `playerzero` object on the `window`
-        with a few utility functions to help you identify and manage different actions
-        around the PlayerZero script's lifecycle.
-
-        The most important and useful thing to do with this is to use
-        `playerzero.identify()` to distinguish and describe your users as well as
-        introduce your own custom per-user properties. It really adds a final touch of
-        context & polish to the data we collect.
-
-        You can set this up with the snippet below wherever you can resolve your app's
-        user identity:
-
-        ```jsx
-        // This is an example script - don't forget to change it!
-        playerzero.identify("<USER_ID>", {
-            name: "<DISPLAY_NAME>",
-            email: "<USER_EMAIL>",
-            group: "<CUSTOMER_ID_OR_OTHER_GROUP>",
-        });
-            ```
-
-            ### Configure your domains
-
-            You can control how we collect data and turn on and off specific features based
-            on your preferences via the dashboard. Take a look at the
-            [Web Configuration](/docs/domain-controls) page for more. Most teams don't have
-            to change these, but they're always there for you.
-
-            ### FAQ
-
-            #### `ReferenceError: playerzero is not defined` when you're calling `identify`
-
-            By default, the async tag on the `<script>` above asynchronously loads the
-                script in the background without affecting the load performance of the page.
-                Because of this, there is a chance that your application codebase get's to
-                calling `playerzero.identify()` before the script has had a chance to load.
-                There are a few ways to work around this.
-
-                1. If you're really trying to do this in a Javascript application such a React
-                or Angular product, we'd recommend looking at the [Web SDK](/setup/web-sdk) so
-                that the identify call automatically waits for playerzero to be loaded before
-                and handles the complexity gracefully.
-                2. If you're populating the identity from the server side or need to instrument
-                identity directly in the HTML and cannot use the [Web SDK](/setup/web-sdk)
-                there's still an option for you! The playerzero script emits a
-                `playerzero_ready` event the moment it's loaded, and if the `playerzero`
-                object is not yet available in the window, you can wait for the event before
-                calling the identity. This could look a little something like this.
-
-                ```jsx
-                const userId = "userId";
-                const metadata = {
-                    name: "<DISPLAY_NAME>",
-                    email: "<USER_EMAIL>",
-                    group: "<CUSTOMER_ID_OR_OTHER_GROUP>",
-                };
-
-                if (window.playerzero) {
-                    // PlayerZero has loaded
-                    window.playerzero.identify(userId, metadata);
-                } else {
-                    // PlayerZero has not loaded, so we'll wait for the ready event
-                    window.addEventListener(
-                        "playerzero_ready",
-                        () => {
-                            window.playerzero.identify(userId, metadata);
-                        },
-                        { once: true }
-                    );
-                }
-                ```
-    </Tab>
-    <Tab title="Segment Web">
-        ### PlayerZero + Segment
-
-        PlayerZero and Segment have a partnership to enable Segment users to fully
-        enable PlayerZero in a matter of seconds, without any code changes.
-
-        ### Setup
-
-        #### 1. Visit the PlayerZero destination link in Segment
-
-        <Card
-            title="PlayerZero destination in Segment"
-            icon={
-                <svg
-                    className="h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="64"
-                    height="64"
-                    viewBox="0 0 64 64"
-                >
-                    <g transform="matrix(.768307 0 0 .768307 0 2.304922)">
-                        <path
-                            d="M51.9 52.8H4c-2.2 0-4-1.8-4-4s1.8-4 4-4h47.9c2.2 0 4 1.8 4 4s-1.8 4-4 4z"
-                            fill="#99cfac"
-                        />
-                        <path
-                            d="M41.7 77.3c-3.9 0-7.8-.6-11.5-1.7-2.1-.7-3.3-2.9-2.6-5s2.9-3.3 5-2.6c2.9.9 6 1.4 9.1 1.4 13.6 0 25.4-8.7 29.3-21.7.6-2.1 2.9-3.3 5-2.7s3.3 2.9 2.7 5c-5.1 16.3-19.9 27.3-37 27.3z"
-                            fill="#49b881"
-                        />
-                        <path
-                            d="M79.3 32.5H31.4c-2.2 0-4-1.8-4-4s1.8-4 4-4h47.9c2.2 0 4 1.8 4 4s-1.8 4-4 4z"
-                            fill="#99cfac"
-                        />
-                        <path
-                            d="M8.5 32.5c-.4 0-.8-.1-1.2-.2-2.1-.6-3.3-2.9-2.7-5C9.7 11 24.5 0 41.7 0c3.9 0 7.8.6 11.5 1.7 2.1.7 3.3 2.9 2.6 5s-2.9 3.3-5 2.6c-2.9-.9-6-1.4-9.1-1.4-13.6 0-25.4 8.7-29.3 21.7-.6 1.8-2.2 2.9-3.9 2.9z"
-                            fill="#49b881"
-                        />
-                        <g fill="#99cfac">
-                            <circle r="4" cy="13.3" cx="65.4" />
-                            <circle r="4" cy="64.1" cx="17.9" />
-                        </g>
-                    </g>
-                </svg>
-            }
-            href="https://app.segment.com/goto-my-workspace/destinations/catalog/actions-playerzero-web"
+<Card
+    title="Include the PlayerZero sdk via npm"
+    icon={
+        <svg
+            className="h-6 w-10"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="540px"
+            height="210px"
+            viewBox="0 0 18 7"
         >
-            Open destination
-        </Card>
+            <path
+                fill="#CB3837"
+                d="M0,0h18v6H9v1H5V6H0V0z M1,5h2V2h1v3h1V1H1V5z M6,1v5h2V5h2V1H6z M8,2h1v2H8V2z M11,1v4h2V2h1v3h1V2h1v3h1V1H11z"
+            />
+            <polygon fill="#FFFFFF" points="1,5 3,5 3,2 4,2 4,5 5,5 5,1 1,1 " />
+            <path fill="#FFFFFF" d="M6,1v5h2V5h2V1H6z M9,4H8V2h1V4z" />
+            <polygon
+                fill="#FFFFFF"
+                points="11,1 11,5 13,5 13,2 14,2 14,5 15,5 15,2 16,2 16,5 17,5 17,1 "
+            />
+        </svg>
+    }
+    href="/setup/web-sdk"
+>
+    Setup PlayerZero in your Javascript application. This is recommended if you have a Javascript rich application built in React, Angular, or another web framework.
 
-        Then click
+</Card>
 
-        - Configure PlayerZero Web
-        - Select your soruce (the one that relates to your website)
-        - Name the destination, we recommend `PlayerZero Web`
-        - And you'll end up on a page that looks like this
+<Card
+    title="Embed the PlayerZero script tag"
+    icon="code"
+    href="/setup/instrument-js-snippet"
+>
+    Enable PlayerZero using the script tag. It's fast, simple, and universal.
+</Card>
 
-        ![](/images/Screen_Shot_2022-10-19_at_11.51.06_AM.png)
 
-        #### 2. Copy paste the `projectId` into Segment
-
-        - In PlayerZero, visit the
-        [Settings > Data Collection](https://go.playerzero.app/setting/data) page and
-        click into the Segment option.
-        - In
-        [Segment](https://app.segment.com/goto-my-workspace/destinations/catalog/actions-playerzero-web),
-        paste the project id into the field labeled PlayerZero Project Id
-
-        #### 3. Enable the destination
-
-        In Segment, make sure to enable the destination and then click Save Changes.
-
-        ![](/images/Screen_Shot_2022-10-19_at_11.52.23_AM.png)
-
-        And that's all!
-
-        ### Configure your domains
-
-        You can control how we collect data and turn on and off specific features based
-        on your preferences via the dashboard. Take a look at the
-        [Web Configuration](/docs/domain-controls) page for more. Most teams don't have
-        to change these, but they're always there for you.
-
-        ### What's happening under the hood
-
-        Under the hood, when you enable the PlayerZero Web destination we're setting up
-        3 things for you automatically:
-
-        1. Segment will inject the snippet automatically into your client frontend. The
-        snippet will automatically instrument a basic set of analytics events such as
-        button clicks and page loads, and will also start capturing JS and API issues
-        happening in the browser.
-        2. Segment will also forward any `track()` calls that you make to
-        `analytics.js`( the Segment library) to PlayerZero. This will enable you to
-        understand the impact of your issues relative to the higher order events you
-        may have instrumented, automatically.
-        3. Segment will forward any `identify()` calls so that users that are identified
-        in Segment will also be identified in PlayerZero.
-    </Tab>
-</Tabs>
+<Card
+    title="Setup with Segment"
+    icon={
+        <svg
+            className="h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            width="64"
+            height="64"
+            viewBox="0 0 64 64"
+        >
+            <g transform="matrix(.768307 0 0 .768307 0 2.304922)">
+                <path
+                    d="M51.9 52.8H4c-2.2 0-4-1.8-4-4s1.8-4 4-4h47.9c2.2 0 4 1.8 4 4s-1.8 4-4 4z"
+                    fill="#99cfac"
+                />
+                <path
+                    d="M41.7 77.3c-3.9 0-7.8-.6-11.5-1.7-2.1-.7-3.3-2.9-2.6-5s2.9-3.3 5-2.6c2.9.9 6 1.4 9.1 1.4 13.6 0 25.4-8.7 29.3-21.7.6-2.1 2.9-3.3 5-2.7s3.3 2.9 2.7 5c-5.1 16.3-19.9 27.3-37 27.3z"
+                    fill="#49b881"
+                />
+                <path
+                    d="M79.3 32.5H31.4c-2.2 0-4-1.8-4-4s1.8-4 4-4h47.9c2.2 0 4 1.8 4 4s-1.8 4-4 4z"
+                    fill="#99cfac"
+                />
+                <path
+                    d="M8.5 32.5c-.4 0-.8-.1-1.2-.2-2.1-.6-3.3-2.9-2.7-5C9.7 11 24.5 0 41.7 0c3.9 0 7.8.6 11.5 1.7 2.1.7 3.3 2.9 2.6 5s-2.9 3.3-5 2.6c-2.9-.9-6-1.4-9.1-1.4-13.6 0-25.4 8.7-29.3 21.7-.6 1.8-2.2 2.9-3.9 2.9z"
+                    fill="#49b881"
+                />
+                <g fill="#99cfac">
+                    <circle r="4" cy="13.3" cx="65.4" />
+                    <circle r="4" cy="64.1" cx="17.9" />
+                </g>
+            </g>
+        </svg>
+    }
+    href="/setup/enable-with-segment"
+>
+    Deploy PlayerZero via Segment. This is recommended if you currently use Segment.
+</Card>
