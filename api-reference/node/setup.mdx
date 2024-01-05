@@ -1,0 +1,82 @@
+---
+title: "Node.js SDK"
+description: "Monitor your customers on your node application."
+---
+
+The PlayerZero Node.js sdk enables you to send serverside events and errors to the PlayerZero API.
+
+## Installation
+```bash
+npm i @goplayerzero/js-api --save
+```
+
+## Initialize
+Initialize the sdk by calling the getInstance function with the appropriate args:
+```js
+const pzApi = PzApi.getInstance('<your api token here>', {
+  dataset: 'my-express-app',
+  prod: true,
+  intercept: console, // to auto-capture all console log, debug, info, warn, error outputs
+});
+```
+
+## API
+There are 3 key exposed apis in this sdk:
+```js
+pz.identify('<userId>', { '<optional>': '<properties>' });
+pz.track('Add to Cart');
+pz.signal('Insufficient Funds', { type: 'Bank Error' });
+```
+For any application wishing to maintain identity across async hooks (like for example express handling web server requests where each request is a different person),
+node's async storage must be integrated around the auth handling piece of the express code. For example, as super simple typescript auth manager might look like:
+
+## Full Example
+
+<Note>
+    The examples in this doc are tailored to express.js, but similar setups work for other web application frameworks.
+</Note>
+
+Here is a full example of an express server sending up identified errors and events.
+```js express.js
+import fetch from 'node-fetch';
+import { PzApi } from '@goplayerzero/js-api';
+import { AsyncLocalStorage } from 'async_hooks';
+import express from 'express';
+
+global.fetch = fetch; // depends on how fetch is defined or handled at the vm level
+
+const asyncLocalStorage = new AsyncLocalStorage();
+
+const pzApi = PzApi.getInstance('646dead27104ad3a98059e3d', {
+  dataset: 'fiddlestix',
+//    intercept: console, // to auto-capture all console log, debug, info, warn, error outputs
+});
+
+// Instrumentation to wrap our event identity association on a per async call
+const originalPendingEvent = pzApi.pendingEvent.bind(pzApi);
+pzApi.pendingEvent = type => {
+  const id = asyncLocalStorage.getStore();
+  return originalPendingEvent(type).identify(id?.userId, { tenantId: id?.tenantId });
+};
+
+// Example of the already existing express auth handler
+export const authManager = (req, res, next) => {
+  const user = {
+    userId: 'asdf',
+    name: req.headers.authorization,
+    tenantId: 42,
+  };
+  pzApi.identify(user.userId, {name: user.name, tenantId: user.tenantId});
+  // wrap the next() in the asyncLocalStorage with the identity information desired
+  asyncLocalStorage.run(user, () => next());
+};
+
+const app = express();
+app.use(authManager);
+app.get('/', (req, res) => { fiddle.stix; });
+app.use((err, req, res, next) => {
+  pzApi.signal(err);
+  next();
+});
+app.listen(3000);
+```

@@ -20,7 +20,7 @@
   "tabs": [
     {
       "name": "Data Connectors",
-      "url": "connectors"
+      "url": "connector"
     },
     {
       "name": "API Reference",
@@ -39,17 +39,7 @@
   ],
   "anchors": [
     {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://www.playerzero.ai/blog"
-    },
-    {
-      "name": "Connectors",
-      "icon": "list-check",
-      "url": "https://www.playerzero.ai/connector"
-    },
-    {
-      "name": "Community",
+      "name": "Community Support",
       "icon": "slack",
       "url": "https://playerzerocom-uhb1146.slack.com/join/shared_invite/zt-1i4nsidth-bmObDACsU_Ci8Lw2ttExXg#/shared-invite/email"
     }
@@ -57,16 +47,46 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": ["introduction"]
+      "pages": [
+        "introduction",
+        "quickstart"
+      ]
     },
     {
-      "group": "Setup Analytics SDK",
+      "group": "Web Applications",
       "pages": [
-        "analytics/getting-started",
-        "analytics/web-sdk",
-        "analytics/instrument-js-snippet",
-        "analytics/enable-with-segment",
-        "analytics/domain-controls"
+        "api-reference/web/web-sdk",
+        {
+          "group": "Setup",
+          "pages": [
+            "api-reference/web/setup/npm",
+            "api-reference/web/setup/script-tag",
+            "api-reference/web/setup/segment"
+          ]
+        },
+        "api-reference/web/domain-controls",
+        "api-reference/web/performance",
+        {
+          "group": "Advanced",
+          "pages": [
+            "api-reference/web/advanced/shareable-devtools",
+            "api-reference/web/advanced/setup-permission-and-sharing-controls",
+            "api-reference/web/advanced/build-a-custom-styled-button",
+            "api-reference/web/advanced/work-around-graphql-issues"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Node.js",
+      "pages": [
+        "api-reference/node/setup"
+      ]
+    },
+    {
+      "group": "Open Telemetry",
+      "pages": [
+        "api-reference/open-telemetry/setup"
       ]
     },
     {
@@ -76,22 +96,40 @@
       ]
     },
     {
-      "group": "How To's",
-      "pages": [
-        "how-to/shareable-devtools-1",
-        "how-to/setup-permission-and-sharing-controls",
-        "how-to/build-a-custom-styled-button",
-        "how-to/work-around-graphql-issues"
-      ]
-    },
-    {
-      "group": "Data",
-      "pages": ["data/data-collection", "data/performance"]
-    },
-    {
       "group": "Telemetry API",
       "pages": [
         "api-reference/telemetry"
+      ]
+    },
+    {
+      "group": "Introduction",
+      "pages": ["connector/introduction"]
+    },
+    {
+      "group": "Code",
+      "pages": [
+        "connector/code/github",
+        "connector/code/azure",
+        "connector/code/bitbucket"
+      ]
+    },
+    {
+      "group": "Project Management",
+      "pages": [
+        "connector/pm/jira",
+        "connector/pm/linear",
+        "connector/pm/azure-devops",
+        "connector/pm/gitlab"
+      ]
+    },
+    {
+      "group": "Customer Tickets",
+      "pages": [
+        "connector/ticketing/zendesk",
+        "connector/ticketing/intercom",
+        "connector/ticketing/salesforce",
+        "connector/ticketing/jira-service",
+        "connector/ticketing/front"
       ]
     }
   ],
@@ -112,5 +150,8 @@
       "method": "bearer"
     }
   },
-  "openapi": ["/openapi.yml"]
+  "openapi": ["/openapi.yml"],
+  "feedback": {
+    "thumbsRating": true
+  }
 }

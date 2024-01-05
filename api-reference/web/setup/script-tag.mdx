@@ -1,6 +1,6 @@
 ---
-title: "Embed the PlayerZero <script/> tag"
-description: "Enable PlayerZero using the"
+title: "Script tag"
+description: "Enable PlayerZero using the script tag"
 ---
 
 The script tag is probably the simplest and most universal way to enable
@@ -11,8 +11,8 @@ In order to do this you will need to make sure you have:
 - Made an account in PlayerZero
 - Created your first project
 - Navigated to the
-  [Settings > Setup Data Collection](https://go.playerzero.app/setting/data)
-  page
+[Settings > Setup Data Collection](https://go.playerzero.app/setting/data)
+page
 
 ### Embed the Script Tag
 
@@ -77,15 +77,15 @@ calling `playerzero.identify()` before the script has had a chance to load.
 There are a few ways to work around this.
 
 1. If you're really trying to do this in a Javascript application such a React
-   or Angular product, we'd recommend looking at the [Web SDK](/setup/web-sdk) so
-   that the identify call automatically waits for playerzero to be loaded before
-   and handles the complexity gracefully.
+or Angular product, we'd recommend looking at the [Web SDK](/setup/web-sdk) so
+that the identify call automatically waits for playerzero to be loaded before
+and handles the complexity gracefully.
 2. If you're populating the identity from the server side or need to instrument
-   identity directly in the HTML and cannot use the [Web SDK](/setup/web-sdk)
-   there's still an option for you! The playerzero script emits a
-   `playerzero_ready` event the moment it's loaded, and if the `playerzero`
-   object is not yet available in the window, you can wait for the event before
-   calling the identity. This could look a little something like this.
+identity directly in the HTML and cannot use the [Web SDK](/setup/web-sdk)
+there's still an option for you! The playerzero script emits a
+`playerzero_ready` event the moment it's loaded, and if the `playerzero`
+object is not yet available in the window, you can wait for the event before
+calling the identity. This could look a little something like this.
 
 ```jsx
 const userId = "userId";
