@@ -142,6 +142,9 @@
   "analytics": {
     "gtm": {
         "tagId": "GTM-5T6DH5S"
+    },
+    "posthog": {
+        "apiKey": "phc_ARRFxqzeoII9b01gH5R3P0xhM8E565ZNmwo9I3N2Bxh"
     }
   },
   "api": {
