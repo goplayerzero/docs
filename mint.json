@@ -119,7 +119,28 @@
         "connector/pm/jira",
         "connector/pm/linear",
         "connector/pm/azure-devops",
-        "connector/pm/gitlab"
+        "connector/pm/gitlab",
+        {
+          "group": "Others",
+          "pages": [
+        "connector/pm/jira",
+        "connector/pm/linear",
+        "connector/pm/azure-devops",
+        "connector/pm/gitlab",
+        "connector/pm/adobe-workfront",
+        "connector/pm/aha",
+        "connector/pm/asana",
+        "connector/pm/basecamp",
+        "connector/pm/clickup",
+        "connector/pm/height",
+        "connector/pm/hive",
+        "connector/pm/pivotal-tracker",
+        "connector/pm/rally",
+        "connector/pm/trello",
+        "connector/pm/wrike",
+        "connector/pm/zoho-desk"
+          ]
+        }
       ]
     },
     {
