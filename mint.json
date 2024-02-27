@@ -121,7 +121,7 @@
         "connector/pm/azure-devops",
         "connector/pm/gitlab",
         {
-          "group": "Others",
+          "group": "More",
           "pages": [
         "connector/pm/adobe-workfront",
         "connector/pm/aha",
@@ -147,6 +147,25 @@
         "connector/ticketing/salesforce",
         "connector/ticketing/jira-service",
         "connector/ticketing/front"
+         {
+          "group": "More",
+          "pages": [
+        "connector/ticketing/dixa",
+        "connector/ticketing/freshdesk",
+        "connector/ticketing/freshservice",
+        "connector/ticketing/front",
+        "connector/ticketing/gladly",
+        "connector/ticketing/gorgias",
+        "connector/ticketing/helpscout",
+        "connector/ticketing/kustomer",
+        "connector/ticketing/re-amaze",
+        "connector/ticketing/servicenow",
+        "connector/ticketing/shortcut",
+        "connector/ticketing/spotdraft",
+        "connector/ticketing/teamwork",
+        "connector/ticketing/zoho-bugtracker"
+          ]
+        }
       ]
     }
   ],
