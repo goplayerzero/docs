@@ -123,18 +123,18 @@
         {
           "group": "More",
           "pages": [
-        "connector/pm/adobe-workfront",
-        "connector/pm/aha",
-        "connector/pm/asana",
-        "connector/pm/basecamp",
-        "connector/pm/clickup",
-        "connector/pm/height",
-        "connector/pm/hive",
-        "connector/pm/pivotal-tracker",
-        "connector/pm/rally",
-        "connector/pm/trello",
-        "connector/pm/wrike",
-        "connector/pm/zoho-desk"
+          "connector/pm/adobe-workfront",
+          "connector/pm/aha",
+          "connector/pm/asana",
+          "connector/pm/basecamp",
+          "connector/pm/clickup",
+          "connector/pm/height",
+          "connector/pm/hive",
+          "connector/pm/pivotal-tracker",
+          "connector/pm/rally",
+          "connector/pm/trello",
+          "connector/pm/wrike",
+          "connector/pm/zoho-desk"
           ]
         }
       ]
@@ -150,20 +150,20 @@
          {
           "group": "More",
           "pages": [
-        "connector/ticketing/dixa",
-        "connector/ticketing/freshdesk",
-        "connector/ticketing/freshservice",
-        "connector/ticketing/front",
-        "connector/ticketing/gladly",
-        "connector/ticketing/gorgias",
-        "connector/ticketing/helpscout",
-        "connector/ticketing/kustomer",
-        "connector/ticketing/re-amaze",
-        "connector/ticketing/servicenow",
-        "connector/ticketing/shortcut",
-        "connector/ticketing/spotdraft",
-        "connector/ticketing/teamwork",
-        "connector/ticketing/zoho-bugtracker"
+          "connector/ticketing/dixa",
+          "connector/ticketing/freshdesk",
+          "connector/ticketing/freshservice",
+          "connector/ticketing/front",
+          "connector/ticketing/gladly",
+          "connector/ticketing/gorgias",
+          "connector/ticketing/helpscout",
+          "connector/ticketing/kustomer",
+          "connector/ticketing/re-amaze",
+          "connector/ticketing/servicenow",
+          "connector/ticketing/shortcut",
+          "connector/ticketing/spotdraft",
+          "connector/ticketing/teamwork",
+          "connector/ticketing/zoho-bugtracker"
           ]
         }
       ]
