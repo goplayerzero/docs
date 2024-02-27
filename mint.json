@@ -167,6 +167,54 @@
           ]
         }
       ]
+    },
+    {
+      "group": "Telemetry",
+      "pages": [
+        "connector/engineering/aws-cloudwatch",
+        "connector/ticketing/datadog",
+        "connector/ticketing/opentelemtry",
+        "connector/ticketing/sentry"
+      ]
+    },
+    {
+      "group": "Analytics",
+      "pages": [
+        "connector/engineering/amplitude",
+        "connector/ticketing/mixpanel",
+        "connector/ticketing/segment",
+        "connector/ticketing/web-sdk"
+      ]
+    },
+    {
+      "group": "CRM",
+      "pages": [
+        "connector/CRM/dynamics365",
+        "connector/CRM/hubspot",
+        "connector/CRM/pipedrive",
+        "connector/CRM/salesforce",
+         {
+          "group": "More",
+          "pages": [
+          "connector/CRM/accelo",
+          "connector/CRM/active-campaign",
+          "connector/CRM/affinity ",
+          "connector/CRM/capsule",
+          "connector/CRM/close",
+          "connector/CRM/copper",
+          "connector/CRM/insightly",
+          "connector/CRM/keap",
+          "connector/CRM/nutshell",
+          "connector/CRM/pipeliner",
+          "connector/CRM/salesflare",
+          "connector/CRM/sugarcrm",
+          "connector/CRM/teamleader",
+          "connector/CRM/vtiger",
+          "connector/CRM/zendesk-sell",
+          "connector/CRM/zoho-crm"
+          ]
+        }
+      ]
     }
   ],
   "footerSocials": {
