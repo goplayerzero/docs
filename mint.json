@@ -172,18 +172,18 @@
       "group": "Telemetry",
       "pages": [
         "connector/engineering/aws-cloudwatch",
-        "connector/ticketing/datadog",
-        "connector/ticketing/opentelemtry",
-        "connector/ticketing/sentry"
+        "connector/engineering/datadog",
+        "connector/engineering/opentelemtry",
+        "connector/engineering/sentry"
       ]
     },
     {
       "group": "Analytics",
       "pages": [
-        "connector/engineering/amplitude",
-        "connector/ticketing/mixpanel",
-        "connector/ticketing/segment",
-        "connector/ticketing/web-sdk"
+        "connector/analytics/amplitude",
+        "connector/analytics/mixpanel",
+        "connector/analytics/segment",
+        "connector/analytics/web-sdk"
       ]
     },
     {
