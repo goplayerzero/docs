@@ -146,7 +146,7 @@
         "connector/ticketing/intercom",
         "connector/ticketing/salesforce",
         "connector/ticketing/jira-service",
-        "connector/ticketing/front"
+        "connector/ticketing/front",
          {
           "group": "More",
           "pages": [
