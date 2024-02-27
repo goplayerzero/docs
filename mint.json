@@ -123,18 +123,18 @@
         {
           "group": "More",
           "pages": [
-          "connector/pm/adobe-workfront",
-          "connector/pm/aha",
-          "connector/pm/asana",
-          "connector/pm/basecamp",
-          "connector/pm/clickup",
-          "connector/pm/height",
-          "connector/pm/hive",
-          "connector/pm/pivotal-tracker",
-          "connector/pm/rally",
-          "connector/pm/trello",
-          "connector/pm/wrike",
-          "connector/pm/zoho-desk"
+          "connector/pm/others/adobe-workfront",
+          "connector/pm/others/aha",
+          "connector/pm/others/asana",
+          "connector/pm/others/basecamp",
+          "connector/pm/others/clickup",
+          "connector/pm/others/height",
+          "connector/pm/others/hive",
+          "connector/pm/others/pivotal-tracker",
+          "connector/pm/others/rally",
+          "connector/pm/others/trello",
+          "connector/pm/others/wrike",
+          "connector/pm/others/zoho-desk"
           ]
         }
       ]
