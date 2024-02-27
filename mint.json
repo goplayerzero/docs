@@ -121,8 +121,9 @@
         "connector/pm/azure-devops",
         "connector/pm/gitlab",
         {
-          "group": "More",
+          "group": "Others",
           "pages": [
+        "connector/pm/adobe-workfront",
         "connector/pm/aha",
         "connector/pm/asana",
         "connector/pm/basecamp",
