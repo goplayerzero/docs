@@ -189,29 +189,29 @@
     {
       "group": "CRM",
       "pages": [
-        "connector/CRM/dynamics365",
-        "connector/CRM/hubspot",
-        "connector/CRM/pipedrive",
-        "connector/CRM/salesforce",
+        "connector/crm/dynamics365",
+        "connector/crm/hubspot",
+        "connector/crm/pipedrive",
+        "connector/crm/salesforce",
          {
           "group": "More",
           "pages": [
-          "connector/CRM/accelo",
-          "connector/CRM/active-campaign",
-          "connector/CRM/affinity ",
-          "connector/CRM/capsule",
-          "connector/CRM/close",
-          "connector/CRM/copper",
-          "connector/CRM/insightly",
-          "connector/CRM/keap",
-          "connector/CRM/nutshell",
-          "connector/CRM/pipeliner",
-          "connector/CRM/salesflare",
-          "connector/CRM/sugarcrm",
-          "connector/CRM/teamleader",
-          "connector/CRM/vtiger",
-          "connector/CRM/zendesk-sell",
-          "connector/CRM/zoho-crm"
+          "connector/crm/accelo",
+          "connector/crm/active-campaign",
+          "connector/crm/affinity ",
+          "connector/crm/capsule",
+          "connector/crm/close",
+          "connector/crm/copper",
+          "connector/crm/insightly",
+          "connector/crm/keap",
+          "connector/crm/nutshell",
+          "connector/crm/pipeliner",
+          "connector/crm/salesflare",
+          "connector/crm/sugarcrm",
+          "connector/crm/teamleader",
+          "connector/crm/vtiger",
+          "connector/crm/zendesk-sell",
+          "connector/crm/zoho-crm"
           ]
         }
       ]
