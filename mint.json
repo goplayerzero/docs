@@ -4,17 +4,17 @@
     "light": "/logo/light-logo.svg",
     "dark": "/logo/dark-logo.svg"
   },
-  "favicon": "/favicon.png",
+  "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#008FFF",
-    "light": "#82C8FF",
-    "dark": "#3A81E0",
+    "primary": "#030712",
+    "light": "#fafafa",
+    "dark": "#030712",
     "anchors": {
       "from": "#5A3DF5",
       "to": "#008FFF"
     },
     "background": {
-      "dark": "#121212"
+      "dark": "#09090b"
     }
   },
   "tabs": [
