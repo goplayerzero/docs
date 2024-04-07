@@ -1,5 +1,5 @@
 ---
-title: "Network calls not being captured properly"
+title: "Missing Network Calls"
 ---
 
 <Warning>
@@ -13,13 +13,6 @@ course of it monitoring in order to capture performance & network errors and
 build better devtools. 
 
 Sometimes, when using other libraries such as Sentry, [Apollo GraphQL](https://www.apollographql.com), and DataDog RUM these other libraries wrap the window fetch object first and don't release it back to other third party scripts like ours.
-
-<!-- Out of the box we also detect and separate different
-graphql calls based on the `operationName` parameter.
-
-If you use an [Apollo GraphQL](https://www.apollographql.com) server to host
-your GraphQL endpoint, you need to do one additional step to enable PlayerZero
-completely. -->
 
 To fix this, embed this snippet in addition to your regular [setup](/docs/getting-started) as
 the first tag in your `<head/>` of the `index.html` file. This helps PlayerZero
