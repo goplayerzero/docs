@@ -72,7 +72,7 @@
             "api-reference/web/advanced/shareable-devtools",
             "api-reference/web/advanced/setup-permission-and-sharing-controls",
             "api-reference/web/advanced/build-a-custom-styled-button",
-            "api-reference/web/advanced/work-around-graphql-issues"
+            "api-reference/web/advanced/network-calls-fix"
           ]
         }
       ]
