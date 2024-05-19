@@ -1,0 +1,76 @@
+---
+title: "Private Data Storage"
+description: "Point PlayerZero to an S3 bucket that we can use for our persistent file storage."
+---
+
+Point PlayerZero to an S3 bucket that we can use for our persistent file storage.
+This ensures the code and devtools resources we're processing is persisted within your network, often for compliance purposes.
+**Note: This feature is only supported on Enterprise Plans.**
+
+This architecture allows PlayerZero to read and write potentially sensitive data through your servers, ensuring that your code remains on your property and is not stored on our systems.
+You retain full control over security, access, and disk-level encryption. For the purposes of this guide, we will focus on the AWS cloud setup using the UI.
+If you do not use Amazon AWS / S3, we recommend setting up a [Minio server](https://github.com/minio/minio) as a emulated S3 file system hosted on your network.
+
+## S3 Bucket
+To minimize latency, we recommend creating your S3 bucket in the us-east-1 region, as our systems are currently located there.
+However, your bucket can be located anywhere, and we plan to expand our geographical presence in the future.
+
+### Creating the bucket
+Name the bucket according to your own business standards. For this example, we will name it `demo-pz-code-sharing`.
+<Steps>
+    <Step title="Name the bucket">
+        Set it to be a general purpose bucket.
+        ![Configuration](/images/s3/config-1.png)
+    </Step>
+    <Step title="Access Controls">
+        ACLs disabled (recommended)
+        ![AccessControls](/images/s3/config-2.png)
+    </Step>
+    <Step title="Disable bucket versioning">
+        If data is deleted, it can be recreated from scratch.
+    </Step>
+    <Step title="Default encryption">
+        Enable default encryption with server-side encryption according to the security policies specified by your organization. In this example, we will use the default.
+        ![Encryption](/images/s3/config-3.png)
+    </Step>
+    <Step title="Disable Object Lock">
+        We require that Object Lock be disabled, as enabling it will greatly reduce performance.
+        ![ObjectLock](/images/s3/config-4.png)
+    </Step>
+    <Step title="Finish creating the bucket">
+        Now that we completed creating the bucket, now we need to create an API token to give PlayerZero to read and write.
+    </Step>
+</Steps>
+
+### Create an API Token
+<Steps>
+    <Step title="Create a new user group">
+        Using the IAM console, create a new user group called `playerzero`.
+        Add your API user to this group if one already exists, or create a new user as described below.
+    </Step>
+    <Step title="Set Permission Policy">
+        For the permission policy, add the AmazonS3FullAccess policy to this group. This will grant PlayerZero full access to your S3 bucket.
+        ![Permission Policy](/images/s3/api-1.png)
+    </Step>
+    <Step title="Create a New User">
+        Create a new user called `playerzero-api` to easily manage access and restrictions without affecting other users or systems. Do not grant this user access to the Management Console.
+        ![New User](/images/s3/api-2.png)
+    </Step>
+    <Step title="Associate User Group">
+        Associate the `playerzero-api` user with the appropriate user group `playerzero` containing the `AmazonS3FullAccess` policy.
+    </Step>
+    <Step title="Create Access Key">
+        Edit the newly created `playerzero-api` user and click on the `Create access key` link in the summary box. Create an access key for an application running outside AWS to use.
+        ![Access Key](/images/s3/api-3.png)
+        ![Access Key](/images/s3/api-4.png)
+    </Step>
+    <Step title="Provide a Description">
+        Provide an appropriate description, such as PlayerZero Access, and create the access key.
+    </Step>
+    <Step title="Obtain Access Keys">
+        You will be shown a screen with the Access Key and the Secret Access Key. **It is not possible to obtain the secret key after this screen. Copy both keys and share them with PlayerZero securely.**
+        ![Access Key](/images/s3/api-5.png)
+    </Step>
+</Steps>
+
+

@@ -1,27 +1,45 @@
 ---
-title: "Open Telemetry Exporter"
-description: "Capture errors and traces from your backend system with OpenTelemetry."
+title: "Open Telemetry Setup"
+description: "First party support for distributed traces and logs with OpenTelemetry."
 ---
 
 ## Overview
-The PlayerZero exporter is an otlphttp exporter for logs with a fatal or error status. You can configure it through environment/system variables, a config file, or however else you have setup your OpenTelemetry agent.
-If you have not yet set up OpenTelemetry check out the [open telemetry docs](https://opentelemetry.io/docs/getting-started/dev/) or see if one of our other connectors makes more sense.
+PlayerZero is built with first party support for OpenTelemetry.
+OpenTelemetry is a large open-source, portable, and vendor-agnostic telemetry and observability package.
+
+Integrating with OpenTelemetry enables a few core features:
+* The ability to connect user actions on the front end to logs and network calls on the backend
+* The ability to understand how distributed systems are talking to each other
+* The ability to correlate front end to backend activity
+
+![OtelArchitecture](/images/otel.png)
+
+## Enabling OpenTelemetry on the WebSDK
+For this reason, PlayerZero's [Web SDK](/api-reference/web/web-sdk) is compatible with OpenTelemetry as well.
+Once you have enabled OpenTelemetry on the backend, enable the auto-instrumentation + OTEL compatibility by navigating to `Settings > Web SDK > Enable OpenTelemetry Headers`.
+When you enable this, PlayerZero's web script will automatically associate user identities and user actions with traces. It will also automatically link and propagate the trace header needed for open telemetry to
+connect the dots with distributed tracing.
+
+If you have a web application, we highly recommend using PlayerZero with the WebSDK + a backend OpenTelemetry instrumentation.
+
+
+## Setting up OpenTelemetry
+
+The PlayerZero exporter is an otlphttp exporter for logs, spans, and traces. You can configure it through environment/system variables, a config file, or however else you have setup your OpenTelemetry agent.
+At the end of the day, OpenTelemetry configurations are stack and deployment specific. We recommend taking a look through the [open telemetry docs](https://opentelemetry.io/docs/getting-started/dev/) for your specific language.
+We also have created specific recipes for common stacks among our customers.
 
 ## Configuration
-```text
-Endpoint = "https://sdk.playerzero.app/otlp"
-Headers = {"Authorization": "Bearer <your-playerzero-api-token>"}
+At the end of the day, once your open telemetry instrumentation is in place, you'll want to set the following properties.
+For many, you will create a `.properties` file that looks like this. Other stacks might have a `.yml` file or another config file.
+This is a guidance for the properties you'll need to set to send data to PlayerZero.
+```properties otel-config.properties
+otel.service.name=My Dataset Name
+otel.exporter.otlp.endpoint=https://sdk.playerzero.app/otlp
+otel.exporter.otlp.headers=Authorization=Bearer <your api token>
+otel.traces.exporter=otlp
+otel.logs.exporter=otlp
+otel.metrics.exporter=otlp
 ```
-
-### Config File Example
-Copy the following into your OpenTelemetry `config.yml` file:
-```yaml
-exporters:
-  otlphttp/playerzero:
-    endpoint: "https://sdk.playerzero.app/otlp"
-    headers:
-      Authorization: "Bearer <your-playerzero-api-token>"
-```
-
-This should enable forwarding errors to PlayerZero automatically.
+Once you have this setup, this should enable forwarding traces, spans, logs, and metrics to PlayerZero automatically.
 

@@ -1,0 +1,51 @@
+---
+title: "Node Setup"
+description: "Node.js auto-instrumentation for backend spans, traces, and logs."
+---
+
+OpenTelemetry has automatic instrumentation available for almost every Node.js stack.
+Include the autoinstrumentation package by installing the following:
+
+```bash
+npm install --save @opentelemetry/api
+npm install --save @opentelemetry/auto-instrumentations-node
+```
+
+This module includes auto instrumentation for all supported instrumentations and all available data exporters.
+This includes many popular frameworks such as `Fastify`, `Express`, `redis`, `graphql`, `aws-lambda`, and dozens others.
+It provides a completely automatic, out-of-the-box experience. Please see the
+[Supported Instrumentations](https://www.npmjs.com/package/@opentelemetry/auto-instrumentations-node#supported-instrumentations)
+ section for more information.
+
+The module is enabled and highly configurable using environment variables.
+
+
+You can enable Node auto-instrumentation via an environment variable before running Node.
+```bash
+export NODE_OPTIONS="--require @opentelemetry/auto-instrumentations-node/register"
+```
+
+Many aspects of the auto instrumentation's behavior can be configured for your needs, such as resource detectors, exporter choice, exporter configuration, trace context propagation headers, and much more.
+Instrumentation configuration is not yet supported through environment variables. Users that require instrumentation configuration must initialize OpenTelemetry programmatically.
+
+```bash
+export OTEL_SERVICE_NAME="<dataset namespace name>"
+export OTEL_EXPORTER_OTLP_ENDPOINT="https://sdk.playerzero.app/otlp"
+
+export OTEL_EXPORTER_OTLP_HEADERS="Authorization=Bearer 664a0a739cc275749c346ac6"
+
+export OTEL_TRACES_EXPORTER="otlp"
+export OTEL_METRICS_EXPORTER="otlp"
+export OTEL_LOGS_EXPORTER="otlp"
+```
+
+Out of the box, all the resource detectors are enabled. If you get some sort of an error, such as "Process is not running in a K8S server" or something else like that,
+you can scope the resource detectors to a more limited set. You can find the full list of resource detectors [here](https://www.npmjs.com/package/@opentelemetry/auto-instrumentations-node#supported-instrumentations).
+```bash
+export OTEL_NODE_RESOURCE_DETECTORS="env,host,os,serviceinstance,process"
+```
+
+With these environment variables, you will finally be able to start your server with autoinstrumentation:
+```bash
+node app.js
+```

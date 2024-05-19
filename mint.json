@@ -21,10 +21,6 @@
     {
       "name": "Data Connectors",
       "url": "connector"
-    },
-    {
-      "name": "API Reference",
-      "url": "api-reference"
     }
   ],
   "topbarCtaButton": {
@@ -35,13 +31,6 @@
     {
       "name": "Request Demo",
       "url": "https://www.playerzero.ai/book-demo"
-    }
-  ],
-  "anchors": [
-    {
-      "name": "Community Support",
-      "icon": "slack",
-      "url": "https://playerzerocom-uhb1146.slack.com/join/shared_invite/zt-1i4nsidth-bmObDACsU_Ci8Lw2ttExXg#/shared-invite/email"
     }
   ],
   "navigation": [
@@ -70,7 +59,6 @@
           "group": "Advanced",
           "pages": [
             "api-reference/web/advanced/shareable-devtools",
-            "api-reference/web/advanced/setup-permission-and-sharing-controls",
             "api-reference/web/advanced/build-a-custom-styled-button",
             "api-reference/web/advanced/network-calls-fix"
           ]
@@ -78,27 +66,31 @@
       ]
     },
     {
-      "group": "Node.js",
-      "pages": [
-        "api-reference/node/setup"
-      ]
-    },
-    {
       "group": "Open Telemetry",
       "pages": [
-        "api-reference/open-telemetry/setup"
+        "api-reference/open-telemetry/setup",
+        {
+          "group": "Recipes",
+          "pages": [
+            "api-reference/open-telemetry/recipe/java",
+            "api-reference/open-telemetry/recipe/node"
+          ]
+        }
       ]
     },
     {
-      "group": "Architecture & Product",
+      "group": "Architecture & Security",
       "pages": [
-        "architecture-and-product/playerzero-philosophy"
+        "architecture-and-security/playerzero-philosophy",
+        "architecture-and-security/byob"
       ]
     },
     {
-      "group": "Telemetry API",
+      "group": "Observability API",
       "pages": [
-        "api-reference/telemetry"
+        "api-reference/tracks",
+        "api-reference/logs",
+        "api-reference/spans"
       ]
     },
     {
@@ -198,7 +190,6 @@
           "pages": [
           "connector/crm/accelo",
           "connector/crm/active-campaign",
-          "connector/crm/affinity ",
           "connector/crm/capsule",
           "connector/crm/close",
           "connector/crm/copper",

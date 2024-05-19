@@ -19,19 +19,91 @@ security:
   - bearerAuth: []         # use the same name as above
 
 paths:
-  /data:
+  /v2/tracks:
     post:
-      summary: Send a list of events to PlayerZero
-      description: Send a list of telemetry events to PlayerZero.
+      summary: Send a list of tracked (user action) events to PlayerZero
+      description: Send user actions + associate traceIds to users.
       responses:
         '204':    # status code
           description: Success, no content is expected in response
       parameters:
-        - in: header
-          name: X-PlayerZeroScope
+        - name: X-PzProd
+          in: header
+          schema:
+            type: boolean
+          description: Specifies whether this data is coming from a production source or not.
+          required: true
+        - name: X-PzBucket
+          in: header
           schema:
             type: string
-          description: The first argument is a boolean (true / false) that describes if this data is tagged as production or not. The second tag is an arbitrary string, without ticks, that sets the name of the dataset. We highly recommend setting this to make it easier to organize your data in PlayerZero. For example, if this were an iOS device, you could set this value to `true mobile-ios` to set that this data is coming from production as a part of the `mobile-ios` dataset.
+          description: The name of the dataset you'd like to associate this data to. Not required, but highly recommended.
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                required:
+                  - identity
+                  - value
+                  - ts
+                properties:
+                  id:
+                    type: string
+                    description: |
+                      A string UUIDv4 that uniquely identifies the event. Ensure the id looks something like this `62de9447-5d6b-496a-9164-d26f77fc8547`.
+                      The id does not need to include the dashes. If not set, we will generate an id on the server side.
+                      This id is treated as a `traceId` so subsequent spans or logs with this id will be correlated with this tracked action.
+                  identity:
+                    type: object
+                    properties:
+                      userId:
+                        type: string
+                        description: A unique identifier that you use to identify the user, often the database identifier.
+                      email:
+                        type: string
+                        description: The email address of the user. We recommend passing this in if available since it makes it easier to match data across different datasets (such as support ticketing).
+                      anonId:
+                        type: string
+                        description: For advanced use cases, this can be the device id or an anonymous id that could be identified in the future. This may be used to track pre-login activities.
+                  value:
+                    type: string
+                    description: |
+                      The value of the event. This may be something like `Opened App` or `Started Onboarding`. Label this as something that would
+                      cue you to know what the user was doing in this moment.
+                  type:
+                    type: string
+                    description: |
+                      Not required. The category of the action, for example this could be `Click` or `Navigate`.
+                  ts:
+                    type: string
+                    description: The timestamp of the event in JSON format (ie. `2023-11-25T13:08:50.782Z`)
+                  attributes:
+                    type: object
+                    description: A key, value pairing of arbitrary event metadata that is useful to tag to your event.
+  /v2/logs:
+    post:
+      summary: Send a list of logs to PlayerZero
+      description: Track logs from your data source in PlayerZero.
+      responses:
+        '204': # status code
+          description: Success, no content is expected in response
+      parameters:
+        - name: X-PzProd
+          in: header
+          schema:
+            type: boolean
+          description: Specifies whether this data is coming from a production source or not.
+          required: true
+        - name: X-PzBucket
+          in: header
+          schema:
+            type: string
+          description: The name of the dataset you'd like to associate this data to. Not required, but highly recommended.
           required: true
       requestBody:
         required: true
@@ -43,59 +115,100 @@ paths:
                 type: object
                 required:
                   - type
+                  - value
+                  - ts
                 properties:
-                  id:
+                  traceId:
                     type: string
-                    description: A string id that uniquely identifies the event. If not set, we will generate an id on the server side.
+                    description: The `traceId` associated with the log, if there is one.
+                  spanId:
+                    type: string
+                    description: The `spanId` associated with the log, if there is one.
                   type:
                     type: string
-                    description: |
-                      One of `Tracked`, `Signal`, or `Logged`.  
-                       - `Tracked` if you are sending an analytics event. 
-                       - `Signal` if you are sending an server error. 
-                       - `Logged` if you are sending a server log.
+                    description: | 
+                      Must be one of 
+                        - `FATAL`
+                        - `ERROR`
+                        - `WARN`
+                        - `INFO`
+                        - `DEBUG`
+                        - `TRACE`
                   value:
                     type: string
                     description: |
-                      The value of the event itself, as long as it is not a `Signal`. *For example*, if the event is:
-                       - `Tracked` type, you might be sending a value of the event a user completed, such as `Completed Onboarding`
-                       - `Logged` type, you might be sending the value of a log statement, such as `Hello world, I just got to this line`
-                      
-                      If this is a signal, do **NOT** set this field, we will compute it for you based on the `properties`.
-                      For `Signal` events, we use the `error` and `title` fields in `properties` to generate a group fingerprint for the issue.
+                      The value of the event. This may be something like `Opened App` or `Started Onboarding`. Label this as something that would
+                      cue you to know what the user was doing in this moment.
                   ts:
                     type: string
                     description: The timestamp of the event in JSON format (ie. `2023-11-25T13:08:50.782Z`)
-                  identity:
-                    type: object
-                    properties:
-                      UserId:
-                        type: string
-                        description: A unique identifier that you use to identify the user, often the database identifier.
-                      Email:
-                        type: string
-                        description: The email address of the user. We recommend passing this in if available since it makes it easier to match data across different datasets (such as support ticketing).
-                  properties:
+                  qty:
+                    type: number
+                    description: The number of times the log occurred. Default is 1.
+                    default: 1
+                  attributes:
                     type: object
                     description: A key, value pairing of arbitrary event metadata that is useful to tag to your event.
-                    properties:
-                      identity:
-                        type: object
-                        description: Extra information that helps identify the user such as name and group.
-                        properties:
-                          name:
-                            type: string
-                          group:
-                            type: string
-                      metadata:
-                        type: object
-                        description: An arbitrary map of extra metadata associated with the event.
-                      title:
-                        type: string
-                        description: |
-                          If this is a `Signal` type, the title of the error. 
-                          For example `NullPointerException: Value X does not exist`
-                      error:
-                        type: string
-                        description: The stacktrace of the error, if it is a `Signal` type.
-
+  /v2/spans:
+    post:
+      summary: Send a list of spans to PlayerZero
+      description: Spans are tasks that your code runs over a period of time (ie. a network / API call)
+      responses:
+        '204': # status code
+          description: Success, no content is expected in response
+      parameters:
+        - name: X-PzProd
+          in: header
+          schema:
+            type: boolean
+          description: Specifies whether this data is coming from a production source or not.
+          required: true
+        - name: X-PzBucket
+          in: header
+          schema:
+            type: string
+          description: The name of the dataset you'd like to associate this data to. Not required, but highly recommended.
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                required:
+                  - id
+                  - traceId
+                  - type
+                  - value
+                  - start
+                  - end
+                properties:
+                  id:
+                    type: string
+                    description: The `spanId`. A valid span id is an 8-byte array with at least one non-zero byte.
+                  traceId:
+                    type: string
+                    description: All spans must have a `traceId` attached to them.
+                  spanId:
+                    type: string
+                    description: |
+                      Spans can be organized in a tree structure. This property represents the id of the parent span, if one exists.
+                      A good example of where this hierarchy is useful is a database call made to service a REST API call from the client.
+                  type:
+                    type: string
+                    description: The type of the span call. For example, this could be `API`, `DB`, etc.
+                  value:
+                    type: string
+                    description: |
+                      The value of the span. For example this could be the route that was called, ie. `/api/user/name`
+                  start:
+                    type: string
+                    description: The start timestamp of the event in JSON format (ie. `2023-11-25T13:08:50.782Z`)
+                  end:
+                    type: string
+                    description: The end timestamp of the event in JSON format (ie. `2023-11-25T13:08:50.782Z`)
+                  error:
+                    type: string
+                    description: If an error occurred during this span, you may log the error here. For example this value could be `500 - NullPointerException`
