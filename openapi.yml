@@ -212,3 +212,6 @@ paths:
                   error:
                     type: string
                     description: If an error occurred during this span, you may log the error here. For example this value could be `500 - NullPointerException`
+                  properties:
+                    type: object
+                    description: Any properties you would like to attach to the span, structured as a string key value map.
