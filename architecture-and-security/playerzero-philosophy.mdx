@@ -44,7 +44,7 @@ building PlayerZero.
 #### Identity
 
 As we mentioned earlier, identity is a core part of what makes PlayerZero
-special. Wether you propagate your own application identity with
+special. Whether you propagate your own application identity with
 `playerzero.identify()` or you use our default anonymous identity, PlayerZero in
 the background is tracking the story of that identity over time, and comparing
 it live to the behavior of all of their peers. This means that if we take a
@@ -71,3 +71,10 @@ take an opinionated stance on this topic.
 **We believe that issues become important when they begin influencing a
 measurable change in your system's behavior. With analytics, we can measure that
 change, and with identity we can tell the story of that change.**
+
+#### Exclude Data
+
+We believe in keeping your data secure.  To exclude files from being ingested from
+your code repository into PlayerZero, please include a .pzignore file in repositories
+root directory with exclude patterns just like .gitignore.  See [MDX](https://www.w3schools.com/git/git_ignore.asp?remote=github "this")
+for examples of ignore statements.

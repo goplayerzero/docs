@@ -115,7 +115,6 @@
         {
           "group": "More",
           "pages": [
-          "connector/pm/adobe-workfront",
           "connector/pm/aha",
           "connector/pm/asana",
           "connector/pm/basecamp",
