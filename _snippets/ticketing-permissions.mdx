@@ -1,0 +1,51 @@
+## Ticketing Data
+Ticketing connectors require the following permissions and access the following data:
+
+### Tickets (Read only)
+The Ticket object is used to represent a ticket or a task within a system.
+- Assignees
+- Attachments
+- Completed Timestamp
+- Contact
+- Creator
+- Description
+- Due Date
+- Name
+- Parent Ticket
+- Priority
+- Remote Created Timestamp
+- Remote Updated Timestamp
+- Status
+- Ticket Type
+- Ticket URL
+### Comments (Read and write)
+The Comment object is used to represent a comment on a ticket.  Comment writing is currently
+under development and will need to be turned on in PlayerZero.
+- Body
+- Privacy
+- Remote Created Timestamp
+- Ticket
+- User
+### Attachments (Read only)
+The Attachment object is used to represent an attachment for a ticket.
+- Content Type
+- File Name
+- File URL
+- Remote Created Timestamp
+- Ticket
+### Contact (Read only)
+The Contact object is used to represent the customer, lead, or external user that a ticket is associated with.
+- Details
+- Email Address
+- Name
+- Phone Number
+### Users (Read only)
+The User object is used to represent an employee within a company.
+- Email Address
+- Is Active
+- Name
+- Teams
+### Teams (Read only)
+The Team object is used to represent a team within the company receiving the ticket.
+- Description
+- Name
