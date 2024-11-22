@@ -95,7 +95,10 @@
     },
     {
       "group": "Introduction",
-      "pages": ["connector/introduction"]
+      "pages": [
+        "connector/introduction",
+        "connector/docs"
+      ]
     },
     {
       "group": "Code",
