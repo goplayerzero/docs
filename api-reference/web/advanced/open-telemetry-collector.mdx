@@ -1,0 +1,88 @@
+---
+title: "Send Open Telemetry to multiple locations"
+---
+
+<Warning>
+This is only necessary if a team wants to send Open Telemetry data to multiple places,
+  such as a cloud provider or logging service and PlayerZero
+</Warning>
+
+PlayerZero uses Open Telemetry, an open standard for telemetry data, to collect data
+about your users and issues.  Sometimes teams have other tools that also use Open
+Telemetry data, such as Graphana.  But Open Telemetry only sends data to a single place.
+
+To solve this problem, users can run an Open Telemetry Collector, which can be configured
+to send data to multiple places, using multiple protocols.
+
+Instructions to run the Open Telemetry Collector are [here](https://opentelemetry.io/docs/collector/).
+
+Here is an example Open Telemetry config.yaml, that it set up to receive messages in http protobuf format, then send
+to PlayerZero, plus GCP
+```yaml
+receivers:
+  otlp/rdev:
+    protocols:
+      http:
+        endpoint: 0.0.0.0:4318
+  otlp/rprod:
+    protocols:
+      http:
+        endpoint: 0.0.0.0:4319
+
+processors:
+# These are optional, but recommended
+  batch:
+    # batch metrics before sending to reduce API usage
+    send_batch_max_size: 200
+    send_batch_size: 200
+    timeout: 5s
+  memory_limiter:
+    # drop metrics if memory usage gets too high
+    check_interval: 1s
+    limit_percentage: 65
+    spike_limit_percentage: 20
+# Example of GCP
+  resourcedetection:
+    detectors: [gcp]
+    timeout: 10s
+
+exporters:
+  otlphttp/dev:
+    endpoint: https://sdk.playerzero.app/otlp
+    headers:
+      Authorization: "Bearer <Your API token here>"
+      X-PzProd: "false"
+    encoding: proto
+
+  otlphttp/prod:
+    endpoint: https://sdk.playerzero.app/otlp
+    headers:
+      Authorization: "Bearer <Your API token here>"
+      X-PzProd: "true"
+    encoding: proto
+
+# Example of gcp, more is likely needed
+  googlemanagedprometheus:
+
+service:
+  processors: [batch, memory_limiter, resourcedetection]
+  pipelines:
+    traces:
+      receivers: [otlp/rdev]
+      exporters: [otlphttp/dev, googlemanagedprometheus]
+    metrics:
+      receivers: [otlp/rdev]
+      exporters: [otlphttp/dev, googlemanagedprometheus]
+    logs:
+      receivers: [otlp/rdev]
+      exporters: [otlphttp/dev, googlemanagedprometheus]
+    traces/prod:
+      receivers: [otlp/rprod]
+      exporters: [otlphttp/prod, googlemanagedprometheus]
+    metrics/prod:
+      receivers: [otlp/rprod]
+      exporters: [otlphttp/prod, googlemanagedprometheus]
+    logs/prod:
+      receivers: [otlp/rprod]
+      exporters: [otlphttp/prod, googlemanagedprometheus]
+```
