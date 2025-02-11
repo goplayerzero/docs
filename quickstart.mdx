@@ -1,67 +1,40 @@
 ---
-title: "Quickstart"
-description: "The fastest way to get to the magic and understand what's happening."
+title: "Connect Your Codebase"
+description: "Follow these steps to connect your repository and get started with PlayerZero."
 ---
 
-## Goal
-PlayerZero is an engineering platform that can help you manage your releases.
-Our AI learns the relationship between the code that's being written to its product and customer impact.
-This helps answer two simple questions:
-1. What are the most important problems I need to fix now?
-2. How do I make sure they never happen again?
+# Connect Your Codebase
 
-By the end of this setup, we'll be able to answer both.
+Connecting your code repository is the only step required to activate PlayerZero’s AI-powered debugging and predictive insights.
 
-## How it works (in short)
-PlayerZero's magic is in the data it can bring together to create deep efficiencies for the way we do leveraged tasks like
-code reviews and release monitoring. At a high level, here's what we're doing and how we're doing it.
+## How It Works
 
 <Steps>
-    <Step title="Connect your codebase">
-        We've built connections into the key platforms modern engineering teams use to build products.
-        To start, **PlayerZero integrates into code repositories** using GitHub, Azure, Gitlab, Bitbucket and other git repositories to listen
-        for Pull Request (PR) and Merge Request (MR) changes. We model an index of your codebase and how it changes over time.
-    </Step>
-    <Step title="Connect your customer and operational data">
-        Then, we import your product and customer data. Depending on your stack, this might be a combination of one or more platforms.
-        We have first party, API integrations into platforms like:
-        - **Product Management** (Linear, Jira, Azure DevOps, GitLab, and more)
-        - **Customer Ticketing** (Zendesk, Salesforce, Intercom, Jira Service, Front, and *dozens* more)
-        - **Analytics** (Amplitude, Mixpanel, and our own custom SDKs)
-
-        This data enables PlayerZero to augment the code change index we built in the previous step with operational and customer data. For example, we can find a relationship that says
-        "when you change `X` code, `Y` problem tends to happen, and `Z` number of users complained about it last time".
-    </Step>
-    <Step title="Send errors and system telemetry data">
-        Finally, PlayerZero can also capture system errors and issues to provide even more clarity into the context and scope of issues happening after code releases.
-        To capture this data we have our own custom sdks (such as our Web SDK) and integrations into providers like OpenTelemetry, Datadog, and Sentry.
-    </Step>
-    <Step title="Train the PlayerZero model (and begin!)">
-        Give PlayerZero a few hours to import your data and train our models to train an integrated model and then let's get started.
-    </Step>
+  <Step title="Choose Your Repository">
+    PlayerZero integrates with popular code repositories such as GitHub, Azure, GitLab, Bitbucket, and more.
+    Select the platform you use to host your code.
+  </Step>
+  <Step title="Authorize Access">
+    Grant PlayerZero read access to your repository. This allows us to monitor pull requests, merge requests, and code changes.
+  </Step>
+  <Step title="Start Monitoring">
+    Once connected, our system immediately begins indexing your code changes and correlates them with production issues.
+  </Step>
 </Steps>
 
+## Prerequisites
 
-## Setup
-Now in more detail.
-### Prerequisites
-1. A PlayerZero account. You can get started with a free trial account.
-2. Sufficient permissions to provide read access to your git repository and ticketing system.
+1. A PlayerZero account (free trial available).
+2. Appropriate permissions to grant read access to your repository (e.g., OAuth or Personal Access Tokens).
 
-### Connect your codebase
+## What Happens Next?
 
-### Connect your product management tool
+After connecting your codebase, you can optionally enhance your setup by integrating:
+- **Customer & Operational Data:** Tools like Jira, Zendesk, or Salesforce.
+- **Telemetry Data:** Integrations with Datadog, Sentry, or OpenTelemetry.
+- **Web SDK:** To capture client-side context and errors.
 
-### Connect an external ticketing tool (if applicable)
+But remember – **connecting your codebase is all you need to get started.**
 
-### Add the Web SDK (web products only)
-If you have a web product, we highly recommend adding in the PlayerZero web sdk. It's a one line javascript snippet
-that automatically captures customer context, analytics, and errors on the client side. This helps bootstrap our models quickly and provide complete debugging context
-for new issues. [You can find the instructions to implement the web sdk here](/api-reference/web/web-sdk).
+[Back to Home](/introduction)
 
-If you don't have a web product, you can skip this step!
-
-### Forward server side logs (advanced)
-Similar to how the web-sdk can capture client side exceptions and context, PlayerZero also support capturing server side context.
-If you're using a product like Datadog or Sentry we can directly integrate into those.
-Otherwise, we have our own custom node.js SDK and an integration into Open Telemetry.
