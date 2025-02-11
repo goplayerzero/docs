@@ -42,180 +42,195 @@
             ]
         },
         {
-            "group": "Web Applications",
+            "group": "Advanced Docs",
             "pages": [
-                "api-reference/web/web-sdk",
                 {
-                    "group": "Setup",
+                    "group": "Web Applications",
                     "pages": [
-                        "api-reference/web/setup/npm",
-                        "api-reference/web/setup/script-tag",
-                        "api-reference/web/setup/segment"
-                    ]
-                },
-                "api-reference/web/domain-controls",
-                "api-reference/web/performance",
-                {
-                    "group": "Advanced",
-                    "pages": [
-                        "api-reference/web/advanced/shareable-devtools",
-                        "api-reference/web/advanced/build-a-custom-styled-button",
-                        "api-reference/web/advanced/network-calls-fix",
-                        "api-reference/web/advanced/open-telemetry-collector"
-                    ]
-                }
-            ]
-        },
-        {
-            "group": "Open Telemetry",
-            "pages": [
-                "api-reference/open-telemetry/setup",
-                {
-                    "group": "Recipes",
-                    "pages": [
-                        "api-reference/open-telemetry/recipe/java",
-                        "api-reference/open-telemetry/recipe/node",
+                        "api-reference/web/web-sdk",
                         {
-                            "group": "Datadog Traces Integration",
+                            "group": "Setup",
                             "pages": [
-                                "api-reference/open-telemetry/recipe/datadog-traces-integration/index",
-                                "api-reference/open-telemetry/recipe/datadog-traces-integration/dual-shipping",
-                                "api-reference/open-telemetry/recipe/datadog-traces-integration/single-destination",
-                                "api-reference/open-telemetry/recipe/datadog-traces-integration/sdk-forwarding",
-                                "api-reference/open-telemetry/recipe/datadog-traces-integration/otel-collector"
+                                "api-reference/web/setup/npm",
+                                "api-reference/web/setup/script-tag",
+                                "api-reference/web/setup/segment"
+                            ]
+                        },
+                        "api-reference/web/domain-controls",
+                        "api-reference/web/performance",
+                        {
+                            "group": "Advanced",
+                            "pages": [
+                                "api-reference/web/advanced/shareable-devtools",
+                                "api-reference/web/advanced/build-a-custom-styled-button",
+                                "api-reference/web/advanced/network-calls-fix",
+                                "api-reference/web/advanced/open-telemetry-collector"
                             ]
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "group": "Architecture & Security",
-            "pages": [
-                "architecture-and-security/playerzero-philosophy",
-                "architecture-and-security/byob"
-            ]
-        },
-        {
-            "group": "Observability API",
-            "pages": [
-                "api-reference/tracks",
-                "api-reference/logs",
-                "api-reference/spans"
-            ]
-        },
-        {
-            "group": "Introduction",
-            "pages": [
-                "connector/introduction",
-                "connector/docs"
-            ]
-        },
-        {
-            "group": "Code",
-            "pages": [
-                "connector/code/github",
-                "connector/code/azure",
-                "connector/code/bitbucket"
-            ]
-        },
-        {
-            "group": "Project Management",
-            "pages": [
-                "connector/pm/jira",
-                "connector/pm/linear",
-                "connector/pm/azure-devops",
-                "connector/pm/gitlab",
+                },
                 {
-                    "group": "More",
+                    "group": "Open Telemetry",
                     "pages": [
-                        "connector/pm/aha",
-                        "connector/pm/asana",
-                        "connector/pm/basecamp",
-                        "connector/pm/clickup",
-                        "connector/pm/height",
-                        "connector/pm/hive",
-                        "connector/pm/pivotal-tracker",
-                        "connector/pm/rally",
-                        "connector/pm/trello",
-                        "connector/pm/wrike",
-                        "connector/pm/zoho-desk"
+                        "api-reference/open-telemetry/setup",
+                        {
+                            "group": "Recipes",
+                            "pages": [
+                                "api-reference/open-telemetry/recipe/java",
+                                "api-reference/open-telemetry/recipe/node",
+                                {
+                                    "group": "Datadog Traces Integration",
+                                    "pages": [
+                                        "api-reference/open-telemetry/recipe/datadog-traces-integration/index",
+                                        "api-reference/open-telemetry/recipe/datadog-traces-integration/dual-shipping",
+                                        "api-reference/open-telemetry/recipe/datadog-traces-integration/single-destination",
+                                        "api-reference/open-telemetry/recipe/datadog-traces-integration/sdk-forwarding",
+                                        "api-reference/open-telemetry/recipe/datadog-traces-integration/otel-collector"
+                                    ]
+                                }
+                            ]
+                        }
                     ]
-                }
-            ]
-        },
-        {
-            "group": "Customer Tickets",
-            "pages": [
-                "connector/ticketing/zendesk",
-                "connector/ticketing/intercom",
-                "connector/ticketing/salesforce",
-                "connector/ticketing/jira-service",
-                "connector/ticketing/front",
+                },
                 {
-                    "group": "More",
+                    "group": "Architecture & Security",
                     "pages": [
-                        "connector/ticketing/dixa",
-                        "connector/ticketing/freshdesk",
-                        "connector/ticketing/freshservice",
-                        "connector/ticketing/front",
-                        "connector/ticketing/gladly",
-                        "connector/ticketing/gorgias",
-                        "connector/ticketing/helpscout",
-                        "connector/ticketing/kustomer",
-                        "connector/ticketing/re-amaze",
-                        "connector/ticketing/servicenow",
-                        "connector/ticketing/shortcut",
-                        "connector/ticketing/spotdraft",
-                        "connector/ticketing/teamwork",
-                        "connector/ticketing/zoho-bugtracker"
+                        "architecture-and-security/playerzero-philosophy",
+                        "architecture-and-security/byob"
                     ]
-                }
-            ]
-        },
-        {
-            "group": "Telemetry",
-            "pages": [
-                "connector/engineering/aws-cloudwatch",
-                "connector/engineering/datadog",
-                "connector/engineering/opentelemtry",
-                "connector/engineering/sentry"
-            ]
-        },
-        {
-            "group": "Analytics",
-            "pages": [
-                "connector/analytics/amplitude",
-                "connector/analytics/mixpanel",
-                "connector/analytics/segment",
-                "connector/analytics/web-sdk"
-            ]
-        },
-        {
-            "group": "CRM",
-            "pages": [
-                "connector/crm/dynamics365",
-                "connector/crm/hubspot",
-                "connector/crm/pipedrive",
-                "connector/crm/salesforce",
+                },
                 {
-                    "group": "More",
+                    "group": "Observability API",
                     "pages": [
-                        "connector/crm/accelo",
-                        "connector/crm/active-campaign",
-                        "connector/crm/capsule",
-                        "connector/crm/close",
-                        "connector/crm/copper",
-                        "connector/crm/insightly",
-                        "connector/crm/keap",
-                        "connector/crm/nutshell",
-                        "connector/crm/pipeliner",
-                        "connector/crm/salesflare",
-                        "connector/crm/sugarcrm",
-                        "connector/crm/teamleader",
-                        "connector/crm/vtiger",
-                        "connector/crm/zendesk-sell",
-                        "connector/crm/zoho-crm"
+                        "api-reference/tracks",
+                        "api-reference/logs",
+                        "api-reference/spans"
+                    ]
+                },
+                {
+                    "group": "Connectors & Integrations",
+                    "pages": [
+                        {
+                            "group": "Overview",
+                            "pages": [
+                                "connector/introduction",
+                                "connector/docs"
+                            ]
+                        },
+                        {
+                            "group": "Code",
+                            "pages": [
+                                "connector/code/github",
+                                "connector/code/azure",
+                                "connector/code/bitbucket"
+                            ]
+                        },
+                        {
+                            "group": "Project Management",
+                            "pages": [
+                                "connector/pm/jira",
+                                "connector/pm/linear",
+                                "connector/pm/azure-devops",
+                                "connector/pm/gitlab",
+                                {
+                                    "group": "More",
+                                    "pages": [
+                                        "connector/pm/aha",
+                                        "connector/pm/asana",
+                                        "connector/pm/basecamp",
+                                        "connector/pm/clickup",
+                                        "connector/pm/height",
+                                        "connector/pm/hive",
+                                        "connector/pm/pivotal-tracker",
+                                        "connector/pm/rally",
+                                        "connector/pm/trello",
+                                        "connector/pm/wrike",
+                                        "connector/pm/zoho-desk"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "group": "Customer Tickets",
+                            "pages": [
+                                "connector/ticketing/zendesk",
+                                "connector/ticketing/intercom",
+                                "connector/ticketing/salesforce",
+                                "connector/ticketing/jira-service",
+                                "connector/ticketing/front",
+                                {
+                                    "group": "More",
+                                    "pages": [
+                                        "connector/ticketing/dixa",
+                                        "connector/ticketing/freshdesk",
+                                        "connector/ticketing/freshservice",
+                                        "connector/ticketing/front",
+                                        "connector/ticketing/gladly",
+                                        "connector/ticketing/gorgias",
+                                        "connector/ticketing/helpscout",
+                                        "connector/ticketing/kustomer",
+                                        "connector/ticketing/re-amaze",
+                                        "connector/ticketing/servicenow",
+                                        "connector/ticketing/shortcut",
+                                        "connector/ticketing/spotdraft",
+                                        "connector/ticketing/teamwork",
+                                        "connector/ticketing/zoho-bugtracker"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "group": "Telemetry & Analytics",
+                            "pages": [
+                                {
+                                    "group": "Telemetry",
+                                    "pages": [
+                                        "connector/engineering/aws-cloudwatch",
+                                        "connector/engineering/datadog",
+                                        "connector/engineering/opentelemtry",
+                                        "connector/engineering/sentry"
+                                    ]
+                                },
+                                {
+                                    "group": "Analytics",
+                                    "pages": [
+                                        "connector/analytics/amplitude",
+                                        "connector/analytics/mixpanel",
+                                        "connector/analytics/segment",
+                                        "connector/analytics/web-sdk"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "group": "CRM",
+                            "pages": [
+                                "connector/crm/dynamics365",
+                                "connector/crm/hubspot",
+                                "connector/crm/pipedrive",
+                                "connector/crm/salesforce",
+                                {
+                                    "group": "More",
+                                    "pages": [
+                                        "connector/crm/accelo",
+                                        "connector/crm/active-campaign",
+                                        "connector/crm/capsule",
+                                        "connector/crm/close",
+                                        "connector/crm/copper",
+                                        "connector/crm/insightly",
+                                        "connector/crm/keap",
+                                        "connector/crm/nutshell",
+                                        "connector/crm/pipeliner",
+                                        "connector/crm/salesflare",
+                                        "connector/crm/sugarcrm",
+                                        "connector/crm/teamleader",
+                                        "connector/crm/vtiger",
+                                        "connector/crm/zendesk-sell",
+                                        "connector/crm/zoho-crm"
+                                    ]
+                                }
+                            ]
+                        }
                     ]
                 }
             ]
