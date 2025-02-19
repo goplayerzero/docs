@@ -5,23 +5,12 @@ description: "Configure your repository to exclude sensitive or unnecessary file
 
 ## Introduction
 
-A `.pzignore` file is placed in the root directory of your repository to exclude specific files or folders from PlayerZero’s code ingestion process. This works similarly to a `.gitignore` file, allowing you to specify patterns of files that PlayerZero should ignore.
+A `.pzignore` file is placed in the root directory of your repository to exclude specific files or folders from PlayerZero’s code ingestion process. This works similarly to a `.gitignore` file, allowing you to specify patterns of files that PlayerZero should ignore. Since `.pzignore` is derived from `.gitignore`, you don’t need to duplicate exclusions already covered by `.gitignore`.
 
 ### Why Use `.pzignore`?
 
-1. **Security**  
-   - Prevents secrets or credentials from being analyzed  
-   - Excludes configuration files with tokens, keys, or personal data  
-   - Protects private encryption keys
-
-2. **Performance**  
-   - Skips large binary files and build artifacts  
-   - Ignores bulky generated files that add no debugging value
-
-3. **Noise Reduction**  
-   - Excludes temporary or backup files  
-   - Skips local development files or third-party dependencies  
-   - Keeps the code analysis focused on relevant source files
+- Security: Prevents analysis of secrets, credentials, and private data.
+- Performance: Skips large binaries, build artifacts, and unnecessary generated files.
 
 ## How to Implement `.pzignore`
 
@@ -34,14 +23,9 @@ A `.pzignore` file is placed in the root directory of your repository to exclude
 3. **Commit the file**  
    Commit `.pzignore` to your repository. PlayerZero will automatically detect and honor these patterns on subsequent ingestions.
 
-4. **Maintain regularly**  
-   - Review and update `.pzignore` as your repository evolves  
-   - Remove unused patterns to keep the file concise  
-   - Add new patterns for newly introduced sensitive files or folders
-
 ## Example: `.pzignore` File
 
-Below is a sample `.pzignore` file that demonstrates common exclusions. Feel free to customize or expand patterns to meet your specific needs.
+Below is a sample `.pzignore` file that demonstrates common exclusions. Customize and expand this file to meet your specific needs.
 
 ```plaintext
 # .pzignore
@@ -53,42 +37,7 @@ secrets/
 private_key.pem
 *.pfx
 **/auth/tokens.json
-
-# Build and dependencies
-node_modules/
-dist/
-build/
-*.min.js
-vendor/
-
-# Generated files
-*.generated.ts
-swagger.json
-coverage/
-.nyc_output/
-
-# Large data files
-*.csv
-*.parquet
-*.gz
-*.zip
-data/backups/
-
-# Local development
-.idea/
-.vscode/
-*.local
-.DS_Store
 ```
-
-### Best Practices
-
-- **Start with security**: Immediately exclude any known secret or private key files.  
-- **Document your ignores**: Use comments to explain why certain patterns are there.  
-- **Review regularly**: Each time you introduce a new technology or store new data in your repo, check if `.pzignore` needs to be updated.  
-- **Educate your team**: Make sure everyone on your team understands how `.pzignore` helps safeguard sensitive files and reduce noise in PlayerZero.
-
 ---
 
-By effectively using `.pzignore`, you ensure that PlayerZero focuses on the code and files that truly matter while maintaining both security and performance in your development workflow.
-
+Using `.pzignore` ensures that only relevant code is analyzed, enhancing security and performance in your development workflow.
