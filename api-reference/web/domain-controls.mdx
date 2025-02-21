@@ -1,35 +1,32 @@
 ---
 title: "Configuration"
 description:
-  "PlayerZero can be configured at the domain level so you can control what we
-  capture and what we don't."
+  "PlayerZero is configured at the domain level allowing you to control what is and isn't captured."
 ---
 
 ### Where is this?
 
 You can explore these controls on the
-[Settings > Web Config](https://go.playerzero.app/setting/web) page of your
-project. You'll see a page that looks something like this:
+[Settings > Web SDK](https://go.playerzero.app/setting/web) page of your
+project. You'll see a page that looks like this:
 
-![SDK Configuration](/images/8c18356-Screen_Shot_2022-10-19_at_1.49.18_PM.png)
+![SDK Configuration](/images/web-sdk-domain-configuration.png)
 
 ### Domain Level Controls
 
-Each added domain has three toggles.
+Each added domain has four toggles and a Dataset field.
 
 1. **Enabled** \- If this is off, the recorder will be completely disabled for
    that particular domain.
-2. **Show Share Devtools Button** \- By default this is on for localhost to
+2. **Production** \- This toggle labels events with a production flag.
+3. **Show 'Share Devtools' Button** \- By default this is on for localhost to
    enable easy sharing and off everywhere else. If you want to have a button
    built into your own site to prompt a share, you can use the Javascript API
    `playerzero.prompt()` call. `Ctrl + K` works everywhere however.
-3. **Monitoring** \- If monitoring is off, it means that we won't capture any
-   errors or product analytics events from that domain. By default we have this
-   on everywhere except localhost, since local development on `localhost` tends
-   to generate a lot of unnecessary noise. We recommend having monitoring on for
-   your production and staging environments, and off everywhere else.
+4. **Enable OpenTelemetry Integration** \- If monitoring is off, it means that we won't capture any errors or product analytics events from that domain. By default we have this on everywhere except localhost, since local development on `localhost` tends to generate a lot of unnecessary noise. We recommend having monitoring on for your production and staging environments, and off everywhere else.
+5. **Dataset** \- This field sets the Dataset value that's captured with events in the browser.
 
-You can also **add a domain** as well to configure these three levers in your
+You can also **add a domain** as well to configure these five properties in your
 own way. (Glob patterns are supported to wildcard match subdomains)
 
 <Warning>
@@ -46,7 +43,7 @@ own way. (Glob patterns are supported to wildcard match subdomains)
 
 At PlayerZero here's how we've set up our environments.
 
-![](/images/Screen_Shot_2022-10-19_at_2.00.40_PM.png)
+![](/images/web-sdk-domain-configuration-pz.png)
 
 **Here's why:**
 
@@ -60,7 +57,7 @@ At PlayerZero here's how we've set up our environments.
    subdomains of `*.playerzero.app`. Therefore when we're testing our code we
    want easy shareability of devtools with the button, and monitoring since our
    QA environments are relatively stable.
-4. **Domain 3: `All other domains`** Well, we don't have any deployments outside
+4. **Domain 4: `All other domains`** Well, we don't have any deployments outside
    of our main domain, so we don't want to capture any data from outside of our
    domains.
 
