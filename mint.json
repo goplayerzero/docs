@@ -23,12 +23,12 @@
             "url": "connector"
         },
         {
-            "name": "Recipes",
-            "url": "test"
-        },
-        {
             "name": "PlayerZero Prompting",
             "url": "prompt"
+        },
+        {
+            "name": "Recipes",
+            "url": "test"
         }
     ],
     "topbarCtaButton": {
@@ -52,12 +52,12 @@
         {
             "group": "PlayerZero Architect",
             "pages": [
-                "Architectural Analysis",
                 "Defect Resolution",
-                "Technical Documentation",
+                "Tracing, Logs, and Telemetry",
+                "Architectural Analysis",
                 "Engineer Onboarding",
                 "Pull Request Review",
-                "Tracing, Logs, and Telemetry",
+                "Technical Documentation",
                 "Breaking Down Complexity",
                 "Downstream Changes"
             ]
