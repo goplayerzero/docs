@@ -19,8 +19,16 @@
     },
     "tabs": [
         {
-            "name": "Data Connectors",
+            "name": "API Reference",
             "url": "connector"
+        },
+        {
+            "name": "Recipes",
+            "url": "test"
+        },
+        {
+            "name": "PlayerZero Prompting",
+            "url": "prompt"
         }
     ],
     "topbarCtaButton": {
@@ -35,71 +43,35 @@
     ],
     "navigation": [
         {
-            "group": "Home",
+            "group": "Getting Started",
             "pages": [
                 "introduction",
                 "quickstart"
             ]
         },
         {
-            "group": "Web Applications",
+            "group": "PlayerZero Architect",
             "pages": [
-                "api-reference/web/web-sdk",
-                {
-                    "group": "Setup",
-                    "pages": [
-                        "api-reference/web/setup/npm",
-                        "api-reference/web/setup/script-tag",
-                        "api-reference/web/setup/segment"
-                    ]
-                },
-                "api-reference/web/domain-controls",
-                "api-reference/web/performance",
-                {
-                    "group": "Advanced",
-                    "pages": [
-                        "api-reference/web/advanced/shareable-devtools",
-                        "api-reference/web/advanced/build-a-custom-styled-button",
-                        "api-reference/web/advanced/network-calls-fix",
-                        "api-reference/web/advanced/open-telemetry-collector"
-                    ]
-                }
+                "Architectural Analysis",
+                "Defect Resolution",
+                "Technical Documentation",
+                "Engineer Onboarding",
+                "Pull Request Review",
+                "Tracing, Logs, and Telemetry",
+                "Breaking Down Complexity",
+                "Downstream Changes"
             ]
         },
         {
-            "group": "Open Telemetry",
+            "group": "Data Sources",
             "pages": [
-                "api-reference/open-telemetry/setup",
-                {
-                    "group": "Recipes",
-                    "pages": [
-                        "api-reference/open-telemetry/recipe/java",
-                        "api-reference/open-telemetry/recipe/node"
-                    ]
-                }
-            ]
-        },
-        {
-            "group": "Architecture & Security",
-            "pages": [
-                "architecture-and-security/pzignore",
-                "architecture-and-security/playerzero-philosophy",
-                "architecture-and-security/byob"
-            ]
-        },
-        {
-            "group": "Observability API",
-            "pages": [
-                "api-reference/tracks",
-                "api-reference/logs",
-                "api-reference/spans"
-            ]
-        },
-        {
-            "group": "Introduction",
-            "pages": [
-                "connector/introduction",
-                "connector/docs"
+                "Code Repositories",
+                "OpenTelemetry",
+                "Tickets",
+                "Pull Requests",
+                "User Sessions",
+                "Documentation",
+                "IDE Integration"
             ]
         },
         {
@@ -209,6 +181,33 @@
                         "connector/crm/zoho-crm"
                     ]
                 }
+            ]
+        },
+        {
+            "group": "Recipes",
+            "pages": [
+                "test/NodeJs",
+                "test/Java",
+                "test/Go",
+                "test/Elixer",
+                "test/DotNet"
+            ]
+        },
+        {
+            "group": "PlayerZero Prompting",
+            "pages": [
+                "prompt/prompt",
+                "prompt/Learning-Your-Codebase",
+                "prompt/Troubleshooting-Bugs-With-Logs",
+                "prompt/Understanding-Code-Architecture",
+                "prompt/Exploring-API-Endpoints",
+                "prompt/Tracking-Data-Flow",
+                "prompt/Debugging-Performance-Issues",
+                "prompt/Refactoring-Legacy-Code",
+                "prompt/Generating-Unit-Tests",
+                "prompt/Identifying-Security-Risks",
+                "prompt/Optimizing-Database-Queries",
+                "prompt/Automating-Documentation"
             ]
         }
     ],

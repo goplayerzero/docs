@@ -1,0 +1,19 @@
+/* Force two column layout for cards in the content area */
+#content-area .grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 1rem !important;
+}
+
+/* Ensure responsive behavior for mobile */
+@media (max-width: 768px) {
+  #content-area .grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Target specific cards to ensure proper width */
+#content-area .grid > div {
+  width: 100% !important;
+  max-width: 100% !important;
+}
