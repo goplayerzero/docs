@@ -67,9 +67,9 @@
                         ]
                     },
                     {
-                        "group": "Microsoft Teams Integration",
+                        "group": "Third Party Integrations",
                         "pages": [
-                            "api-reference/microsoft-teams/teams-integration"
+                            "api-reference/integrations/microsoft-teams"
                         ]
                     },
                     {
