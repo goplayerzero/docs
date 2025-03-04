@@ -1,251 +1,257 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "PlayerZero",
-  "colors": {
-    "primary": "#030712",
-    "light": "#fafafa",
-    "dark": "#030712"
-  },
-  "favicon": "/favicon.svg",
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Documentation",
-        "groups": [
-          {
-            "group": "Home",
-            "pages": [
-              "introduction",
-              "quickstart"
-            ]
-          },
-          {
-            "group": "Web Applications",
-            "pages": [
-              "api-reference/web/web-sdk",
-              {
-                "group": "Setup",
-                "pages": [
-                  "api-reference/web/setup/npm",
-                  "api-reference/web/setup/script-tag",
-                  "api-reference/web/setup/segment"
-                ]
-              },
-              "api-reference/web/domain-controls",
-              "api-reference/web/performance",
-              {
-                "group": "Advanced",
-                "pages": [
-                  "api-reference/web/advanced/shareable-devtools",
-                  "api-reference/web/advanced/build-a-custom-styled-button",
-                  "api-reference/web/advanced/network-calls-fix",
-                  "api-reference/web/advanced/open-telemetry-collector"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Open Telemetry",
-            "pages": [
-              "api-reference/open-telemetry/setup",
-              {
-                "group": "Recipes",
-                "pages": [
-                  "api-reference/open-telemetry/recipe/java",
-                  "api-reference/open-telemetry/recipe/node"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Architecture & Security",
-            "pages": [
-              "architecture-and-security/pzignore",
-              "architecture-and-security/playerzero-philosophy",
-              "architecture-and-security/byob"
-            ]
-          },
-          {
-            "group": "Observability API",
-            "pages": [
-              "api-reference/tracks",
-              "api-reference/logs",
-              "api-reference/spans"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Data Connectors",
-        "groups": [
-          {
-            "group": "Introduction",
-            "pages": [
-              "connector/introduction",
-              "connector/docs"
-            ]
-          },
-          {
-            "group": "Code",
-            "pages": [
-              "connector/code/github",
-              "connector/code/azure",
-              "connector/code/bitbucket"
-            ]
-          },
-          {
-            "group": "Project Management",
-            "pages": [
-              "connector/pm/jira",
-              "connector/pm/linear",
-              "connector/pm/azure-devops",
-              "connector/pm/gitlab",
-              {
-                "group": "More",
-                "pages": [
-                  "connector/pm/aha",
-                  "connector/pm/asana",
-                  "connector/pm/basecamp",
-                  "connector/pm/clickup",
-                  "connector/pm/height",
-                  "connector/pm/hive",
-                  "connector/pm/pivotal-tracker",
-                  "connector/pm/rally",
-                  "connector/pm/trello",
-                  "connector/pm/wrike",
-                  "connector/pm/zoho-desk"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Customer Tickets",
-            "pages": [
-              "connector/ticketing/zendesk",
-              "connector/ticketing/intercom",
-              "connector/ticketing/salesforce",
-              "connector/ticketing/jira-service",
-              "connector/ticketing/front",
-              {
-                "group": "More",
-                "pages": [
-                  "connector/ticketing/dixa",
-                  "connector/ticketing/freshdesk",
-                  "connector/ticketing/freshservice",
-                  "connector/ticketing/front",
-                  "connector/ticketing/gladly",
-                  "connector/ticketing/gorgias",
-                  "connector/ticketing/helpscout",
-                  "connector/ticketing/kustomer",
-                  "connector/ticketing/re-amaze",
-                  "connector/ticketing/servicenow",
-                  "connector/ticketing/shortcut",
-                  "connector/ticketing/spotdraft",
-                  "connector/ticketing/teamwork",
-                  "connector/ticketing/zoho-bugtracker"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Telemetry",
-            "pages": [
-              "connector/engineering/aws-cloudwatch",
-              "connector/engineering/datadog",
-              "connector/engineering/opentelemtry",
-              "connector/engineering/sentry"
-            ]
-          },
-          {
-            "group": "Analytics",
-            "pages": [
-              "connector/analytics/amplitude",
-              "connector/analytics/mixpanel",
-              "connector/analytics/segment",
-              "connector/analytics/web-sdk"
-            ]
-          },
-          {
-            "group": "CRM",
-            "pages": [
-              "connector/crm/dynamics365",
-              "connector/crm/hubspot",
-              "connector/crm/pipedrive",
-              "connector/crm/salesforce",
-              {
-                "group": "More",
-                "pages": [
-                  "connector/crm/accelo",
-                  "connector/crm/active-campaign",
-                  "connector/crm/capsule",
-                  "connector/crm/close",
-                  "connector/crm/copper",
-                  "connector/crm/insightly",
-                  "connector/crm/keap",
-                  "connector/crm/nutshell",
-                  "connector/crm/pipeliner",
-                  "connector/crm/salesflare",
-                  "connector/crm/sugarcrm",
-                  "connector/crm/teamleader",
-                  "connector/crm/vtiger",
-                  "connector/crm/zendesk-sell",
-                  "connector/crm/zoho-crm"
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  "logo": {
-    "light": "/logo/light-logo.svg",
-    "dark": "/logo/dark-logo.svg"
-  },
-  "api": {
-    "openapi": [
-      "openapi.yml"
-    ],
-    "mdx": {
-      "server": "https://sdk.playerzero.app",
-      "auth": {
-        "method": "bearer"
-      }
-    }
-  },
-  "background": {
-    "color": {
-      "dark": "#09090b"
-    }
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Request Demo",
-        "href": "https://www.playerzero.ai/book-demo"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Login",
-      "href": "https://go.playerzero.app/"
-    }
-  },
-  "footer": {
-    "socials": {
-      "website": "https://www.playerzero.ai/",
-      "linkedin": "https://www.linkedin.com/company/playerzero/",
-      "twitter": "https://twitter.com/goplayerzero",
-      "slack": "https://playerzerocom-uhb1146.slack.com/join/shared_invite/zt-1i4nsidth-bmObDACsU_Ci8Lw2ttExXg#/shared-invite/email"
-    }
-  },
-  "integrations": {
-    "gtm": {
-      "tagId": "GTM-5T6DH5S"
+    "$schema": "https://mintlify.com/docs.json",
+    "theme": "mint",
+    "name": "PlayerZero",
+    "colors": {
+        "primary": "#030712",
+        "light": "#fafafa",
+        "dark": "#030712"
     },
-    "posthog": {
-      "apiKey": "phc_ARRFxqzeoII9b01gH5R3P0xhM8E565ZNmwo9I3N2Bxh"
+    "favicon": "/favicon.svg",
+    "navigation": {
+        "tabs": [
+            {
+                "tab": "Documentation",
+                "groups": [
+                    {
+                        "group": "Home",
+                        "pages": [
+                            "introduction",
+                            "quickstart"
+                        ]
+                    },
+                    {
+                        "group": "Web Applications",
+                        "pages": [
+                            "api-reference/web/web-sdk",
+                            {
+                                "group": "Setup",
+                                "pages": [
+                                    "api-reference/web/setup/npm",
+                                    "api-reference/web/setup/script-tag",
+                                    "api-reference/web/setup/segment"
+                                ]
+                            },
+                            "api-reference/web/domain-controls",
+                            "api-reference/web/performance",
+                            {
+                                "group": "Advanced",
+                                "pages": [
+                                    "api-reference/web/advanced/shareable-devtools",
+                                    "api-reference/web/advanced/build-a-custom-styled-button",
+                                    "api-reference/web/advanced/network-calls-fix",
+                                    "api-reference/web/advanced/open-telemetry-collector"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "group": "Open Telemetry",
+                        "pages": [
+                            "api-reference/open-telemetry/setup",
+                            {
+                                "group": "Recipes",
+                                "pages": [
+                                    "api-reference/open-telemetry/recipe/java",
+                                    "api-reference/open-telemetry/recipe/node"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "group": "Architecture & Security",
+                        "pages": [
+                            "architecture-and-security/pzignore",
+                            "architecture-and-security/playerzero-philosophy",
+                            "architecture-and-security/byob"
+                        ]
+                    },
+                    {
+                        "group": "Microsoft Teams Integration",
+                        "pages": [
+                            "api-reference/microsoft-teams/teams-integration"
+                        ]
+                    },
+                    {
+                        "group": "Observability API",
+                        "pages": [
+                            "api-reference/tracks",
+                            "api-reference/logs",
+                            "api-reference/spans"
+                        ]
+                    }
+                ]
+            },
+            {
+                "tab": "Data Connectors",
+                "groups": [
+                    {
+                        "group": "Introduction",
+                        "pages": [
+                            "connector/introduction",
+                            "connector/docs"
+                        ]
+                    },
+                    {
+                        "group": "Code",
+                        "pages": [
+                            "connector/code/github",
+                            "connector/code/azure",
+                            "connector/code/bitbucket"
+                        ]
+                    },
+                    {
+                        "group": "Project Management",
+                        "pages": [
+                            "connector/pm/jira",
+                            "connector/pm/linear",
+                            "connector/pm/azure-devops",
+                            "connector/pm/gitlab",
+                            {
+                                "group": "More",
+                                "pages": [
+                                    "connector/pm/aha",
+                                    "connector/pm/asana",
+                                    "connector/pm/basecamp",
+                                    "connector/pm/clickup",
+                                    "connector/pm/height",
+                                    "connector/pm/hive",
+                                    "connector/pm/pivotal-tracker",
+                                    "connector/pm/rally",
+                                    "connector/pm/trello",
+                                    "connector/pm/wrike",
+                                    "connector/pm/zoho-desk"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "group": "Customer Tickets",
+                        "pages": [
+                            "connector/ticketing/zendesk",
+                            "connector/ticketing/intercom",
+                            "connector/ticketing/salesforce",
+                            "connector/ticketing/jira-service",
+                            "connector/ticketing/front",
+                            {
+                                "group": "More",
+                                "pages": [
+                                    "connector/ticketing/dixa",
+                                    "connector/ticketing/freshdesk",
+                                    "connector/ticketing/freshservice",
+                                    "connector/ticketing/front",
+                                    "connector/ticketing/gladly",
+                                    "connector/ticketing/gorgias",
+                                    "connector/ticketing/helpscout",
+                                    "connector/ticketing/kustomer",
+                                    "connector/ticketing/re-amaze",
+                                    "connector/ticketing/servicenow",
+                                    "connector/ticketing/shortcut",
+                                    "connector/ticketing/spotdraft",
+                                    "connector/ticketing/teamwork",
+                                    "connector/ticketing/zoho-bugtracker"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "group": "Telemetry",
+                        "pages": [
+                            "connector/engineering/aws-cloudwatch",
+                            "connector/engineering/datadog",
+                            "connector/engineering/opentelemtry",
+                            "connector/engineering/sentry"
+                        ]
+                    },
+                    {
+                        "group": "Analytics",
+                        "pages": [
+                            "connector/analytics/amplitude",
+                            "connector/analytics/mixpanel",
+                            "connector/analytics/segment",
+                            "connector/analytics/web-sdk"
+                        ]
+                    },
+                    {
+                        "group": "CRM",
+                        "pages": [
+                            "connector/crm/dynamics365",
+                            "connector/crm/hubspot",
+                            "connector/crm/pipedrive",
+                            "connector/crm/salesforce",
+                            {
+                                "group": "More",
+                                "pages": [
+                                    "connector/crm/accelo",
+                                    "connector/crm/active-campaign",
+                                    "connector/crm/capsule",
+                                    "connector/crm/close",
+                                    "connector/crm/copper",
+                                    "connector/crm/insightly",
+                                    "connector/crm/keap",
+                                    "connector/crm/nutshell",
+                                    "connector/crm/pipeliner",
+                                    "connector/crm/salesflare",
+                                    "connector/crm/sugarcrm",
+                                    "connector/crm/teamleader",
+                                    "connector/crm/vtiger",
+                                    "connector/crm/zendesk-sell",
+                                    "connector/crm/zoho-crm"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "logo": {
+        "light": "/logo/light-logo.svg",
+        "dark": "/logo/dark-logo.svg"
+    },
+    "api": {
+        "openapi": [
+            "openapi.yml"
+        ],
+        "mdx": {
+            "server": "https://sdk.playerzero.app",
+            "auth": {
+                "method": "bearer"
+            }
+        }
+    },
+    "background": {
+        "color": {
+            "dark": "#09090b"
+        }
+    },
+    "navbar": {
+        "links": [
+            {
+                "label": "Request Demo",
+                "href": "https://www.playerzero.ai/book-demo"
+            }
+        ],
+        "primary": {
+            "type": "button",
+            "label": "Login",
+            "href": "https://go.playerzero.app/"
+        }
+    },
+    "footer": {
+        "socials": {
+            "website": "https://www.playerzero.ai/",
+            "linkedin": "https://www.linkedin.com/company/playerzero/",
+            "twitter": "https://twitter.com/goplayerzero",
+            "slack": "https://playerzerocom-uhb1146.slack.com/join/shared_invite/zt-1i4nsidth-bmObDACsU_Ci8Lw2ttExXg#/shared-invite/email"
+        }
+    },
+    "integrations": {
+        "gtm": {
+            "tagId": "GTM-5T6DH5S"
+        },
+        "posthog": {
+            "apiKey": "phc_ARRFxqzeoII9b01gH5R3P0xhM8E565ZNmwo9I3N2Bxh"
+        }
     }
-  }
 }
