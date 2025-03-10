@@ -1,67 +1,60 @@
 ---
-title: "Quickstart"
-description: "The fastest way to get to the magic and understand what's happening."
+title: "Deploy PlayerZero"
+description: "Use PlayerZero to monitor, diagnose, and resolve software issues before they reach your users."
 ---
 
-## Goal
-PlayerZero is an engineering platform that can help you manage your releases.
-Our AI learns the relationship between the code that's being written to its product and customer impact.
-This helps answer two simple questions:
-1. What are the most important problems I need to fix now?
-2. How do I make sure they never happen again?
+### Prerequisites
 
-By the end of this setup, we'll be able to answer both.
+1. A PlayerZero account. You can get started by [**creating an account**](https://go.playerzero.app/).
+2. Sufficient permissions to grant PlayerZero read access to your code and read/write access for managing pull requests in your SCM (Source Control Management) system.
 
-## How it works (in short)
-PlayerZero's magic is in the data it can bring together to create deep efficiencies for the way we do leveraged tasks like
-code reviews and release monitoring. At a high level, here's what we're doing and how we're doing it.
+### Summary of Steps
 
 <Steps>
-    <Step title="Connect your codebase">
-        We've built connections into the key platforms modern engineering teams use to build products.
-        To start, **PlayerZero integrates into code repositories** using GitHub, Azure, Gitlab, Bitbucket and other git repositories to listen
-        for Pull Request (PR) and Merge Request (MR) changes. We model an index of your codebase and how it changes over time.
+    <Step title="Create or Join a Project">
+    Inside the PlayerZero platform, create a new project or join an existing project (project owners can invite new users through email). 
     </Step>
-    <Step title="Connect your customer and operational data">
-        Then, we import your product and customer data. Depending on your stack, this might be a combination of one or more platforms.
-        We have first party, API integrations into platforms like:
-        - **Product Management** (Linear, Jira, Azure DevOps, GitLab, and more)
-        - **Customer Ticketing** (Zendesk, Salesforce, Intercom, Jira Service, Front, and *dozens* more)
-        - **Analytics** (Amplitude, Mixpanel, and our own custom SDKs)
-
-        This data enables PlayerZero to augment the code change index we built in the previous step with operational and customer data. For example, we can find a relationship that says
-        "when you change `X` code, `Y` problem tends to happen, and `Z` number of users complained about it last time".
+    <Step title="Connect Your Code">
+    Grant PlayerZero read access to your code and read/write access for managing pull requests in your SCM system.
     </Step>
-    <Step title="Send errors and system telemetry data">
-        Finally, PlayerZero can also capture system errors and issues to provide even more clarity into the context and scope of issues happening after code releases.
-        To capture this data we have our own custom sdks (such as our Web SDK) and integrations into providers like OpenTelemetry, Datadog, and Sentry.
+    <Step title="Enable Specific Repositories">
+    Select which repositories PlayerZero should monitor.
     </Step>
-    <Step title="Train the PlayerZero model (and begin!)">
-        Give PlayerZero a few hours to import your data and train our models to train an integrated model and then let's get started.
+    <Step title="Allow for Processing">
+        PlayerZero begins processing data to surface relevant insights.
     </Step>
 </Steps>
 
+### **Create or Join a Project**
 
-## Setup
-Now in more detail.
-### Prerequisites
-1. A PlayerZero account. You can get started with a free trial account.
-2. Sufficient permissions to provide read access to your git repository and ticketing system.
+At the top-left of the screen, select the option to create a new project. If another member of your team has already created a project, contact them and they can send you a link to join through email.
 
-### Connect your codebase
+### Connect Your Code
 
-### Connect your product management tool
+The primary step is to grant PlayerZero access to your [source control management](/connector/code/github) (SCM) system. You may have already connected an SCM system during the signup process. If so, you can proceed to enabling specific repositories below.
 
-### Connect an external ticketing tool (if applicable)
+To connect a repository:
 
-### Add the Web SDK (web products only)
-If you have a web product, we highly recommend adding in the PlayerZero web sdk. It's a one line javascript snippet
-that automatically captures customer context, analytics, and errors on the client side. This helps bootstrap our models quickly and provide complete debugging context
-for new issues. [You can find the instructions to implement the web sdk here](/api-reference/web/web-sdk).
+1. Navigate to the "Settings" tab in PlayerZero and select the "Code" anchor
+2. Select Your SCM System
 
-If you don't have a web product, you can skip this step!
+### Enable Specific Repositories
 
-### Forward server side logs (advanced)
-Similar to how the web-sdk can capture client side exceptions and context, PlayerZero also support capturing server side context.
-If you're using a product like Datadog or Sentry we can directly integrate into those.
-Otherwise, we have our own custom node.js SDK and an integration into Open Telemetry.
+After connecting your SCM, you need to select which repositories PlayerZero should monitor. In the settings page, toggle the repositories you want to enable for ingestion.
+
+1. On the  "Settings" tab inside the "Code" anchor, toggle on repositories that should be ingested. Here you can also toggle the primary reference branch (Main/Master)
+
+### Allow for Ingestion
+
+Once you’ve enabled your repositories, PlayerZero will begin analyzing the code to surface relevant insights. This process can take anywhere from a few minutes to several hours, depending on the size and complexity of your repositories.
+
+### Next Steps
+
+Congratulations! Now that you’re up and running, here are the next steps to get the most out of PlayerZero:
+
+- [**Invite Your Team**](https://go.playerzero.app/setting/team) – Add team members to collaborate on issue tracking and resolution.
+- [**Integrate with Project Management**](https://go.playerzero.app/setting/product-management) – Connect PlayerZero to Jira, Azure DevOps, or other tools to sync issues with your workflow.
+- [**Connect Customer Ticketing**](https://go.playerzero.app/setting/support-tickets) – Link PlayerZero with Zendesk and other customer support platforms to correlate issues with user reports.
+- [**Instrument the WebSDK**](/api-reference/web/web-sdk) – Enable user session tracking by integrating PlayerZero’s frontend WebSDK.
+- [**Set Up OpenTelemetry**](/api-reference/open-telemetry/setup) – Implement distributed tracing by connecting PlayerZero with OpenTelemetry.
+
