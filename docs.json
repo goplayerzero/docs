@@ -17,25 +17,32 @@
                         "group": "Welcome",
                         "pages": [
                             "home",
-                            "Getting Started"
+                            "Architecture",
+                            "Use Cases",
+                            "Guides",
+                            "Getting Started",
+                            "API"
                         ]
                     },
                     {
-                        "group": "How Does PlayerZero Work?",
+                        "group": "Managing PlayerZero",
                         "pages": [
-                            "PlayerZero and AI Models",
-                            "PlayerZero and Data Sources",
-                            "PlayerZero Data Security Posture"
+                            "Quick Start",
+                            "Connections",
+                            "Team",
+                            "Security Policies",
+                            "Analytics",
+                            "Administration",
+                            "Services"
                         ]
                     },
                     {
-                        "group": "Use Cases",
+                        "group": "Additional Resources",
                         "pages": [
-                            "Debuggings Error",
-                            "Tracking User Sessions",
-                            "User Sessions",
-                            "User Sessions",
-                            "User Sessions"
+                            "Help Center",
+                            "Changelog",
+                            "FAQ",
+                            "PlayerZero Trust Center"
                         ]
                     }
                 ]

@@ -1,8 +1,93 @@
-#navigation-items h5 {
-    color: rgb(87, 88, 97);
-
+/* Card Container */
+.card-container {
+    border: 1px solid white;
+    border-radius: 0.7rem;
+    /* rounded-xl */
+    width: 100%;
+    height: 100%;
 }
 
-#navigation-items a div.flex-1 div {
-    color: rgb(97, 98, 107);
+/* Base Card Styles */
+.landing-card {
+    border-radius: 0.7rem;
+    /* rounded-lg */
+    padding: 1rem;
+    /* p-6 */
+    width: 100%;
+    height: 100%;
+    transition: background-color 0.1s ease;
+    cursor: pointer;
+}
+
+/* Card Content Layout */
+.card-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Card Header */
+.card-header {
+    margin-bottom: 2rem;
+    /* mb-8 */
+}
+
+/* Card Text Container */
+.card-text {
+    font-size: 1rem;
+    /* text-base */
+    color: white;
+}
+
+/* Card Title */
+.card-title {
+    font-weight: 700;
+    /* font-bold */
+    font-size: 1.125rem;
+    /* text-lg */
+    display: block;
+    margin-bottom: 0.25rem;
+    /* mb-1 */
+}
+
+/* Card Description */
+.card-description {
+    font-weight: 400;
+    /* font-normal */
+    opacity: 0.9;
+}
+
+/* Card Footer */
+.card-footer {
+    margin-top: auto;
+    /* mt-auto */
+}
+
+/* Card Variants */
+.card-primary {
+    background-color: #7B6BFF;
+}
+
+.card-primary:hover {
+    background-color: #9B8FFF;
+}
+
+.card-secondary {
+    background-color: #1A1A1A;
+}
+
+.card-secondary:hover {
+    background-color: #333333;
+}
+
+.card-tertiary {
+    background-color: #228B22;
+}
+
+.card-tertiary:hover {
+    background-color: #2AAD29;
+}
+
+.grid {
+    row-gap: 1rem;
 }
