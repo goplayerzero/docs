@@ -1,0 +1,64 @@
+---
+title: "Enabling Private Data Storage"
+description: "Use PlayerZero to monitor, diagnose, and resolve software issues before they reach your users."
+---
+
+### Prerequisites
+
+1. A PlayerZero account. You can get started by [**creating an account**](https://go.playerzero.app/).
+2. Sufficient permissions to grant PlayerZero read access to your code and read/write access for managing pull requests in your SCM (Source Control Management) system.
+
+### Summary of Steps
+
+<Steps>
+    <Step title="Create or Join a Project">
+    Inside the PlayerZero platform, create a new project or join an existing project (project owners can invite new users through email). 
+    </Step>
+    <Step title="Connect Your Code">
+    Grant PlayerZero read access to your code and read/write access for managing pull requests in your SCM system.
+    </Step>
+    <Step title="Enable Specific Repositories">
+    Select which repositories PlayerZero should monitor.
+    </Step>
+    <Step title="Allow for Processing">
+        PlayerZero begins processing data to surface relevant insights.
+    </Step>
+</Steps>
+
+### **Create or Join a Project**
+
+At the top-left of the screen, select the option to create a new project. If another member of your team has already created a project, contact them and they can send you a link to join through email.
+
+### Connect Your Code
+
+The primary step is to grant PlayerZero access to your [source control management](/connector/code/github) (SCM) system. You may have already connected an SCM system during the signup process. If so, you can proceed to enabling specific repositories below.
+
+To connect a repository:
+
+1. Navigate to the "Settings" tab in PlayerZero and select the "Code" anchor
+2. Select Your SCM System
+
+### Enable Specific Repositories
+
+After connecting your SCM, you need to select which repositories PlayerZero should monitor. In the settings page, toggle the repositories you want to enable for ingestion.
+
+1. On the  "Settings" tab inside the "Code" anchor, toggle on repositories that should be ingested. Here you can also toggle the primary reference branch (Main/Master)
+
+### Allow for Ingestion
+
+Once you’ve enabled your repositories, PlayerZero will begin analyzing the code to surface relevant insights. This process can take anywhere from a few minutes to several hours, depending on the size and complexity of your repositories.
+
+### Next Steps
+
+Congratulations! Now that you’re up and running, here are the next steps to get the most out of PlayerZero:
+
+- [**Invite Your Team**](https://go.playerzero.app/setting/team) – Add team members to collaborate on issue tracking and resolution.
+- [**Integrate with Project Management**](https://go.playerzero.app/setting/product-management) – Connect PlayerZero to Jira, Azure DevOps, or other tools to sync issues with your workflow.
+- [**Connect Customer Ticketing**](https://go.playerzero.app/setting/support-tickets) – Link PlayerZero with Zendesk and other customer support platforms to correlate issues with user reports.
+- [**Instrument the WebSDK**](/api-reference/web/web-sdk) – Enable user session tracking by integrating PlayerZero’s frontend WebSDK.
+- [**Set Up OpenTelemetry**](/api-reference/open-telemetry/setup) – Implement distributed tracing by connecting PlayerZero with OpenTelemetry.
+
+
+
+
+

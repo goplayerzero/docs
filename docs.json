@@ -11,192 +11,258 @@
     "navigation": {
         "tabs": [
             {
-                "tab": "Documentation",
+                "tab": "PlayerZero",
                 "groups": [
                     {
-                        "group": "Home",
+                        "group": "Getting Started with PlayerZero",
                         "pages": [
-                            "introduction",
-                            "quickstart"
+                            "home",
+                            "how-playerzero-works",
+                            "deploy-playerzero"
                         ]
                     },
                     {
-                        "group": "Web Applications",
+                        "group": "PlayerZero Use Cases",
                         "pages": [
-                            "api-reference/web/web-sdk",
-                            {
-                                "group": "Setup",
-                                "pages": [
-                                    "api-reference/web/setup/npm",
-                                    "api-reference/web/setup/script-tag",
-                                    "api-reference/web/setup/segment"
-                                ]
-                            },
-                            "api-reference/web/domain-controls",
-                            "api-reference/web/performance",
-                            {
-                                "group": "Advanced",
-                                "pages": [
-                                    "api-reference/web/advanced/shareable-devtools",
-                                    "api-reference/web/advanced/build-a-custom-styled-button",
-                                    "api-reference/web/advanced/network-calls-fix",
-                                    "api-reference/web/advanced/open-telemetry-collector"
-                                ]
-                            }
+                            "use-cases/resolve-customer-issues/resolve-customer-issues-benefits",
+                            "use-cases/codebase-documentation/codebase-documentation-benefits",
+                            "use-cases/surface-performance-issues/surface-performance-issues-benefits",
+                            "use-cases/code-insights/code-insights-benefits",
+                            "use-cases/pull-request-analysis/artifact-generation-benefits"
                         ]
                     },
                     {
-                        "group": "Open Telemetry",
+                        "group": "Connect Data to PlayerZero",
                         "pages": [
-                            "api-reference/open-telemetry/setup",
-                            {
-                                "group": "Recipes",
-                                "pages": [
-                                    "api-reference/open-telemetry/recipe/java",
-                                    "api-reference/open-telemetry/recipe/node"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "group": "Architecture & Security",
-                        "pages": [
-                            "architecture-and-security/pzignore",
-                            "architecture-and-security/playerzero-philosophy",
-                            "architecture-and-security/byob"
-                        ]
-                    },
-                    {
-                        "group": "Third Party Integrations",
-                        "pages": [
-                            "api-reference/integrations/microsoft-teams"
-                        ]
-                    },
-                    {
-                        "group": "Observability API",
-                        "pages": [
-                            "api-reference/tracks",
-                            "api-reference/logs",
-                            "api-reference/spans"
+                            "data-connections/git-repositories",
+                            "data-connections/user-session-data",
+                            "data-connections/telemetry",
+                            "data-connections/project-management-tickets",
+                            "data-connections/customer-tickets"
                         ]
                     }
                 ]
             },
             {
-                "tab": "Data Connectors",
+                "tab": "Developer Guides",
                 "groups": [
                     {
-                        "group": "Introduction",
+                        "group": "Deploy PlayerZero",
                         "pages": [
-                            "connector/introduction",
-                            "connector/docs"
+                            "developer-guide/quickstart-guide"
                         ]
                     },
                     {
-                        "group": "Code",
+                        "group": "Configuration Guides",
                         "pages": [
-                            "connector/code/github",
-                            "connector/code/azure",
-                            "connector/code/bitbucket"
-                        ]
-                    },
-                    {
-                        "group": "Project Management",
-                        "pages": [
-                            "connector/pm/jira",
-                            "connector/pm/linear",
-                            "connector/pm/azure-devops",
-                            "connector/pm/gitlab",
                             {
-                                "group": "More",
+                                "group": "Importing Code",
                                 "pages": [
-                                    "connector/pm/aha",
-                                    "connector/pm/asana",
-                                    "connector/pm/basecamp",
-                                    "connector/pm/clickup",
-                                    "connector/pm/height",
-                                    "connector/pm/hive",
-                                    "connector/pm/pivotal-tracker",
-                                    "connector/pm/rally",
-                                    "connector/pm/trello",
-                                    "connector/pm/wrike",
-                                    "connector/pm/zoho-desk"
+                                    "developer-guide/configuration-guides/import-code/import-git-setup-guide",
+                                    "developer-guide/config/import-code/github",
+                                    "developer-guide/config/import-code/gitlab",
+                                    "developer-guide/config/import-code/bitbucket",
+                                    "developer-guide/config/import-code/azure"
+                                ]
+                            },
+                            {
+                                "group": "Capturing User Sessions",
+                                "pages": [
+                                    {
+                                        "group": "Web SDK Guide",
+                                        "pages": [
+                                            "developer-guide/configuration-guides/web-sdk/web-sdk-setup-guide",
+                                            "developer-guide/configuration-guides/web-sdk/setup/npm",
+                                            "developer-guide/configuration-guides/web-sdk/setup/script-tag",
+                                            "developer-guide/configuration-guides/web-sdk/setup/segment"
+                                        ]
+                                    },
+                                    {
+                                        "group": "Web SDK Settings",
+                                        "pages": [
+                                            "developer-guide/configuration-guides/web-sdk/domain-settings",
+                                            "developer-guide/configuration-guides/web-sdk/thresholds-and-filtering"
+                                        ]
+                                    },
+                                    "developer-guide/configuration-guides/web-sdk/performance"
+                                ]
+                            },
+                            {
+                                "group": "Integrating with OpenTelemetry",
+                                "pages": [
+                                    "developer-guide/configuration-guides/integrate-opentelemetry/the-opentelemetry-standard",
+                                    {
+                                        "group": "PlayerZero Telemetry Guide",
+                                        "pages": [
+                                            "developer-guide/configuration-guides/integrate-opentelemetry/use-playerzeros-endpoint",
+                                            "developer-guide/configuration-guides/integrate-opentelemetry/logs-traces-and-metrics",
+                                            "developer-guide/configuration-guides/integrate-opentelemetry/exporters-and-collectors"
+                                        ]
+                                    },
+                                    {
+                                        "group": "OpenTelemetry Recipes",
+                                        "pages": [
+                                            "developer-guide/configuration-guides/integrate-opentelemetry/recipes/instrument-opentelemetry",
+                                            "developer-guide/configuration-guides/integrate-opentelemetry/recipes/setup-exporters",
+                                            "developer-guide/configuration-guides/integrate-opentelemetry/recipes/setup-collectors",
+                                            {
+                                                "group": "Language Specific Guides",
+                                                "pages": [
+                                                    "developer-guide/configuration-guides/integrate-opentelemetry/recipes/java",
+                                                    "developer-guide/configuration-guides/integrate-opentelemetry/recipes/node",
+                                                    "developer-guide/configuration-guides/integrate-opentelemetry/recipes/python",
+                                                    "developer-guide/configuration-guides/integrate-opentelemetry/recipes/go",
+                                                    "developer-guide/configuration-guides/integrate-opentelemetry/recipes/dotnet",
+                                                    "developer-guide/configuration-guides/integrate-opentelemetry/recipes/ruby",
+                                                    "developer-guide/configuration-guides/integrate-opentelemetry/recipes/rust",
+                                                    "developer-guide/configuration-guides/integrate-opentelemetry/recipes/php",
+                                                    "developer-guide/configuration-guides/integrate-opentelemetry/recipes/javascript",
+                                                    "developer-guide/configuration-guides/integrate-opentelemetry/recipes/swift",
+                                                    "developer-guide/configuration-guides/integrate-opentelemetry/recipes/erlang-elixir"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "group": "Link Project Mangement Tools",
+                                "pages": [
+                                    "developer-guide/configuration-guides/project-management/sync-project-management-data",
+                                    {
+                                        "group": "Integration Guides",
+                                        "pages": [
+                                            "developer-guide/configuration-guides/project-management/azure-devops",
+                                            "developer-guide/configuration-guides/project-management/jira",
+                                            {
+                                                "group": "More",
+                                                "pages": [
+                                                    "developer-guide/configuration-guides/project-management/asana",
+                                                    "developer-guide/configuration-guides/project-management/click-up",
+                                                    "developer-guide/configuration-guides/project-management/linear",
+                                                    "developer-guide/configuration-guides/project-management/notion",
+                                                    "developer-guide/configuration-guides/project-management/trello"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "group": "Connect Customer Ticketing",
+                                "pages": [
+                                    "developer-guide/configuration-guides/customer-ticketing/sync-customer-ticket-data",
+                                    {
+                                        "group": "Integration Guides",
+                                        "pages": [
+                                            "developer-guide/configuration-guides/customer-ticketing/zendesk",
+                                            "developer-guide/configuration-guides/customer-ticketing/jira-service-management",
+                                            "developer-guide/configuration-guides/customer-ticketing/salesforce-service-cloud",
+                                            {
+                                                "group": "More",
+                                                "pages": [
+                                                    "developer-guide/configuration-guides/customer-ticketing/dixa",
+                                                    "developer-guide/configuration-guides/customer-ticketing/freshdesk",
+                                                    "developer-guide/configuration-guides/customer-ticketing/freshservice",
+                                                    "developer-guide/configuration-guides/customer-ticketing/front",
+                                                    "developer-guide/configuration-guides/customer-ticketing/gladly"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "group": "Use Slack or Microsoft Teams",
+                                "pages": [
+                                    "developer-guide/configuration-guides/integrations/setup-custom-alerts",
+                                    "developer-guide/configuration-guides/integrations/microsoft-teams",
+                                    "developer-guide/configuration-guides/integrations/slack"
                                 ]
                             }
                         ]
                     },
                     {
-                        "group": "Customer Tickets",
+                        "group": "User Guides",
                         "pages": [
-                            "connector/ticketing/zendesk",
-                            "connector/ticketing/intercom",
-                            "connector/ticketing/salesforce",
-                            "connector/ticketing/jira-service",
-                            "connector/ticketing/front",
                             {
-                                "group": "More",
+                                "group": "Resolve Customer Issues",
                                 "pages": [
-                                    "connector/ticketing/dixa",
-                                    "connector/ticketing/freshdesk",
-                                    "connector/ticketing/freshservice",
-                                    "connector/ticketing/front",
-                                    "connector/ticketing/gladly",
-                                    "connector/ticketing/gorgias",
-                                    "connector/ticketing/helpscout",
-                                    "connector/ticketing/kustomer",
-                                    "connector/ticketing/re-amaze",
-                                    "connector/ticketing/servicenow",
-                                    "connector/ticketing/shortcut",
-                                    "connector/ticketing/spotdraft",
-                                    "connector/ticketing/teamwork",
-                                    "connector/ticketing/zoho-bugtracker"
+                                    "use-cases/resolve-customer-issues/capture-user-behavior",
+                                    "use-cases/resolve-customer-issues/connect-run-time-errors",
+                                    "use-cases/resolve-customer-issues/generate-code-fixes"
+                                ]
+                            },
+                            {
+                                "group": "Create Codebase Documentation",
+                                "pages": [
+                                    "use-cases/codebase-documentation/identify-key-files",
+                                    "use-cases/codebase-documentation/create-internal-docs",
+                                    "use-cases/codebase-documentation/generate-architecture-diagrams"
+                                ]
+                            },
+                            {
+                                "group": "Surface Performance Issues",
+                                "pages": [
+                                    "use-cases/surface-performance-issues/create-and-generate-alerts",
+                                    "use-cases/surface-performance-issues/monitor-run-time-telemetry",
+                                    "use-cases/surface-performance-issues/mute-notifications",
+                                    "use-cases/surface-performance-issues/identify-issues"
+                                ]
+                            },
+                            {
+                                "group": "Proactively Analyze Code Quality",
+                                "pages": [
+                                    "use-cases/code-quality/generate-functional-tests",
+                                    "use-cases/code-quality/screen-regressions",
+                                    "use-cases/code-quality/create-code-summaries"
+                                ]
+                            },
+                            {
+                                "group": "Manage Sprawling Codebases",
+                                "pages": [
+                                    "use-cases/manage-sprawling-codebases/migrate-codebases",
+                                    "use-cases/manage-sprawling-codebases/uncover-data",
+                                    "use-cases/manage-sprawling-codebases/foreign-code"
                                 ]
                             }
                         ]
                     },
                     {
-                        "group": "Telemetry",
+                        "group": "Security and Data Privacy",
                         "pages": [
-                            "connector/engineering/aws-cloudwatch",
-                            "connector/engineering/datadog",
-                            "connector/engineering/opentelemtry",
-                            "connector/engineering/sentry"
+                            "developer-guide/security/playerzero-philosophy",
+                            "developer-guide/security/omitting-files-with-pzignore",
+                            "developer-guide/security/enabling-private-data-storage"
                         ]
-                    },
+                    }
+                ]
+            },
+            {
+                "tab": "Prompting with PlayerZero",
+                "groups": [
                     {
-                        "group": "Analytics",
+                        "group": "Prompting with PlayerZero",
                         "pages": [
-                            "connector/analytics/amplitude",
-                            "connector/analytics/mixpanel",
-                            "connector/analytics/segment",
-                            "connector/analytics/web-sdk"
-                        ]
-                    },
-                    {
-                        "group": "CRM",
-                        "pages": [
-                            "connector/crm/dynamics365",
-                            "connector/crm/hubspot",
-                            "connector/crm/pipedrive",
-                            "connector/crm/salesforce",
                             {
-                                "group": "More",
+                                "group": "Learning About Your Codebase",
                                 "pages": [
-                                    "connector/crm/accelo",
-                                    "connector/crm/active-campaign",
-                                    "connector/crm/capsule",
-                                    "connector/crm/close",
-                                    "connector/crm/copper",
-                                    "connector/crm/insightly",
-                                    "connector/crm/keap",
-                                    "connector/crm/nutshell",
-                                    "connector/crm/pipeliner",
-                                    "connector/crm/salesflare",
-                                    "connector/crm/sugarcrm",
-                                    "connector/crm/teamleader",
-                                    "connector/crm/vtiger",
-                                    "connector/crm/zendesk-sell",
-                                    "connector/crm/zoho-crm"
+                                    "prompting/codebase/high-level-overviews",
+                                    "prompting/codebase/high-to-low-level"
+                                ]
+                            },
+                            {
+                                "group": "Debugging Logs and Traces",
+                                "pages": [
+                                    "prompting/debugging/connecting-codebase",
+                                    "prompting/debugging/orienting-context"
+                                ]
+                            },
+                            {
+                                "group": "Communicating Across Teams",
+                                "pages": [
+                                    "prompting/communication/non-technical-artifacts",
+                                    "prompting/communication/templates-formats"
                                 ]
                             }
                         ]

@@ -1,0 +1,46 @@
+---
+title: "Welcome"
+description: "Use PlayerZero to monitor, diagnose, and resolve software issues before they reach your users."
+---
+
+import { HowPlayerZeroWorks, DeployPlayerZero, DefectResolution } from '/snippets/landing-card.mdx';
+
+
+<CardGroup cols={2}>
+ <HowPlayerZeroWorks
+   boldText="How PlayerZero Works"
+   followUpText="The technical components components behind PlayerZero"
+   icon="lightning"
+   href={'/how-playerzero-works'}
+ />
+
+ <DeployPlayerZero 
+   boldText="Deploy PlayerZero"
+   followUpText="Deploy PlayerZero in 5 minutes with our quickstart guide"
+   icon="square"
+   href={'/deploy-playerzero'}
+ />
+
+</CardGroup>
+
+## Use Cases 
+
+<CardGroup cols={2}>
+    <Card title="Resolve Customer Issues" icon="person" href={'/use-cases/resolve-customer-issues/resolve-customer-issues-benefits'}>
+    Replay sessions with DOM snapshots and correlated logs to rapidly diagnose defects.    
+    </Card>
+    <Card title="Create Codebase Documentation" icon="book" href={'/quickstart'}>
+    Generate references from real user interactions, ensuring up-to-date documentation.
+    </Card>
+    <Card title="Surface Performance Issues" icon="code" href={'/api-reference/web/web-sdk'}>
+    Track resource timings and traces to pinpoint slow endpoints and bottlenecks. 
+    </Card> 
+    <Card title="Proactively Analyze Code Quality" icon="folders" href={'/api-reference/web/web-sdk'}>
+    Convert captured sessions into reproducible test scripts for real-world coverage.
+    </Card>
+    <Card title="Manage Sprawling Codebases" icon="tree" href={'/api-reference/web/web-sdk'}>
+    Correlate distributed traces, logs, and user flows for a unified view of complex systems.
+    </Card>
+</CardGroup>
+
+

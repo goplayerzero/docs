@@ -1,0 +1,161 @@
+---
+title: "Instrument OpenTelemetry"
+description: "Setup OpenTelemetry on a Java setup, with special instructions for SpringBoot."
+---
+
+## Java Agent
+Most Java applications can be auto-instrumented using the OpenTelemetry Java agent.
+If you're using SpringBoot, the autoinstrumentation may look slightly different (see below).
+
+Configurations may be provided via Java Properties (the `-D` flags on the JVM) or via a properties/yml configuration file.
+The following example will demonstrate using the properties configuration approach as the baseline configuration.
+
+```properties otel-properties.properties
+otel.service.name=My Dataset Name
+otel.exporter.otlp.endpoint=https://sdk.playerzero.app/otlp
+otel.exporter.otlp.headers=Authorization=Bearer <api token>
+otel.traces.exporter=otlp
+otel.logs.exporter=otlp
+otel.metrics.exporter=otlp
+```
+
+Then setting an ENV variable to that file will enable the javaagent to reference the configuration settings appropriately.
+```bash
+OTEL_JAVAAGENT_CONFIGURATION_FILE="/path/to/otel-config.properties"
+```
+
+### How it works
+The javaagent is built on top of `opentelemetry-java` and provides a Java agent JAR that can be attached to any
+Java 8+ application and dynamically injects bytecode to capture telemetry from a number of popular libraries and frameworks.
+
+Out of the box, the Java Agent Instrumentation automatically handles most things.
+There are a few things we have learned that require additional instrumentations in order to correctly handle complex scenarios such as microservices calling other microservices via http clients.
+For those cases, you need to add additional dependencies appropriate for the requested capabilities and register it.
+
+For example, if using Jetty and Java HttpClient, you need to add the following
+in order to correctly enable the jetty platform to handle traceIds from the PlayerZero Web SDK as well as propagating that trace id to subsequent microservice calls to other instrumented systems within your stack.
+:
+```bash
+OTEL_JAVAAGENT_EXTENSIONS="opentelemetry-javaagent-jetty-common-2.1.0-alpha.jar,opentelemetry-javaagent-jetty-11.0-1.5.2-alpha.jar"
+```
+
+You can find the right `.jar` files
+
+### Running with the javaagent
+Run the Java Application with a JVM parameter:
+```bash
+-javaagent:/path/to/opentelemetry-javaagent-2.1.0.jar
+```
+
+## Java with SpringBoot
+When working with spring boot, you need to add settings to the `application.properties` the same way as the `otel.properties` from the Java Agent approach plus a few other changes.
+The auto instrumentation is a little more limited in the case of Spring Boot seeming to auto instrument only the webmvc and logging layers.
+In order to instrument the JDBC, Mongo, or anything else, additional dependencies and some manual Configuration adjustments are required.
+
+### Core Instrumentation
+Add the following dependencies to the maven `pom.xml`.
+```xml pom.xml
+ <dependency>
+  <groupId>io.opentelemetry</groupId>
+  <artifactId>opentelemetry-bom</artifactId>
+  <version>1.38.0</version>
+  <type>pom</type>
+</dependency>
+<dependency>
+  <groupId>io.opentelemetry.instrumentation</groupId>
+  <artifactId>opentelemetry-instrumentation-bom-alpha</artifactId>
+  <version>2.3.0-alpha</version>
+  <type>pom</type>
+</dependency>
+<dependency>
+  <groupId>io.opentelemetry.instrumentation</groupId>
+  <artifactId>opentelemetry-spring-boot-starter</artifactId>
+  <version>2.3.0-alpha</version>
+</dependency>
+<dependency>
+  <groupId>io.opentelemetry</groupId>
+  <artifactId>opentelemetry-api</artifactId>
+  <version>1.38.0</version>
+</dependency>
+<dependency>
+  <groupId>io.opentelemetry</groupId>
+  <artifactId>opentelemetry-sdk</artifactId>
+  <version>1.38.0</version>
+</dependency>
+<dependency>
+  <groupId>io.opentelemetry</groupId>
+  <artifactId>opentelemetry-sdk-extension-autoconfigure</artifactId>
+  <version>1.38.0</version>
+</dependency>
+<dependency>
+  <groupId>io.opentelemetry</groupId>
+  <artifactId>opentelemetry-sdk-extension-autoconfigure-spi</artifactId>
+  <version>1.38.0</version>
+</dependency>
+```
+
+#### JDBC Instrumentation
+In order to instrument the JDBC calls, you must add additional dependencies and make configuration code adjustments.
+Add the following to the `pom.xml` file:
+```xml pom.xml
+<dependency>
+  <groupId>io.opentelemetry.instrumentation</groupId>
+  <artifactId>opentelemetry-jdbc</artifactId>
+  <version>2.3.0-alpha</version>
+</dependency>
+```
+
+And then add or create a Configuration component similar to:
+```java
+@Configuration
+public class JdbcConfig {
+	@Autowired
+	private DataSource dataSource;
+
+	@Bean
+	public DataSource customDataSource(OpenTelemetry openTelemetry) {
+		return JdbcTelemetry.create(openTelemetry).wrap(dataSource);
+	}
+}
+```
+
+#### Mongo Instrumentation
+In order to instrument the Mongo Client, you must add additional dependencies and make configuration code adjustments. Add the following to the `pom.xml` file
+```xml pom.xml
+<dependency>
+  <groupId>io.opentelemetry.instrumentation</groupId>
+  <artifactId>opentelemetry-mongo-3.1</artifactId>
+  <version>2.3.0-alpha</version>
+</dependency>
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-data-mongodb</artifactId>
+  <version>3.2.5</version>
+</dependency>
+<dependency>
+  <groupId>io.opentelemetry.javaagent.instrumentation</groupId>
+  <artifactId>opentelemetry-javaagent-mongo-4.0</artifactId>
+  <version>2.3.0-alpha</version>
+</dependency>
+```
+
+And then add or create a Configuration component similar to:
+```java
+@Configuration
+public class AppConfig {
+	@Bean
+	public MongoTelemetry mongoTelemetry(OpenTelemetry openTelemetry) {
+		return MongoTelemetry.create(openTelemetry);
+	}
+
+	@Bean
+	public MongoClient mongoClient(MongoTelemetry mongoTelemetry) {
+		MongoClientSettings settings = MongoClientSettings.builder()
+			.applyToClusterSettings(builder -> builder.hosts(List.of(new ServerAddress(System.getProperty("spring.data.mongodb.host")
+, 27017))))
+			.addCommandListener(mongoTelemetry.newCommandListener())
+			.build();
+		return MongoClients.create(settings);
+	}
+}
+```
