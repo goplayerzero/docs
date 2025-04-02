@@ -25,10 +25,11 @@
                         "group": "PlayerZero Use Cases",
                         "pages": [
                             "use-cases/resolve-customer-issues/resolve-customer-issues-benefits",
-                            "use-cases/codebase-documentation/codebase-documentation-benefits",
-                            "use-cases/surface-performance-issues/surface-performance-issues-benefits",
-                            "use-cases/code-insights/code-insights-benefits",
-                            "use-cases/pull-request-analysis/artifact-generation-benefits"
+                            "use-cases/retrive-insights-from-code/codebase-documentation-benefits",
+                            "use-cases/monitor-for-issues/surface-performance-issues-benefits",
+                            "use-cases/analyze-code-quality/code-insights-benefits",
+                            "use-cases/create-documentation/artifact-generation-benefits",
+                            "use-cases/manage-sprawling-codebases/artifact-generation-benefits"
                         ]
                     },
                     {
@@ -188,42 +189,50 @@
                             {
                                 "group": "Resolve Customer Issues",
                                 "pages": [
-                                    "use-cases/resolve-customer-issues/capture-user-behavior",
-                                    "use-cases/resolve-customer-issues/connect-run-time-errors",
-                                    "use-cases/resolve-customer-issues/generate-code-fixes"
+                                    "use-cases/resolve-customer-issues/resolve-customer-issues-UC1",
+                                    "use-cases/resolve-customer-issues/resolve-customer-issues-UC2",
+                                    "use-cases/resolve-customer-issues/resolve-customer-issues-UC3"
                                 ]
                             },
                             {
-                                "group": "Create Codebase Documentation",
+                                "group": "Retrieve Inisghts from Code",
                                 "pages": [
-                                    "use-cases/codebase-documentation/identify-key-files",
-                                    "use-cases/codebase-documentation/create-internal-docs",
-                                    "use-cases/codebase-documentation/generate-architecture-diagrams"
+                                    "use-cases/retrieve-insights-from-code/retrieve-insights-from-code-UC1",
+                                    "use-cases/retrieve-insights-from-code/retrieve-insights-from-code-UC2",
+                                    "use-cases/retrieve-insights-from-code/retrieve-insights-from-code-UC3"
                                 ]
                             },
                             {
-                                "group": "Surface Performance Issues",
+                                "group": "Monitor for Issues",
                                 "pages": [
-                                    "use-cases/surface-performance-issues/create-and-generate-alerts",
-                                    "use-cases/surface-performance-issues/monitor-run-time-telemetry",
-                                    "use-cases/surface-performance-issues/mute-notifications",
-                                    "use-cases/surface-performance-issues/identify-issues"
+                                    "use-cases/monitor-for-issues/monitor-for-issues-UC1",
+                                    "use-cases/monitor-for-issues/monitor-for-issues-UC2",
+                                    "use-cases/monitor-for-issues/monitor-for-issues-UC3",
+                                    "use-cases/monitor-for-issues/monitor-for-issues-UC4"
                                 ]
                             },
                             {
-                                "group": "Proactively Analyze Code Quality",
+                                "group": "Analyze Code Quality",
                                 "pages": [
-                                    "use-cases/code-quality/generate-functional-tests",
-                                    "use-cases/code-quality/screen-regressions",
-                                    "use-cases/code-quality/create-code-summaries"
+                                    "use-cases/analyze-code-quality/analyze-code-quality-UC1",
+                                    "use-cases/analyze-code-quality/analyze-code-quality-UC2",
+                                    "use-cases/analyze-code-quality/analyze-code-quality-UC3"
+                                ]
+                            },
+                            {
+                                "group": "Create Documentation",
+                                "pages": [
+                                    "use-cases/create-documentation/create-documentation-UC1",
+                                    "use-cases/create-documentation/create-documentation-UC2",
+                                    "use-cases/create-documentation/create-documentation-UC3"
                                 ]
                             },
                             {
                                 "group": "Manage Sprawling Codebases",
                                 "pages": [
-                                    "use-cases/manage-sprawling-codebases/migrate-codebases",
-                                    "use-cases/manage-sprawling-codebases/uncover-data",
-                                    "use-cases/manage-sprawling-codebases/foreign-code"
+                                    "use-cases/manage-sprawling-codebases/manage-sprawling-codebases-UC1",
+                                    "use-cases/manage-sprawling-codebases/manage-sprawling-codebases-UC2",
+                                    "use-cases/manage-sprawling-codebases/manage-sprawling-codebases-UC3"
                                 ]
                             }
                         ]

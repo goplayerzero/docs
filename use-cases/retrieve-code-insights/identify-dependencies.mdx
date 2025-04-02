@@ -1,0 +1,98 @@
+---
+title: "Identify Dependencies"
+sidebarTitle: "Identify Dependencies"
+description: "Leverage PlayerZero’s AI to trace relationships across services, files, and repositories."
+---
+
+## **Overview**
+
+PlayerZero maps out your code’s interconnections—across services, files, and repositories—to give you a full picture of how your system fits together. By analyzing method calls, class references, and shared libraries, PlayerZero makes it easy to trace the ripple effects of a change, understand service interactions, and explore feature implementations across a distributed codebase.
+
+---
+
+## **Prerequisites**
+
+### Source Control Management (Codebase)
+
+**Your codebase is connected to PlayerZero**  
+This enables PlayerZero to map runtime errors, traces, and sessions back to the exact lines of code in your repository.
+
+*If you haven’t done this yet, see the [SCM Setup Guide].*
+
+---
+
+## **Process**
+
+### 1. **Initiate the AI chat session with an initial question**  
+From the input field on the homepage or via a debug report in DevTools, you can begin a conversation with PlayerZero.
+
+- *Example*: “Which services rely on the user profile component?”
+
+### 2. **Guide the Investigation with follow-up questions**  
+PlayerZero provides targeted explanations and suggestions based on your focus, pulling from both code relationships and session data.
+
+- *Example*: “What would break if I modify the user profile component?”
+
+---
+
+### **Code Exploration Insights – Understand your codebase faster**
+
+Want to explore how systems are connected? PlayerZero’s AI Chat helps trace method calls, class usage, shared libraries, and data flow across your repositories.
+
+👉 [Start an AI Chat session](https://app.playerzero.ai/chat)
+
+Use the categories below to guide your investigation. Each accordion outlines a specific context in which dependency questions are most useful.
+
+#### **Contextual Scenarios**
+
+<AccordionGroup>
+
+  <Accordion title="Service-to-Service Interactions">
+    **Context & Typical Questions**  
+    - What services are involved in the [specific feature] flow?  
+    - Show the communication between [service A] and [service B]  
+    - What APIs does [service] expose and who consumes them?  
+    - Which services process messages or events from [another service]?  
+  </Accordion>
+
+  <Accordion title="Cross-Repo Dependencies">
+    **Context & Typical Questions**  
+    - Where is [shared component/class] used across repositories?  
+    - Which repositories depend on [utility or library]?  
+    - Show all references to [specific function] across services  
+    - Where is [interface or abstract class] implemented?  
+  </Accordion>
+
+  <Accordion title="Risk & Impact Analysis">
+    **Context & Typical Questions**  
+    - What would break if I changed [shared function or component]?  
+    - What downstream services are impacted by [specific change]?  
+    - Who depends on [constant, config, or shared state]?  
+    - Which systems are tightly coupled with [legacy implementation]?  
+  </Accordion>
+
+</AccordionGroup>
+
+### **Prompting Tips**
+
+1. **Anchor concepts together** – For example: “How does [Service A] interact with [Library B]?”
+2. **Adjust context scope** – Zoom in on specific files or expand to trace system-wide dependencies.
+3. **Define the output you want** – Ask for call graphs, summaries, dependency trees, or history (e.g., “Show services that depend on this interface”).
+4. **Follow the thread** – Use follow-ups like “What else uses this?” or “Who added this shared component?”
+
+---
+
+## **Summary and Next Steps**
+
+With PlayerZero, tracing dependencies becomes fast, clear, and interactive. Whether you're navigating complex microservices or exploring code ownership, the AI chat gives you answers that span files, services, and repositories.
+
+### Further Exploration
+- **Map Cross-Service Dependencies** – Visualize system interactions to plan changes.  
+- **Audit Shared Library Usage** – Understand where common libraries are implemented.  
+- **Track Impact of Changes** – Identify what’s downstream before merging a PR.  
+- **Expose Feature Scope** – Reveal which systems are involved in key features.  
+
+---
+
+*Now you’re ready to uncover your system’s hidden dependencies—just ask, and PlayerZero connects the dots.*
+

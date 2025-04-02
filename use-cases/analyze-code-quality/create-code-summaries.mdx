@@ -1,0 +1,103 @@
+---
+title: "Create Line-by-Line Code Summaries"
+sidebarTitle: "Create Code Summaries"
+description: "PlayerZero captures every click, DOM update, and network request in real-time, so teams can discover, analyze, and fix defects faster."
+---
+
+# Overview
+
+PlayerZero automatically generates clear, contextual summaries of code changes at both the pull request level and for individual file changes, making code reviews more efficient and accessible to all team members. Each changed file includes a detailed explanation of what was modified and why, helping reviewers quickly understand the impact and purpose of specific code modifications. The system also provides a comprehensive pull request summary that explains the overall changes, their business purpose, and potential risks to different features of your application.
+
+# **Prerequisites**
+
+### Source Control Management (Codebase)
+
+**Your codebase is connected to PlayerZero**
+This enables PlayerZero to map runtime errors, traces, and sessions back to the exact lines of code in your repository. It’s the central link between what’s happening in production and the code that caused it.
+
+*This is the foundational integration — all other data sources (traces, tickets, sessions) rely on it to establish full context across your stack.*
+
+→ To set this up, navigate to the [SCM Setup Guide].
+
+---
+
+# **Process**
+
+This process walks you through initiating an AI-driven investigation in PlayerZero, starting with a question and refining insights through targeted follow-ups grounded in real code and user context.
+
+---
+
+### 1. **Initiate the AI chat session with a question**
+
+From the input field on the homepage, you can ask a question directly to PlayerZero.
+
+*Note: You can integrate your ticketing system (e.g., Zendesk, Jira) with PlayerZero for a seamless reference, but it’s not strictly required to start debugging.*
+
+### 2. **Guide the Investigation with follow-up questions**
+
+PlayerZero provides targeted explanations and suggestions based on your focus areas, drawing from both codebase knowledge and user session data.
+
+---
+
+### Investigation Scenarios for AI-Powered Chat
+
+Want to understand code changes at a glance? You can interact directly with PlayerZero’s AI Chat to explore what was modified, why it was changed, and how those changes affect other parts of your codebase.
+
+👉 [Start an AI Chat session](https://app.playerzero.ai/chat)
+
+Use the categories below to guide your investigation with the right level of review context. Each accordion outlines a specific scenario for exploring change rationale, design intent, and consistency using PlayerZero’s contextual tools.
+
+<AccordionGroup>
+
+  <Accordion 
+    title="Understanding Patterns – How common designs are structured"
+  >
+    **Context Scenarios**:
+    - You're onboarding to a new service and want to understand how a common pattern (e.g., factories, hooks) is implemented.
+    - You're about to build a new feature and need to see how similar components are structured elsewhere in the codebase.
+  </Accordion>
+
+  <Accordion 
+    title="Historical Decisions – Why features were built that way"
+  >
+    **Context Scenarios**:
+    - You're reviewing a legacy feature and want to know why certain decisions were made.
+    - You're seeing an unusual implementation and want historical context from PRs or architectural discussions.
+  </Accordion>
+
+  <Accordion 
+    title="Discovering Best Practices – Standards and approaches for typical scenarios"
+  >
+    **Context Scenarios**:
+    - You're implementing a known flow (like authentication or pagination) and want to follow internal standards.
+    - You're writing tests or error handling and want to align with existing practices in the codebase.
+  </Accordion>
+
+  <Accordion 
+    title="Maintaining Consistency – Aligning new work with existing implementations"
+  >
+    **Context Scenarios**:
+    - You're submitting a PR and want to ensure your code aligns with established patterns.
+    - You're refactoring a component and want to confirm it matches how others integrate with shared services or APIs.
+  </Accordion>
+
+</AccordionGroup>
+
+### **Prompting Tips**
+
+- Start broad with architectural questions before diving into specifics
+- Use code snippets when asking about particular patterns
+- Follow up on interesting implementations to learn about context and evolution
+
+# Summary and Next Steps
+
+By starting with a simple question and layering in focused follow-ups, you can use PlayerZero’s AI-powered chat to navigate your codebase and uncover meaningful insights—whether you’re debugging, learning, or planning changes. This process turns vague ideas into actionable investigation paths using real user data and code context.
+
+PlayerZero enhances your code review process with intelligent summaries and deep context, helping teams quickly understand changes and their broader implications. Now that you’ve guided an AI investigation, you can branch into other workflows powered by the same contextual engine.
+
+Additional Links:
+
+- **Create Detailed API Docs** – Convert endpoint definitions and descriptions into clean, readable API documentation.
+- **Generate Architecture Diagrams** – Visualize your system’s structure and dependencies automatically.
+- **Produce User Guides** – Transform complex flows into user-facing documentation for product and support teams.
+- **Ask your Codebase Questions** – Use chat to dive deeper into how features are implemented or why decisions were made.

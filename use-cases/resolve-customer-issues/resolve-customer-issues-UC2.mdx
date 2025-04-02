@@ -1,0 +1,77 @@
+---
+title: "Connect Run-time Errors to Responsible Code"
+sidebarTitle: "Connect Errors to Code"
+description: "PlayerZero captures every click, DOM update, and network request in real-time, so teams can discover, analyze, and fix defects faster."
+---
+
+# Overview
+PlayerZero automatically connects user-facing issues to their underlying code by analyzing network calls, error traces, and code context to identify the relevant files and functions responsible for specific customer experiences. When an error or network issue occurs, the system leverages AI embeddings to match the error context with the most relevant code sections, enabling developers to jump directly to the source of the problem without manually searching through the codebase. This intelligent code-mapping capability transforms what would typically be a time-consuming investigation process into an immediate insight, allowing engineering teams to focus on fixing issues rather than hunting for their location in the code.
+
+## **Prerequisites**
+
+### Source Control Management (Codebase)
+
+**Your codebase is connected to PlayerZero**
+This enables PlayerZero to map runtime errors, traces, and sessions back to the exact lines of code in your repository.
+
+*This is the foundational integration — all other data sources (traces, tickets, sessions) rely on it to establish full context across your stack.*
+
+→ To set this up, navigate to the [SCM Setup Guide]([https://go.playerzero.app](https://go.playerzero.app/)).
+
+### Web SDK
+
+**Your frontend is instrumented with PlayerZero**
+
+This captures user actions, DOM snapshots, and network activity for full-session context. It bridges frontend events with backend telemetry when available.
+
+*For complete session capture, ensure that backend telemetry is also connected.*
+
+→ To set this up, navigate to the [Web SDK Setup Guide]([https://go.playerzero.app](https://go.playerzero.app/)).
+
+---
+
+## **Process**
+
+### **Starting from a PlayerZero Debug Session**
+
+This workflow starts from the single pane of glass debug mode, where you sourced an error in the DevTools tab that you want to explore; you can navigate to [capture session context] for more details, as PlayerZero creates a workspace from relevant files and maps the specific causal code for deeper debugging.
+
+#### 1. **Initiate the AI chat session to refine debugging**
+
+In a specific network call, click “Find in my code.” This will kick off the AI chat experience, and PlayerZero will use not only this specific call but also the entire session to build context around how to locate the responsible code.
+
+#### 2. **Let PlayerZero create the workspace**
+
+PlayerZero will create a new workspace, pulling in all relevant files that it will use to answer the question. These cited sources can range from code files to PR commits made in the past.
+
+#### 3. **Map the specific causal code**
+
+PlayerZero will investigate the responsible code and present a thorough breakdown, using diagrams, markdown, and other explanatory elements that clarify how everything works.
+
+---
+
+### **Starting from an Externally Source Error**
+
+This workflow starts from signals that were captured outside of the PlayerZero Platform, prompting you to initiate the AI chat session, let PlayerZero create a workspace, and finally map the specific causal code for deeper debugging.
+
+#### 1. **Initiate the AI chat session for error analysis**
+
+From the input field on the homepage, copy and paste the relevant error along with any relevant context.
+
+#### 2. **Let PlayerZero create the workspace**
+
+PlayerZero will create a new workspace, pulling in all relevant files that it will use to answer the question. These cited sources can range from code files to PR commits from the past.
+
+#### 3. **Map the specific causal code**
+
+PlayerZero will dig into the responsible code and write out a breakdown, including diagrams, markdown, and anything else that helps clarify how the code works.
+
+---
+
+## Summary and Next Steps
+
+In this guide, we covered how to initiate the AI chat session from either the single pane of glass debug mode or an externally sourced error, let PlayerZero create a workspace to collate relevant files, and map the specific causal code. By analyzing network calls, error traces, and code context, PlayerZero automatically isolates the root cause behind user-facing issues and removes the need for manual codebase searches. This direct mapping capability delivers immediate insights, allowing engineers to focus on fixes rather than extended discovery.
+
+### Additional Links:
+
+[Generate Code Fixes]([https://go.playerzero.app](https://go.playerzero.app/)) – Dive deeper into automatically creating targeted patches based on the identified errors.

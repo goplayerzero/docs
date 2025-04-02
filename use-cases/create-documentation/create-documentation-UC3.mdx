@@ -1,0 +1,105 @@
+---
+title: "Ask Questions about Key Services, Files and Functions"
+sidebarTitle: "Ask your Codebase Questions"
+description: "Leverage PlayerZero’s AI chat to retrieve insights from code, user sessions, logs, and more."
+---
+
+## **Overview**
+
+PlayerZero connects your codebase with user sessions, error logs, and runtime traces, allowing you to explore implementation details, dependencies, and historical changes in seconds. Ask natural-language questions to uncover where code lives, how it works, and why it was built that way—whether you’re a developer, support engineer, or product manager.
+
+---
+
+## **Prerequisites**
+
+### Source Control Management (Codebase)
+
+**Your codebase is connected to PlayerZero**  
+This enables PlayerZero to map runtime errors, traces, and sessions back to the exact lines of code in your repository.  
+
+*If you haven’t done this yet, see the [SCM Setup Guide].*
+
+---
+
+## **Process**
+
+### 1. **Initiate the AI chat session with an initial question**  
+From the input field on the homepage, you can ask a question directly to PlayerZero.  
+
+- *Example*: “Where is the main implementation of our notification service?”
+
+### 2. **Guide the Investigation with follow-up questions**  
+PlayerZero provides targeted explanations and suggestions based on your focus, drawing from both codebase knowledge and user session data.
+
+- *Example*: “Show me how errors are handled in the notification service.”
+
+---
+
+### **Code Exploration Insights – Understand your codebase faster**
+
+Want to quickly explore how your systems work? You can interact directly with PlayerZero’s AI Chat to investigate logic, history, and architecture across your codebase.
+
+👉 [Start an AI Chat session](https://app.playerzero.ai/chat)
+
+Use the categories below to guide your investigation with the right level of technical context. Each accordion outlines a specific insight-driven scenario you can explore using PlayerZero’s contextual tools.
+
+#### **Role-Focused Scenarios**
+
+<AccordionGroup>
+
+  <Accordion title="For Developers">
+    **Context & Typical Questions**  
+    - Where is the main implementation of [specific function/service]?  
+    - Show me all the places where [method/class] is being used  
+    - What changed in the [specific file/service] in recent PRs?  
+    - How does our authentication flow work across services?  
+    - Who recently modified [specific component] and why?  
+    - How do we handle errors in [specific flow]?  
+  </Accordion>
+
+  <Accordion title="For Support">
+    **Context & Typical Questions**  
+    - What happens when a user clicks [specific button/action]?  
+    - Where are errors logged for [specific feature]?  
+    - What are the possible error states for [specific flow]?  
+    - How does the system validate [specific type of input]?  
+    - What permissions are required for [specific action]?  
+    - Where can I find logs related to [specific user action]?  
+  </Accordion>
+
+  <Accordion title="For Product">
+    **Context & Typical Questions**  
+    - What features are implemented in [specific area of product]?  
+    - How are we currently implementing [specific product capability]?  
+    - What systems are involved in delivering [specific feature]?  
+    - Show me all the different ways users can [accomplish specific goal]  
+    - How configurable is [specific feature] for different use cases?  
+    - What dependencies exist for [specific feature]?  
+  </Accordion>
+
+</AccordionGroup>
+
+### **Prompting Tips**
+
+1. **Anchor concepts together** – Start by identifying how parts of the codebase relate. For example: “How does Feature X interact with Feature Y?”
+2. **Adjust context scope** – Think intentionally about whether your question should span multiple modules or zoom in on a specific file or function.
+3. **Define the output you want** – Be clear whether you're looking for code examples, summaries, API shapes, or configuration formats (e.g., “Show this as JSON”).
+4. **Follow the thread** – After a useful result, ask follow-ups like “Why was this implemented this way?” or “Who changed it last?”
+
+---
+
+## **Summary and Next Steps**
+
+With PlayerZero, asking targeted questions transforms how quickly you can identify, understand, and act on code changes. From basic references to advanced analysis, the AI chat streamlines every step of your discovery process.
+
+### Further Exploration
+- **Create Line-by-Line Code Summaries** – Quickly understand the *why* behind each code change.  
+- **Generate Functional Tests** – Automatically produce functional coverage tailored to your PRs.  
+- **Screen for Potential Regressions** – Identify historical issues that might resurface in new changes.  
+- **Produce User Guides** – Convert internal knowledge into end-user documentation.  
+
+---
+
+*Now you’re ready to explore your codebase in a whole new way—just type a question, and PlayerZero’s AI handles the rest.*
+
+
