@@ -1,6 +1,5 @@
 /* Card Container */
 .card-container {
-    border: 1px solid white;
     border-radius: 0.7rem;
     /* rounded-xl */
     width: 100%;
@@ -11,7 +10,7 @@
 .landing-card {
     border-radius: 0.7rem;
     /* rounded-lg */
-    padding: 1rem;
+    padding: 1.4rem;
     /* p-6 */
     width: 100%;
     height: 100%;
@@ -28,13 +27,14 @@
 
 /* Card Header */
 .card-header {
-    margin-bottom: 2rem;
+    margin-bottom: 1.4rem;
     /* mb-8 */
 }
 
 /* Card Text Container */
 .card-text {
-    font-size: 1rem;
+    font-weight: 400;
+ /* font-normal */
     /* text-base */
     color: white;
 }
@@ -52,9 +52,9 @@
 
 /* Card Description */
 .card-description {
-    font-weight: 400;
+    font-weight: 500;
     /* font-normal */
-    opacity: 0.9;
+    opacity: 0.7;
 }
 
 /* Card Footer */
