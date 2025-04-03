@@ -4,6 +4,10 @@ sidebarTitle: "Monitor Run-Time Telemetry"
 description: "Learn how to use PlayerZero’s anomaly detection and runtime telemetry tools to monitor server latency, analyze logs, identify affected users, and resolve issues using AI-powered insights."
 ---
 
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
+import WebSdk from '/snippets/prerequisites/web-sdk.mdx';
+
 # Overview
 
 PlayerZero uses sophisticated anomaly detection algorithms to automatically surface critical issues. By identifying unusual error or latency patterns, PlayerZero notifies teams only when problems deviate significantly from normal behavior. This targeted approach helps teams maintain focus on the issues that matter most.
@@ -12,14 +16,9 @@ For each anomaly, PlayerZero groups similar occurrences and applies muting rules
 
 ## **Prerequisites**
 
-### Source Control Management (Codebase)
+<SourceControlManagement/>
 
-**Your codebase is connected to PlayerZero**  
-This allows PlayerZero to correlate errors, logs, and sessions with specific commits or lines of code in your repository.
-
-*Foundation for all telemetry connections.*
-
-→ [SCM Setup Guide](https://go.playerzero.app)
+<WebSdk/>
 
 ### Web SDK
 
@@ -110,8 +109,8 @@ Combined with session replays and enriched logs, you’ll be able to see precise
 
 ### Additional Links
 
-[Connect Errors to Code](https://your-link-here.com/retrieve-insights) – Explore how to map logs and anomalies directly to source code for immediate context.
+[Connect Errors to Code](/use-cases/resolve-customer-issues/resolve-customer-issues-UC2) – Discover how to link alert data back to your codebase, providing the exact context needed for quick resolution.
 
-[Generate Code Fixes](https://your-link-here.com/retrieve-insights) – Leverage PlayerZero’s AI suggestions to streamline bug fixes based on trace data and user impact.
+[Generate Code Fixes](/use-cases/resolve-customer-issues/resolve-customer-issues-UC3) – Learn how PlayerZero’s contextual suggestions can guide resolution strategies based on real-time system behavior.
 
 

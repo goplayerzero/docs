@@ -4,30 +4,18 @@ sidebarTitle: "Generate Code Fixes"
 description: "PlayerZero suggests targeted code fixes by combining session data, code context, and historical patterns to resolve issues at their root."
 ---
 
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
+import WebSdk from '/snippets/prerequisites/web-sdk.mdx';
+
 # Overview
 PlayerZero guides developers toward effective code fixes by combining detailed session recordings, error contexts, and code understanding into a comprehensive analysis. The system examines similar code changes and historical fixes across the codebase to identify patterns and potential solutions, while also considering the specific user interactions that triggered the issue. This contextual approach not only helps developers understand what to fix but also why the fix is needed, ensuring that solutions address the root cause while maintaining alignment with the codebase's existing patterns and best practices.
 
 ## **Prerequisites**
 
-### Source Control Management (Codebase)
+<SourceControlManagement/>
 
-**Your codebase is connected to PlayerZero**
-
-This enables PlayerZero to map runtime errors, traces, and sessions back to the exact lines of code in your repository.
-
-*This is the foundational integration — all other data sources (traces, tickets, sessions) rely on it to establish full context across your stack.*
-
-→ To set this up, navigate to the [SCM Setup Guide].
-
-### Web SDK
-
-**Your frontend is instrumented with PlayerZero**
-
-This captures user actions, DOM snapshots, and network activity for full-session context. It bridges frontend events with backend telemetry when available.
-
-*For complete session capture, ensure that backend telemetry is also connected.*
-
-→ To set this up, navigate to the [Web SDK Setup Guide].
+<WebSdk/>
 
 ---
 
@@ -61,11 +49,11 @@ In this guide, we explored how to generate targeted code fixes by continuing an 
 
 ### Additional Links
 
-- [Retrieve Insights from Code](https://your-link-here.com/retrieve-insights) – Extract and interpret historical code behavior and patterns.
+- [Retrieve Insights from Code](/use-cases/retrieve-insights-from-code/retrieve-insights-from-code-benefits) – Extract and interpret historical code behavior and patterns.
 
-- [Ask your Codebase Questions](https://your-link-here.com/ask-questions) – Interact with your codebase using natural language queries and session-aware context.
+- [Ask your Codebase Questions](/use-cases/retrieve-insights-from-code/retrieve-insights-from-code-UC1) – Interact with your codebase using natural language queries and session-aware context.
 
-- [Identify Dependencies](https://your-link-here.com/identify-dependencies) – Surface relationships between modules, services, and files to inform change impact.
+- [Identify Dependencies](/use-cases/retrieve-insights-from-code/retrieve-insights-from-code-UC2) – Surface relationships between modules, services, and files to inform change impact.
 
-- [Uphold Coding Standards](https://your-link-here.com/coding-standards) – Verify compliance with organizational practices across your codebase.
+- [Uphold Coding Standards](/use-cases/retrieve-insights-from-code/retrieve-insights-from-code-UC3) – Verify compliance with organizational practices across your codebase.
 

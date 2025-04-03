@@ -4,29 +4,18 @@ sidebarTitle: "Connect Errors to Code"
 description: "PlayerZero automatically connects runtime errors to the specific code segments that caused them by analyzing error traces, network calls, and code context. "
 ---
 
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
+import WebSdk from '/snippets/prerequisites/web-sdk.mdx';
+
 # Overview
 PlayerZero automatically connects user-facing issues to their underlying code by analyzing network calls, error traces, and code context to identify the relevant files and functions responsible for specific customer experiences. When an error or network issue occurs, the system leverages AI embeddings to match the error context with the most relevant code sections, enabling developers to jump directly to the source of the problem without manually searching through the codebase. This intelligent code-mapping capability transforms what would typically be a time-consuming investigation process into an immediate insight, allowing engineering teams to focus on fixing issues rather than hunting for their location in the code.
 
 ## **Prerequisites**
 
-### Source Control Management (Codebase)
+<SourceControlManagement/>
 
-**Your codebase is connected to PlayerZero**
-This enables PlayerZero to map runtime errors, traces, and sessions back to the exact lines of code in your repository.
-
-*This is the foundational integration — all other data sources (traces, tickets, sessions) rely on it to establish full context across your stack.*
-
-→ To set this up, navigate to the [SCM Setup Guide]([https://go.playerzero.app](https://go.playerzero.app/)).
-
-### Web SDK
-
-**Your frontend is instrumented with PlayerZero**
-
-This captures user actions, DOM snapshots, and network activity for full-session context. It bridges frontend events with backend telemetry when available.
-
-*For complete session capture, ensure that backend telemetry is also connected.*
-
-→ To set this up, navigate to the [Web SDK Setup Guide]([https://go.playerzero.app](https://go.playerzero.app/)).
+<WebSdk/>
 
 ---
 
@@ -74,4 +63,4 @@ In this guide, we covered how to initiate the AI chat session from either the si
 
 ### Additional Links
 
-[Generate Code Fixes]([https://go.playerzero.app](https://go.playerzero.app/)) – Dive deeper into automatically creating targeted patches based on the identified errors.
+[Generate Code Fixes](/use-cases/resolve-customer-issues/resolve-customer-issues-UC3) – Dive deeper into automatically creating targeted patches based on the identified errors.

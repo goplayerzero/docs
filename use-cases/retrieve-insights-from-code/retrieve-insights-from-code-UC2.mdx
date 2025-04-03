@@ -4,20 +4,15 @@ sidebarTitle: "Identify Dependencies"
 description: "PlayerZero helps you trace relationships across services, files, and repositories using AI-powered code exploration."
 ---
 
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
 # Overview
 
 PlayerZero maps out your code’s interconnections—across services, files, and repositories—to give you a full picture of how your system fits together. By analyzing method calls, class references, and shared libraries, PlayerZero makes it easy to trace the ripple effects of a change, understand service interactions, and explore feature implementations across a distributed codebase.
 
 ## **Prerequisites**
 
-### Source Control Management (Codebase)
-
-**Your codebase is connected to PlayerZero**
-This enables PlayerZero to map runtime errors, traces, and sessions back to the exact lines of code in your repository. 
-
-*This is the foundational integration — all other data sources (traces, tickets, sessions) rely on it to establish full context across your stack.*
-
-→ To set this up, navigate to the [SCM Setup Guide](https://go.playerzero.app).
+<SourceControlManagement/>
 
 ---
 

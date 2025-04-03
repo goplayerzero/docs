@@ -4,6 +4,8 @@ sidebarTitle: "Ask your Codebase Questions"
 description: "Empower your entire team to explore and understand your codebase using AI-driven insights."
 ---
 
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
 # Overview
 
 PlayerZero's code reasoning capability allows both technical and non-technical team members to interact with their codebase through natural language questions, receiving contextually aware responses that draw from actual source code, recent changes, and documentation. Engineers can dive deep into implementation details—such as key services, files, and functions—while support and product teams can understand feature behavior without having to parse complex code. This makes PlayerZero an invaluable tool for cross-functional collaboration.
@@ -12,13 +14,7 @@ By analyzing not just the code itself, but also recent code changes, pull reques
 
 ## **Prerequisites**
 
-### Source Control Management (Codebase)
-
-**Your codebase is connected to PlayerZero**  
-This setup enables PlayerZero to map runtime errors, traces, and sessions back to the exact lines of code in your repository.  
-*This is the foundational integration — all other data sources (traces, tickets, sessions) rely on it to establish full context across your stack.*
-
-→ To set this up, navigate to the [SCM Setup Guide].
+<SourceControlManagement/>
 
 ---
 

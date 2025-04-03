@@ -4,20 +4,15 @@ sidebarTitle: "Identify Issues after Deployments"
 description: "PlayerZero acts as an automated watchdog for new deployments by creating dedicated release-specific monitoring channels that actively track and alert teams to any issues that emerge after a deployment."
 ---
 
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
 # Overview
 
 PlayerZero acts as an automated watchdog for new deployments by creating dedicated release-specific monitoring channels that actively track and alert teams to any issues that emerge after a deployment. PlayerZero automatically correlates user experiences, error patterns, and performance metrics with deployment timelines, helping teams quickly identify whether new issues are related to recent code changes. Teams get real-time visibility into release health through automated issue detection and escalation, enabling quick, data-driven decisions about release stability.
 
 ## **Prerequisites**
 
-### Source Control Management (Codebase)
-
-**Your codebase is connected to PlayerZero**  
-This integration allows PlayerZero to directly associate pull requests and commits with releases. As new errors are reported or performance regressions surface, PlayerZero ties them back to specific code changes for faster root cause identification.
-
-*This ensures that newly created releases and their respective pull requests map cleanly to your development workflow.*
-
-→ If you haven’t configured this yet, refer to the [SCM Setup Guide](https://go.playerzero.app).
+<SourceControlManagement/>
 
 ### Backend or Cloud Environment Integration
 
@@ -107,8 +102,6 @@ In this guide, we’ve covered how to use PlayerZero’s automated release monit
 
 ### Additional Links
 
-- [Connect Errors to Code](https://your-link-here.com/retrieve-insights) – Learn how to trace user-reported issues directly to code changes for rapid debugging.  
-- [Generate Code Fixes](https://your-link-here.com/retrieve-insights) – Explore how PlayerZero’s contextual data can help AI-driven suggestions target the exact lines of code needing updates.
+[Connect Errors to Code](/use-cases/resolve-customer-issues/resolve-customer-issues-UC2) – Discover how to link alert data back to your codebase, providing the exact context needed for quick resolution.
 
-
-
+[Generate Code Fixes](/use-cases/resolve-customer-issues/resolve-customer-issues-UC3) – Learn how PlayerZero’s contextual suggestions can guide resolution strategies based on real-time system behavior.

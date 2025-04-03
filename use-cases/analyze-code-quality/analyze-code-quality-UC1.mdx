@@ -4,20 +4,15 @@ sidebarTitle: "Generate Functional Tests"
 description: "PlayerZero generates functional tests with full codebase and user context to ensure your pull requests are validated with precision and depth."
 ---
 
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
 # Overview
 
 PlayerZero guides developers toward effective code fixes by combining detailed session recordings, error contexts, and code understanding into a comprehensive analysis. The system examines similar code changes and historical fixes across the codebase to identify patterns and potential solutions, while also considering the specific user interactions that triggered the issue. This contextual approach not only helps developers understand what to fix but also why the fix is needed, ensuring that solutions address the root cause while maintaining alignment with the codebase's existing patterns and best practices.
 
 ## **Prerequisites**
 
-### Source Control Management (Codebase)
-
-**Your codebase is connected to PlayerZero**
-This enables PlayerZero to map runtime errors, traces, and sessions back to the exact lines of code in your repository.
-
-*This is the foundational integration — all other data sources (traces, tickets, sessions) rely on it to establish full context across your stack.*
-
-→ To set this up, navigate to the [SCM Setup Guide]([https://go.playerzero.app](https://go.playerzero.app/)).
+<SourceControlManagement/>
 
 ---
 
@@ -122,8 +117,8 @@ To continue maximizing the value of PlayerZero across your workflows, explore th
 
 ### Additional Links
 
-- [Create Detailed API Docs](mintlify://create-api-docs) – Convert your API definitions into clean, human-readable documentation for internal and external teams.  
-- [Generate Architecture Diagrams](mintlify://generate-diagrams) – Automatically visualize system structure, dependencies, and data flow to improve technical understanding.  
-- [Produce User Guides](mintlify://generate-user-guides) – Turn complex product or engineering flows into user-facing documentation for customer success and support.  
-- [Ask your Codebase Questions](mintlify://chat-codebase) – Use PlayerZero’s chat interface to explore your codebase with targeted, contextual questions.
+- [Create Detailed API Docs](/use-cases/create-documentation/create-documentation-UC2) – Convert your API definitions into clean, human-readable documentation for internal and external teams.  
+- [Generate Architecture Diagrams](/use-cases/create-documentation/create-documentation-UC1) – Automatically visualize system structure, dependencies, and data flow to improve technical understanding.  
+- [Produce User Guides](/use-cases/create-documentation/create-documentation-UC3) – Turn complex product or engineering flows into user-facing documentation for customer success and support.  
+- [Ask your Codebase Questions](/use-cases/retrieve-insights-from-code/retrieve-insights-from-code-UC1) – Use PlayerZero’s chat interface to explore your codebase with targeted, contextual questions.
 

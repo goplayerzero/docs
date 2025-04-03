@@ -4,20 +4,15 @@ sidebarTitle: "Screen for Regressions"
 description: "PlayerZero leverages historical tickets and code embeddings to automatically generate regression tests for your pull requests."
 ---
 
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
 # Overview
 
 PlayerZero identifies regressions by comparing your current code changes against historical bugs and customer frustrations. Through AI-driven embeddings, PlayerZero creates semantic fingerprints of both new code diffs and past tickets, then uses vector similarity matching to surface the most relevant historical issues. If overlaps are found, PlayerZero generates targeted regression tests directly in your PR, highlighting exactly which past problems could recur.
 
 ## **Prerequisites**
 
-### Source Control Management (Codebase)
-
-**Your codebase is connected to PlayerZero**
-This enables PlayerZero to map runtime errors, traces, and sessions back to the exact lines of code in your repository.
-
-*This is the foundational integration — all other data sources (traces, tickets, sessions) rely on it to establish full context across your stack.*
-
-→ To set this up, navigate to the [SCM Setup Guide]([https://go.playerzero.app](https://go.playerzero.app/)).
+<SourceControlManagement/>
 
 ---
 
@@ -123,8 +118,8 @@ With your codebase connected, PlayerZero maps every pull request to a curated se
 
 ### Additional Links
 
-- [Generate Functional Tests with Context](mintlify://generate-functional-tests) – Discover how PlayerZero automatically provides functional coverage for every PR.  
-- [Create Line-by-Line Code Summaries](mintlify://code-summaries) – Save time by reading condensed explanations of each change in your PR.  
-- [Produce User Guides](mintlify://generate-user-guides) – Turn your product flows into detailed documentation for end users and support teams.  
-- [Ask your Codebase Questions](mintlify://chat-codebase) – Delve deeper into your code structure and history using PlayerZero’s AI-powered chat.
+- [Generate Functional Tests with Context](/use-cases/analyze-code-quality/analyze-code-quality-UC3) – Discover how PlayerZero automatically provides functional coverage for every PR.  
+- [Create Line-by-Line Code Summaries](/use-cases/analyze-code-quality/analyze-code-quality-UC3) – Save time by reading condensed explanations of each change in your PR.  
+- [Produce User Guides](/use-cases/create-documentation/create-documentation-UC3) – Turn your product flows into detailed documentation for end users and support teams.  
+- [Ask your Codebase Questions](/use-cases/retrieve-insights-from-code/retrieve-insights-from-code-UC1) – Delve deeper into your code structure and history using PlayerZero’s AI-powered chat.
 

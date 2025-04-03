@@ -4,29 +4,19 @@ sidebarTitle: "Reduce Notification Noise"
 description: "Learn how to reduce alert fatigue by creating muting rules for non-critical issues. Customize PlayerZero's anomaly detection notifications to stay focused on the errors that truly matter."
 ---
 
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
+import WebSdk from '/snippets/prerequisites/web-sdk.mdx';
+
 # Overview
 
 PlayerZero uses sophisticated anomaly detection algorithms to identify unusual patterns of errors or latency, ensuring teams are only notified when issues represent significant deviations from normal behavior. Teams can create customized muting rules based on specific API patterns or issue similarities, allowing them to strategically filter out known issues or expected behaviors while staying alert to critical problems. This helps teams maintain focus on what matters most, as PlayerZero automatically groups similar issues and applies muting rules across releases to prevent alert fatigue while ensuring critical problems don't go unnoticed.
 
 ## **Prerequisites**
 
-### Source Control Management (Codebase)
+<SourceControlManagement/>
 
-**Your codebase is connected to PlayerZero**  
-This ensures PlayerZero can map anomalies and issues back to specific lines of code in your repository.
-
-*This is the foundational integration — all anomaly detection and alert rules rely on having visibility into how your application code is organized.*
-
-→ To set this up, navigate to the [SCM Setup Guide](https://go.playerzero.app).
-
-### Web SDK
-
-**Your frontend is instrumented with PlayerZero**  
-This captures user actions, DOM snapshots, network activity, and any anomalies detected in real time. The frontend instrumentation combines with the backend telemetry (if available) to deliver end-to-end context.
-
-*For complete anomaly detection, ensure that your backend telemetry is also connected.*
-
-→ To set this up, navigate to the [Web SDK Setup Guide](https://go.playerzero.app).
+<WebSdk/>
 
 ---
 
@@ -96,7 +86,6 @@ PlayerZero ensures your team remains informed of impactful problems without drow
 
 ### Additional Links
 
-[Connect Errors to Code](https://your-link-here.com/retrieve-insights) – Learn to associate new or recurring issues with lines of code in your repository for pinpoint debugging.
+[Connect Errors to Code](/use-cases/resolve-customer-issues/resolve-customer-issues-UC2) – Discover how to link alert data back to your codebase, providing the exact context needed for quick resolution.
 
-[Generate Code Fixes](https://your-link-here.com/retrieve-insights) – Explore how PlayerZero surfaces contextual suggestions by analyzing anomalies and system behavior.
-
+[Generate Code Fixes](/use-cases/resolve-customer-issues/resolve-customer-issues-UC3) – Learn how PlayerZero’s contextual suggestions can guide resolution strategies based on real-time system behavior.

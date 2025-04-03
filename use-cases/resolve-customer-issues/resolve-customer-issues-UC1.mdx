@@ -4,30 +4,19 @@ sidebarTitle: "Capture Session Context"
 description: "PlayerZero captures every click, DOM update, and network request in real-time, so teams can discover, analyze, and fix defects faster."
 ---
 
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
+import WebSdk from '/snippets/prerequisites/web-sdk.mdx';
+
 # Overview
 
 PlayerZero provides comprehensive visibility into user experiences by automatically capturing full-context recordings of user sessions, including DOM snapshots, network calls, and console logs. For technical teams, the system collects distributed traces and detailed telemetry data that help pinpoint the root cause of issues across different parts of the application, while support and business stakeholders can review exact steps to reproduce by watching session replays and analyzing user journeys. This powerful combination of user context and technical data eliminates the traditional back-and-forth between support and engineering teams, dramatically reducing the time needed to understand and resolve customer-impacting issues.
 
 ## **Prerequisites**
 
-### Source Control Management (Codebase)
+<SourceControlManagement/>
 
-**Your codebase is connected to PlayerZero**
-This enables PlayerZero to map runtime errors, traces, and sessions back to the exact lines of code in your repository. 
-
-*This is the foundational integration — all other data sources (traces, tickets, sessions) rely on it to establish full context across your stack.*
-
-→ To set this up, navigate to the [SCM Setup Guide](https://go.playerzero.app).
-
-### Web SDK
-
-**Your frontend is instrumented with PlayerZero**
-
-This captures user actions, DOM snapshots, and network activity for full-session context. It bridges frontend events with backend telemetry when available.
-
-*For complete session capture, ensure that backend telemetry is also connected.*
-
-→ To set this up, navigate to the [Web SDK Setup Guide](https://go.playerzero.app).    
+<WebSdk/>
 
 ---
 
@@ -67,6 +56,6 @@ In this guide, we walked through how to map a user-reported issue to its root ca
 
 ### Additional Links
 
-[Connect Errors to Code](https://your-link-here.com/retrieve-insights) – Explains how to associate user complaints with exact sessions and trace those events across system layers.
+[Connect Errors to Code](/use-cases/resolve-customer-issues/resolve-customer-issues-UC2) – Explains how to associate user complaints with exact sessions and trace those events across system layers.
 
-[Generate Code Fixes](https://your-link-here.com/retrieve-insights) – Details how PlayerZero surfaces contextual suggestions based on trace data and system behavior.
+[Generate Code Fixes](/use-cases/resolve-customer-issues/resolve-customer-issues-UC3) – Details how PlayerZero surfaces contextual suggestions based on trace data and system behavior.

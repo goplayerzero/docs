@@ -4,20 +4,15 @@ sidebarTitle: "Create Code Summaries"
 description: "PlayerZero creates clear, contextual code summaries for each change, helping teams understand what changed, why it matters, and how it impacts the system."
 ---
 
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
 # Overview
 
 PlayerZero automatically generates clear, contextual summaries of code changes at both the pull request level and for individual file changes, making code reviews more efficient and accessible to all team members. Each changed file includes a detailed explanation of what was modified and why, helping reviewers quickly understand the impact and purpose of specific code modifications. The system also provides a comprehensive pull request summary that explains the overall changes, their business purpose, and potential risks to different features of your application.
 
 ## **Prerequisites**
 
-### Source Control Management (Codebase)
-
-**Your codebase is connected to PlayerZero**
-This enables PlayerZero to map runtime errors, traces, and sessions back to the exact lines of code in your repository.
-
-*This is the foundational integration — all other data sources (traces, tickets, sessions) rely on it to establish full context across your stack.*
-
-→ To set this up, navigate to the [SCM Setup Guide]([https://go.playerzero.app](https://go.playerzero.app/)).
+<SourceControlManagement/>
 
 ---
 
@@ -100,8 +95,8 @@ PlayerZero enhances your code review process with intelligent summaries and deep
 
 ### Additional Links
 
-- [Create Detailed API Docs](mintlify://create-api-docs) – Convert endpoint definitions and descriptions into clean, readable API documentation.
-- [Generate Architecture Diagrams](mintlify://generate-diagrams) – Visualize your system’s structure and dependencies automatically.
-- [Produce User Guides](mintlify://generate-user-guides) – Transform complex flows into user-facing documentation for product and support teams.
-- [Ask your Codebase Questions](mintlify://chat-codebase) – Use chat to dive deeper into how features are implemented or why decisions were made.
+- [Create Detailed API Docs](/use-cases/create-documentation/create-documentation-UC2) – Convert endpoint definitions and descriptions into clean, readable API documentation.
+- [Generate Architecture Diagrams](/use-cases/create-documentation/create-documentation-UC1) – Visualize your system’s structure and dependencies automatically.
+- [Produce User Guides](/use-cases/create-documentation/create-documentation-UC3) – Transform complex flows into user-facing documentation for product and support teams.
+- [Ask your Codebase Questions](/use-cases/retrieve-insights-from-code/retrieve-insights-from-code-UC1) – Use chat to dive deeper into how features are implemented or why decisions were made.
 
