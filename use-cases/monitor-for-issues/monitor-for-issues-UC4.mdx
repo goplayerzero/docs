@@ -1,0 +1,114 @@
+---
+title: "Identify Issues Caused by New releases and Deployments "
+sidebarTitle: "Identify Issues after Deployments"
+description: "PlayerZero acts as an automated watchdog for new deployments by creating dedicated release-specific monitoring channels that actively track and alert teams to any issues that emerge after a deployment."
+---
+
+# Overview
+
+PlayerZero acts as an automated watchdog for new deployments by creating dedicated release-specific monitoring channels that actively track and alert teams to any issues that emerge after a deployment. PlayerZero automatically correlates user experiences, error patterns, and performance metrics with deployment timelines, helping teams quickly identify whether new issues are related to recent code changes. Teams get real-time visibility into release health through automated issue detection and escalation, enabling quick, data-driven decisions about release stability.
+
+## **Prerequisites**
+
+### Source Control Management (Codebase)
+
+**Your codebase is connected to PlayerZero**  
+This integration allows PlayerZero to directly associate pull requests and commits with releases. As new errors are reported or performance regressions surface, PlayerZero ties them back to specific code changes for faster root cause identification.
+
+*This ensures that newly created releases and their respective pull requests map cleanly to your development workflow.*
+
+→ If you haven’t configured this yet, refer to the [SCM Setup Guide](https://go.playerzero.app).
+
+### Backend or Cloud Environment Integration
+
+**Your environment is connected for release channels**  
+This ensures that PlayerZero can monitor your deployments in real-time. It allows the system to pinpoint when a release starts, gathers associated metrics, and alerts on anomalies.
+
+*For full release monitoring, ensure that PlayerZero has visibility into your live environment (production or otherwise) where you want to enable alerts.*
+
+→ To set this up, navigate to the [Environment Setup Guide](https://go.playerzero.app).
+
+---
+
+## **Process**
+
+PlayerZero helps your team move faster by automatically organizing deployments, correlating issues to recent changes, and providing a centralized place to review release health. Follow these steps to effectively use PlayerZero for release alerts and monitoring.
+
+### 1. **Start an AI Chat Aligned with Your Release Strategy**
+
+When creating or updating a release, consider how you want PlayerZero to track and escalate issues. You can use AI-driven suggestions to quickly set up or modify your release strategy:
+
+1. **Manual Strategy**  
+   - Best for teams deploying multiple times per day  
+   - You control when to create new releases and deploy  
+   - All new pull requests automatically associate with the current release  
+   - Ideal for teams that need deployment flexibility
+
+2. **Weekly Strategy**  
+   - Choose your preferred deployment day and time (e.g., Tuesdays at 4:00 PM)  
+   - Set repeat frequency (every 1, 2, 3, or 4 weeks)  
+   - PlayerZero automatically creates new release channels at scheduled times  
+   - Perfect for teams with regular weekly deployment schedules
+
+3. **Daily/Scheduled Strategy**  
+   - Set specific times for deployments using cron syntax  
+   - Configure whether new pull requests default to current or next release  
+   - Channels created automatically at your configured intervals  
+   - Ideal for teams with multiple scheduled releases per day
+
+> *Tip: If you have a unique deployment cadence, you can chat with PlayerZero’s AI to refine your strategy and get recommended settings.*
+
+### 2. **Configure Your Release Channel Settings**
+
+Once you’ve established a release strategy, set up your release channel preferences to get timely alerts and updates:
+
+- Navigate to **Settings → Release Alerts**  
+- Choose your communications provider (Slack or Teams)  
+- Add a channel prefix to identify your project (e.g., “prod-” or “app-”)  
+- Make sure to enable notifications so that new issues or regressions are surfaced in real-time
+
+### 3. **Analyze Release Performance in PlayerZero (Release Cards)**
+
+PlayerZero automatically creates a “Release Card” for each deployment. To review the health of your current release:
+
+- Go to the **Home** page to see a list of active releases and click on the current release card  
+- Monitor included pull requests, active issues, and user adoption metrics  
+- Access user sessions that demonstrate issues or performance slowdowns  
+- Review real-time performance metrics like page load times and error rates  
+- Compare release metrics against prior deployments for a historical view
+
+### 4. **Create a New Release Manually**
+
+If you prefer manual control or need an out-of-band deployment:
+
+1. Navigate to **Past Releases → Create New Release**  
+2. Click the **Create New Release** button and choose between an immediate or scheduled release  
+3. Select your target environment (e.g., staging or production)  
+4. Configure release details:  
+   - **Release Name** – Provide a descriptive name  
+   - **Release Date** – Specify the date of the deployment  
+   - **Related PRs** – Select which pull requests to include
+
+### 5. **Roll Back a Release**
+
+If a critical issue surfaces, you may need to roll back:
+
+1. From the current release card, select **Rollback Release**  
+2. Review the automated rollback impact analysis, which shows affected services and ongoing user sessions  
+3. Confirm the rollback to revert your codebase to the previous stable release  
+4. PlayerZero will create a new release channel to track the post-rollback state  
+5. Teams are notified once rollback completes, and a post-rollback analysis is made available
+
+---
+
+## **Summary and Next Steps**
+
+In this guide, we’ve covered how to use PlayerZero’s automated release monitoring and alerting to stay ahead of deployment-related issues. By defining a release strategy, configuring your channel settings, and analyzing real-time metrics and user sessions, your team can move quickly to resolve problems before they significantly impact end users. If needed, you can roll back and immediately begin triaging issues with a clear audit trail of what changed and when.
+
+### Additional Links
+
+- [Connect Errors to Code](https://your-link-here.com/retrieve-insights) – Learn how to trace user-reported issues directly to code changes for rapid debugging.  
+- [Generate Code Fixes](https://your-link-here.com/retrieve-insights) – Explore how PlayerZero’s contextual data can help AI-driven suggestions target the exact lines of code needing updates.
+
+
+

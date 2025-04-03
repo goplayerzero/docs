@@ -1,105 +1,125 @@
 ---
-title: "Ask Questions about Key Services, Files and Functions"
-sidebarTitle: "Ask your Codebase Questions"
-description: "Leverage PlayerZero’s AI chat to retrieve insights from code, user sessions, logs, and more."
+title: "Generate Internal Knowledge Documentation and Guides"
+sidebarTitle: "Produce User Guides"
+description: "Use PlayerZero’s AI to generate and refine internal documentation by asking questions about your codebase or product functionality."
 ---
 
-## **Overview**
+# Overview
 
-PlayerZero connects your codebase with user sessions, error logs, and runtime traces, allowing you to explore implementation details, dependencies, and historical changes in seconds. Ask natural-language questions to uncover where code lives, how it works, and why it was built that way—whether you’re a developer, support engineer, or product manager.
-
----
+With PlayerZero, teams can quickly generate internal documentation by asking questions about any aspect of their codebase or product functionality, receiving detailed explanations drawn from the entire system. The AI assistant breaks down complex systems into digestible guides and explains code implementations, helping new team members understand both the how and why of system design. This shared knowledge base accelerates onboarding and ensures consistent understanding across the organization, reducing the time senior team members spend explaining common concepts.
 
 ## **Prerequisites**
 
 ### Source Control Management (Codebase)
 
 **Your codebase is connected to PlayerZero**  
-This enables PlayerZero to map runtime errors, traces, and sessions back to the exact lines of code in your repository.  
+This connection allows PlayerZero to reference relevant parts of your repository and provide context when generating documentation.  
 
-*If you haven’t done this yet, see the [SCM Setup Guide].*
+*Having your codebase integrated is essential, as it lets the AI fetch and interpret the specific segments of code or architecture you’re asking about.*
 
 ---
 
 ## **Process**
 
-### 1. **Initiate the AI chat session with an initial question**  
-From the input field on the homepage, you can ask a question directly to PlayerZero.  
+### 1. **Identify Documentation Needs**  
+Determine which areas need documentation and consider common questions from new team members. Compile a list of key systems or processes to cover—anything from fundamental architecture overviews to specific feature implementations.
 
-- *Example*: “Where is the main implementation of our notification service?”
+### 2. **Start Knowledge Gathering**  
+Open PlayerZero’s AI chat interface and begin by asking foundational questions:
 
-### 2. **Guide the Investigation with follow-up questions**  
-PlayerZero provides targeted explanations and suggestions based on your focus, drawing from both codebase knowledge and user session data.
+> "Can you explain how our authentication system works across our services?"  
+> "What are the main components of our data processing pipeline?"
 
-- *Example*: “Show me how errors are handled in the notification service.”
+This ensures the AI understands the scope of your system and tailors explanations accordingly.
+
+### 3. **Generate Detailed Explanations**  
+Ask the AI to elaborate on system architecture, code implementations, business logic, or common workflows. The AI provides context-aware explanations by drawing from your codebase, ensuring accuracy and relevance to your specific environment.
+
+### 4. **Create Onboarding Guides**  
+Target your questions toward new team members who need a high-level overview of your stack:
+
+> "Can you create a guide for new developers about our deployment process?"  
+> "Help me create an overview of our main services and how they interact."
+
+These guides accelerate onboarding, so new hires can quickly get up to speed on how everything works.
+
+### 5. **Deep Dive into Specific Areas**  
+Go beyond high-level overviews:
+- Inquire about code patterns, conventions, or architecture details.
+- Gather information on database schemas, testing approaches, or API interactions.
+- Understand the purpose behind specific lines of code or modules.
+
+### 6. **Generate How-To Guides**  
+Create step-by-step instructions for common tasks. Document troubleshooting procedures, detail the steps for specific development workflows, or clarify how a particular service is deployed.
+
+### 7. **Enhance with Examples**  
+Ask for relevant code samples directly from your codebase. The AI can pull specific snippets and show how to implement or modify them, helping to illustrate common use cases or best practices.
+
+### 8. **Organize and Share**  
+Structure documentation into logical sections and share it with the appropriate teams. Use PlayerZero’s collaboration features to collect feedback or allow direct edits. This approach keeps everyone aligned on how the system operates.
+
+### 9. **Iterate and Maintain**  
+Regularly revisit and update your documentation as the product evolves or when new questions arise. Keep examples and architecture diagrams current so that the documentation remains a trustworthy reference over time.
 
 ---
 
-### **Code Exploration Insights – Understand your codebase faster**
+### **Internal Documentation Insights – Build Comprehensive References**
 
-Want to quickly explore how your systems work? You can interact directly with PlayerZero’s AI Chat to investigate logic, history, and architecture across your codebase.
+Looking to generate an organized, robust knowledge base? PlayerZero’s AI helps you capture detailed explanations, code examples, and best practices in one place.
 
 👉 [Start an AI Chat session](https://app.playerzero.ai/chat)
 
-Use the categories below to guide your investigation with the right level of technical context. Each accordion outlines a specific insight-driven scenario you can explore using PlayerZero’s contextual tools.
-
-#### **Role-Focused Scenarios**
+Use the categories below to guide your documentation inquiries. Each accordion suggests contexts where the AI can offer detailed, code-aware insights.
 
 <AccordionGroup>
 
-  <Accordion title="For Developers">
+  <Accordion title="Foundational Explanations">
     **Context & Typical Questions**  
-    - Where is the main implementation of [specific function/service]?  
-    - Show me all the places where [method/class] is being used  
-    - What changed in the [specific file/service] in recent PRs?  
-    - How does our authentication flow work across services?  
-    - Who recently modified [specific component] and why?  
-    - How do we handle errors in [specific flow]?  
+    - What fundamental systems or libraries does our product rely on?  
+    - How do major application layers communicate with each other?  
+    - Which core design principles does our architecture follow?  
   </Accordion>
 
-  <Accordion title="For Support">
+  <Accordion title="System Architecture & Components">
     **Context & Typical Questions**  
-    - What happens when a user clicks [specific button/action]?  
-    - Where are errors logged for [specific feature]?  
-    - What are the possible error states for [specific flow]?  
-    - How does the system validate [specific type of input]?  
-    - What permissions are required for [specific action]?  
-    - Where can I find logs related to [specific user action]?  
+    - Where can I find an overview of our microservices and their interactions?  
+    - How does data flow between the frontend, backend, and database?  
+    - Which services are most critical, and how are they deployed or scaled?  
   </Accordion>
 
-  <Accordion title="For Product">
+  <Accordion title="Implementation Details">
     **Context & Typical Questions**  
-    - What features are implemented in [specific area of product]?  
-    - How are we currently implementing [specific product capability]?  
-    - What systems are involved in delivering [specific feature]?  
-    - Show me all the different ways users can [accomplish specific goal]  
-    - How configurable is [specific feature] for different use cases?  
-    - What dependencies exist for [specific feature]?  
+    - Can you break down the logic in [specific file or function]?  
+    - What patterns or conventions are used throughout the codebase?  
+    - How are edge cases, errors, or exceptions handled in [module]?  
+  </Accordion>
+
+  <Accordion title="Onboarding & Collaboration">
+    **Context & Typical Questions**  
+    - Can you create an onboarding checklist for new developers?  
+    - How do we share and maintain internal docs among different teams?  
+    - Which tools or commands do new hires need to get started?  
   </Accordion>
 
 </AccordionGroup>
 
-### **Prompting Tips**
+#### **Prompting Tips**
 
-1. **Anchor concepts together** – Start by identifying how parts of the codebase relate. For example: “How does Feature X interact with Feature Y?”
-2. **Adjust context scope** – Think intentionally about whether your question should span multiple modules or zoom in on a specific file or function.
-3. **Define the output you want** – Be clear whether you're looking for code examples, summaries, API shapes, or configuration formats (e.g., “Show this as JSON”).
-4. **Follow the thread** – After a useful result, ask follow-ups like “Why was this implemented this way?” or “Who changed it last?”
+1. **Combine details** – “How do I document our authentication flow and data processing pipeline in the same guide?”  
+2. **Ask for formatting** – “Format a deployment process guide as a step-by-step checklist.”  
+3. **Request clarifications** – “Which code examples are most relevant for our onboarding docs?”  
+4. **Use follow-ups** – “Help me integrate this debugging workflow into our existing developer guide.”
 
 ---
 
 ## **Summary and Next Steps**
 
-With PlayerZero, asking targeted questions transforms how quickly you can identify, understand, and act on code changes. From basic references to advanced analysis, the AI chat streamlines every step of your discovery process.
+By harnessing PlayerZero’s AI-powered chat, your team can generate and maintain a centralized knowledge base that scales alongside your codebase. Whether you’re creating high-level system overviews or detailed how-to guides, the AI’s context-aware responses ensure everyone has access to accurate, well-structured documentation.
 
-### Further Exploration
-- **Create Line-by-Line Code Summaries** – Quickly understand the *why* behind each code change.  
-- **Generate Functional Tests** – Automatically produce functional coverage tailored to your PRs.  
-- **Screen for Potential Regressions** – Identify historical issues that might resurface in new changes.  
-- **Produce User Guides** – Convert internal knowledge into end-user documentation.  
+### Additional Links
 
----
-
-*Now you’re ready to explore your codebase in a whole new way—just type a question, and PlayerZero’s AI handles the rest.*
-
+- [Accelerate Onboarding with PlayerZero](mintlify://accelerate-onboarding) – Help new team members ramp up faster.  
+- [Centralize Team Knowledge](mintlify://centralize-team-knowledge) – Keep all critical documentation in one place.  
+- [Keep Docs in Sync](mintlify://keep-docs-in-sync) – Ensure updates in the codebase are reflected in your documentation.  
+- [Expand Documentation Coverage](mintlify://expand-documentation-coverage) – Identify and fill gaps in your internal guides.
 

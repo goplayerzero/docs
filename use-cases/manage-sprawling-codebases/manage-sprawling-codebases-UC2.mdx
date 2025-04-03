@@ -1,97 +1,141 @@
 ---
 title: "Understand Foreign Areas of the Codebase "
 sidebarTitle: "Understand Foreign Code"
-description: "PlayerZero captures every click, DOM update, and network request in real-time, so teams can discover, analyze, and fix defects faster."
+description: "PlayerZero helps you gain a deep understanding of your codebase through natural language queries and contextual AI assistance."
 ---
 
 # Overview
 
-When a user reports an issue or experiences unexpected application behavior, you need a straightforward way to not only understand what was happening but track down where things went wrong—both in frontend interactions and backend traces. **PlayerZero** helps your team follow a user’s journey, pinpoint the cause of an error, and quickly jump into relevant parts of the code for a fix. This guide walks you through how to debug a user session, step-by-step.
+PlayerZero acts as your pair-programming AI assistant, enabling you to query and understand unfamiliar code through natural language questions. The system instantly surfaces relevant files, dependencies, and code flows without having to grep through multiple repositories. By building a deep understanding of your code's architecture and recent changes, PlayerZero can explain complex implementations in clear technical terms with direct references to the source.  
 
-### Prerequisites
+When you need to debug issues or take ownership of another developer's code, you can quickly ramp up without piecing together scattered documentation or chasing down former team members for context. Simply ask the AI about any part of the implementation and get immediate, technically accurate explanations tailored to your project.
 
-Before getting started, confirm that:
+## **Prerequisites**
 
-1. **Your SCM system is integrated with PlayerZero**
-    
-    This allows PlayerZero to query your repository and link trace data to specific code lines.
-    
-2. **The PlayerZero Web SDK is instrumented**
-    
-    This captures user actions, DOM state, and network traffic for comprehensive frontend visibility.
-    
-    *Without these in place, your logs and user sessions won’t be linked correctly, or you won’t see the full picture of user actions in PlayerZero.*
-    
+### Source Control Management (Codebase)
 
+**Your codebase is connected to PlayerZero**  
+This enables PlayerZero to associate runtime errors, traces, and sessions back to the exact lines of code in your repository.
 
-**Backend / OpenTelemetry Data**
+*This is the foundational integration — all other data sources rely on it to establish full context across your stack.*
 
-If you want a unified view of backend traces alongside your frontend data, you must be sending OpenTelemetry data to PlayerZero. It is not suggested to connect this data until the two previous datasources are connected and the core PlayerZero workflows are understood by your team. 
-
-# Process
-
-PlayerZero leverages your SCM and telemetry data to save your engineering and support time when a customer reaches out with an issue.
-
-**Scenario**: A customer files a support ticket complaining about an error that occurs after they click “Submit” on your signup form. 
-
-### 1. Field the user complaint and retrieve key details
-
-To get started, you only need the following details: name/email, time/date, description of the issue.
-
-*Note: You can integrate your ticketing system (e.g., Zendesk, Jira) with PlayerZero for a seamless reference, but it’s not strictly required to start debugging.*
-
-### 2. Associate the complaint to a specific moment in the user’s session
-
-Now that you’ve captured the 3 key details (name/email, time/date, description of the issue), you can begin to connect that customer’s communicated issue to a real session, and all related context, in PlayerZero. Here’s how:
-
-1. **Search for the user on the [users page](https://go.playerzero.app/users)**
-    - Filter by the user’s name, email or user ID on the users page for quicker search.
-2. Navigate to the appropriate user session under “activity” at the bottom of the page
-    - Locate the time window matching the user’s complaint and click into the associated session.
-3. **Find the moment in time the customer ran into an issue**
-    - Inside each PlayerZero user session, you’ll see a three-pane interface:
-        1. **User Actions (Left) –** Logs each click, scroll, or form submission made by the user.
-            - Each user debug session includes a clickable stream of events and actions listen on the left. This stream will go back to the beginning of time (or to the beginning of the data storage window.)
-            - In the case of our example, you would search for the “Submit” action related to the reported issue.
-        2. **DOM Recreation (Middle) –** Provides a visual replay of the user’s screen.
-        3. **Developer Context (Right) –** View network requests, responses, and data payloads the user sent.
-            - This is particularly important if the user’s error is triggered by an API call or a missing data field.
-
-
-Tip: Watch the middle pane’s playback to see what the user did just before the error. Correlate that with the left and right panes to find the root cause (e.g., a failed API request, a null field, or a UI glitch).
+→ To set this up, navigate to the [SCM Setup Guide].
 
 ---
 
-### 3. Analyze Frontend and Backend Traces
+## **Process**
 
-Now that you’ve found the moment in time where the user experiences the issue, you can look more deeply into the technical performance of the application. 
+### 1. **Start a Code Understanding Session**  
+Open PlayerZero’s AI chat interface and clearly state your goal. For example:
 
-1. **Analyze network traffic**
-    - Look for request/response pairs that returned an error status (4xx or 5xx) around the same time as the user’s action.
-    - Inspect response bodies for “Invalid Request,” “Unauthorized,” or other error text.
-2. **Review Backend Traces (OpenTelemetry Data)**
-    - If you have OTel data flowing in, PlayerZero correlates the user’s frontend session with the backend service calls.
-    - Switch to the “Traces” or “Logs” view to see how the request traveled through your backend services.
-3. **Pinpoint the Critical Span**
-    - In a waterfall or timeline view, look for the span that shows an error or high latency.
-    - This helps you zero in on the service or function call that likely caused the issue.
+> "I need to figure out how the user authentication logic works in our Node.js service. Can you walk me through the relevant code files and dependencies?"
+
+This initial query sets the context and helps the AI focus on the specific code area you need to understand.
+
+### 2. **Ask About the Code**  
+Describe what you’re looking for in plain English. You might ask:
+
+> "Show me the function that processes webhook events and explain its key steps."
+
+PlayerZero will locate relevant files, highlight important code sections, and provide an overview of how the code works.
+
+### 3. **Refine with AI Assistance**  
+Build on the AI’s response by asking follow-up questions. The AI can:
+
+- Identify missing information
+- Suggest potential interactions or dependencies
+- Provide deeper explanations of the code’s business purpose
+
+Keep this conversation going until you have a clear grasp of the technical flow.
+
+### 4. **Dive into Dependencies**  
+Ask the AI to surface how the code connects to other services, libraries, or APIs:
+
+> "What other parts of the system call this webhook handler?"
+> "How does the data flow once we receive the webhook event?"
+
+PlayerZero will trace through your codebase to show integrations, data paths, and potential failure points.
+
+### 5. **Review and Summarize**  
+Have PlayerZero provide a concise summary of the code’s logic and purpose. This can include:
+
+- How user interactions trigger certain flows
+- The key data transformations or validations
+- The overall business logic behind the feature
+
+These summaries act as living documentation you can reference later or share with teammates.
+
+### 6. **Share Knowledge**  
+Once you’re confident in your understanding, use PlayerZero’s collaboration features to share these insights:
+
+- Tag relevant teammates and invite them to review
+- Copy direct links to AI explanations
+- Enable feedback and comments
+
+This centralizes context for everyone, from developers to product managers.
+
+### 7. **Iterate and Expand**  
+As you dive further or new code changes come in, continue to refine your understanding. Update or add to these AI-driven explanations so they remain accurate and relevant. This ongoing process keeps everyone on the same page and accelerates onboarding for new team members.
 
 ---
 
-### Summary and Next Steps
+### **Code Understanding Insights – Build Comprehensive Awareness**
 
-By following these steps, you’ve connected a user’s ticket to their session, examined critical user actions, explored relevant backend traces, and jumped directly into the code that caused the error.
+Want to quickly grasp the purpose, flow, and historical context of any part of your codebase? PlayerZero’s AI Chat guides you through each stage—surfacing relevant files, showing dependencies, and clarifying business objectives.
 
-**Next steps might include:**
+👉 [Start an AI Chat session](https://app.playerzero.ai/chat)
 
-- Configure Slack or Microsoft Teams alerts to get real-time updates when critical user errors occur.
-- Connect your customer/product support platforms (e.g., Azure DevOps, Zendesk) directly to PlayerZero for a streamlined feedback loop.
-- Explore Alternative Debugging Flows
-    - Start from an error log in PlayerZero and trace forward to impacted sessions.
-    - Begin with a trace in the backend to see which user sessions are affected.
-    - Leverage pull request reviews in PlayerZero to catch potential issues before they reach production.
+Use the categories below to guide your code exploration. Each accordion outlines a specific context in which the AI can help capture or refine your technical understanding.
 
+<AccordionGroup>
 
+  <Accordion title="Search & Discovery">
+    **Context & Typical Questions**  
+    - How do I locate code related to [specific feature or module]?  
+    - Can PlayerZero show me where user authentication is implemented?  
+    - Which files handle [particular function or service]?  
+  </Accordion>
 
+  <Accordion title="Contextual Understanding">
+    **Context & Typical Questions**  
+    - Explain how this code works in the larger system.  
+    - What business purpose does this code serve?  
+    - Which services or files are related to this code?  
+  </Accordion>
 
+  <Accordion title="Debugging & Issue Resolution">
+    **Context & Typical Questions**  
+    - What might cause [specific error] to occur?  
+    - Where do we handle similar exceptions in the codebase?  
+    - Which recent changes affected this functionality?  
+  </Accordion>
+
+  <Accordion title="Collaboration & Knowledge Sharing">
+    **Context & Typical Questions**  
+    - How do I share these findings with another developer?  
+    - Can I keep AI-generated explanations alongside the code?  
+    - How do we maintain version control for code clarifications or doc updates?  
+  </Accordion>
+
+</AccordionGroup>
+
+#### **Prompting Tips**
+
+1. **Combine details** – “Find the `email notification` code and explain how user preferences are applied.”  
+2. **Ask for historical context** – “When was this last changed, and who did it?”  
+3. **Request clarifications** – “What are the main error handling strategies here?”  
+4. **Use follow-ups** – “Show me where else these patterns appear in the codebase.”
+
+---
+
+## **Summary and Next Steps**
+
+With PlayerZero, understanding and onboarding to complex codebases becomes a streamlined and collaborative effort. Whether you’re dissecting a single function or analyzing large-scale microservices, the AI assistant provides contextual, in-depth explanations, fosters knowledge sharing, and keeps everything easily searchable.
+
+### Additional Links
+
+- [Automate Code Insights](mintlify://automate-code-insights) – Quickly generate thorough explanations and references.  
+- [Ensure Consistency Across Services](mintlify://ensure-consistency-services) – Keep integration points and naming conventions unified.  
+- [Collaborate on Code Knowledge in Real-Time](mintlify://collaborate-code-knowledge) – Invite stakeholders to review and refine code explanations.  
+- [Add Examples & Use Cases](mintlify://add-examples-usecases) – Demonstrate real-world scenarios for better developer onboarding.
 

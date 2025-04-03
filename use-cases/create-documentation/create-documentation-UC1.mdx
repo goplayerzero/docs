@@ -1,95 +1,128 @@
 ---
-title: "Generate Internal Knowledge Documentation and Guides"
-sidebarTitle: "Create Internal Docs"
-description: "PlayerZero captures every click, DOM update, and network request in real-time, so teams can discover, analyze, and fix defects faster."
+title: "Generate Architecture Diagrams and Other Shareable Assets"
+sidebarTitle: "Generate Architecture Diagrams"
+description: "PlayerZero helps you generate and share professional-level system architecture documentation with integrated Mermaid diagrams."
 ---
 
 # Overview
 
-When a user reports an issue or experiences unexpected application behavior, you need a straightforward way to not only understand what was happening but track down where things went wrong—both in frontend interactions and backend traces. **PlayerZero** helps your team follow a user’s journey, pinpoint the cause of an error, and quickly jump into relevant parts of the code for a fix. This guide walks you through how to debug a user session, step-by-step.
+PlayerZero streamlines the creation and sharing of comprehensive system architecture documentation through its integrated Mermaid diagramming support. Teams can easily generate professional-quality diagrams that span entire systems—from frontend to backend, across multiple repositories and services—and share these diagrams with a single click. Visual representations of complex architectures bridge the gap between technical and non-technical team members, ensuring everyone understands how systems are structured and how components interact.
 
-### Prerequisites
+## **Prerequisites**
 
-Before getting started, confirm that:
+### Source Control Management (Codebase)
 
-1. **Your SCM system is integrated with PlayerZero**
-    
-    This allows PlayerZero to query your repository and link trace data to specific code lines.
-    
-2. **The PlayerZero Web SDK is instrumented**
-    
-    This captures user actions, DOM state, and network traffic for comprehensive frontend visibility.
-    
-    *Without these in place, your logs and user sessions won’t be linked correctly, or you won’t see the full picture of user actions in PlayerZero.*
-    
+**Your codebase is connected to PlayerZero**  
+This integration allows PlayerZero to gather and surface relevant information about your services and repositories. By linking your source code to PlayerZero, the AI can provide more accurate guidance when suggesting architectural diagrams and system relationships.
 
-
-**Backend / OpenTelemetry Data**
-
-If you want a unified view of backend traces alongside your frontend data, you must be sending OpenTelemetry data to PlayerZero. It is not suggested to connect this data until the two previous datasources are connected and the core PlayerZero workflows are understood by your team. 
-
-# Process
-
-PlayerZero leverages your SCM and telemetry data to save your engineering and support time when a customer reaches out with an issue.
-
-**Scenario**: A customer files a support ticket complaining about an error that occurs after they click “Submit” on your signup form. 
-
-### 1. Field the user complaint and retrieve key details
-
-To get started, you only need the following details: name/email, time/date, description of the issue.
-
-*Note: You can integrate your ticketing system (e.g., Zendesk, Jira) with PlayerZero for a seamless reference, but it’s not strictly required to start debugging.*
-
-### 2. Associate the complaint to a specific moment in the user’s session
-
-Now that you’ve captured the 3 key details (name/email, time/date, description of the issue), you can begin to connect that customer’s communicated issue to a real session, and all related context, in PlayerZero. Here’s how:
-
-1. **Search for the user on the [users page](https://go.playerzero.app/users)**
-    - Filter by the user’s name, email or user ID on the users page for quicker search.
-2. Navigate to the appropriate user session under “activity” at the bottom of the page
-    - Locate the time window matching the user’s complaint and click into the associated session.
-3. **Find the moment in time the customer ran into an issue**
-    - Inside each PlayerZero user session, you’ll see a three-pane interface:
-        1. **User Actions (Left) –** Logs each click, scroll, or form submission made by the user.
-            - Each user debug session includes a clickable stream of events and actions listen on the left. This stream will go back to the beginning of time (or to the beginning of the data storage window.)
-            - In the case of our example, you would search for the “Submit” action related to the reported issue.
-        2. **DOM Recreation (Middle) –** Provides a visual replay of the user’s screen.
-        3. **Developer Context (Right) –** View network requests, responses, and data payloads the user sent.
-            - This is particularly important if the user’s error is triggered by an API call or a missing data field.
-
-
-Tip: Watch the middle pane’s playback to see what the user did just before the error. Correlate that with the left and right panes to find the root cause (e.g., a failed API request, a null field, or a UI glitch).
+→ To set this up, navigate to the [SCM Setup Guide].
 
 ---
 
-### 3. Analyze Frontend and Backend Traces
+## **Process**
 
-Now that you’ve found the moment in time where the user experiences the issue, you can look more deeply into the technical performance of the application. 
+### 1. **Kickoff an AI Chat, Set Context**  
+Begin by opening PlayerZero’s AI chat interface and clarifying what you want to achieve:
 
-1. **Analyze network traffic**
-    - Look for request/response pairs that returned an error status (4xx or 5xx) around the same time as the user’s action.
-    - Inspect response bodies for “Invalid Request,” “Unauthorized,” or other error text.
-2. **Review Backend Traces (OpenTelemetry Data)**
-    - If you have OTel data flowing in, PlayerZero correlates the user’s frontend session with the backend service calls.
-    - Switch to the “Traces” or “Logs” view to see how the request traveled through your backend services.
-3. **Pinpoint the Critical Span**
-    - In a waterfall or timeline view, look for the span that shows an error or high latency.
-    - This helps you zero in on the service or function call that likely caused the issue.
+> “I need a high-level architecture diagram for our microservices application, showing how each service communicates and any external integrations.”
+
+This initial step helps the AI tailor diagram suggestions to your specific goals and system requirements.
+
+### 2. **Prompt the AI Chat to Build a Diagram**  
+Provide the AI with an initial description of your system or application layout. For example:
+
+> “We have a React frontend, a Node.js backend, and a separate Python service handling data processing. They communicate via HTTP requests and a message queue.”
+
+From here, the AI will generate a baseline Mermaid diagram that captures the main components and their interactions.
+
+### 3. **Refine the Scope of the Diagram**  
+Once you have a rough outline, continue the conversation to focus on the most important components:
+
+> “Please highlight the payment service integration with external payment gateways, and group the caching layer to show read/write flows.”
+
+You can break the architecture into logical sections or emphasize critical parts. This ensures the final diagram provides the clarity you need.
+
+### 4. **Customize Appearance**  
+PlayerZero’s AI can help format your Mermaid diagram to improve readability:
+
+> “Use a flowchart style. Color-code the microservices for better visual clarity, and arrange them horizontally.”
+
+Though color is optional, you can request structural enhancements like grouping related services or annotating data flows. The AI will update the Mermaid diagram accordingly.
+
+### 5. **Export**  
+Once you’re satisfied with the diagram, you have multiple export options:
+- **Click on the diagram** to view it in full screen  
+- **Use the copy button** to copy the diagram code to your clipboard  
+- **Download** the diagram as an SVG file for easy inclusion in other documents  
+
+### 6. **Share the Thread**  
+Make collaboration effortless:
+- **Click “Share”** in the interface  
+- **Enter email addresses** of team members you’d like to invite  
+- The recipients get an email with a direct link to view your diagram and documentation  
+
+### 7. **Collaborate**  
+Team members can open the shared diagram within their PlayerZero account. Any interactions or updates you make are visible to all shared users in real-time, ensuring everyone has access to the latest documentation.
 
 ---
 
-### Summary and Next Steps
+### **System Architecture Documentation Insights – Visualize and Align**
 
-By following these steps, you’ve connected a user’s ticket to their session, examined critical user actions, explored relevant backend traces, and jumped directly into the code that caused the error.
+Looking to create a consistent, clear, and visual representation of your entire system? PlayerZero’s AI Chat guides you through diagram creation, refinement, and sharing so everyone understands how each component connects.
 
-**Next steps might include:**
+👉 [Start an AI Chat session](https://app.playerzero.ai/chat)
 
-- Configure Slack or Microsoft Teams alerts to get real-time updates when critical user errors occur.
-- Connect your customer/product support platforms (e.g., Azure DevOps, Zendesk) directly to PlayerZero for a streamlined feedback loop.
-- Explore Alternative Debugging Flows
-    - Start from an error log in PlayerZero and trace forward to impacted sessions.
-    - Begin with a trace in the backend to see which user sessions are affected.
-    - Leverage pull request reviews in PlayerZero to catch potential issues before they reach production.
+Below are categories to guide your diagramming process. Each accordion outlines a specific context in which the AI can help refine your architectural documentation.
 
+<AccordionGroup>
 
+  <Accordion title="Mermaid Diagram Setup">
+    **Context & Typical Questions**  
+    - How do I configure a basic Mermaid diagram for my system?  
+    - Which diagram type (flowchart, sequence, class) best suits my architecture?  
+    - How can I label nodes and edges effectively for clarity?  
+  </Accordion>
+
+  <Accordion title="Service Interactions & Dependencies">
+    **Context & Typical Questions**  
+    - How do I represent complex microservice interactions?  
+    - What’s the best way to show external service dependencies?  
+    - Can I highlight async communication vs. synchronous calls?  
+  </Accordion>
+
+  <Accordion title="Advanced Diagram Customizations">
+    **Context & Typical Questions**  
+    - How do I visually group services or subsystems?  
+    - Can I include notes about security layers or authentication flows?  
+    - Which styling or formatting options does Mermaid support?  
+  </Accordion>
+
+  <Accordion title="Collaboration & Sharing">
+    **Context & Typical Questions**  
+    - How do I share diagrams with both technical and non-technical teams?  
+    - Can I export diagrams in multiple formats?  
+    - What version control or real-time collaboration features are available?  
+  </Accordion>
+
+</AccordionGroup>
+
+#### **Prompting Tips**
+
+1. **Combine details** – “How do I highlight both frontend and backend repositories in a single diagram?”  
+2. **Ask for formatting** – “Format my Mermaid diagram to show directional flows from left to right.”  
+3. **Request clarifications** – “Can you show me how to label database read/write operations?”  
+4. **Use follow-ups** – “Add a message queue to reflect asynchronous communication between services.”
+
+---
+
+## **Summary and Next Steps**
+
+With PlayerZero, generating and refining system architecture documentation becomes a visual and collaborative process. Whether you’re mapping a small monolithic app or a complex microservices ecosystem, the AI chat helps create clear, up-to-date diagrams and supporting documentation that teams can easily reference.
+
+### Additional Links
+
+- [Automate System Diagrams](mintlify://automate-system-diagrams) – Quickly generate visual overviews without manual drawing.  
+- [Ensure Consistency Across Repositories](mintlify://ensure-consistency-repos) – Keep structure and naming conventions uniform.  
+- [Collaborate on Docs in Real-Time](mintlify://collaborate-on-docs-realtime) – Invite colleagues for instant feedback and updates.  
+- [Add Contextual Annotations](mintlify://add-contextual-annotations) – Explain critical data flows, dependencies, or security layers.
 

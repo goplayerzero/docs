@@ -1,7 +1,7 @@
 ---
 title: "Generate Functional Tests with Context from your Entire Codebase"
 sidebarTitle: "Generate Functional Tests"
-description: "PlayerZero captures every click, DOM update, and network request in real-time, so teams can discover, analyze, and fix defects faster."
+description: "PlayerZero generates functional tests with full codebase and user context to ensure your pull requests are validated with precision and depth."
 ---
 
 # Overview
@@ -59,6 +59,8 @@ Want to understand test coverage quickly? You can interact directly with PlayerZ
 
 Use the categories below to guide your investigation with the right level of context. Each accordion outlines a specific test-related scenario you can explore with PlayerZero’s contextual tools.
 
+#### **Contextual Scenarios**
+
 <AccordionGroup>
 
   <Accordion 
@@ -103,12 +105,12 @@ Use the categories below to guide your investigation with the right level of con
 
 </AccordionGroup>
 
-### **Prompting Tips**
+#### **Prompting Tips**
 
-- Start broad with questions about test coverage before narrowing in on specific files or cases  
-- Use code diffs to prompt focused follow-ups on untested areas  
-- Follow historical failures or flaky tests to learn how testing has evolved  
-- Reference PlayerZero insights to validate your assumptions about coverage  
+1. **Anchor concepts together** – “How does [Service A] interact with [Library B]?”
+2. **Adjust context scope** – Zoom in on specific files or pull system-wide dependencies.
+3. **Define the output you want** – Ask for code snippets, summaries, relationships, or histories.
+4. **Follow the thread** – Use follow-ups like “Where else is this service used?” 
 
 ## Summary and Next Steps
 
@@ -118,8 +120,10 @@ As outlined in the introduction, PlayerZero automatically analyzes your PRs to g
 
 To continue maximizing the value of PlayerZero across your workflows, explore the following resources:
 
-- **Create Detailed API Docs** – Convert your API definitions into clean, human-readable documentation for internal and external teams.
-- **Generate Architecture Diagrams** – Automatically visualize system structure, dependencies, and data flow to improve technical understanding.
-- **Produce User Guides** – Turn complex product or engineering flows into user-facing documentation for customer success and support.
-- **Ask your Codebase Questions** – Use PlayerZero’s chat interface to explore your codebase with targeted, contextual questions.
+### Additional Links
+
+- [Create Detailed API Docs](mintlify://create-api-docs) – Convert your API definitions into clean, human-readable documentation for internal and external teams.  
+- [Generate Architecture Diagrams](mintlify://generate-diagrams) – Automatically visualize system structure, dependencies, and data flow to improve technical understanding.  
+- [Produce User Guides](mintlify://generate-user-guides) – Turn complex product or engineering flows into user-facing documentation for customer success and support.  
+- [Ask your Codebase Questions](mintlify://chat-codebase) – Use PlayerZero’s chat interface to explore your codebase with targeted, contextual questions.
 

@@ -7,9 +7,7 @@ description: "Use PlayerZero to monitor, diagnose, and resolve software issues b
 
 PlayerZero is a platform that centralizes and correlates data from multiple parts of your application  to provide a unified, technical vantage point on your software systems. By integrating with your code repositories, observability layers, user sessions, and external ticketing systems, PlayerZero continuously evaluates the health, performance, and evolution of your codebase. It identifies inconsistencies, potential regressions, and inefficiencies—surfacing these insights before they escalate into production and user issues.
 
-[Update Image or Diagram]
-
-![Pasted image 20250306053624.png](attachment:cac23270-87b4-432e-8b10-7d1c8cd8fb7e:Pasted_image_20250306053624.png)
+---- [Add Image or Diagram] -----
 
 **This guide** starts by covering PlayerZero’s architecture, then dives into how each component—from platform orchestration to data ingest—works together to help you proactively manage your codebase. By the end, you will understand PlayerZero’s core building blocks and how they integrate into your existing development processes.
 
@@ -40,25 +38,31 @@ Focusing on **Full-Lifecycle Intelligence** allows PlayerZero to evolve alongsid
 
 PlayerZero unifies a diverse set of inputs to create a comprehensive, code-centric view of your application ecosystem. Below is a brief overview of the primary data sources and how each contributes to PlayerZero’s unified insight engine:
 
-- **Codebase**
+- **Source Control Management (Codebase)**
 Serves as the central reference point, anchoring all other signals to specific lines of code that drive your application.
     
-    [Learn more about importing your code →](https://www.notion.so/Connect-Data-to-PlayerZero-Unused-Page-1b9492ddc5be801f80c1f135a7608f28?pvs=21)
+- [Learn more about importing your code →](/connect-data-to-playerzero/source-control-management)
+
+- **User Sessions**  
+  Captures front-end interactions like clicks, scrolls, and navigation to help recreate user experiences and connect behavior directly to errors and system signals.  
+
+  [Learn more about user session data →](/connect-data-to-playerzero/user-session-data)
     
 - **Telemetry: Distributed Traces, Metrics, Logs**
 Provides real-time insights into system performance, helping PlayerZero detect anomalies and correlate them back to relevant commits or configuration changes.
     
-    [Learn more about connecting telemetry →](https://www.notion.so/Connect-Data-to-PlayerZero-Unused-Page-1b9492ddc5be801f80c1f135a7608f28?pvs=21)
+    [Learn more about connecting telemetry →](/connect-data-to-playerzero/backend-telemetry)
     
 - **Product Tickets**
 Ingests internal product requests and bug reports to align development priorities with actual feature usage and internal feedback cycles.
     
-    [Learn more about connecting customer ticketing →](https://www.notion.so/Connect-Data-to-PlayerZero-Unused-Page-1b9492ddc5be801f80c1f135a7608f28?pvs=21)
+    [Learn more about connecting product ticketing →](/connect-data-to-playerzero/product-ticketing)
+
     
 - **Customer Tickets**
 Captures support and service desk requests to ensure external user issues are traced directly to the underlying code, streamlining resolution and closing feedback loops.
     
-    [Learn more about connecting customer ticketing →](https://www.notion.so/Connect-Data-to-PlayerZero-Unused-Page-1b9492ddc5be801f80c1f135a7608f28?pvs=21)
+    [Learn more about connecting customer ticketing →](/connect-data-to-playerzero/customer-ticketing)
     
 
 Explore the next sections to see how PlayerZero’s components fit together—from deploying the SDK to connecting your code and external tools—so you can start leveraging code-centric AI insights in your own environment.

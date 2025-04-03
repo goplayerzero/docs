@@ -1,0 +1,84 @@
+---
+title: "Setup Alerts for User Issues"
+description: "PlayerZero acts as an automated watchdog for new deployments by creating dedicated release-specific monitoring channels that actively track and alert teams to any issues that emerge after a deployment."
+---
+
+# Overview
+
+PlayerZero automatically monitors user sessions and notifies teams when users encounter programmatic errors, using advanced anomaly detection to identify unusual patterns. Real-time alerts are delivered through channels like Slack or Microsoft Teams, complete with context about what happened and who was affected. This proactive approach helps both engineering teams rapidly diagnose and fix problems, and provides product managers and customer success teams immediate visibility into the user experience issues that require attention.
+
+## **Prerequisites**
+
+### Communication Channels
+
+Before diving in, ensure you’ve identified the communication channel(s) you plan to use for receiving PlayerZero alerts (e.g., Slack, Microsoft Teams). While it’s not strictly required to have these set up to begin monitoring, doing so enables real-time notifications and a streamlined workflow.
+
+- **Slack**: Recommended for teams already collaborating heavily on Slack.
+- **Microsoft Teams**: Ideal for organizations leveraging the full suite of Microsoft 365 tools.
+
+> *Note: You can configure different release cycles and alert rules, but the simplest way to get started is to connect at least one channel and begin receiving notifications for newly detected anomalies.*
+
+---
+
+## **Process**
+
+PlayerZero’s workflow empowers teams to detect anomalies, investigate root causes, and streamline communication across stakeholders. Follow these steps to take full advantage of PlayerZero’s monitoring and alerting capabilities.
+
+### 1. **Start an AI Chat to Explore Alerts and Release Cycles**
+
+When an anomaly is detected or you want to review your existing configuration, open an AI Chat in PlayerZero to get a quick, natural-language overview. From here, you can choose the relevant category to focus on:
+
+- **Alerts for Teams**  
+- **Alerts for Slack**  
+
+Through this AI Chat interface, you can instantly drill down into the specific setup instructions, best practices, and recommended release strategies for your chosen alerting channel.
+
+### 2. **Set Up or Review Your Release Cycle**
+
+A critical step in alert management is defining how you organize and archive your releases:
+
+1. **Manual Release Strategy**  
+   - Best for teams with ad-hoc deployments.  
+   - New pull requests automatically associate with the current release.  
+   - You decide precisely when to deploy and create new release channels.  
+   - Recommended for teams shipping updates multiple times per day.
+
+2. **Weekly Release Strategy**  
+   - Set a specific day and time for releases (e.g., Tuesdays at 4:00 PM).  
+   - Configure repeat frequency (every 1-4 weeks).  
+   - PlayerZero auto-creates new release channels at the scheduled times.  
+   - Recommended for teams with regular weekly deployments.
+
+3. **Daily/Scheduled Release Strategy**  
+   - Schedule daily or frequent deployments using cron syntax (e.g., "0 0 4 * * *" for 4 AM daily).  
+   - Configure whether new pull requests default to the next release.  
+   - Channels are auto-created at your specified intervals.  
+   - Ideal for teams with frequent, structured release cadences.
+
+In all cases, PlayerZero automatically creates and archives dedicated channels for each release, ensuring your workspace remains tidy while preserving historical context for easy lookup.
+
+### 3. **Investigate the Details of Each Alert**
+
+Every new or escalating issue captured by PlayerZero arrives with rich contextual information:
+
+- **Title** – A concise summary that includes a severity indicator (⚠️ for new issues, 📈 for escalated issues) and the affected system component.  
+- **Description** – A detailed account of the issue, including when it was first detected and how many users or sessions are impacted.  
+- **User Session Link** – Direct access to the affected user’s session for an immediate replay of events leading up to the error.  
+- **Issue Link** – A dedicated issue page containing stack traces, error messages, historical data, and references to similar issues.  
+- **Player Link** – An interactive debugging session that displays system state, user actions, and network requests at the time of the issue.  
+- **Frequency Graph** – A visual timeline showing how often the issue occurs versus normal behavior, highlighting any anomaly detection triggers.
+
+This wealth of information allows both technical and non-technical stakeholders to understand not just what went wrong, but why it happened and who it affected.
+
+---
+
+## **Summary and Next Steps**
+
+By following this guide, you’ve seen how PlayerZero automatically detects anomalies, categorizes them by release, and publishes detailed alerts to your chosen channels. From there, your team can leverage AI Chat to navigate relevant data — reviewing release strategies, exploring user sessions, and collaborating directly on potential fixes. 
+
+### Additional Links
+
+[Connect Errors to Code](https://your-link-here.com/retrieve-insights) – Discover how to link alert data back to your codebase, providing the exact context needed for quick resolution.
+
+[Generate Code Fixes](https://your-link-here.com/retrieve-insights) – Learn how PlayerZero’s contextual suggestions can guide resolution strategies based on real-time system behavior.
+

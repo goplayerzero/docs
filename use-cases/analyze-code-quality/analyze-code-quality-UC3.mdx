@@ -1,27 +1,27 @@
 ---
 title: "Create Line-by-Line Code Summaries"
 sidebarTitle: "Create Code Summaries"
-description: "PlayerZero captures every click, DOM update, and network request in real-time, so teams can discover, analyze, and fix defects faster."
+description: "PlayerZero creates clear, contextual code summaries for each change, helping teams understand what changed, why it matters, and how it impacts the system."
 ---
 
 # Overview
 
 PlayerZero automatically generates clear, contextual summaries of code changes at both the pull request level and for individual file changes, making code reviews more efficient and accessible to all team members. Each changed file includes a detailed explanation of what was modified and why, helping reviewers quickly understand the impact and purpose of specific code modifications. The system also provides a comprehensive pull request summary that explains the overall changes, their business purpose, and potential risks to different features of your application.
 
-# **Prerequisites**
+## **Prerequisites**
 
 ### Source Control Management (Codebase)
 
 **Your codebase is connected to PlayerZero**
-This enables PlayerZero to map runtime errors, traces, and sessions back to the exact lines of code in your repository. It’s the central link between what’s happening in production and the code that caused it.
+This enables PlayerZero to map runtime errors, traces, and sessions back to the exact lines of code in your repository.
 
 *This is the foundational integration — all other data sources (traces, tickets, sessions) rely on it to establish full context across your stack.*
 
-→ To set this up, navigate to the [SCM Setup Guide].
+→ To set this up, navigate to the [SCM Setup Guide]([https://go.playerzero.app](https://go.playerzero.app/)).
 
 ---
 
-# **Process**
+## **Process**
 
 This process walks you through initiating an AI-driven investigation in PlayerZero, starting with a question and refining insights through targeted follow-ups grounded in real code and user context.
 
@@ -46,6 +46,8 @@ Want to understand code changes at a glance? You can interact directly with Play
 👉 [Start an AI Chat session](https://app.playerzero.ai/chat)
 
 Use the categories below to guide your investigation with the right level of review context. Each accordion outlines a specific scenario for exploring change rationale, design intent, and consistency using PlayerZero’s contextual tools.
+
+#### **Contextual Scenarios**
 
 <AccordionGroup>
 
@@ -83,22 +85,23 @@ Use the categories below to guide your investigation with the right level of rev
 
 </AccordionGroup>
 
-### **Prompting Tips**
+#### **Prompting Tips**
 
-- Start broad with architectural questions before diving into specifics
-- Use code snippets when asking about particular patterns
-- Follow up on interesting implementations to learn about context and evolution
+1. **Anchor concepts together** – “How does [Service A] interact with [Library B]?”
+2. **Adjust context scope** – Zoom in on specific files or pull system-wide dependencies.
+3. **Define the output you want** – Ask for code snippets, summaries, relationships, or histories.
+4. **Follow the thread** – Use follow-ups like “Where else is this service used?” 
 
-# Summary and Next Steps
+## Summary and Next Steps
 
 By starting with a simple question and layering in focused follow-ups, you can use PlayerZero’s AI-powered chat to navigate your codebase and uncover meaningful insights—whether you’re debugging, learning, or planning changes. This process turns vague ideas into actionable investigation paths using real user data and code context.
 
 PlayerZero enhances your code review process with intelligent summaries and deep context, helping teams quickly understand changes and their broader implications. Now that you’ve guided an AI investigation, you can branch into other workflows powered by the same contextual engine.
 
-Additional Links:
+### Additional Links
 
-- **Create Detailed API Docs** – Convert endpoint definitions and descriptions into clean, readable API documentation.
-- **Generate Architecture Diagrams** – Visualize your system’s structure and dependencies automatically.
-- **Produce User Guides** – Transform complex flows into user-facing documentation for product and support teams.
-- **Ask your Codebase Questions** – Use chat to dive deeper into how features are implemented or why decisions were made.
+- [Create Detailed API Docs](mintlify://create-api-docs) – Convert endpoint definitions and descriptions into clean, readable API documentation.
+- [Generate Architecture Diagrams](mintlify://generate-diagrams) – Visualize your system’s structure and dependencies automatically.
+- [Produce User Guides](mintlify://generate-user-guides) – Transform complex flows into user-facing documentation for product and support teams.
+- [Ask your Codebase Questions](mintlify://chat-codebase) – Use chat to dive deeper into how features are implemented or why decisions were made.
 

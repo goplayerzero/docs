@@ -1,7 +1,7 @@
 ---
 title: "Screen for Potential Regressions using Historical Context"
 sidebarTitle: "Screen for Regressions"
-description: "Leverage historical tickets and code embeddings to automatically generate regression tests for your pull requests."
+description: "PlayerZero leverages historical tickets and code embeddings to automatically generate regression tests for your pull requests."
 ---
 
 # Overview
@@ -21,7 +21,7 @@ This enables PlayerZero to map runtime errors, traces, and sessions back to the 
 
 ---
 
-# **Process**
+## **Process**
 
 ### 1. Navigate to the Pull Requests page
 
@@ -56,13 +56,15 @@ Leverage PlayerZero’s comment updates to mark regression tests as verified, in
 
 ---
 
-# Scenarios for Investigating Regressions
+### Scenarios for Investigating Regressions
 
 Want to understand potential regressions faster? You can interact directly with PlayerZero’s AI Chat to explore the origin, frequency, and impact of historical issues tied to your code changes.
 
 👉 [Start an AI Chat session](https://app.playerzero.ai/chat)
 
 Use the categories below to guide your investigation with the right level of historical context. Each accordion outlines a regression-related scenario you can explore using PlayerZero’s contextual tools.
+
+#### **Contextual Scenarios**
 
 <AccordionGroup>
 
@@ -104,26 +106,25 @@ Use the categories below to guide your investigation with the right level of his
 
 </AccordionGroup>
 
-## **Prompting Tips**
+#### **Prompting Tips**
 
-- Ask PlayerZero’s AI Chat about specific sections of your code to confirm coverage for known bugs  
-- Provide references to original ticket IDs or commit hashes for deeper insights  
-- Explore historical user session data to see how the bug originally manifested in production  
-- Leverage test diffs to highlight changes that specifically address or replicate old issues  
+1. **Anchor concepts together** – “How does [Service A] interact with [Library B]?”
+2. **Adjust context scope** – Zoom in on specific files or pull system-wide dependencies.
+3. **Define the output you want** – Ask for code snippets, summaries, relationships, or histories.
+4. **Follow the thread** – Use follow-ups like “Where else is this service used?” 
 
 ---
 
-# Summary and Next Steps
+## Summary and Next Steps
 
 By following these steps, you ensure every significant past issue or customer complaint relevant to your code changes is flagged in your PR. PlayerZero’s automated regression checks reduce the risk of reintroducing historical bugs, guiding you to review and validate these areas proactively.
 
 With your codebase connected, PlayerZero maps every pull request to a curated set of regression tests based on semantic overlaps. This goes beyond simple file matching—PlayerZero’s AI searches for underlying similarities in code, logic, and bug descriptions. As a result, your team can systematically prevent regressions and keep development flowing confidently.
 
-## Further Exploration:
+### Additional Links
 
-- **Generate Functional Tests with Context** – Discover how PlayerZero automatically provides functional coverage for every PR.  
-- **Create Line-by-Line Code Summaries** – Save time by reading condensed explanations of each change in your PR.  
-- **Produce User Guides** – Turn your product flows into detailed documentation for end users and support teams.  
-- **Ask your Codebase Questions** – Delve deeper into your code structure and history using PlayerZero’s AI-powered chat.
-
+- [Generate Functional Tests with Context](mintlify://generate-functional-tests) – Discover how PlayerZero automatically provides functional coverage for every PR.  
+- [Create Line-by-Line Code Summaries](mintlify://code-summaries) – Save time by reading condensed explanations of each change in your PR.  
+- [Produce User Guides](mintlify://generate-user-guides) – Turn your product flows into detailed documentation for end users and support teams.  
+- [Ask your Codebase Questions](mintlify://chat-codebase) – Delve deeper into your code structure and history using PlayerZero’s AI-powered chat.
 

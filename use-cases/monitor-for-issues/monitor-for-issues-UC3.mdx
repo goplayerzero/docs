@@ -1,0 +1,102 @@
+---
+title: "Mute Unwanted Notifications and Alerts"
+sidebarTitle: "Reduce Notification Noise"
+description: "Learn how to reduce alert fatigue by creating muting rules for non-critical issues. Customize PlayerZero's anomaly detection notifications to stay focused on the errors that truly matter."
+---
+
+# Overview
+
+PlayerZero uses sophisticated anomaly detection algorithms to identify unusual patterns of errors or latency, ensuring teams are only notified when issues represent significant deviations from normal behavior. Teams can create customized muting rules based on specific API patterns or issue similarities, allowing them to strategically filter out known issues or expected behaviors while staying alert to critical problems. This helps teams maintain focus on what matters most, as PlayerZero automatically groups similar issues and applies muting rules across releases to prevent alert fatigue while ensuring critical problems don't go unnoticed.
+
+## **Prerequisites**
+
+### Source Control Management (Codebase)
+
+**Your codebase is connected to PlayerZero**  
+This ensures PlayerZero can map anomalies and issues back to specific lines of code in your repository.
+
+*This is the foundational integration — all anomaly detection and alert rules rely on having visibility into how your application code is organized.*
+
+→ To set this up, navigate to the [SCM Setup Guide](https://go.playerzero.app).
+
+### Web SDK
+
+**Your frontend is instrumented with PlayerZero**  
+This captures user actions, DOM snapshots, network activity, and any anomalies detected in real time. The frontend instrumentation combines with the backend telemetry (if available) to deliver end-to-end context.
+
+*For complete anomaly detection, ensure that your backend telemetry is also connected.*
+
+→ To set this up, navigate to the [Web SDK Setup Guide](https://go.playerzero.app).
+
+---
+
+## **Process**
+
+PlayerZero helps your team stay proactive by identifying anomalies—whether they’re spikes in existing issues, brand-new errors, or performance degradations—and allowing you to fine-tune how your team receives alerts.
+
+### 1. **Start with the user’s report and gather essential details**
+
+If a user reports strange behavior or an error message, begin by gathering any identifying details (like their user ID or email) and the approximate time the issue occurred.
+
+*Even if you haven’t fully adopted anomaly-based alerting, this manual collection of user context ensures you can search for relevant sessions later.*
+
+### 2. **Map the user’s complaint to real sessions in PlayerZero**
+
+Using the user details, locate and open relevant sessions in PlayerZero to see exactly what happened at the moment of error or unexpected behavior.
+
+- Search for the user on the [users page](https://go.playerzero.app/users).  
+- Identify the session that matches the user’s complaint and review the actions timeline, the DOM playback, and any corresponding network or console errors.
+
+*The 3-pane interface (actions, replay, and dev context) helps you narrow down the precise point in time and the possible root causes.*
+
+### 3. **Start an AI Chat to analyze anomaly categories**
+
+PlayerZero’s AI-powered insights (or any integrated AI assistant you’re using) can help break down anomalies into clear categories:
+
+- **Issue Frequency Spikes**: If a recurring error happens more often than usual, investigate why the rate increased and whether it’s isolated to certain pages or user actions.  
+- **New Issues**: Identify if the reported problem is a first-time occurrence. If the AI flags it as genuinely new (and not just a variation of a known issue), consider triaging it promptly.  
+- **Performance Degradation**: Check for any significant deviations from normal performance patterns or thresholds, such as increased API response times or resource usage spikes.
+
+Through this AI-assisted investigation, you can quickly see how many users are affected, where in the codebase the anomaly might originate, and whether a historical pattern exists for similar issues.
+
+### 4. **Mute issues you don’t care about**
+
+Once you’ve identified anomalies, PlayerZero allows you to filter out or mute the noise so you can focus on truly critical issues. To do this:
+
+1. Navigate to the Logs page.  
+2. Click on an issue of interest.  
+3. Click the “Mute” button next to the error name.
+
+#### **4a: Set API-Based Muting**
+
+1. Define the API Endpoint Rule, specifying:
+   - **Status Code** (e.g., `"404"` or `"4.*"`)  
+   - **HTTP Method** (e.g., `"GET"`, `"POST"`)  
+   - **URL Pattern** (e.g., `"/api/v1/users/*"`)  
+2. Review matching issues.  
+3. Click **Create** to activate your muting rule.
+
+#### **4b: Set Similarity-Based Muting**
+
+1. Select **Create Similarity Rule**.  
+2. Choose a similarity threshold:
+   - **Almost Exactly** for exact matches  
+   - **Similar** for close variations  
+   - **Loose** for broader patterns  
+3. Review the preview:
+   - Which issues will be muted  
+   - Which issues will remain active  
+4. Click **Create** to finalize.
+
+---
+
+## **Summary and Next Steps**
+
+PlayerZero ensures your team remains informed of impactful problems without drowning in repetitive or low-priority notifications. By combining anomaly-based alerts and flexible muting rules, you can trust that each alert you receive signals a real deviation from normal behavior. As you refine your alerting criteria, PlayerZero continues to automatically classify, group, and track issues, maintaining a high-level view of your application’s health.
+
+### Additional Links
+
+[Connect Errors to Code](https://your-link-here.com/retrieve-insights) – Learn to associate new or recurring issues with lines of code in your repository for pinpoint debugging.
+
+[Generate Code Fixes](https://your-link-here.com/retrieve-insights) – Explore how PlayerZero surfaces contextual suggestions by analyzing anomalies and system behavior.
+
