@@ -111,60 +111,16 @@
                                                     "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/rust",
                                                     "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/php",
                                                     "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/swift",
-                                                    "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/erlang-elixir"
+                                                    "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/erlang-elixir",
+                                                    "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/other-languages"
                                                 ]
                                             }
                                         ]
                                     }
                                 ]
                             },
-                            {
-                                "group": "Link Project Mangement Tools",
-                                "pages": [
-                                    "developer-guide/configuration-guides/link-project-management-tools/sync-project-management-data",
-                                    {
-                                        "group": "Integration Guides",
-                                        "pages": [
-                                            "developer-guide/configuration-guides/link-project-management-tools/azure-devops",
-                                            "developer-guide/configuration-guides/link-project-management-tools/jira",
-                                            {
-                                                "group": "More PM Tools",
-                                                "pages": [
-                                                    "developer-guide/configuration-guides/link-project-management-tools/asana",
-                                                    "developer-guide/configuration-guides/link-project-management-tools/click-up",
-                                                    "developer-guide/configuration-guides/link-project-management-tools/linear",
-                                                    "developer-guide/configuration-guides/link-project-management-tools/notion",
-                                                    "developer-guide/configuration-guides/link-project-management-tools/trello"
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "group": "Connect Customer Ticketing",
-                                "pages": [
-                                    "developer-guide/configuration-guides/connect-customer-ticketing/sync-customer-ticket-data",
-                                    {
-                                        "group": "Integration Guides",
-                                        "pages": [
-                                            "developer-guide/configuration-guides/connect-customer-ticketing/zendesk",
-                                            "developer-guide/configuration-guides/connect-customer-ticketing/jira-service-management",
-                                            "developer-guide/configuration-guides/connect-customer-ticketing/salesforce-service-cloud",
-                                            {
-                                                "group": "More",
-                                                "pages": [
-                                                    "developer-guide/configuration-guides/connect-customer-ticketing/dixa",
-                                                    "developer-guide/configuration-guides/connect-customer-ticketing/freshdesk",
-                                                    "developer-guide/configuration-guides/connect-customer-ticketing/freshservice",
-                                                    "developer-guide/configuration-guides/connect-customer-ticketing/front",
-                                                    "developer-guide/configuration-guides/connect-customer-ticketing/gladly"
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
+                            "developer-guide/configuration-guides/link-project-management-tools/sync-project-management-data",
+                            "developer-guide/configuration-guides/connect-customer-ticketing/sync-customer-ticket-data",
                             {
                                 "group": "Use Slack or Microsoft Teams",
                                 "pages": [

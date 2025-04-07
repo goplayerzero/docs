@@ -1,3 +1,87 @@
 ---
 title: "Python"
+description: "Learn how to instrument your Python applications with OpenTelemetry and send data to PlayerZero."
 ---
+
+import AutoInstrumentation from '/snippets/open-telemetry/auto-instrumentation.mdx';
+import ManualInstrumentation from '/snippets/open-telemetry/manual-instrumentation.mdx';
+import ExporterOverview from '/snippets/open-telemetry/exporter-overview.mdx';
+import CollectorOptional from '/snippets/open-telemetry/collector-optional.mdx';
+import HelpfulLinksIntro from '/snippets/open-telemetry/helpful-links-intro.mdx';
+
+# OpenTelemetry for Python
+
+OpenTelemetry provides flexible and powerful support for Python applications. With both auto-instrumentation and manual APIs, you can easily capture traces, logs, and metrics from your services.
+
+## Installation
+
+To get started, install the OpenTelemetry packages:
+
+```bash
+pip install opentelemetry-distro pip install opentelemetry-exporter-otlp
+```
+
+For full installation instructions:  
+👉 [OpenTelemetry Python Getting Started](https://opentelemetry.io/docs/instrumentation/python/)
+
+## Auto-Instrumentation
+
+<AutoInstrumentation/>
+
+In Python, you can use the OpenTelemetry Distro package to automatically instrument your application:
+
+```bash
+opentelemetry-instrument python app.py
+```
+
+Learn more:  
+👉 [Python Auto-Instrumentation Setup](https://opentelemetry.io/docs/instrumentation/python/automatic/)
+
+## Manual Instrumentation
+
+<ManualInstrumentation/>
+
+You can manually create spans and manage tracing in Python using the OpenTelemetry APIs:
+
+```bash
+from opentelemetry import trace
+tracer = trace.get_tracer(name)
+with tracer.start_as_current_span("my-span"): # your application logic pass
+```
+
+Learn more:  
+👉 [Python Manual Instrumentation Guide](https://opentelemetry.io/docs/instrumentation/python/manual/)
+
+## Exporters
+
+<ExporterOverview/>
+
+In Python, you can configure the OTLP exporter by setting environment variables or through your instrumentation code.
+
+Key environment variables:
+
+```bash
+OTEL_EXPORTER_OTLP_ENDPOINT=https://sdk.playerzero.app/otlp
+OTEL_EXPORTER_OTLP_HEADERS=Authorization=Bearer <your-playerzero-token> 
+OTEL_TRACES_EXPORTER=otlp
+OTEL_LOGS_EXPORTER=otlp 
+OTEL_METRICS_EXPORTER=otlp
+```
+
+Official reference:  
+👉 [Python SDK Configuration](https://opentelemetry.io/docs/instrumentation/python/sdk-configuration/)
+
+## Optional: Using a Collector
+
+<CollectorOptional/>
+
+You can optionally forward your telemetry through an OpenTelemetry Collector for routing, filtering, or enriching spans before reaching PlayerZero.
+
+## Helpful Links
+
+<HelpfulLinksIntro/>
+
+- [OpenTelemetry Python Overview](https://opentelemetry.io/docs/instrumentation/python/)
+- [Automatic Instrumentation for Python](https://opentelemetry.io/docs/instrumentation/python/automatic/)
+- [Manual Instrumentation in Python](https://opentelemetry.io/docs/instrumentation/python/manual/)
+- [Python SDK Configuration](https://opentelemetry.io/docs/instrumentation/python/sdk-configuration/)

@@ -1,4 +1,82 @@
 ---
 title: "Go"
+description: "Learn how to instrument your Go applications with OpenTelemetry and send data to PlayerZero."
 ---
 
+import AutoInstrumentation from '/snippets/open-telemetry/auto-instrumentation.mdx';
+import ManualInstrumentation from '/snippets/open-telemetry/manual-instrumentation.mdx';
+import ExporterOverview from '/snippets/open-telemetry/exporter-overview.mdx';
+import CollectorOptional from '/snippets/open-telemetry/collector-optional.mdx';
+import HelpfulLinksIntro from '/snippets/open-telemetry/helpful-links-intro.mdx';
+
+# OpenTelemetry for Go
+
+OpenTelemetry offers flexible APIs and SDKs for instrumenting Go applications. With lightweight libraries, you can capture traces, logs, and metrics without adding unnecessary overhead.
+
+## Installation
+
+Install the necessary OpenTelemetry Go modules:
+
+```bash
+go get go.opentelemetry.io/otel
+go get go.opentelemetry.io/otel/sdk
+go get go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp
+```
+
+For full installation instructions:  
+👉 [OpenTelemetry Go Getting Started](https://opentelemetry.io/docs/instrumentation/go/)
+
+## Auto-Instrumentation
+
+<AutoInstrumentation/>
+
+Go favors manual instrumentation first, but several libraries offer automatic instrumentation wrappers (e.g., gRPC, HTTP).
+
+Learn more:  
+👉 [Go Instrumentation Libraries](https://opentelemetry.io/docs/instrumentation/go/libraries/)
+
+## Manual Instrumentation
+
+<ManualInstrumentation/>
+
+You can create spans directly in your Go code:
+
+```bash
+import ( "context" "go.opentelemetry.io/otel" )
+tracer := otel.Tracer("my-service")
+ctx, span := tracer.Start(context.Background(), "my-operation") // your application logic
+span.End()
+```
+
+Learn more:  
+👉 [Go Manual Instrumentation Guide](https://opentelemetry.io/docs/instrumentation/go/manual/)
+
+## Exporters
+
+<ExporterOverview/>
+
+In Go, you typically configure OTLP exporters programmatically when initializing your SDK.
+
+Key properties to set:
+
+```bash
+Endpoint: https://sdk.playerzero.app/otlp 
+Headers: Authorization=Bearer <your-playerzero-token>
+```
+
+Official reference:  
+👉 [Go SDK Configuration](https://opentelemetry.io/docs/instrumentation/go/sdk/)
+
+## Optional: Using a Collector
+
+<CollectorOptional/>
+
+You can also send data to a local or remote OpenTelemetry Collector for more flexible data handling before forwarding to PlayerZero.
+
+## Helpful Links
+
+<HelpfulLinksIntro/>
+
+- [OpenTelemetry Go Overview](https://opentelemetry.io/docs/instrumentation/go/)
+- [Instrumenting Go Applications](https://opentelemetry.io/docs/instrumentation/go/manual/)
+- [Go SDK Setup and Configuration](https://opentelemetry.io/docs/instrumentation/go/sdk/)

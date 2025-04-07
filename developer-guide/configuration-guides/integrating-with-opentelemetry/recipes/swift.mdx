@@ -1,4 +1,81 @@
 ---
 title: "Swift"
+description: "Learn how to instrument your Swift applications with OpenTelemetry and send data to PlayerZero."
 ---
+
+import AutoInstrumentation from '/snippets/open-telemetry/auto-instrumentation.mdx';
+import ManualInstrumentation from '/snippets/open-telemetry/manual-instrumentation.mdx';
+import ExporterOverview from '/snippets/open-telemetry/exporter-overview.mdx';
+import CollectorOptional from '/snippets/open-telemetry/collector-optional.mdx';
+import HelpfulLinksIntro from '/snippets/open-telemetry/helpful-links-intro.mdx';
+
+# OpenTelemetry for Swift
+
+OpenTelemetry provides libraries for instrumenting Swift applications, including iOS apps, server-side Swift (like Vapor), and cross-platform services.
+
+## Installation
+
+Install OpenTelemetry Swift via Swift Package Manager:
+
+```bash
+.package(url: "https://github.com/open-telemetry/opentelemetry-swift", from: "1.0.0")
+```
+
+Add it to your dependencies in your `Package.swift` file.
+
+Full installation instructions:  
+👉 [OpenTelemetry Swift Getting Started](https://opentelemetry.io/docs/instrumentation/swift/)
+
+## Auto-Instrumentation
+
+<AutoInstrumentation/>
+
+Currently, Swift requires manual setup for most telemetry.  
+There’s no full auto-instrumentation for iOS or server-side Swift yet.
+
+## Manual Instrumentation
+
+<ManualInstrumentation/>
+
+Manually create spans in Swift:
+
+```bash
+let tracer = OpenTelemetry.instance.tracerProvider.get(instrumentationName: "my-service")
+let span = tracer.spanBuilder(spanName: "my-operation").startSpan() span.end()
+```
+
+Learn more:  
+👉 [Swift Manual Instrumentation](https://opentelemetry.io/docs/instrumentation/swift/manual/)
+
+## Exporters
+
+<ExporterOverview/>
+
+You typically configure an OTLP HTTP exporter for Swift projects.
+
+Set:
+
+```bash
+OTEL_EXPORTER_OTLP_ENDPOINT=https://sdk.playerzero.app/otlp 
+OTEL_EXPORTER_OTLP_HEADERS=Authorization=Bearer <your-playerzero-token> 
+OTEL_TRACES_EXPORTER=otlp 
+OTEL_METRICS_EXPORTER=otlp
+```
+
+Official reference:  
+👉 [Swift SDK Configuration](https://opentelemetry.io/docs/instrumentation/swift/sdk/)
+
+## Optional: Using a Collector
+
+<CollectorOptional/>
+
+You can forward Swift telemetry through a collector before sending it to PlayerZero.
+
+## Helpful Links
+
+<HelpfulLinksIntro/>
+
+- [OpenTelemetry Swift Overview](https://opentelemetry.io/docs/instrumentation/swift/)
+- [Swift Package GitHub Repo](https://github.com/open-telemetry/opentelemetry-swift)
+- [Manual Instrumentation for Swift](https://opentelemetry.io/docs/instrumentation/swift/manual/)
 

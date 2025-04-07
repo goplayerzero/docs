@@ -1,4 +1,77 @@
 ---
 title: "Rust"
+description: "Learn how to instrument your Rust applications with OpenTelemetry and send data to PlayerZero."
 ---
 
+import AutoInstrumentation from '/snippets/open-telemetry/auto-instrumentation.mdx';
+import ManualInstrumentation from '/snippets/open-telemetry/manual-instrumentation.mdx';
+import ExporterOverview from '/snippets/open-telemetry/exporter-overview.mdx';
+import CollectorOptional from '/snippets/open-telemetry/collector-optional.mdx';
+import HelpfulLinksIntro from '/snippets/open-telemetry/helpful-links-intro.mdx';
+
+# OpenTelemetry for Rust
+
+OpenTelemetry for Rust provides libraries to create and export traces, logs, and metrics. The ecosystem is growing rapidly and supports async-first applications.
+
+## Installation
+
+Add the OpenTelemetry crates to your `Cargo.toml`:
+
+```bash
+opentelemetry = "0.20" 
+opentelemetry-otlp = "0.13" tokio = { version = "1", features = ["full"] }
+```
+
+For full installation instructions:  
+👉 [OpenTelemetry Rust Getting Started](https://opentelemetry.io/docs/instrumentation/rust/)
+
+## Auto-Instrumentation
+
+<AutoInstrumentation/>
+
+Rust currently does not have "auto-instrumentation" in the same sense as some other languages. You manually wrap your application logic with spans and telemetry.
+
+## Manual Instrumentation
+
+<ManualInstrumentation/>
+
+You can manually create spans and traces in Rust:
+
+
+```bash
+use opentelemetry::{global, trace::Tracer};
+let tracer = global::tracer("my-service");
+tracer.in_span("my-operation", |_cx| { // your application logic });
+```
+
+Learn more:  
+👉 [Rust Manual Instrumentation Guide](https://opentelemetry.io/docs/instrumentation/rust/manual/)
+
+## Exporters
+
+<ExporterOverview/>
+
+You typically configure the OTLP exporter directly in your Rust code when initializing telemetry.
+
+Key configuration:
+
+```bash
+Endpoint: https://sdk.playerzero.app/otlp Headers: Authorization=Bearer <your-playerzero-token>
+```
+
+Official reference:  
+👉 [Rust OTLP Exporter Setup](https://opentelemetry.io/docs/instrumentation/rust/exporters/otlp/)
+
+## Optional: Using a Collector
+
+<CollectorOptional/>
+
+You can optionally forward telemetry through an OpenTelemetry Collector before reaching PlayerZero.
+
+## Helpful Links
+
+<HelpfulLinksIntro/>
+
+- [OpenTelemetry Rust Overview](https://opentelemetry.io/docs/instrumentation/rust/)
+- [Rust SDK Crate Documentation](https://docs.rs/opentelemetry/latest/opentelemetry/)
+- [Rust Manual Tracing](https://opentelemetry.io/docs/instrumentation/rust/manual/)

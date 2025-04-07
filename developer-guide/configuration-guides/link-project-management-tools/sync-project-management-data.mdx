@@ -3,121 +3,75 @@ title: "Sync Project Management Data"
 description: "Connect tools like Jira to give PlayerZero real-time visibility into issues, stories, and releases."
 ---
 
+# Link Project Management Tools
 
+Integrating your project management tools with PlayerZero lets you sync:
 
-## Overview
+- Issues and bugs logged by your team
+- Stories and features being worked on
+- Internal feedback and improvement tickets
+- Release activities linked to engineering work
 
-- **What this section is for**: Enable PlayerZero to connect to your project management tools such as Jira to access relevant ticketing and planning data.
-- **Key benefits**:
-  - Correlate engineering activity with issues, bugs, and internal feedback.
-  - Identify high-risk areas based on historical tickets and work items.
-  - Prevent repeated mistakes by learning from past issues tied to code changes.
-- **Who this is for**: Engineering leads, QA managers, and anyone responsible for issue tracking and release risk management.
-
-## Basic Setup Guide
-
-### Prerequisites
-
-- A PlayerZero account with access to the **Connectors** page.
-- Access to your project management tool (e.g., Jira).
-- Relevant credentials or API tokens.
-- Admin permissions in your PM tool to authorize integrations.
-
-### Step-by-Step Instructions
-
-1. From the **PlayerZero web app**, go to the **Home** page.
-2. Click on **Connectors**.
-3. Select the **Jira Software** connector under the **Tickets** section.
-4. Sign into your **Jira Software** account if prompted.
-5. Enter your **project domain** or supply an **API key**.
-6. Authorize **Merge** to enable secure read/write access to Jira via PlayerZero.
-
-> After setup, PlayerZero will begin syncing metadata for issues, comments, and ticket history.
-
-## Available Integration Guides
-
-- **[Jira Setup Guide](/docs/connector/pm/jira#setup)**  
-  Step-by-step instructions for connecting Jira Software to PlayerZero.
-
-- **[Ticketing Data Schema](/docs/connector/pm/jira#ticketing-data)**  
-  View the full data model PlayerZero uses to represent Jira objects.
+By connecting your project management system, PlayerZero builds a complete map between user sessions, defects, and ongoing development activities — helping you understand risk earlier and resolve issues faster.
 
 ---
 
-# Ticketing Data Overview
+## Popular Platforms
 
-Once connected, PlayerZero accesses the following objects:
+### Jira Software
 
-## Tickets (Read-only)
-Represents issues and tasks from your PM system.
+- Deep two-way integration with issues, stories, and epics
+- Auto-link development work to defect detection
+- Pulls fields like assignees, statuses, comments, attachments, and priorities
 
-- Assignees
-- Attachments
-- Completed Timestamp
-- Contact
-- Creator
-- Description
-- Due Date
-- Name
-- Parent Ticket
-- Priority
-- Remote Created/Updated Timestamps
-- Status
-- Ticket Type
-- Ticket URL
+**Setup Steps:**
 
-## Comments (Read and write)
-Represents comments on tickets. Write access is currently in beta.
+1. Navigate to the **PlayerZero web app → Home → Connectors**.
+2. Select **Jira Software** under the Tickets section.
+3. Log into your Jira Software account if not already authenticated.
+4. Enter your Jira domain or API credentials.
+5. Authorize PlayerZero to read and write issue data.
 
-- Body
-- Privacy
-- Remote Created Timestamp
-- Ticket
-- User
+### Azure DevOps
 
-## Attachments (Read-only)
-Files attached to a ticket.
+- Support for Boards (work items) and Pipelines
+- Visibility into bugs, features, tasks, and user stories
+- Pulls metadata like status, assignee, iteration, and comments
 
-- Content Type
-- File Name
-- File URL
-- Remote Created Timestamp
-- Ticket
+**Setup Steps:**
 
-## Contact (Read-only)
-External users tied to tickets.
-
-- Details
-- Email Address
-- Name
-- Phone Number
-
-## Users (Read-only)
-Internal employees or agents.
-
-- Email Address
-- Is Active
-- Name
-- Teams
-
-## Teams (Read-only)
-Team metadata from your PM system.
-
-- Description
-- Name
-
-## Collections (Read-only)
-Represents logical groupings of tickets (e.g., engineering, QA).
-
-- Name
-- Description
-- Type
+1. Navigate to the **PlayerZero web app → Home → Connectors**.
+2. Select **Azure DevOps** under the Tickets section.
+3. Authenticate your Azure DevOps organization.
+4. Select the relevant project(s) for integration.
 
 ---
 
-PlayerZero uses this data to power correlation between issues and deployments, ensuring your team has the full context when debugging problems or monitoring release risk.
+## Other Supported Platforms
 
-Need more help?  
-Check out the full [Jira integration docs](/docs/connector/pm/jira) or contact support.
+  <Accordion title="Other Supported Platforms">
+- Linear
+- GitLab
+- Aha!
+- Asana
+- Basecamp
+- ClickUp
+- Height
+- Hive
+- Trello
+- Wrike
+- PivotalTracker
+- Rally
+- Zoho Desk
+</Accordion>
 
+If your platform is not listed here, chances are we still support it. We’re continually expanding our project management integrations.
+
+Simply follow the same steps above:
+
+1. Navigate to **Connectors** inside PlayerZero.
+2. Search for and select your project management tool.
+3. Authorize access and select the relevant project or workspace.
+
+---
 

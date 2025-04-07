@@ -1,4 +1,89 @@
 ---
-title: ".Net"
+title: ".NET"
+description: "Learn how to instrument your .NET applications with OpenTelemetry and send data to PlayerZero."
 ---
+
+import AutoInstrumentation from '/snippets/open-telemetry/auto-instrumentation.mdx';
+import ManualInstrumentation from '/snippets/open-telemetry/manual-instrumentation.mdx';
+import ExporterOverview from '/snippets/open-telemetry/exporter-overview.mdx';
+import CollectorOptional from '/snippets/open-telemetry/collector-optional.mdx';
+import HelpfulLinksIntro from '/snippets/open-telemetry/helpful-links-intro.mdx';
+
+# OpenTelemetry for .NET
+
+OpenTelemetry for .NET supports a wide range of automatic and manual instrumentation options, helping you capture spans, metrics, and logs with minimal effort.
+
+## Installation
+
+Add the necessary OpenTelemetry packages to your project using NuGet:
+
+```bash
+dotnet add package OpenTelemetry 
+dotnet add package OpenTelemetry.Exporter.OTLP
+```
+
+For full installation instructions:  
+👉 [OpenTelemetry .NET Getting Started](https://opentelemetry.io/docs/instrumentation/net/)
+
+## Auto-Instrumentation
+
+<AutoInstrumentation/>
+
+For .NET, you can automatically instrument supported libraries like ASP.NET Core, HTTP clients, and more.
+
+Typically, you configure it in your `Program.cs`:
+
+```bash
+builder.Services.AddOpenTelemetry().WithTracing(tracing => tracing .AddAspNetCoreInstrumentation().AddHttpClientInstrumentation().AddOtlpExporter());
+```
+
+Learn more:  
+👉 [Auto-Instrumentation for .NET](https://opentelemetry.io/docs/instrumentation/net/automatic/)
+
+## Manual Instrumentation
+
+<ManualInstrumentation/>
+
+You can manually create and manage spans in .NET using the OpenTelemetry APIs:
+
+```bash
+var tracer = tracerProvider.GetTracer("my-service");
+using (var span = tracer.StartActiveSpan("my-operation")) { // your application logic }
+```
+
+Learn more:  
+👉 [Manual Instrumentation in .NET](https://opentelemetry.io/docs/instrumentation/net/manual/)
+
+## Exporters
+
+<ExporterOverview/>
+
+For .NET applications, configure the OTLP exporter:
+
+Key environment variables:
+
+```bash
+OTEL_EXPORTER_OTLP_ENDPOINT=https://sdk.playerzero.app/otlp
+OTEL_EXPORTER_OTLP_HEADERS=Authorization=Bearer <your-playerzero-token> 
+OTEL_TRACES_EXPORTER=otlp 
+OTEL_LOGS_EXPORTER=otlp 
+OTEL_METRICS_EXPORTER=otlp
+```
+
+Official reference:  
+👉 [OpenTelemetry .NET Configuration](https://opentelemetry.io/docs/instrumentation/net/configuration/)
+
+## Optional: Using a Collector
+
+<CollectorOptional/>
+
+You can forward your telemetry through an OpenTelemetry Collector to enrich, filter, or route spans before reaching PlayerZero.
+
+## Helpful Links
+
+<HelpfulLinksIntro/>
+
+- [OpenTelemetry .NET Overview](https://opentelemetry.io/docs/instrumentation/net/)
+- [ASP.NET Core Instrumentation](https://opentelemetry.io/docs/instrumentation/net/instrumentation/aspnetcore/)
+- [.NET SDK Configuration](https://opentelemetry.io/docs/instrumentation/net/configuration/)
 
