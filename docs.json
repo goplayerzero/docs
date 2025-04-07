@@ -194,7 +194,7 @@
                                 ]
                             },
                             {
-                                "group": "Retrieve Inisghts from Code",
+                                "group": "Retrieve Insights from Code",
                                 "pages": [
                                     "use-cases/retrieve-insights-from-code/retrieve-insights-from-code-UC1",
                                     "use-cases/retrieve-insights-from-code/retrieve-insights-from-code-UC2",
