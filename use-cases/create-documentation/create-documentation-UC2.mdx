@@ -8,7 +8,7 @@ import SourceControlManagement from '/snippets/prerequisites/source-control-mana
 
 # Overview
 
-Through PlayerZero's intelligent chat interface, teams can easily document their APIs by describing endpoints and implementations to the AI, which helps generate clear, structured documentation complete with examples and parameter descriptions. The AI assistant can help translate technical API specifications into clear, understandable documentation by providing contextual suggestions, formatting help, and ensuring consistency across all endpoint descriptions. Teams can then share this documentation seamlessly across the organization, with PlayerZero's built-in collaboration features ensuring that both technical and non-technical stakeholders have access to clear, consistent API references.
+Through PlayerZero's intelligent chat interface, teams can easily document their APIs by describing endpoints and implementations to the AI, which helps generate clear, structured documentation complete with examples and parameter descriptions. The AI assistant can help translate technical API specifications into clear, understandable documentation by providing contextual suggestions, formatting help, and ensuring consistency across all endpoint descriptions. This guide will show you how to quickly create and share documentation across your team.
 
 ## **Prerequisites**
 
@@ -18,21 +18,23 @@ Through PlayerZero's intelligent chat interface, teams can easily document their
 
 ## **Process**
 
-### 1. **Start a Documentation Session**  
+### 1. Kickoff an AI Chat, Set Context
 Begin by opening PlayerZero’s AI chat interface and clearly stating your goal. For example:
 
 > "I want to document our user authentication API endpoints. Can you help me create clear documentation?"
 
 This establishes the context and helps the AI tailor its assistance to your specific objectives.
 
-### 2. **Describe Your API**  
+👉 [Start an AI Chat session](https://app.playerzero.ai/chat)
+
+### 2. Describe Your API 
 Next, provide the AI with a clear, concise description of the endpoint you want to document. You can keep it natural and informal—the AI will handle the structure. For example:
 
 > "The POST `/api/v1/auth/login` endpoint accepts email and password in the request body, validates the credentials, and returns a JWT token along with user information."
 
 From this, the AI will generate a baseline documentation layout with headers, parameter sections, and descriptions.
 
-### 3. **Refine with AI Assistance**  
+### 3. Refine with AI Assistance
 Now that the structure is in place, the AI can help elevate the quality of the content. It might:
 - Reformat and clean up inconsistencies
 - Fill in parameter descriptions
@@ -41,25 +43,18 @@ Now that the structure is in place, the AI can help elevate the quality of the c
 
 This phase is collaborative—continue the conversation to improve clarity and coverage.
 
-### 4. **Add Code Examples**  
+### 4. Add Code Examples
 Practical usage examples bring your documentation to life. You can describe the kind of code snippets or command-line usage you want to include, and the AI will help convert those into properly formatted examples. These examples help readers quickly understand how to use the API in real-world scenarios.
 
-### 5. **Review and Enhance**  
+### 5. Review and Enhance
 With the core documentation in place, review it for completeness and usability. Ask the AI to identify gaps, suggest improvements, or reorganize sections for better flow. You might decide to include common error responses, note deprecated endpoints, or add edge case behavior. This is where your documentation transforms from functional to polished.
 
-### 6. **Share Documentation**  
+### 6. Share Documentation
 Once you're happy with the result, use PlayerZero’s built-in sharing features to distribute your work. You can tag specific teammates, copy links, or enable comments. This makes it easy to gather feedback or provide documentation to a broader audience—including both technical teams and stakeholders.
-
-### 7. **Iterate and Update**  
-As your API evolves, your documentation should too. Whether you're adding new endpoints, updating request formats, or adjusting behavior, you can return to the AI chat to revise individual sections or expand the doc set. This ongoing loop ensures your documentation remains accurate, relevant, and helpful over time.
 
 ---
 
-### **API Documentation Insights – Build Comprehensive References**
-
-Want to create consistent, clear, and detailed API docs? PlayerZero’s AI Chat guides you through every step—organizing endpoints, parameters, and examples in a structured way.
-
-👉 [Start an AI Chat session](https://app.playerzero.ai/chat)
+## Additional Prompting Tips
 
 Use the categories below to guide your documentation process. Each accordion outlines a specific context in which the AI can help capture or refine API information.
 
@@ -96,7 +91,7 @@ Use the categories below to guide your documentation process. Each accordion out
 
 </AccordionGroup>
 
-#### **Prompting Tips**
+**Prompting Tips**
 
 1. **Combine details** – “How do I describe both request parameters and response fields for `/api/v1/orders`?”  
 2. **Ask for formatting** – “Format my docs as a Markdown table of parameters.”  
@@ -108,11 +103,3 @@ Use the categories below to guide your documentation process. Each accordion out
 ## **Summary and Next Steps**
 
 With PlayerZero, generating and refining API documentation becomes a clear, structured, and collaborative process. Whether you're documenting basic CRUD operations or complex microservices, the AI chat provides actionable, context-rich guidance to keep your docs organized and easy to share.
-
-### Additional Links
-
-[Connect Errors to Code](/use-cases/resolve-customer-issues/resolve-customer-issues-UC2) – Explains how to associate user complaints with exact sessions and trace those events across system layers.
-
-[Generate Code Fixes](/use-cases/resolve-customer-issues/resolve-customer-issues-UC3) – Details how PlayerZero surfaces contextual suggestions based on trace data and system behavior.
-
-

@@ -8,7 +8,7 @@ import SourceControlManagement from '/snippets/prerequisites/source-control-mana
 
 # Overview
 
-PlayerZero automatically generates clear, contextual summaries of code changes at both the pull request level and for individual file changes, making code reviews more efficient and accessible to all team members. Each changed file includes a detailed explanation of what was modified and why, helping reviewers quickly understand the impact and purpose of specific code modifications. The system also provides a comprehensive pull request summary that explains the overall changes, their business purpose, and potential risks to different features of your application.
+PlayerZero automatically generates clear, contextual summaries of code changes at both the pull request level and for individual file changes, making code reviews more efficient and accessible to all team members. Each changed file includes a detailed explanation of what was modified and why, helping reviewers quickly understand the impact and purpose of specific code modifications. Follow this guide to learn how to leverage PlayerZero-generated code summaries.
 
 ## **Prerequisites**
 
@@ -16,87 +16,60 @@ PlayerZero automatically generates clear, contextual summaries of code changes a
 
 ---
 
+## How PlayerZero Writes Code Summaries
+
+PlayerZero chunks code changes and uses AI embeddings to analyze both the modified code and its surrounding context, generating human-readable explanations that focus on functional changes rather than superficial modifications. These summaries are then enriched with repository-level context through a recursive summarization process that evaluates technical changes against defined product features to assess risk and impact.
+
+
 ## **Process**
 
 This process walks you through initiating an AI-driven investigation in PlayerZero, starting with a question and refining insights through targeted follow-ups grounded in real code and user context.
 
 ---
 
-### 1. **Initiate the AI chat session with a question**
+### 1. Understand Code Summaries in PlayerZero
+1. Navigate to the Pull Requests page and find your PR using the search functionality.
+2. The "Summary" tab provides a high-level overview of all changes, while the "Files Changed" tab shows detailed per-file summaries.
+3. In the Files Changed view, each modified file includes a summary explaining what changed and why, helping reviewers understand the context and purpose of specific modifications.
 
-From the input field on the homepage, you can ask a question directly to PlayerZero.
+### 2. Receive Code Summaries Natively in Your PRs
+- PlayerZero automatically adds both a high-level PR summary and detailed file-specific summaries as comments in your PR.
+- The summaries update automatically when new changes are pushed, ensuring reviewers always have current context.
+- Click through to PlayerZero for an interactive view that shows both the technical changes and their business impact.
 
-*Note: You can integrate your ticketing system (e.g., Zendesk, Jira) with PlayerZero for a seamless reference, but it’s not strictly required to start debugging.*
+### 3. Understanding Feature Risk Analysis
 
-### 2. **Guide the Investigation with follow-up questions**
+PlayerZero analyzes how your changes might impact different features of your product based on your defined Product Guidance. It is broken down into the following categories:
 
-PlayerZero provides targeted explanations and suggestions based on your focus areas, drawing from both codebase knowledge and user session data.
+- **None**: No direct impact to this feature
+- **Low**: Minor changes with minimal risk
+- **Moderate**: Significant changes requiring careful testing
+- **High**: Major changes with potential broad impact
 
----
+For each impacted feature, PlayerZero provides:
 
-### Investigation Scenarios for AI-Powered Chat
+- A summary of how the changes affect the feature
+- Specific areas requiring attention
+- Related test cases that should be prioritized
+- Historical context of past issues in these areas
 
-Want to understand code changes at a glance? You can interact directly with PlayerZero’s AI Chat to explore what was modified, why it was changed, and how those changes affect other parts of your codebase.
+## Setup Feature Guidance
 
-👉 [Start an AI Chat session](https://app.playerzero.ai/chat)
+1. Navigate to [project guidance](https://go.playerzero.app/setting/guidance) in settings
+2. Configure product information for high-level context for analysis
+    1. Fill in your product name
+    2. Add a clear description of your product's purpose
+    - Note: This provides high-level context for analysis
+3. Add feature descriptions
+    1. Click "Create New Feature" to add each major feature
+    2. For each feature, provide:
+        - Feature Name
+        - Detailed description of what the feature does and its importance. 
 
-Use the categories below to guide your investigation with the right level of review context. Each accordion outlines a specific scenario for exploring change rationale, design intent, and consistency using PlayerZero’s contextual tools.
-
-#### **Contextual Scenarios**
-
-<AccordionGroup>
-
-  <Accordion 
-    title="Understanding Patterns – How common designs are structured"
-  >
-    **Context Scenarios**:
-    - You're onboarding to a new service and want to understand how a common pattern (e.g., factories, hooks) is implemented.
-    - You're about to build a new feature and need to see how similar components are structured elsewhere in the codebase.
-  </Accordion>
-
-  <Accordion 
-    title="Historical Decisions – Why features were built that way"
-  >
-    **Context Scenarios**:
-    - You're reviewing a legacy feature and want to know why certain decisions were made.
-    - You're seeing an unusual implementation and want historical context from PRs or architectural discussions.
-  </Accordion>
-
-  <Accordion 
-    title="Discovering Best Practices – Standards and approaches for typical scenarios"
-  >
-    **Context Scenarios**:
-    - You're implementing a known flow (like authentication or pagination) and want to follow internal standards.
-    - You're writing tests or error handling and want to align with existing practices in the codebase.
-  </Accordion>
-
-  <Accordion 
-    title="Maintaining Consistency – Aligning new work with existing implementations"
-  >
-    **Context Scenarios**:
-    - You're submitting a PR and want to ensure your code aligns with established patterns.
-    - You're refactoring a component and want to confirm it matches how others integrate with shared services or APIs.
-  </Accordion>
-
-</AccordionGroup>
-
-#### **Prompting Tips**
-
-1. **Anchor concepts together** – “How does [Service A] interact with [Library B]?”
-2. **Adjust context scope** – Zoom in on specific files or pull system-wide dependencies.
-3. **Define the output you want** – Ask for code snippets, summaries, relationships, or histories.
-4. **Follow the thread** – Use follow-ups like “Where else is this service used?” 
+<Note> Chose features that are highly important for your organization, from a business perspective. Be thorough in your descriptions as this helps PlayerZero better understand your product's architecture and its impact on the bottom line. </Note>
 
 ## Summary and Next Steps
 
 By starting with a simple question and layering in focused follow-ups, you can use PlayerZero’s AI-powered chat to navigate your codebase and uncover meaningful insights—whether you’re debugging, learning, or planning changes. This process turns vague ideas into actionable investigation paths using real user data and code context.
 
 PlayerZero enhances your code review process with intelligent summaries and deep context, helping teams quickly understand changes and their broader implications. Now that you’ve guided an AI investigation, you can branch into other workflows powered by the same contextual engine.
-
-### Additional Links
-
-- [Create Detailed API Docs](/use-cases/create-documentation/create-documentation-UC2) – Convert endpoint definitions and descriptions into clean, readable API documentation.
-- [Generate Architecture Diagrams](/use-cases/create-documentation/create-documentation-UC1) – Visualize your system’s structure and dependencies automatically.
-- [Produce User Guides](/use-cases/create-documentation/create-documentation-UC3) – Transform complex flows into user-facing documentation for product and support teams.
-- [Ask your Codebase Questions](/use-cases/retrieve-insights-from-code/retrieve-insights-from-code-UC1) – Use chat to dive deeper into how features are implemented or why decisions were made.
-

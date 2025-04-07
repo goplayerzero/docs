@@ -5,7 +5,9 @@ description: "PlayerZero acts as an automated watchdog for new deployments by cr
 
 # Overview
 
-PlayerZero automatically monitors user sessions and notifies teams when users encounter programmatic errors, using advanced anomaly detection to identify unusual patterns. Real-time alerts are delivered through channels like Slack or Microsoft Teams, complete with context about what happened and who was affected. This proactive approach helps both engineering teams rapidly diagnose and fix problems, and provides product managers and customer success teams immediate visibility into the user experience issues that require attention.
+PlayerZero automatically monitors user sessions and notifies teams when users encounter programmatic errors, using advanced anomaly detection to identify unusual patterns. Real-time alerts are delivered through channels like Slack or Microsoft Teams, complete with context about what happened and who was affected. This guide will walk you through how to rapidly diagnose issues and get immediate visibility into the user experience issues that most require attention.
+
+<Tip> It is best to have PlayerZero deployed and collecting environment telemetry for at least two weeks before settings up alerts. This allows PlayerZero to create a better baseline understanding for "normal" error types, which will help reduce any early noise.</Tip>
 
 ## **Prerequisites**
 
@@ -16,26 +18,23 @@ Before diving in, ensure you’ve identified the communication channel(s) you pl
 - **Slack**: Recommended for teams already collaborating heavily on Slack.
 - **Microsoft Teams**: Ideal for organizations leveraging the full suite of Microsoft 365 tools.
 
-> *Note: You can configure different release cycles and alert rules, but the simplest way to get started is to connect at least one channel and begin receiving notifications for newly detected anomalies.*
+<Note> You can configure different release cycles and alert rules, but the simplest way to get started is to connect at least one channel and begin receiving notifications for newly detected anomalies. </Note>
 
 ---
 
 ## **Process**
 
-PlayerZero’s workflow empowers teams to detect anomalies, investigate root causes, and streamline communication across stakeholders. Follow these steps to take full advantage of PlayerZero’s monitoring and alerting capabilities.
+PlayerZero’s alert workflow empowers teams to detect anomalies, investigate root causes, and streamline communication across stakeholders. Follow these steps to take full advantage of PlayerZero’s monitoring and alerting capabilities.
 
-### 1. **Start an AI Chat to Explore Alerts and Release Cycles**
+### 1. Connect your Communication Platform
 
-When an anomaly is detected or you want to review your existing configuration, open an AI Chat in PlayerZero to get a quick, natural-language overview. From here, you can choose the relevant category to focus on:
+- [Alerts for Teams]. (URL)
+- [Alerts for Slack]. (URL)
 
-- **Alerts for Teams**  
-- **Alerts for Slack**  
 
-Through this AI Chat interface, you can instantly drill down into the specific setup instructions, best practices, and recommended release strategies for your chosen alerting channel.
+### 2. Setup Your Release Cycle
 
-### 2. **Set Up or Review Your Release Cycle**
-
-A critical step in alert management is defining how you organize and archive your releases:
+PlayerZero uses an understanding of your team's release cycles to effectively batch and communicate issues. Review the following options and navigate to [settings](https://go.playerzero.app/setting/release-strategy) to configure the strategy that best fits.
 
 1. **Manual Release Strategy**  
    - Best for teams with ad-hoc deployments.  
@@ -57,7 +56,14 @@ A critical step in alert management is defining how you organize and archive you
 
 In all cases, PlayerZero automatically creates and archives dedicated channels for each release, ensuring your workspace remains tidy while preserving historical context for easy lookup.
 
-### 3. **Investigate the Details of Each Alert**
+
+### 3. Receive Alerts in your Communication Platform
+Once you've configured your integration channel and defined your release cadence, alerts will begin to show up. 
+
+All project members will be added to the channel by default. If anyone wishes to remove themselves from the alert channel, they can simple leave the channel in the Communication Platform and PlayerZero will know to no longer include them in future notifications.
+
+
+### 4. Investigate the Details of Each Alert
 
 Every new or escalating issue captured by PlayerZero arrives with rich contextual information:
 
@@ -74,11 +80,7 @@ This wealth of information allows both technical and non-technical stakeholders 
 
 ## **Summary and Next Steps**
 
-By following this guide, you’ve seen how PlayerZero automatically detects anomalies, categorizes them by release, and publishes detailed alerts to your chosen channels. From there, your team can leverage AI Chat to navigate relevant data — reviewing release strategies, exploring user sessions, and collaborating directly on potential fixes. 
-
-### Additional Links
-
-[Connect Errors to Code](/use-cases/resolve-customer-issues/resolve-customer-issues-UC2) – Discover how to link alert data back to your codebase, providing the exact context needed for quick resolution.
-
-[Generate Code Fixes](/use-cases/resolve-customer-issues/resolve-customer-issues-UC3) – Learn how PlayerZero’s contextual suggestions can guide resolution strategies based on real-time system behavior.
+By following this guide, you’ve seen how PlayerZero automatically detects anomalies, categorizes them by release, and publishes detailed alerts to your chosen channels. From there, your team can leverage AI Chat to navigate relevant data — reviewing release strategies, exploring user sessions, and collaborating directly on potential fixes. Here are a few follow-ups that illuminate where you can take PlayerZero after an alert:
+- [Connect Errors to Code](/use-cases/resolve-customer-issues/resolve-customer-issues-UC2) – Discover how to link alert data back to your codebase, providing the exact context needed for quick resolution.
+- [Generate Code Fixes](/use-cases/resolve-customer-issues/resolve-customer-issues-UC3) – Learn how PlayerZero’s contextual suggestions can guide resolution strategies based on real-time system behavior.
 

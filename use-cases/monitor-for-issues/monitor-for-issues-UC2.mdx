@@ -12,7 +12,7 @@ import WebSdk from '/snippets/prerequisites/web-sdk.mdx';
 
 PlayerZero uses sophisticated anomaly detection algorithms to automatically surface critical issues. By identifying unusual error or latency patterns, PlayerZero notifies teams only when problems deviate significantly from normal behavior. This targeted approach helps teams maintain focus on the issues that matter most.
 
-For each anomaly, PlayerZero groups similar occurrences and applies muting rules across releases to reduce alert fatigue, allowing teams to filter out known or expected behavior. By combining advanced anomaly detection with granular session insights, PlayerZero ensures that engineering, support, and business stakeholders can quickly spot critical incidents, see exactly who is affected, and trace the root cause across all parts of the application.
+This guide will walk you through how you can leverage PlayerZero's advanced anomaly detection and granular technical insights, so you can quickly spot critical errors, see exactly who is affected, and trace the root cause across all parts of the application.
 
 ## **Prerequisites**
 
@@ -20,24 +20,15 @@ For each anomaly, PlayerZero groups similar occurrences and applies muting rules
 
 <WebSdk/>
 
-### Web SDK
-
-**Your frontend is instrumented with PlayerZero**  
-This ensures PlayerZero captures user interactions, DOM snapshots, and network activity. When combined with log and trace data, you gain a comprehensive view of how users experience your application end to end.
-
-*Full capture requires both frontend and backend instrumentation.*
-
-→ [Web SDK Setup Guide](https://go.playerzero.app)
-
 ---
 
 ## **Process**
 
-PlayerZero transforms scattered logs and error reports into fully contextualized issues, so you can see precisely when and how problems arise—and which users they affect. To streamline investigations, you can start an **AI Chat** in PlayerZero based on these key categories:
+PlayerZero transforms scattered logs and error reports into fully contextualized issues, so you can see precisely when and how problems arise—and which users they affect. 
 
-### 1. **Monitor Logs Page**
+### 1. **Visit the Logs Page**
 
-Begin by checking the Logs Page in PlayerZero:
+Begin by navigating to the [Logs Page](https://go.playerzero.app/logs) in PlayerZero. Here, you will find all errors and logs being passed into the PlayerZero platform. On this page, you can:
 
 - Filter logs by environment (Production/Pre-Production)
 - Search for specific error messages or patterns
@@ -45,72 +36,40 @@ Begin by checking the Logs Page in PlayerZero:
 - Sort by frequency, first occurrence, or last seen
 - Adjust time ranges for historical or real-time views
 
-**Starting an AI Chat**  
-From here, you can launch an AI Chat to quickly summarize the most frequent errors, identify anomalies, or explore additional context around your logs.
+<Note> PlayerZero captures only errors and specifically targeted logs defined through instrumentation. It logs information exclusively related to user-triggered actions—any other data is automatically discarded. </Note>
 
-### 2. **Understanding a Log**
+### 2. **Click into a Specific Log**
 
-Each log entry in PlayerZero holds rich context:
+Each log entry in PlayerZero holds rich context for understanding the entire picture.
 
-- Error type and severity level
 - Full error message and stack trace
 - Associated metadata and system state
 - Environment details
-- Related API calls and responses
-- Performance metrics at time of error
-
-**Starting an AI Chat**  
-Use the AI Chat to break down complex error messages, interpret stack traces, or uncover hidden dependencies among services and logs.
 
 ### 3. **Identify Affected Users**
 
-PlayerZero ties each log or error event back to specific users:
+Scroll to the bottom of the log page to see each individual user session where the error occurred. PlayerZero ties each log or error event back to key context:
 
 - List of users who encountered the issue
-- Session context: what users did before and after the error
+- Related actions
 - Demographic or segmentation data
 
-**Starting an AI Chat**  
-Ask the AI Chat to detail which users were impacted the most or to identify potential user segments prone to encountering the same issue.
 
-### 4. **Seeing the Moment the Issue Happened**
+### 4. **Replay the Moment the Issue Happened**
 
-By combining logs with session replay, PlayerZero presents the exact user journey:
+Click into a user session to see a single pane of glass view for what the application state looked like when the error occurred. PlayerZero presents the exact user journey with deep context:
 
-- In-depth session replay
+- Steps to reproduce
+- DOM snapshots
 - Network requests timeline
 - System logs and events
 - Browser console output
 - Application state changes
-- Performance metrics at the incident moment
-
-**Starting an AI Chat**  
-Let the AI Chat guide you in correlating DOM events, console logs, and network requests—all in a single conversation.
-
-### 5. **Getting Notified About an Issue**
-
-Stay on top of new anomalies and high-severity issues:
-
-- Integrations with Slack/Teams
-- Real-time alerts for emerging problems
-- Release-specific monitoring
-- Muting rules to suppress known issues
-
-**Starting an AI Chat**  
-Leverage the AI Chat to configure or refine your alerting strategies. Instantly query for newly muted issues, unmute them if needed, or evaluate the effectiveness of existing rules.
 
 ---
 
 ## **Summary and Next Steps**
 
-PlayerZero’s anomaly detection and customizable muting rules keep teams focused on the most critical errors. By automatically grouping similar problems and applying global rules across releases, PlayerZero ensures that your alerting workflow remains fine-tuned, preventing teams from being inundated with repetitive or low-impact notifications. 
-
-Combined with session replays and enriched logs, you’ll be able to see precisely who is affected, what went wrong, and how to resolve the issue. Use the AI Chat for rapid insights, guiding you from detection to resolution in a single, streamlined interface.
-
-### Additional Links
-
-[Connect Errors to Code](/use-cases/resolve-customer-issues/resolve-customer-issues-UC2) – Discover how to link alert data back to your codebase, providing the exact context needed for quick resolution.
-
-[Generate Code Fixes](/use-cases/resolve-customer-issues/resolve-customer-issues-UC3) – Learn how PlayerZero’s contextual suggestions can guide resolution strategies based on real-time system behavior.
-
-
+PlayerZero’s anomaly detection and customizable muting rules keep teams focused on the most critical errors. By automatically grouping similar problems and applying global rules across releases, PlayerZero ensures that your alerting workflow remains fine-tuned, preventing teams from being inundated with repetitive or low-impact notifications. Here are a few follow-ups that illuminate how can further refine and automate your monitoring experience:
+- [Setup Alerts for User Issues] (URL) – PlayerZero actively tracks and alerts teams to any issues that emerge after a deployment.
+- [Mute any unwanted issues] (URL) – Customize PlayerZero’s anomaly detection notifications to stay focused on the errors that truly matter.

@@ -8,9 +8,7 @@ import SourceControlManagement from '/snippets/prerequisites/source-control-mana
 
 # Overview
 
-PlayerZero acts as your pair-programming AI assistant, enabling you to query and understand unfamiliar code through natural language questions. The system instantly surfaces relevant files, dependencies, and code flows without having to grep through multiple repositories. By building a deep understanding of your code's architecture and recent changes, PlayerZero can explain complex implementations in clear technical terms with direct references to the source.  
-
-When you need to debug issues or take ownership of another developer's code, you can quickly ramp up without piecing together scattered documentation or chasing down former team members for context. Simply ask the AI about any part of the implementation and get immediate, technically accurate explanations tailored to your project.
+By building a deep understanding of your code's architecture and recent changes, PlayerZero can explain complex implementations in clear technical terms with direct references to the source. When you need to debug issues or take ownership of another developer's code, you can quickly ramp up without piecing together scattered documentation or chasing down former team members for context. Simply ask the AI about any part of the implementation and get immediate, technically accurate explanations tailored to your project.
 
 ## **Prerequisites**
 
@@ -20,21 +18,23 @@ When you need to debug issues or take ownership of another developer's code, you
 
 ## **Process**
 
-### 1. **Start a Code Understanding Session**  
+### 1. Kickoff an AI Chat, Set Context
 Open PlayerZero’s AI chat interface and clearly state your goal. For example:
 
 > "I need to figure out how the user authentication logic works in our Node.js service. Can you walk me through the relevant code files and dependencies?"
 
 This initial query sets the context and helps the AI focus on the specific code area you need to understand.
 
-### 2. **Ask About the Code**  
+👉 [Start an AI Chat session](https://app.playerzero.ai/chat)
+
+### 2. Ask About the Code**  
 Describe what you’re looking for in plain English. You might ask:
 
 > "Show me the function that processes webhook events and explain its key steps."
 
 PlayerZero will locate relevant files, highlight important code sections, and provide an overview of how the code works.
 
-### 3. **Refine with AI Assistance**  
+### 3. Refine with AI Assistance
 Build on the AI’s response by asking follow-up questions. The AI can:
 
 - Identify missing information
@@ -43,7 +43,7 @@ Build on the AI’s response by asking follow-up questions. The AI can:
 
 Keep this conversation going until you have a clear grasp of the technical flow.
 
-### 4. **Dive into Dependencies**  
+### 4. Dive into Dependencies
 Ask the AI to surface how the code connects to other services, libraries, or APIs:
 
 > "What other parts of the system call this webhook handler?"
@@ -51,7 +51,7 @@ Ask the AI to surface how the code connects to other services, libraries, or API
 
 PlayerZero will trace through your codebase to show integrations, data paths, and potential failure points.
 
-### 5. **Review and Summarize**  
+### 5. Review and Summarize
 Have PlayerZero provide a concise summary of the code’s logic and purpose. This can include:
 
 - How user interactions trigger certain flows
@@ -60,7 +60,7 @@ Have PlayerZero provide a concise summary of the code’s logic and purpose. Thi
 
 These summaries act as living documentation you can reference later or share with teammates.
 
-### 6. **Share Knowledge**  
+### 6. Share Knowledge
 Once you’re confident in your understanding, use PlayerZero’s collaboration features to share these insights:
 
 - Tag relevant teammates and invite them to review
@@ -69,16 +69,9 @@ Once you’re confident in your understanding, use PlayerZero’s collaboration 
 
 This centralizes context for everyone, from developers to product managers.
 
-### 7. **Iterate and Expand**  
-As you dive further or new code changes come in, continue to refine your understanding. Update or add to these AI-driven explanations so they remain accurate and relevant. This ongoing process keeps everyone on the same page and accelerates onboarding for new team members.
-
 ---
 
-### **Code Understanding Insights – Build Comprehensive Awareness**
-
-Want to quickly grasp the purpose, flow, and historical context of any part of your codebase? PlayerZero’s AI Chat guides you through each stage—surfacing relevant files, showing dependencies, and clarifying business objectives.
-
-👉 [Start an AI Chat session](https://app.playerzero.ai/chat)
+## Additional Prompting Tips
 
 Use the categories below to guide your code exploration. Each accordion outlines a specific context in which the AI can help capture or refine your technical understanding.
 
@@ -114,7 +107,7 @@ Use the categories below to guide your code exploration. Each accordion outlines
 
 </AccordionGroup>
 
-#### **Prompting Tips**
+**Prompting Tips**
 
 1. **Combine details** – “Find the `email notification` code and explain how user preferences are applied.”  
 2. **Ask for historical context** – “When was this last changed, and who did it?”  
@@ -126,11 +119,3 @@ Use the categories below to guide your code exploration. Each accordion outlines
 ## **Summary and Next Steps**
 
 With PlayerZero, understanding and onboarding to complex codebases becomes a streamlined and collaborative effort. Whether you’re dissecting a single function or analyzing large-scale microservices, the AI assistant provides contextual, in-depth explanations, fosters knowledge sharing, and keeps everything easily searchable.
-
-### Additional Links
-
-[Connect Errors to Code](/use-cases/resolve-customer-issues/resolve-customer-issues-UC2) – Explains how to associate user complaints with exact sessions and trace those events across system layers.
-
-[Generate Code Fixes](/use-cases/resolve-customer-issues/resolve-customer-issues-UC3) – Details how PlayerZero surfaces contextual suggestions based on trace data and system behavior.
-
-

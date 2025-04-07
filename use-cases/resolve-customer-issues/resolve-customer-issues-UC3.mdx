@@ -9,7 +9,7 @@ import SourceControlManagement from '/snippets/prerequisites/source-control-mana
 import WebSdk from '/snippets/prerequisites/web-sdk.mdx';
 
 # Overview
-PlayerZero guides developers toward effective code fixes by combining detailed session recordings, error contexts, and code understanding into a comprehensive analysis. The system examines similar code changes and historical fixes across the codebase to identify patterns and potential solutions, while also considering the specific user interactions that triggered the issue. This contextual approach not only helps developers understand what to fix but also why the fix is needed, ensuring that solutions address the root cause while maintaining alignment with the codebase's existing patterns and best practices.
+PlayerZero guides developers to effective code fixes by combining session recordings, error context, and code understanding into a unified analysis. It examines similar historical fixes and the specific user interactions that triggered the issue, helping developers understand both what to fix and why—ensuring solutions address the root cause while aligning with established patterns. In this guide, we will explore how to generate targeted code fixes by continuing an AI chat, asking focused follow-up questions, and evaluating refined solution paths using PlayerZero’s internal workspace.
 
 ## **Prerequisites**
 
@@ -20,11 +20,6 @@ PlayerZero guides developers toward effective code fixes by combining detailed s
 ---
 
 ## **Process**
-
-### Generate Code Fixes
-
-Open up an existing AI chat, guide the investigation with follow-up questions, and then review and refine potential solutions.
-
 ### 1. **Open up an existing AI chat**
 
 This workflow kicks off after you’ve created a chat with PlayerZero, where work has already been done to create a context window and internal workspace around the issue at hand. To learn how to do this, navigate to [connect errors to code].
@@ -33,27 +28,14 @@ This workflow kicks off after you’ve created a chat with PlayerZero, where wor
 
 Ask follow-up questions around key areas. Key areas might include specific error messages that catch your attention, code snippets you want to understand better, particular parts of the code (such as key services or files), or possible alternative routes or root causes to confirm.
 
-*Note: PlayerZero provides targeted explanations and suggestions based on your focus areas, drawing from both codebase knowledge and user session data.*
+PlayerZero provides targeted explanations and suggestions based on your focus areas, drawing from both codebase knowledge and user session data.
 
 ### 3. **Review and Refine**
-
 Assess, compare, and dive into different solutions and issue pathways.
 
-*Note: PlayerZero keeps all context—code, debug data, and previous chat—readily available and interconnected, allowing you to build a complete understanding of the solution.*
+<Note> PlayerZero keeps all context—code, debug data, and previous chat—readily available and interconnected, allowing you to build a complete understanding of the solution.</Note>
 
 ---
 
 ## **Summary and Next Steps**
-
-In this guide, we explored how to generate targeted code fixes by continuing an AI chat, asking focused follow-up questions, and evaluating refined solution paths using PlayerZero’s internal workspace. This workflow leverages past code changes, user-triggered context, and debugging history to suggest fixes aligned with established patterns and best practices. The result is a deeper understanding of both what needs to be fixed and why, reducing the likelihood of patching symptoms instead of root causes. To build on this process, use the links below to further interrogate your codebase, analyze dependencies, and enforce standards.
-
-### Additional Links
-
-- [Retrieve Insights from Code](/use-cases/retrieve-insights-from-code/retrieve-insights-from-code-benefits) – Extract and interpret historical code behavior and patterns.
-
-- [Ask your Codebase Questions](/use-cases/retrieve-insights-from-code/retrieve-insights-from-code-UC1) – Interact with your codebase using natural language queries and session-aware context.
-
-- [Identify Dependencies](/use-cases/retrieve-insights-from-code/retrieve-insights-from-code-UC2) – Surface relationships between modules, services, and files to inform change impact.
-
-- [Uphold Coding Standards](/use-cases/retrieve-insights-from-code/retrieve-insights-from-code-UC3) – Verify compliance with organizational practices across your codebase.
-
+This workflow leverages past code changes, user-triggered context, and debugging history to suggest fixes aligned with established patterns and best practices. The result is a deeper understanding of both what needs to be fixed and why, reducing the likelihood of patching symptoms instead of root causes. To build on this process, use the links below to further interrogate your codebase, analyze dependencies, and enforce standards.

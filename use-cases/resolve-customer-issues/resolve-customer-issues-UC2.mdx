@@ -1,7 +1,7 @@
 ---
 title: "Connect Run-time Errors to Responsible Code"
 sidebarTitle: "Connect Errors to Code"
-description: "PlayerZero automatically connects runtime errors to the specific code segments that caused them by analyzing error traces, network calls, and code context. "
+description: "Automatically connect runtime errors to the specific code segments that caused them by analyzing error traces, network calls, and code context. "
 ---
 
 import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
@@ -9,8 +9,7 @@ import SourceControlManagement from '/snippets/prerequisites/source-control-mana
 import WebSdk from '/snippets/prerequisites/web-sdk.mdx';
 
 # Overview
-PlayerZero automatically connects user-facing issues to their underlying code by analyzing network calls, error traces, and code context to identify the relevant files and functions responsible for specific customer experiences. When an error or network issue occurs, the system leverages AI embeddings to match the error context with the most relevant code sections, enabling developers to jump directly to the source of the problem without manually searching through the codebase. This intelligent code-mapping capability transforms what would typically be a time-consuming investigation process into an immediate insight, allowing engineering teams to focus on fixing issues rather than hunting for their location in the code.
-
+PlayerZero connects user-facing issues directly to the underlying code by analyzing network calls, error traces, and code context to surface the specific files and functions involved. By leveraging embeddings, PlayerZero matches runtime context with the most relevant parts of the codebase—so technical support can skip the manual investigation and jump straight to fixing the problem. In this guide, we will cover how to initiate the AI chat session from either the single pane of glass debug mode or an externally sourced error, let PlayerZero create a workspace to collate relevant files, and map the specific causal code.
 ## **Prerequisites**
 
 <SourceControlManagement/>
@@ -23,7 +22,7 @@ PlayerZero automatically connects user-facing issues to their underlying code by
 
 ### **Starting from a PlayerZero Debug Session**
 
-This workflow starts from the single pane of glass debug mode, where you sourced an error in the DevTools tab that you want to explore; you can navigate to [capture session context] for more details, as PlayerZero creates a workspace from relevant files and maps the specific causal code for deeper debugging.
+This workflow starts from the single pane of glass debug mode, where you sourced an error in the DevTools tab that you want to explore. You can navigate to [capture session context]( for more details, as PlayerZero creates a workspace from relevant files and maps the specific causal code for deeper debugging.
 
 #### 1. **Initiate the AI chat session to refine debugging**
 
@@ -58,9 +57,6 @@ PlayerZero will dig into the responsible code and write out a breakdown, includi
 ---
 
 ## Summary and Next Steps
-
-In this guide, we covered how to initiate the AI chat session from either the single pane of glass debug mode or an externally sourced error, let PlayerZero create a workspace to collate relevant files, and map the specific causal code. By analyzing network calls, error traces, and code context, PlayerZero automatically isolates the root cause behind user-facing issues and removes the need for manual codebase searches. This direct mapping capability delivers immediate insights, allowing engineers to focus on fixes rather than extended discovery.
-
-### Additional Links
+By analyzing network calls, error traces, and code context, PlayerZero automatically isolates the root cause behind user-facing issues and removes the need for manual codebase searches. This direct mapping capability delivers immediate insights, allowing engineers to focus on fixes rather than extended discovery.
 
 [Generate Code Fixes](/use-cases/resolve-customer-issues/resolve-customer-issues-UC3) – Dive deeper into automatically creating targeted patches based on the identified errors.

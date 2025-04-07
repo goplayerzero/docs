@@ -8,7 +8,7 @@ import SourceControlManagement from '/snippets/prerequisites/source-control-mana
 
 # Overview
 
-PlayerZero enables code migration projects by providing AI-powered code analysis that can understand and explain functionality across most programming languages. The platform offers intelligent code search capabilities so developers can locate and analyze similar code patterns across different repositories. It also generates comprehensive summaries that explain a code segment’s business value, core logic, and integration points. Through its integration with advanced AI models, PlayerZero can assist in code translation between languages, ensuring the original functionality and business logic remain intact during refactoring or reimplementation.
+PlayerZero enables code migration projects by providing AI-powered code analysis that can understand and explain functionality across most programming languages. The platform offers intelligent code search capabilities so developers can locate and analyze similar code patterns across different repositories.
 
 ## **Prerequisites**
 
@@ -18,14 +18,16 @@ PlayerZero enables code migration projects by providing AI-powered code analysis
 
 ## **Process**
 
-### 1. **Start a Migration Session**  
+### 1. Kickoff an AI Chat, Set Context 
 Begin by opening PlayerZero's AI chat interface and clearly stating your goal. For example:
 
 > "I need to migrate our user authentication service from Python to TypeScript. Let's start by understanding the current implementation."
 
 This establishes the context and helps the AI tailor its assistance to your specific migration objectives.
 
-### 2. **Code Discovery and Understanding**  
+👉 [Start an AI Chat session](https://app.playerzero.ai/chat)
+
+### 2. Code Discovery and Understanding
 Next, use PlayerZero’s intelligent code search to locate relevant files and understand their purpose:
 
 > "Show me all the files related to user authentication."  
@@ -34,7 +36,7 @@ Next, use PlayerZero’s intelligent code search to locate relevant files and un
 
 Review the code in the citation viewer panel to see the complete context. Ask additional follow-up questions to get deeper insights into business logic or integration points.
 
-### 3. **Plan Your Migration Strategy**  
+### 3. Plan Your Migration Strategy
 Once you understand the code, ask the AI for guidance on how to approach the migration:
 
 > "What are the main classes and functions we need to migrate?"  
@@ -43,7 +45,7 @@ Once you understand the code, ask the AI for guidance on how to approach the mig
 
 The AI can highlight any critical dependencies, frameworks, or library changes you should be aware of before proceeding.
 
-### 4. **Iterative Translation**  
+### 4. Iterative Translation  
 Begin translating core components one at a time to maintain clarity and control:
 
 > "Convert this User class to TypeScript, maintaining all functionality."  
@@ -52,7 +54,7 @@ Begin translating core components one at a time to maintain clarity and control:
 
 Ask the AI to explain any important differences between languages—like error handling, asynchronous patterns, or type definitions—to ensure the new implementation remains secure and efficient.
 
-### 5. **Integration Verification**  
+### 5. Integration Verification
 Once you have translated core pieces, verify their interactions with other services or components:
 
 > "Show me all services that call this authentication code."  
@@ -61,7 +63,7 @@ Once you have translated core pieces, verify their interactions with other servi
 
 Leverage the AI’s knowledge of your broader codebase to keep the migration aligned and consistent.
 
-### 6. **Documentation and Best Practices**  
+### 6. Documentation and Best Practices
 Remember to document the newly migrated code and any relevant changes:
 
 > "Add TypeScript documentation comments to this code."  
@@ -70,7 +72,7 @@ Remember to document the newly migrated code and any relevant changes:
 
 Proper documentation ensures smooth handoffs and long-term maintainability.
 
-### 7. **Testing Strategy**  
+### 7. Testing Strategy*
 Finally, confirm that your migrated code is fully tested and stable:
 
 > "How should we test this TypeScript implementation?"  
@@ -81,11 +83,7 @@ Continually refine your tests as you proceed, ensuring no functionality is lost 
 
 ---
 
-### **Code Migration Insights – Migrate with Confidence**
-
-Ready to streamline your migration process? PlayerZero’s AI Chat helps you with intelligent search, translation guidance, and best practices. Keep your codebase consistent, secure, and thoroughly documented.
-
-👉 [Start an AI Chat session](https://app.playerzero.ai/chat)
+## Additional Prompting Tips
 
 Use the categories below to guide your code migration journey. Each accordion outlines a specific context in which the AI can help capture or refine critical migration details.
 
@@ -121,7 +119,7 @@ Use the categories below to guide your code migration journey. Each accordion ou
 
 </AccordionGroup>
 
-#### **Prompting Tips**
+**Prompting Tips**
 
 1. **Ask for deeper context** – “Explain how this Python function interacts with the database.”  
 2. **Request specific translations** – “Translate this piece of code into TypeScript with comments.”  
@@ -133,10 +131,3 @@ Use the categories below to guide your code migration journey. Each accordion ou
 ## **Summary and Next Steps**
 
 With PlayerZero, migrating code between languages or frameworks becomes a structured, informed process. The AI chat maintains context, provides targeted insights, and helps you refactor effectively. Whether you’re transitioning a small module or an entire application, PlayerZero ensures minimal disruptions while preserving business logic and security considerations.
-
-### Additional Links
-
-[Connect Errors to Code](/use-cases/resolve-customer-issues/resolve-customer-issues-UC2) – Explains how to associate user complaints with exact sessions and trace those events across system layers.
-
-[Generate Code Fixes](/use-cases/resolve-customer-issues/resolve-customer-issues-UC3) – Details how PlayerZero surfaces contextual suggestions based on trace data and system behavior.
-

@@ -8,7 +8,7 @@ import SourceControlManagement from '/snippets/prerequisites/source-control-mana
 
 # Overview
 
-PlayerZero identifies regressions by comparing your current code changes against historical bugs and customer frustrations. Through AI-driven embeddings, PlayerZero creates semantic fingerprints of both new code diffs and past tickets, then uses vector similarity matching to surface the most relevant historical issues. If overlaps are found, PlayerZero generates targeted regression tests directly in your PR, highlighting exactly which past problems could recur.
+PlayerZero identifies regressions by comparing your current code changes against historical bugs and customer frustrations. Through AI-driven embeddings, PlayerZero creates semantic fingerprints of both new code diffs and past tickets, then uses vector similarity matching to surface the most relevant historical issues. If overlaps are found, PlayerZero generates targeted regression tests directly in your PR, highlighting exactly which past problems could recur. Follow this guide to learn how to leverage PlayerZero-generated regression tests.
 
 ## **Prerequisites**
 
@@ -18,38 +18,20 @@ PlayerZero identifies regressions by comparing your current code changes against
 
 ## **Process**
 
-### 1. Navigate to the Pull Requests page
+### 1. Understand Regression Tests in PlayerZero PRs
 
-Use the search bar to locate your PR by title, branch name, or relevant keywords in the PR description. Quickly narrowing down to the right PR is key to reviewing potential regressions.
+1. Navigate to the Pull Requests page and use the search bar to find your PR by title, branch name, or content.
+2. Open your PR and look for the "Regression Tests" section, which shows potential issues that could recur based on historical data - each regression test includes the original customer issue, when it occurred, and why it's relevant to your current changes.
+3. Click on any regression test to see detailed context about the historical issue, including the original customer complaint, impact, and specific areas of code that were involved.
 
-### 2. View the "Regression Tests" section
 
-In your PR details:
-1. Look for the "Regression Tests" section, typically under the automatically generated PlayerZero comment.  
-2. Review each test’s summary, which highlights the original customer issue, when it occurred, and its relevance to your current changes.
+### 2. Receive Regression Tests natively in your PRs
 
-PlayerZero pinpoints where and why a regression could arise, referencing real incidents that affected these specific code paths.
+- PlayerZero automatically adds regression tests to your PR comments, with each test linked to historical issues and customer feedback that were associated with the modified code.
+- Each regression test includes a "Regression remembered from an issue" tag with the date of the original issue, making it clear why this test was generated and helping teams avoid repeating past problems.
+- Click through to PlayerZero to see the full context of each regression, including the original ticket, customer impact, and complete history of the issue.
 
-### 3. Dive deeper into historical context
-
-Click on any listed regression test to explore:
-- **Original ticket**: Understand the root cause, user frustration, or bug context.  
-- **Impact**: Review how this bug previously affected customers or systems.  
-- **Affected code**: See exactly which lines or modules were involved.
-
-Immediate access to historical details ensures you can replicate, test, or guard against a re-emerging bug.
-
-### 4. Confirm or refute regressions in your PR
-
-Leverage PlayerZero’s comment updates to mark regression tests as verified, in-progress, or no longer relevant:
-- The comment dynamically refreshes with your PR’s progress and new commits.
-- Confirming or resolving potential regressions helps the entire team stay informed.
-
-Keeping regression status up-to-date prevents redundant re-checking of the same issues.
-
----
-
-### Scenarios for Investigating Regressions
+## Ask the AI about Regressions
 
 Want to understand potential regressions faster? You can interact directly with PlayerZero’s AI Chat to explore the origin, frequency, and impact of historical issues tied to your code changes.
 
@@ -57,7 +39,7 @@ Want to understand potential regressions faster? You can interact directly with 
 
 Use the categories below to guide your investigation with the right level of historical context. Each accordion outlines a regression-related scenario you can explore using PlayerZero’s contextual tools.
 
-#### **Contextual Scenarios**
+**Contextual Scenarios**
 
 <AccordionGroup>
 
@@ -99,7 +81,7 @@ Use the categories below to guide your investigation with the right level of his
 
 </AccordionGroup>
 
-#### **Prompting Tips**
+**Prompting Tips**
 
 1. **Anchor concepts together** – “How does [Service A] interact with [Library B]?”
 2. **Adjust context scope** – Zoom in on specific files or pull system-wide dependencies.
@@ -113,11 +95,4 @@ Use the categories below to guide your investigation with the right level of his
 By following these steps, you ensure every significant past issue or customer complaint relevant to your code changes is flagged in your PR. PlayerZero’s automated regression checks reduce the risk of reintroducing historical bugs, guiding you to review and validate these areas proactively.
 
 With your codebase connected, PlayerZero maps every pull request to a curated set of regression tests based on semantic overlaps. This goes beyond simple file matching—PlayerZero’s AI searches for underlying similarities in code, logic, and bug descriptions. As a result, your team can systematically prevent regressions and keep development flowing confidently.
-
-### Additional Links
-
-- [Generate Functional Tests with Context](/use-cases/analyze-code-quality/analyze-code-quality-UC3) – Discover how PlayerZero automatically provides functional coverage for every PR.  
-- [Create Line-by-Line Code Summaries](/use-cases/analyze-code-quality/analyze-code-quality-UC3) – Save time by reading condensed explanations of each change in your PR.  
-- [Produce User Guides](/use-cases/create-documentation/create-documentation-UC3) – Turn your product flows into detailed documentation for end users and support teams.  
-- [Ask your Codebase Questions](/use-cases/retrieve-insights-from-code/retrieve-insights-from-code-UC1) – Delve deeper into your code structure and history using PlayerZero’s AI-powered chat.
 
