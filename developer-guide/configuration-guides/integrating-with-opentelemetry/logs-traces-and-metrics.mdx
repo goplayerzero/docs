@@ -1,3 +1,128 @@
 ---
 title: "Logs, Traces, and Metrics"
+description: "How telemetry data powers defect resolution in PlayerZero by connecting system behavior to users and code."
 ---
+
+# Logs, Traces, and Metrics
+
+PlayerZero supports ingestion of all three primary OpenTelemetry signal types — **logs**, **traces**, and **metrics** — with a clear goal:  
+**to help you resolve real user-facing defects faster.**
+
+While traditional observability platforms focus on system health or dashboarding, PlayerZero uses telemetry to **bridge the gap between backend behavior, frontend sessions, and the code that caused them**.
+
+---
+
+## Our Approach
+
+Telemetry is not the end goal — it’s a data stream we correlate with:
+
+- User session timelines  
+- Code changes and commits  
+- Customer and product tickets  
+- Known regressions or previous issues  
+
+By combining signals from OpenTelemetry with PlayerZero’s Web SDK, codebase metadata, and user context, we’re able to surface the full story behind an issue — not just the alert.
+
+---
+
+## Frontend-to-Backend Trace Linking
+
+When the **PlayerZero Web SDK** is installed, it automatically generates and attaches a `traceparent` header to user actions in the browser.
+
+This header enables:
+- Traces to link frontend events with backend spans
+- Full session timelines to show both UI and system behavior
+- Each trace to be mapped to a specific user, page, and action
+
+Once enabled, any OpenTelemetry-compatible backend span can be tied back to:
+- A specific user session
+- A traceable user action
+- A specific release or commit
+
+---
+
+## Trace Support
+
+Traces are the backbone of correlation in PlayerZero.
+
+We support:
+- All OTLP-compliant spans
+- Root span detection and timing
+- Multi-service, multi-language distributed traces
+- Linking frontend spans to backend spans via `traceparent`
+
+Once ingested, traces are grouped and analyzed for:
+- Latency spikes
+- Repeat issues
+- Regression patterns
+- User impact
+
+Traces appear inside PlayerZero’s issue timeline view and are correlated with other signal types.
+
+---
+
+## Log Support
+
+Logs provide crucial detail around trace events and are often the best way to understand what happened inside a specific function or service.
+
+We support:
+- Structured logs sent over OTLP
+- Logs that link directly to trace spans
+- Standalone log entries for pattern detection
+
+When logs and traces share context (e.g., `trace_id`, `span_id`, or user/session fields), we’ll automatically associate them.
+
+This helps PlayerZero:
+- Enrich timeline views with log context
+- Group similar logs into recurring issues
+- Detect regressions based on log signatures
+
+---
+
+## Metric Support
+
+PlayerZero ingests OTLP-formatted metrics to provide context and detect supporting patterns.
+
+We use metrics to:
+- Identify spikes in request latency or error rate
+- Surface anomalies that relate to user complaints or failed sessions
+- Support trend analysis over time for known issue types
+
+Unlike traditional APM tools, we don’t expose a metrics dashboard. Instead, metrics enhance issue prioritization, timeline context, and long-term pattern recognition.
+
+---
+
+## Example Workflow
+
+A user clicks a button on your site → it sends a `traceparent` to your backend → your backend emits spans and logs via OpenTelemetry → PlayerZero ties everything together.
+
+That one trace may trigger:
+- A new issue in PlayerZero if it’s a regression
+- A linked session timeline with frontend + backend events
+- A devtools view with logs, span durations, and code references
+
+No manual stitching required. You just instrument your app and point telemetry to us.
+
+---
+
+## Summary Table
+
+| Signal Type | Role in PlayerZero | How We Use It |
+|-------------|--------------------|-----------------------------|
+| **Traces**  | Distributed request flow | Correlate user sessions, regressions, backend performance |
+| **Logs**    | Detailed system events | Enrich trace context, identify patterns, detect regressions |
+| **Metrics** | System-level signals | Detect anomalies and trend shifts tied to user behavior |
+
+---
+
+## What’s Next?
+
+- **[Use PlayerZero’s Endpoint](/docs/integrations/opentelemetry/playerzero-endpoint)**  
+  Point your OTLP exporter to PlayerZero to begin sending telemetry.
+
+- **[Enable Trace Headers in the Web SDK](/docs/integrations/opentelemetry/web-sdk-integration)**  
+  Enable `traceparent` propagation so frontend and backend data link cleanly.
+
+- **[OpenTelemetry Recipes](/docs/integrations/opentelemetry/recipes)**  
+  Grab ready-made configuration examples for your language and deployment setup.
+

@@ -1,4 +1,38 @@
 ---
 title: "Exporters and Collectors"
+description: "How to connect your OpenTelemetry exporter or collector to PlayerZero."
 ---
+
+# Exporters and Collectors
+
+OpenTelemetry uses **exporters** and **collectors** to send telemetry data — including traces, logs, and metrics — to external systems like PlayerZero.
+
+PlayerZero supports **any OpenTelemetry-compliant exporter or collector** that emits data using the [OTLP protocol](https://opentelemetry.io/docs/specs/otlp/).
+
+That includes:
+- SDK-based exporters (Java, Node.js, Python, Go, etc.)
+- The OpenTelemetry Collector
+- Vendor-agnostic proxy layers
+
+You don’t need to install any special agent or binary from PlayerZero. Just configure your pipeline to forward data to our endpoint.
+
+---
+
+## Quick Links
+
+- **[Use PlayerZero’s Endpoint →](/docs/integrations/opentelemetry/playerzero-endpoint)**  
+  Configuration examples for sending OTLP data to PlayerZero
+
+- **[OpenTelemetry Collector Docs →](https://opentelemetry.io/docs/collector/)**  
+  Learn how to configure the collector with OTLP exporters and pipelines
+
+- **[OpenTelemetry Recipes →](/docs/integrations/opentelemetry/recipes)**  
+  Stack-specific setup examples for popular languages and services
+
+---
+
+## Summary
+
+If your telemetry setup supports OTLP, it works with PlayerZero.  
+We plug into your existing observability flow — no rewrites or agent lock-in required.
 

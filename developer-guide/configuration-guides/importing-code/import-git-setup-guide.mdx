@@ -3,3 +3,31 @@ title: "Import Git Setup Guide"
 description: "Use PlayerZero to monitor, diagnose, and resolve software issues before they reach your users."
 ---
 
+## Overview
+This section covers how to integrate your source code with PlayerZero. By following the steps below, you’ll grant PlayerZero access to analyze and monitor your repositories.  
+
+- **Key Benefits**: Gain insights into code changes, surface issues faster, and streamline the debugging process.  
+- **Who This Is For**: Typically engineers, DevOps, or any team members who manage code repositories.
+
+## Basic Setup Guide
+
+### Prerequisites
+1. A PlayerZero account. You can get started by [creating an account](https://www.playerzero.ai).
+2. Sufficient permissions to grant PlayerZero read access to your code and read/write access for managing pull requests in your SCM (Source Control Management) system.
+
+--- 
+
+### 1. Connect Your Code
+The primary step is to grant PlayerZero access to your [source control management](https://www.playerzero.ai/docs/connector/code/github) (SCM) system. You may have already connected an SCM system during the signup process. If so, you can skip directly to enabling specific repositories.
+
+1. Navigate to the **Settings** tab in PlayerZero and select the **Code** anchor.
+2. Select your SCM system (GitHub, GitLab, or Bitbucket, etc.) when prompted.
+
+### 2. Enable Specific Repositories
+After connecting your SCM, select which repositories PlayerZero should monitor.
+
+1. On the **Settings** tab inside the **Code** anchor, toggle on the repositories you want to ingest.
+2. Choose the primary reference branch (e.g., Main or Master).
+
+### 3. Allow for Ingestion
+Once you’ve enabled your repositories, PlayerZero will begin analyzing the code to surface relevant insights. This process can take anywhere from a few minutes to several hours, depending on the size and complexity of your repositories.

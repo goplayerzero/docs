@@ -1,4 +1,46 @@
 ---
 title: "Instrument OpenTelemetry"
+description: "Learn where to start when instrumenting your application with OpenTelemetry for use with PlayerZero."
 ---
+
+# Instrument OpenTelemetry
+
+To make use of PlayerZero’s capabilities around defects, user sessions, and code insights, you first need to **instrument** your application with OpenTelemetry (OTel). Instrumentation is how you create traces, logs, and metrics that capture runtime behavior in your services.
+
+## Why Instrument?
+
+- **Visibility into System Behavior**  
+  Generate spans, logs, and metrics that describe how your application executes.
+- **Correlate Data with PlayerZero**  
+  Forward these signals to PlayerZero, enabling real-time defect detection tied to specific code changes or user sessions.
+- **Stay Vendor-Neutral**  
+  Keep your telemetry decoupled from any single provider — including us.
+
+## Where to Start
+
+OpenTelemetry has a rich set of documentation explaining how to instrument your code. We suggest starting with:
+
+- [OpenTelemetry Concepts: Instrumentation](https://opentelemetry.io/docs/concepts/instrumentation/)
+- [Automatic vs. Manual Instrumentation](https://opentelemetry.io/docs/concepts/instrumentation/#automatic-instrumentation)
+
+### Recommended: Auto-Instrumentation
+Most stacks offer **auto-instrumentation** packages. This is the quickest way to capture traces for common libraries (HTTP, database clients, etc.) without writing custom instrumentation code.
+
+### Manual Instrumentation
+If you need more control or your stack doesn’t support auto-instrumentation, you can manually create and link spans. This lets you decide exactly what your traces look like.
+
+## PlayerZero Tip
+
+If you’re using the **PlayerZero Web SDK**, remember to enable **Trace Headers** under **Settings > Web SDK → Enable OpenTelemetry Headers**. This allows the frontend to pass a `traceparent` header into your backend, linking user actions to backend spans automatically.
+
+## Next Steps
+
+1. **[Setup Exporters](/docs/integrations/opentelemetry/setup-exporters)**  
+   Configure how your newly instrumented code sends data (e.g., OTLP exporter).
+
+2. **[Setup Collectors](/docs/integrations/opentelemetry/setup-collectors)**  
+   If you need a dedicated collector for more complex routing or transformation.
+
+3. **[Language-Specific Guides](/docs/integrations/opentelemetry/recipes)**  
+   Get direct links and tips for your programming language (e.g., Java, Node.js, Python, etc.).
 

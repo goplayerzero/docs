@@ -1,3 +1,58 @@
 ---
 title: "The OpenTelemetry Standard"
+description: "PlayerZero is built to support the OpenTelemetry standard for logs, traces, and metrics."
 ---
+
+OpenTelemetry (OTel) is an open-source, vendor-neutral standard for generating, collecting, and exporting telemetry data. Backed by the CNCF, it has quickly become the industry standard for instrumenting distributed systems.
+
+It provides a unified way to collect:
+
+- **Traces** – End-to-end workflows across services and systems
+- **Logs** – Structured, timestamped events that offer detail and context
+- **Metrics** – Numeric signals that represent system health and usage
+
+To dive deeper into OpenTelemetry itself, check out [opentelemetry.io](https://opentelemetry.io/)
+
+---
+
+## Why PlayerZero Supports OTel
+
+OpenTelemetry is not just a standard — it’s the foundation for a shared understanding of how your system behaves.
+
+PlayerZero integrates with OpenTelemetry to unlock a specific value:  
+**connecting backend telemetry with frontend sessions, users, and code.**
+
+By aligning with the OTel standard:
+- We plug into your existing instrumentation, exporters, or collectors
+- We ingest logs, traces, and metrics using the native OTLP format
+- We correlate telemetry with user identity and session data from our Web SDK
+- We tie those signals back to the exact commit, release, or function that caused them
+
+You instrument how you want — manual spans, auto-instrumentation, custom logs — and PlayerZero receives those signals in real time, enriching them with user and code context.
+
+---
+
+## What You Can Send
+
+As long as it follows the OTLP format, you can send:
+- **Traces (Spans)** – Distributed request flows
+- **Logs** – Structured backend logging
+- **Metrics** – System behavior or service-level indicators
+
+These signals are routed to PlayerZero’s ingest pipeline, where they’re merged into issue timelines, defect analysis, and regression detection.
+
+---
+
+## What’s Next?
+
+Once you’ve instrumented your stack, you can begin forwarding data to PlayerZero:
+
+- **[Use PlayerZero’s Endpoint](/docs/integrations/opentelemetry/playerzero-endpoint)**  
+  Configure your OTLP exporter to point to our backend.
+
+- **[Logs, Traces, and Metrics](/docs/integrations/opentelemetry/logs-traces-metrics)**  
+  See how PlayerZero puts telemetry to use in defect workflows.
+
+- **[OpenTelemetry Recipes](/docs/integrations/opentelemetry/recipes)**  
+  View stack-specific configuration examples (Java, Node.js, Python, etc).
+

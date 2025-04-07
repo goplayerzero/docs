@@ -1,4 +1,86 @@
 ---
 title: "Enabling Private Data Storage"
+description: "Configure a private S3 bucket for secure and compliant PlayerZero storage."
 ---
+
+# Private Data Storage
+
+PlayerZero offers the ability to store sensitive data—such as code context and devtools artifacts—in a private S3 bucket owned and managed by your organization. This ensures that all persisted data remains within your infrastructure, giving you full control over access, encryption, and compliance.
+
+> **Note**: This feature is available exclusively on **Enterprise Plans**.
+
+## Why Use Private Storage?
+
+By integrating your own storage layer, you can:
+- Maintain ownership of sensitive application data
+- Meet regulatory and security requirements (e.g., HIPAA, SOC 2, GDPR)
+- Apply your own encryption, IAM policies, and retention rules
+- Ensure data never leaves your cloud perimeter
+
+PlayerZero will read from and write to this bucket during normal product operation (e.g., sharing devtools data, code snapshots, etc.).
+
+---
+
+## Recommended Setup
+
+We support any S3-compatible storage provider. Most teams choose:
+
+- **Amazon S3**
+- **MinIO**, for self-hosted S3 compatibility
+
+While we recommend using AWS's `us-east-1` region (where PlayerZero systems are located), you are free to host your bucket in any region. We will automatically optimize for performance wherever possible.
+
+---
+
+## 1. Create a Secure S3 Bucket
+
+Provision a bucket using your organization’s usual naming and configuration standards. We recommend the following general guidelines:
+
+- **Access Control**: Keep ACLs disabled; use IAM roles and policies for access.
+- **Versioning**: Not required—PlayerZero will recreate missing data if needed.
+- **Encryption**: Enable default encryption (server-side encryption with the method of your choice).
+- **Object Lock**: Should be disabled to prevent unnecessary performance degradation.
+
+> If you're using a provider other than AWS, ensure your storage solution supports S3-compatible APIs.
+
+---
+
+## 2. Create a Scoped API Token
+
+In order for PlayerZero to interact with your S3 bucket, you'll need to generate access credentials with scoped permissions.
+
+- **Create a new IAM group** (e.g., `playerzero-storage`)
+- **Attach permissions**: Grant full access to the specific S3 bucket
+- **Create a new IAM user** (e.g., `playerzero-api`) that belongs to this group
+- **Generate access keys** for the user  
+  (Be sure to copy both the Access Key ID and Secret Access Key securely; the secret key will not be visible again.)
+
+> Do not grant console access to this user. The keys will only be used for backend programmatic access.
+
+---
+
+## 3. Share Credentials with PlayerZero
+
+Once you’ve created your bucket and API credentials, securely share the following with your PlayerZero account team:
+
+- Bucket name and region
+- Access Key ID
+- Secret Access Key
+
+PlayerZero will use these credentials exclusively for storage interactions and will not access any other part of your infrastructure.
+
+---
+
+## Alternative: Self-Hosted Storage
+
+If you do not use AWS or prefer to host the storage internally, we recommend using [MinIO](https://github.com/minio/minio) — an open-source S3-compatible object store. This gives you the same private storage model with complete control.
+
+---
+
+## Need Help?
+
+Reach out to your PlayerZero support contact or email [support@playerzero.ai](mailto:support@playerzero.ai) for help with bucket setup, access policies, or configuration validation.
+
+
+
 

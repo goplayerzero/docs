@@ -1,4 +1,73 @@
 ---
 title: "Setup Collectors"
+description: "How to use the OpenTelemetry Collector for complex pipelines and multiple destinations, including PlayerZero."
 ---
+
+# Setup Collectors
+
+The **OpenTelemetry Collector** is a separate service or agent that receives, processes, and exports telemetry data. It lets you create more sophisticated pipelines, whether you want to filter data, enrich spans, or send to multiple destinations (e.g., PlayerZero + another APM).
+
+## Why Use a Collector?
+
+- **Centralize Configuration**: Manage exporters and pipelines in one place.
+- **Enrich or Filter Data**: Add metadata, remove sensitive fields, or apply sampling.
+- **Route Telemetry**: Forward to multiple endpoints simultaneously (e.g., PlayerZero and a local monitoring stack).
+
+## PlayerZero Compatibility
+
+If you run a collector, you can configure an **OTLP HTTP exporter** in that collector to send data to `https://sdk.playerzero.app/otlp`. Include your PlayerZero API key in the `Authorization` header.
+
+### Example Collector Pipeline
+
+Below is a minimal snippet of a typical `otel-collector-config.yaml`.  
+(Adjust to your environment, ensuring the OTLP exporter points to PlayerZero.)
+
+```yaml
+receivers:
+  otlp:
+    protocols:
+      http:
+      grpc:
+
+processors:
+  batch: {}
+
+exporters:
+  otlphttp:
+    endpoint: https://sdk.playerzero.app/otlp
+    headers:
+      Authorization: Bearer <your-api-token>
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlphttp]
+    logs:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlphttp]
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlphttp]
+```
+
+## Read More
+
+- [OpenTelemetry Collector Documentation →](https://opentelemetry.io/docs/collector/)
+
+---
+
+## Next Steps
+
+- **[Use PlayerZero’s Endpoint](/docs/integrations/opentelemetry/playerzero-endpoint)**  
+  Verify your configuration and forward data to PlayerZero’s ingest URL.
+
+- **[Instrument OpenTelemetry](/docs/integrations/opentelemetry/instrument-opentelemetry)**  
+  Ensure your applications are generating spans, logs, and metrics and sending them to your collector.
+
+- **[OpenTelemetry Recipes](/docs/integrations/opentelemetry/recipes)**  
+  Find example configurations for Java, Node.js, Python, and multi-service setups.
 

@@ -1,3 +1,81 @@
 ---
 title: "Use PlayerZero's Endpoint"
+description: "Configure your OpenTelemetry setup to export traces, logs, and metrics to PlayerZero."
 ---
+
+# Use PlayerZero’s Endpoint
+
+Every team’s OpenTelemetry setup looks a little different — and that’s a good thing. OpenTelemetry is built to be flexible and support a wide range of deployment patterns.
+
+Whether you’re using manual instrumentation, automatic injection, a custom collector, or language-specific agents, the good news is:
+
+> **If your telemetry is OpenTelemetry-compliant, you can forward it to PlayerZero.**
+
+---
+
+## Recommended Setup
+
+We recommend starting with **auto-instrumentation** if your stack supports it. This approach requires the least custom code and captures meaningful signals like traces and network spans out of the box.
+
+That said, PlayerZero works with:
+- Manually instrumented spans
+- Service-specific SDKs
+- Agent-based injection
+- Third-party collectors
+
+Once you’ve instrumented your app and confirmed that telemetry is flowing correctly, you’re ready to point your exporter at the PlayerZero endpoint.
+
+---
+
+## Endpoint Configuration
+
+To send OpenTelemetry data to PlayerZero, you’ll configure your exporter to use the following values:
+
+## Understanding Your Configuration Context
+
+There’s no single way to configure OpenTelemetry — and that’s by design. Depending on your stack, you might be setting these values in:
+
+- A `.properties` file (e.g. Java, Spring Boot)
+- Environment variables (e.g. Node.js, containerized apps)
+- A `otel-config.yaml` file
+- CLI flags or Helm charts (for Kubernetes)
+- Your OpenTelemetry Collector configuration
+
+However you’re wiring things up, the values below are what PlayerZero expects when receiving data via the OTLP protocol.
+
+
+### Required OTLP Config
+
+```properties
+otel.service.name=MyServiceName
+otel.exporter.otlp.endpoint=https://sdk.playerzero.app/otlp
+otel.exporter.otlp.headers=Authorization=Bearer <your-api-token>
+otel.traces.exporter=otlp
+otel.logs.exporter=otlp
+otel.metrics.exporter=otlp
+```
+### How This Works
+
+Once configured:
+- OpenTelemetry will send logs, traces, and metrics to PlayerZero
+- The Web SDK (if enabled) will link user sessions to backend spans
+- PlayerZero will analyze the data for anomalies, regressions, and context-rich debugging paths
+
+You can combine this with other exporters if you want to duplicate telemetry to your existing APM or logging provider.
+Your API token can be found in the PlayerZero dashboard under Settings > API Keys.
+
+---
+
+## Next Steps
+
+Now that your exporter is pointing to PlayerZero, here are a few places to go next:
+
+- **[Logs, Traces, and Metrics](/docs/integrations/opentelemetry/logs-traces-metrics)**  
+  Learn how PlayerZero ingests and uses each signal type to detect regressions, correlate user issues, and surface anomalies.
+
+- **[Exporters and Collectors](/docs/integrations/opentelemetry/exporters-and-collectors)**  
+  Dive deeper into exporter options, advanced configurations, and how to forward data from custom collectors.
+
+- **[OpenTelemetry Recipes](/docs/integrations/opentelemetry/recipes)**  
+  Get copy-paste starter configs for your stack, including Java, Node.js, Python, Go, and more.
+

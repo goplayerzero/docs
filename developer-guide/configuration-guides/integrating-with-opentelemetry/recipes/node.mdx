@@ -1,5 +1,97 @@
 ---
-title: "Node"
+title: "Node.js"
+description: "Learn how to instrument your Node.js applications with OpenTelemetry and send data to PlayerZero."
 ---
 
+import AutoInstrumentation from '/snippets/open-telemetry/auto-instrumentation.mdx';
+import ManualInstrumentation from '/snippets/open-telemetry/manual-instrumentation.mdx';
+import ExporterOverview from '/snippets/open-telemetry/exporter-overview.mdx';
+import CollectorOptional from '/snippets/open-telemetry/collector-optional.mdx';
+import HelpfulLinksIntro from '/snippets/open-telemetry/helpful-links-intro.mdx';
 
+# OpenTelemetry for Node.js
+
+OpenTelemetry provides robust support for Node.js applications. With automatic instrumentation for common frameworks and a wide ecosystem of plugins, you can quickly capture spans, logs, and metrics from your backend services.
+
+## Installation
+
+To get started, install the OpenTelemetry packages for Node.js:
+
+```bash
+npm install @opentelemetry/api @opentelemetry/sdk-node @opentelemetry/auto-instrumentations-node
+```
+
+For full installation instructions:  
+
+👉 [OpenTelemetry Node.js Getting Started](https://opentelemetry.io/docs/instrumentation/js/getting-started/nodejs/)
+
+## Auto-Instrumentation
+
+<AutoInstrumentation/>
+
+For Node.js, you can use the `@opentelemetry/auto-instrumentations-node` package to automatically capture telemetry from supported libraries like Express, MySQL, and gRPC.
+
+Basic setup looks like:
+
+
+```bash
+const { NodeSDK } = require('@opentelemetry/sdk-node'); 
+const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node');
+const sdk = new NodeSDK({ instrumentations: [getNodeAutoInstrumentations()] });
+
+sdk.start();
+```
+
+Learn more:  
+
+👉 [Node.js Auto-Instrumentation Setup](https://opentelemetry.io/docs/instrumentation/js/getting-started/nodejs/)
+
+## Manual Instrumentation
+
+<ManualInstrumentation/>
+
+You can manually create and manage spans in your Node.js code using the OpenTelemetry API:
+
+```bash
+const { trace } = require('@opentelemetry/api');
+const tracer = trace.getTracer('my-service');
+const span = tracer.startSpan('my-operation'); // your applicationlogic
+span.end();
+```
+
+Learn more:  
+
+👉 [Node.js Manual Instrumentation Guide](https://opentelemetry.io/docs/instrumentation/js/getting-started/nodejs/)
+
+## Exporters
+
+<ExporterOverview/>
+
+In Node.js, you can configure an OTLP/HTTP exporter using environment variables or directly in your code.
+
+Key environment variables:
+
+```bash
+OTEL_EXPORTER_OTLP_ENDPOINT=https://sdk.playerzero.app/otlp
+OTEL_EXPORTER_OTLP_HEADERS=Authorization=Bearer <your-playerzero-token> OTEL_TRACES_EXPORTER=otlp
+OTEL_LOGS_EXPORTER=otlp OTEL_METRICS_EXPORTER=otlp
+```
+
+Official reference:  
+
+👉 [Node.js SDK Configuration](https://opentelemetry.io/docs/instrumentation/js/getting-started/nodejs/)
+
+## Optional: Using a Collector
+
+<CollectorOptional/>
+
+You can optionally forward your telemetry through an OpenTelemetry Collector before reaching PlayerZero, if you need additional control or processing.
+
+## Helpful Links
+
+<HelpfulLinksIntro/>
+
+- [OpenTelemetry Node.js Overview](https://opentelemetry.io/docs/instrumentation/js/)
+- [Automatic Instrumentation for Node.js](https://opentelemetry.io/docs/instrumentation/js/getting-started/nodejs/)
+- [Manual Instrumentation in Node.js](https://opentelemetry.io/docs/instrumentation/js/getting-started/nodejs/)
+- [Node.js SDK Configuration](https://opentelemetry.io/docs/instrumentation/js/getting-started/nodejs/)

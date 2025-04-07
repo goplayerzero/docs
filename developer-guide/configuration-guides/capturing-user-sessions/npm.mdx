@@ -2,3 +2,51 @@
 title: "Npm"
 ---
 
+# npm Installation Landing Page
+
+## Overview
+- **What this section is for**: Guide you through integrating PlayerZero into your app using the `@goplayerzero/sdk-web` npm package.
+- **Key benefits**:
+  - Seamless SDK setup for modern JavaScript frameworks.
+  - Full access to PlayerZero’s API including identity tracking, event logging, and session linking.
+- **Who this is for**: Developers working in React, Angular, Vue, or other bundler-based frontend stacks.
+
+## Basic Setup Guide
+
+### Prerequisites
+- Node.js and npm or yarn installed.
+- Access to your project’s frontend codebase.
+- Your PlayerZero Project ID.
+
+### Step-by-Step Instructions
+
+#### 1. Install the SDK
+
+```bash npm
+npm i @goplayerzero/sdk-web --save
+```
+
+#### 2. Initialize the SDK
+
+Insert this early in your application’s entry point (e.g., index.js, main.ts, App.vue, etc.):
+
+```javascript
+import PlayerZero from "@goplayerzero/sdk-web";
+PlayerZero.init("your project id here");
+```
+
+**Important:** PlayerZero.init should only be called once.
+Use PlayerZero.isInitialized() to check if initialization has occurred.
+
+#### 3. Identify the User (Recommended)
+Once the user is authenticated or known:
+
+
+```javascript
+PlayerZero.identify("user-id", {
+  name: "Jane Doe",
+  email: "jane@example.com",
+  group: "Engineering",
+});
+
+```

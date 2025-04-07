@@ -3,3 +3,52 @@ title: "Script Tag"
 ---
 
 
+---
+
+# Script Tag Setup Landing Page
+
+## 1. Overview
+- **What this section is for**: Walk you through adding PlayerZero to your site using a `<script>` tag — no build tools required.
+- **Key benefits**:
+  - Quick setup for static sites or simple HTML/CSS/JS projects.
+  - Lightweight and ideal for sites not using npm or frameworks.
+- **Who this is for**: Developers working with raw HTML or sites without bundlers like Webpack, Vite, or Parcel.
+
+## 2. Basic Setup Guide
+
+### Prerequisites
+- A basic HTML file where you can add script tags.
+- Your PlayerZero Project ID from the dashboard.
+
+### Step-by-Step Instructions
+
+#### 1. Add the PlayerZero Script Tag
+
+Paste this inside your `<head>` or just before `</body>`:
+
+```html
+<script src="https://cdn.playerzero.app/sdk-web.js"></script>
+```
+
+#### 2. Initialize PlayerZero
+
+```html
+<script>
+  PlayerZero.init("your project id here");
+</script>
+```
+
+#### 3. Identify the User (Optional)
+
+If you know the user’s identity, add this snippet after initialization:
+
+```html
+<script>
+  PlayerZero.identify("user-id", {
+    name: "Jane Doe",
+    email: "jane@example.com",
+    group: "Marketing",
+  });
+</script>
+
+You’re all set! PlayerZero will now begin tracking sessions and linking them to your dashboard.

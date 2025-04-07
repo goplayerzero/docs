@@ -1,3 +1,49 @@
 ---
 title: "Setup Exporters"
+description: "How to configure OpenTelemetry exporters to send data to PlayerZero."
 ---
+
+# Setup Exporters
+
+In OpenTelemetry, **exporters** are components that send your telemetry data (traces, logs, metrics) to an endpoint. By configuring an **OTLP** exporter, you can direct all of your signals to PlayerZero’s backend for processing and correlation.
+
+## Key Concept
+
+- **Exporter**: The mechanism by which your application’s telemetry is transmitted to a third-party system.
+- **OTLP**: The default OpenTelemetry protocol for standardizing how data is serialized and sent.
+
+PlayerZero supports the OTLP/HTTP exporter. That means if your application can emit OTLP data over HTTP, it can talk to PlayerZero.
+
+## Exporter Types
+
+Depending on your stack, you might use:
+
+- **SDK-based exporters**  
+  Built directly into language-specific OpenTelemetry SDKs (e.g., Java, Node.js).
+- **Collector-based exporters**  
+  (Where the collector handles forwarding data to PlayerZero.)
+- **Third-party or custom exporters**  
+  Provided by frameworks or cloud vendors, but still OTLP-compliant.
+
+## Configuration
+
+Typically, you’ll set:
+
+- **otel.exporter.otlp.endpoint** to `https://sdk.playerzero.app/otlp`
+- **otel.exporter.otlp.headers** to include your PlayerZero API key (e.g., `Authorization=Bearer <your-token>`)
+- **otel.traces.exporter**, **otel.logs.exporter**, **otel.metrics.exporter** to `otlp`
+
+For details on how to do this in your specific environment, see:
+
+- [OpenTelemetry Exporters Overview](https://opentelemetry.io/docs/concepts/exporters/)
+- [Language-Specific Exporters](https://opentelemetry.io/docs/instrumentation/)
+
+## Next Steps
+
+- **[Setup Collectors](/docs/integrations/opentelemetry/setup-collectors)**  
+  If you need more complex routing or transformations, a collector might be the next step.
+- **[Use PlayerZero’s Endpoint](/docs/integrations/opentelemetry/playerzero-endpoint)**  
+  Finalize the specifics of pointing to PlayerZero’s ingest URL.
+- **[Logs, Traces, and Metrics](/docs/integrations/opentelemetry/logs-traces-metrics)**  
+  See how PlayerZero correlates each signal type with user sessions and code changes.
+

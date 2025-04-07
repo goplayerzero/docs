@@ -1,4 +1,53 @@
 ---
 title: "Thresholds and Filtering"
+description: "Configure thresholds, error patterns, and PII filters for PlayerZero."
 ---
+
+## Overview
+- **What this section is for**: Fine-tune how PlayerZero interprets slowness and filters sensitive data.
+- **Key benefits**:
+  - Customize performance thresholds based on your app needs.
+  - Catch silent API failures.
+  - Add extra protection for sensitive data in transit.
+- **Who this is for**: Teams with performance SLAs, compliance requirements, or custom API behaviors.
+
+## Network Performance Threshold
+
+By default, PlayerZero will flag any API response that takes longer than **8000ms** to resolve from the browser’s perspective.
+
+You can customize this threshold to match your app’s performance expectations.  
+(Example: lower it to 4000ms for performance-sensitive apps.)
+## Special API Error Phrases Sometimes APIs return a `200 OK` but the response still indicates a failure (e.g. `"error": true` in the body).
+
+Add any known error keywords or patterns here so PlayerZero can detect and highlight those sessions too.
+
+Common examples:
+- `"internal_error"`
+- `"user_not_authorized"`
+- `"status": "FAILED"`
+
+Once configured, PlayerZero will monitor for these phrases in the body of your API responses and build error stories accordingly.
+
+## Key Filtering (Beta)
+
+PlayerZero automatically redacts sensitive fields using built-in regex-based filtering.
+
+### Data We Automatically Filter:
+- Email addresses
+- Social Security Numbers
+- Phone numbers
+- Full names
+- Addresses
+- Credit card numbers
+- Authorization tokens
+- And many more...
+
+### Add Custom Keys
+
+You can also specify **custom JSON keys** (e.g. `password`, `auth_token`) to be redacted **before data leaves the browser**.
+
+This ensures sensitive values never reach PlayerZero’s servers.
+
+---
+
 

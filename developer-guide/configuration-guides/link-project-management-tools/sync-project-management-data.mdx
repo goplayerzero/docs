@@ -1,4 +1,123 @@
 ---
 title: "Sync Project Management Data"
+description: "Connect tools like Jira to give PlayerZero real-time visibility into issues, stories, and releases."
 ---
+
+
+
+## Overview
+
+- **What this section is for**: Enable PlayerZero to connect to your project management tools such as Jira to access relevant ticketing and planning data.
+- **Key benefits**:
+  - Correlate engineering activity with issues, bugs, and internal feedback.
+  - Identify high-risk areas based on historical tickets and work items.
+  - Prevent repeated mistakes by learning from past issues tied to code changes.
+- **Who this is for**: Engineering leads, QA managers, and anyone responsible for issue tracking and release risk management.
+
+## Basic Setup Guide
+
+### Prerequisites
+
+- A PlayerZero account with access to the **Connectors** page.
+- Access to your project management tool (e.g., Jira).
+- Relevant credentials or API tokens.
+- Admin permissions in your PM tool to authorize integrations.
+
+### Step-by-Step Instructions
+
+1. From the **PlayerZero web app**, go to the **Home** page.
+2. Click on **Connectors**.
+3. Select the **Jira Software** connector under the **Tickets** section.
+4. Sign into your **Jira Software** account if prompted.
+5. Enter your **project domain** or supply an **API key**.
+6. Authorize **Merge** to enable secure read/write access to Jira via PlayerZero.
+
+> After setup, PlayerZero will begin syncing metadata for issues, comments, and ticket history.
+
+## Available Integration Guides
+
+- **[Jira Setup Guide](/docs/connector/pm/jira#setup)**  
+  Step-by-step instructions for connecting Jira Software to PlayerZero.
+
+- **[Ticketing Data Schema](/docs/connector/pm/jira#ticketing-data)**  
+  View the full data model PlayerZero uses to represent Jira objects.
+
+---
+
+# Ticketing Data Overview
+
+Once connected, PlayerZero accesses the following objects:
+
+## Tickets (Read-only)
+Represents issues and tasks from your PM system.
+
+- Assignees
+- Attachments
+- Completed Timestamp
+- Contact
+- Creator
+- Description
+- Due Date
+- Name
+- Parent Ticket
+- Priority
+- Remote Created/Updated Timestamps
+- Status
+- Ticket Type
+- Ticket URL
+
+## Comments (Read and write)
+Represents comments on tickets. Write access is currently in beta.
+
+- Body
+- Privacy
+- Remote Created Timestamp
+- Ticket
+- User
+
+## Attachments (Read-only)
+Files attached to a ticket.
+
+- Content Type
+- File Name
+- File URL
+- Remote Created Timestamp
+- Ticket
+
+## Contact (Read-only)
+External users tied to tickets.
+
+- Details
+- Email Address
+- Name
+- Phone Number
+
+## Users (Read-only)
+Internal employees or agents.
+
+- Email Address
+- Is Active
+- Name
+- Teams
+
+## Teams (Read-only)
+Team metadata from your PM system.
+
+- Description
+- Name
+
+## Collections (Read-only)
+Represents logical groupings of tickets (e.g., engineering, QA).
+
+- Name
+- Description
+- Type
+
+---
+
+PlayerZero uses this data to power correlation between issues and deployments, ensuring your team has the full context when debugging problems or monitoring release risk.
+
+Need more help?  
+Check out the full [Jira integration docs](/docs/connector/pm/jira) or contact support.
+
 

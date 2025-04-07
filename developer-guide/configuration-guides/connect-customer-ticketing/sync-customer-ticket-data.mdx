@@ -1,4 +1,114 @@
 ---
 title: "Sync Customer Ticket Data"
+description: "Connect support tools like Zendesk to measure the real-time impact of your code on customers."
 ---
+
+## Overview
+
+- **What this section is for**: Connect customer support platforms like Zendesk to PlayerZero to bring user-reported issues into your engineering workflows.
+- **Key benefits**:
+  - Visualize customer pain and request patterns in real time.
+  - Measure how code changes impact actual support volume.
+  - Understand the true scope and frequency of customer complaints.
+- **Who this is for**: Support teams, product managers, and engineering leads focused on customer experience and quality.
+
+## Basic Setup Guide
+
+### Prerequisites
+
+- A PlayerZero account with access to the **Connectors** page.
+- Access to your support tool (e.g., Zendesk).
+- API token or account credentials for the selected platform.
+- Admin permissions to authorize third-party integrations.
+
+### Step-by-Step Instructions
+
+1. From the **PlayerZero web app**, go to the **Home** page.
+2. Click on **Connectors**.
+3. Select the **Zendesk** connector under the **Tickets** section.
+4. Sign into your **Zendesk** account if prompted.
+5. Enter your **Zendesk domain** or **API key**.
+6. Authorize **Merge** to connect and sync support data with PlayerZero.
+
+> Once setup is complete, PlayerZero begins ingesting metadata related to tickets, comments, and contacts.
+
+## Available Integration Guides
+
+- **[Zendesk Setup Guide](/docs/connector/ticketing/zendesk#setup)**  
+  How to configure and authenticate your Zendesk connector.
+
+- **[Ticketing Data Schema](/docs/connector/ticketing/zendesk#ticketing-data)**  
+  Detailed breakdown of the ticketing data PlayerZero uses.
+
+---
+
+# Ticketing Data Overview
+
+Once the connector is enabled, PlayerZero reads the following support objects:
+
+## Tickets (Read-only)
+Captures metadata about all incoming support tickets.
+
+- Assignees  
+- Attachments  
+- Completed Timestamp  
+- Contact  
+- Creator  
+- Description  
+- Due Date  
+- Name  
+- Parent Ticket  
+- Priority  
+- Remote Created/Updated Timestamps  
+- Status  
+- Ticket Type  
+- Ticket URL
+
+## Comments (Read and write)
+Captures internal or external comments made on tickets.  
+Write support is currently in beta and must be explicitly enabled.
+
+- Body  
+- Privacy  
+- Remote Created Timestamp  
+- Ticket  
+- User
+
+## Attachments (Read-only)
+Metadata for any files attached to support tickets.
+
+- Content Type  
+- File Name  
+- File URL  
+- Remote Created Timestamp  
+- Ticket
+
+## Contact (Read-only)
+Information about the external user or customer associated with the ticket.
+
+- Details  
+- Email Address  
+- Name  
+- Phone Number
+
+## Users (Read-only)
+Internal team members assigned to tickets or commenting.
+
+- Email Address  
+- Is Active  
+- Name  
+- Teams
+
+## Teams (Read-only)
+Support teams responsible for resolving tickets.
+
+- Description  
+- Name
+
+---
+
+PlayerZero uses this ticketing data to map customer feedback and issues to specific releases, changes, and trends — giving your team real-time visibility into how your product decisions are felt by your users.
+
+Need help with setup or questions about permissions?  
+Check out the [Zendesk integration docs](/docs/connector/ticketing/zendesk) or contact support.
 

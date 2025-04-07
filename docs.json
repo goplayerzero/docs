@@ -56,16 +56,7 @@
                     {
                         "group": "Configuration Guides",
                         "pages": [
-                            {
-                                "group": "Importing Code",
-                                "pages": [
-                                    "developer-guide/configuration-guides/importing-code/import-git-setup-guide",
-                                    "developer-guide/configuration-guides/importing-code/github",
-                                    "developer-guide/configuration-guides/importing-code/azure",
-                                    "developer-guide/configuration-guides/importing-code/gitlab",
-                                    "developer-guide/configuration-guides/importing-code/bitbucket"
-                                ]
-                            },
+                            "developer-guide/configuration-guides/importing-code/import-git-setup-guide",
                             {
                                 "group": "Capturing User Sessions",
                                 "pages": [
@@ -75,7 +66,8 @@
                                             "developer-guide/configuration-guides/capturing-user-sessions/web-sdk-instrumentation",
                                             "developer-guide/configuration-guides/capturing-user-sessions/npm",
                                             "developer-guide/configuration-guides/capturing-user-sessions/script-tag",
-                                            "developer-guide/configuration-guides/capturing-user-sessions/segment"
+                                            "developer-guide/configuration-guides/capturing-user-sessions/segment",
+                                            "developer-guide/configuration-guides/capturing-user-sessions/advanced-usage"
                                         ]
                                     },
                                     {
@@ -109,6 +101,7 @@
                                             {
                                                 "group": "Language Specific Guides",
                                                 "pages": [
+                                                    "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/table-of-contents",
                                                     "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/java",
                                                     "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/node",
                                                     "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/python",
