@@ -10,27 +10,22 @@ import SourceControlManagement from '/snippets/prerequisites/source-control-mana
 
 PlayerZero automatically generates clear, contextual summaries of code changes at both the pull request level and for individual file changes, making code reviews more efficient and accessible to all team members. Each changed file includes a detailed explanation of what was modified and why, helping reviewers quickly understand the impact and purpose of specific code modifications. Follow this guide to learn how to leverage PlayerZero-generated code summaries.
 
-## **Prerequisites**
+## Prerequisites
 
 <SourceControlManagement/>
 
 ---
 
-## How PlayerZero Writes Code Summaries
-
-PlayerZero chunks code changes and uses AI embeddings to analyze both the modified code and its surrounding context, generating human-readable explanations that focus on functional changes rather than superficial modifications. These summaries are then enriched with repository-level context through a recursive summarization process that evaluates technical changes against defined product features to assess risk and impact.
-
-
-## **Process**
+## Process
 
 This process walks you through initiating an AI-driven investigation in PlayerZero, starting with a question and refining insights through targeted follow-ups grounded in real code and user context.
-
----
 
 ### 1. Understand Code Summaries in PlayerZero
 1. Navigate to the Pull Requests page and find your PR using the search functionality.
 2. The "Summary" tab provides a high-level overview of all changes, while the "Files Changed" tab shows detailed per-file summaries.
 3. In the Files Changed view, each modified file includes a summary explaining what changed and why, helping reviewers understand the context and purpose of specific modifications.
+
+<Tip> PlayerZero chunks code changes and uses AI embeddings to analyze both the modified code and its surrounding context, generating human-readable explanations that focus on functional changes rather than superficial modifications. These summaries are then enriched with repository-level context through a recursive summarization process that evaluates technical changes against defined product features to assess risk and impact. </Tip>
 
 ### 2. Receive Code Summaries Natively in Your PRs
 - PlayerZero automatically adds both a high-level PR summary and detailed file-specific summaries as comments in your PR.
@@ -53,6 +48,8 @@ For each impacted feature, PlayerZero provides:
 - Related test cases that should be prioritized
 - Historical context of past issues in these areas
 
+---
+
 ## Setup Feature Guidance
 
 1. Navigate to [project guidance](https://go.playerzero.app/setting/guidance) in settings
@@ -67,6 +64,8 @@ For each impacted feature, PlayerZero provides:
         - Detailed description of what the feature does and its importance. 
 
 <Note> Chose features that are highly important for your organization, from a business perspective. Be thorough in your descriptions as this helps PlayerZero better understand your product's architecture and its impact on the bottom line. </Note>
+
+---
 
 ## Summary and Next Steps
 

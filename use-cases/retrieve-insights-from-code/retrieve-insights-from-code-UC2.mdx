@@ -10,27 +10,28 @@ import SourceControlManagement from '/snippets/prerequisites/source-control-mana
 
 PlayerZero maps out your code’s interconnections—across services, files, and repositories—to give you a full picture of how your system fits together. This guide will show you how to use PlayerZero to analyze method calls, class references, and shared libraries – making it easy to trace the ripple effects of a change, understand service interactions, and explore feature implementations across a distributed codebase.
 
-## **Prerequisites**
+## Prerequisites
 
 <SourceControlManagement/>
 
 ---
 
-## **Process**
+## Process
 
-### 1. **Initiate the AI chat session with an initial question**  
+### 1. Kickoff an AI Chat, Set Context
 From the input field on the homepage or via a debug report in DevTools, you can begin a conversation with PlayerZero.
 
 - *Example*: “Which services rely on the user profile component?”
 
-### 2. **Guide the Investigation with follow-up questions**  
+### 2. Ask Follow-up Questions
 PlayerZero provides targeted explanations and suggestions based on your focus, pulling from both code relationships and session data.
 
 - *Example*: “What would break if I modify the user profile component?”
 
 ---
 
-## **Contextual Scenarios**
+## Contextual Scenarios
+Below are context specific categories to guide your learning about dependencies. Each accordion outlines a specific context in which the AI can help refine your approach.
 
 <AccordionGroup>
 
@@ -60,7 +61,7 @@ PlayerZero provides targeted explanations and suggestions based on your focus, p
 
 </AccordionGroup>
 
-## **Prompting Tips**
+## Prompting Tips
 
 1. **Anchor concepts together** – “How does [Service A] interact with [Library B]?”
 2. **Adjust context scope** – Zoom in on specific files or pull system-wide dependencies.
@@ -69,7 +70,7 @@ PlayerZero provides targeted explanations and suggestions based on your focus, p
 
 ---
 
-## **Summary and Next Steps**
+## Summary and Next Steps
 
 With PlayerZero, tracing dependencies becomes fast, clear, and interactive. Whether you're navigating complex microservices or exploring code ownership, the AI chat gives you answers that span files, services, and repositories.
 
