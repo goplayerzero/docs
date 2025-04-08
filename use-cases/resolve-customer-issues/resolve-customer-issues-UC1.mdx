@@ -11,7 +11,7 @@ import WebSdk from '/snippets/prerequisites/web-sdk.mdx';
 # Overview
 
 PlayerZero gives teams complete visibility into user experiences by automatically capturing full-context session recordings—including DOM snapshots, network calls, and console logs—alongside distributed traces and telemetry to pinpoint root causes. By combining this technical data with session replays and user journey analysis, teams eliminate back-and-forth between support and engineering, dramatically accelerating issue resolution. In this guide, we will walk through how to map a user-reported issue to its root cause by collecting key session details, locating the relevant replay, and analyzing both frontend events and backend traces. 
-## **Prerequisites**
+## Prerequisites
 
 <SourceControlManagement/>
 
@@ -19,15 +19,15 @@ PlayerZero gives teams complete visibility into user experiences by automaticall
 
 ---
 
-## **Process**
+## Process
 
 PlayerZero helps your team move faster by turning vague user reports into fully contextualized sessions, giving you a visual and technical snapshot of what went wrong and when.
 
-### 1. **Gather essential details**
+### 1. Gather Essential Details
 
 To get started, collect the user’s name or email, the time or date of the issue, and a short description of what went wrong.
 
-### 2. **Map the user’s complaint to a session in PlayerZero**
+### 2. Map the User’s Complaint to a Debug Session
 
 Once you have the key user details, use PlayerZero to locate and explore the associated user session.
 
@@ -36,7 +36,7 @@ Once you have the key user details, use PlayerZero to locate and explore the ass
 
 Each session in PlayerZero has a three-pane interface: actions on the left, DOM replay in the middle, and network/dev context on the right. Use this to pinpoint the exact moment the user encountered the issue.
 
-### 3. **Investigate technical traces to identify the root cause**
+### 3. Investigate Technical Traces
 
 Review technical data around the time of the issue to understand root causes in the frontend or backend systems.
 
@@ -45,7 +45,7 @@ Review technical data around the time of the issue to understand root causes in 
 
 ---
 
-## **Summary and Next Steps**
+## Summary and Next Steps
 This guide demonstrated how PlayerZero integrates session data and OpenTelemetry traces to accelerate debugging without relying on back-and-forth between teams. This approach provides a reproducible method for isolating and understanding failures in distributed systems. For further implementation details, refer to the resources below.
 
 [Connect Errors to Code](/use-cases/resolve-customer-issues/resolve-customer-issues-UC2) – Explains how to associate user complaints with exact sessions and trace those events across system layers.

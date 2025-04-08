@@ -1,6 +1,6 @@
 ---
-title: "Screen for Potential Regressions using Historical Context"
-sidebarTitle: "Screen for Regressions"
+title: "Detect Regressions using Historical Context"
+sidebarTitle: "Detect Regressions"
 description: "PlayerZero leverages historical tickets and code embeddings to automatically generate regression tests for your pull requests."
 ---
 
@@ -10,13 +10,13 @@ import SourceControlManagement from '/snippets/prerequisites/source-control-mana
 
 PlayerZero identifies regressions by comparing your current code changes against historical bugs and customer frustrations. Through AI-driven embeddings, PlayerZero creates semantic fingerprints of both new code diffs and past tickets, then uses vector similarity matching to surface the most relevant historical issues. If overlaps are found, PlayerZero generates targeted regression tests directly in your PR, highlighting exactly which past problems could recur. Follow this guide to learn how to leverage PlayerZero-generated regression tests.
 
-## **Prerequisites**
+## Prerequisites
 
 <SourceControlManagement/>
 
 ---
 
-## **Process**
+## Process
 
 ### 1. Understand Regression Tests in PlayerZero PRs
 
@@ -30,6 +30,8 @@ PlayerZero identifies regressions by comparing your current code changes against
 - PlayerZero automatically adds regression tests to your PR comments, with each test linked to historical issues and customer feedback that were associated with the modified code.
 - Each regression test includes a "Regression remembered from an issue" tag with the date of the original issue, making it clear why this test was generated and helping teams avoid repeating past problems.
 - Click through to PlayerZero to see the full context of each regression, including the original ticket, customer impact, and complete history of the issue.
+
+---
 
 ## Ask the AI about Regressions
 

@@ -1,7 +1,7 @@
 ---
-title: "Connect Run-time Errors to Responsible Code"
-sidebarTitle: "Connect Errors to Code"
-description: "Automatically connect runtime errors to the specific code segments that caused them by analyzing error traces, network calls, and code context. "
+title: "Trace Run-time Errors to Responsible Code"
+sidebarTitle: "Trace Errors to Code"
+description: "Automatically trace runtime errors to the specific code segments that caused them by analyzing error traces, network calls, and code context. "
 ---
 
 import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
@@ -10,7 +10,7 @@ import WebSdk from '/snippets/prerequisites/web-sdk.mdx';
 
 # Overview
 PlayerZero connects user-facing issues directly to the underlying code by analyzing network calls, error traces, and code context to surface the specific files and functions involved. By leveraging embeddings, PlayerZero matches runtime context with the most relevant parts of the codebase—so technical support can skip the manual investigation and jump straight to fixing the problem. In this guide, we will cover how to initiate the AI chat session from either the single pane of glass debug mode or an externally sourced error, let PlayerZero create a workspace to collate relevant files, and map the specific causal code.
-## **Prerequisites**
+## Prerequisites
 
 <SourceControlManagement/>
 
@@ -18,39 +18,39 @@ PlayerZero connects user-facing issues directly to the underlying code by analyz
 
 ---
 
-## **Process**
+## Process
 
-### **Starting from a PlayerZero Debug Session**
+### Starting from a PlayerZero Debug Session
 
 This workflow starts from the single pane of glass debug mode, where you sourced an error in the DevTools tab that you want to explore. You can navigate to [capture session context]( for more details, as PlayerZero creates a workspace from relevant files and maps the specific causal code for deeper debugging.
 
-#### 1. **Initiate the AI chat session to refine debugging**
+#### 1. Initiate Root-Cause AI Chat
 
 In a specific network call, click “Find in my code.” This will kick off the AI chat experience, and PlayerZero will use not only this specific call but also the entire session to build context around how to locate the responsible code.
 
-#### 2. **Let PlayerZero create the workspace**
+#### 2. Watch PlayerZero Create the Workspace
 
 PlayerZero will create a new workspace, pulling in all relevant files that it will use to answer the question. These cited sources can range from code files to PR commits made in the past.
 
-#### 3. **Map the specific causal code**
+#### 3. Map the Specific Causal Code
 
 PlayerZero will investigate the responsible code and present a thorough breakdown, using diagrams, markdown, and other explanatory elements that clarify how everything works.
 
 ---
 
-### **Starting from an Externally Source Error**
+### Starting from an Externally Source Error
 
 This workflow starts from signals that were captured outside of the PlayerZero Platform, prompting you to initiate the AI chat session, let PlayerZero create a workspace, and finally map the specific causal code for deeper debugging.
 
-#### 1. **Initiate the AI chat session for error analysis**
+#### 1. Initiate Root-Cause AI Chat
 
 From the input field on the homepage, copy and paste the relevant error along with any relevant context.
 
-#### 2. **Let PlayerZero create the workspace**
+#### 2. Watch PlayerZero Create the Workspace
 
 PlayerZero will create a new workspace, pulling in all relevant files that it will use to answer the question. These cited sources can range from code files to PR commits from the past.
 
-#### 3. **Map the specific causal code**
+#### 3. Map the Specific Causal Code
 
 PlayerZero will dig into the responsible code and write out a breakdown, including diagrams, markdown, and anything else that helps clarify how the code works.
 
