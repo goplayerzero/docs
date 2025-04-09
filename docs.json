@@ -84,37 +84,21 @@
                                 "group": "Integrating with OpenTelemetry",
                                 "pages": [
                                     "developer-guide/configuration-guides/integrating-with-opentelemetry/the-opentelemetry-standard",
-                                    {
-                                        "group": "PlayerZero Telemetry Guide",
-                                        "pages": [
-                                            "developer-guide/configuration-guides/integrating-with-opentelemetry/use-playerzeros-endpoint",
-                                            "developer-guide/configuration-guides/integrating-with-opentelemetry/logs-traces-and-metrics",
-                                            "developer-guide/configuration-guides/integrating-with-opentelemetry/exporters-and-collectors"
-                                        ]
-                                    },
+                                    "developer-guide/configuration-guides/integrating-with-opentelemetry/use-playerzeros-endpoint",
                                     {
                                         "group": "OpenTelemetry Recipes",
                                         "pages": [
-                                            "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/instrument-opentelemetry",
-                                            "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/setup-exporters",
-                                            "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/setup-collectors",
-                                            {
-                                                "group": "Language Specific Guides",
-                                                "pages": [
-                                                    "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/table-of-contents",
-                                                    "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/java",
-                                                    "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/node",
-                                                    "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/python",
-                                                    "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/go",
-                                                    "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/dotnet",
-                                                    "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/ruby",
-                                                    "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/rust",
-                                                    "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/php",
-                                                    "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/swift",
-                                                    "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/erlang-elixir",
-                                                    "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/other-languages"
-                                                ]
-                                            }
+                                            "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/java",
+                                            "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/node",
+                                            "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/python",
+                                            "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/go",
+                                            "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/dotnet",
+                                            "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/ruby",
+                                            "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/rust",
+                                            "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/php",
+                                            "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/swift",
+                                            "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/erlang-elixir",
+                                            "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/other-languages"
                                         ]
                                     }
                                 ]
@@ -137,50 +121,50 @@
                             {
                                 "group": "Resolve Customer Issues",
                                 "pages": [
-                                    "use-cases/resolve-customer-issues/resolve-customer-issues-UC1",
-                                    "use-cases/resolve-customer-issues/resolve-customer-issues-UC2",
-                                    "use-cases/resolve-customer-issues/resolve-customer-issues-UC3"
+                                    "use-cases/resolve-customer-issues/capture-session-context",
+                                    "use-cases/resolve-customer-issues/trace-errors-to-code",
+                                    "use-cases/resolve-customer-issues/generate-code-fixes"
                                 ]
                             },
                             {
                                 "group": "Retrieve Inisghts from Code",
                                 "pages": [
-                                    "use-cases/retrieve-insights-from-code/retrieve-insights-from-code-UC1",
-                                    "use-cases/retrieve-insights-from-code/retrieve-insights-from-code-UC2",
-                                    "use-cases/retrieve-insights-from-code/retrieve-insights-from-code-UC3"
+                                    "use-cases/retrieve-insights-from-code/ask-codebase-questions",
+                                    "use-cases/retrieve-insights-from-code/identify-dependencies",
+                                    "use-cases/retrieve-insights-from-code/enforce-coding-standards"
                                 ]
                             },
                             {
                                 "group": "Monitor for Issues",
                                 "pages": [
-                                    "use-cases/monitor-for-issues/monitor-for-issues-UC1",
-                                    "use-cases/monitor-for-issues/monitor-for-issues-UC2",
-                                    "use-cases/monitor-for-issues/monitor-for-issues-UC3",
-                                    "use-cases/monitor-for-issues/monitor-for-issues-UC4"
+                                    "use-cases/monitor-for-issues/setup-performance-alerts",
+                                    "use-cases/monitor-for-issues/monitor-runtime-performance",
+                                    "use-cases/monitor-for-issues/reduce-alert-noise",
+                                    "use-cases/monitor-for-issues/identify-deployment-issues"
                                 ]
                             },
                             {
                                 "group": "Analyze Code Quality",
                                 "pages": [
-                                    "use-cases/analyze-code-quality/analyze-code-quality-UC1",
-                                    "use-cases/analyze-code-quality/analyze-code-quality-UC2",
-                                    "use-cases/analyze-code-quality/analyze-code-quality-UC3"
+                                    "use-cases/analyze-code-quality/generate-functional-tests",
+                                    "use-cases/analyze-code-quality/detect-regressions",
+                                    "use-cases/analyze-code-quality/create-code-summaries"
                                 ]
                             },
                             {
                                 "group": "Create Documentation",
                                 "pages": [
-                                    "use-cases/create-documentation/create-documentation-UC1",
-                                    "use-cases/create-documentation/create-documentation-UC2",
-                                    "use-cases/create-documentation/create-documentation-UC3"
+                                    "use-cases/create-documentation/generate-architecture-diagrams",
+                                    "use-cases/create-documentation/detailed-api-docs",
+                                    "use-cases/create-documentation/user-guides"
                                 ]
                             },
                             {
                                 "group": "Manage Sprawling Codebases",
                                 "pages": [
-                                    "use-cases/manage-sprawling-codebases/manage-sprawling-codebases-UC1",
-                                    "use-cases/manage-sprawling-codebases/manage-sprawling-codebases-UC2",
-                                    "use-cases/manage-sprawling-codebases/manage-sprawling-codebases-UC3"
+                                    "use-cases/manage-sprawling-codebases/migrate-codebases",
+                                    "use-cases/manage-sprawling-codebases/understand-legacy-code",
+                                    "use-cases/manage-sprawling-codebases/share-codebase-knowledge"
                                 ]
                             }
                         ]

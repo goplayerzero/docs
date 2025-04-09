@@ -3,56 +3,94 @@ title: "The OpenTelemetry Standard"
 description: "PlayerZero is built to support the OpenTelemetry standard for logs, traces, and metrics."
 ---
 
-OpenTelemetry (OTel) is an open-source, vendor-neutral standard for generating, collecting, and exporting telemetry data. Backed by the CNCF, it has quickly become the industry standard for instrumenting distributed systems.
+OpenTelemetry (OTel) is an open-source, vendor-neutral standard for generating, collecting, and exporting telemetry data. Backed by the CNCF, it’s the industry norm for instrumenting distributed systems.
 
-It provides a unified way to collect:
+It unifies three core signal types:
 
-- **Traces** – End-to-end workflows across services and systems
-- **Logs** – Structured, timestamped events that offer detail and context
-- **Metrics** – Numeric signals that represent system health and usage
+- **Traces** – End-to-end workflows across services
+- **Logs** – Structured, timestamped events
+- **Metrics** – Numeric signals representing system health
 
-To dive deeper into OpenTelemetry itself, check out [opentelemetry.io](https://opentelemetry.io/)
-
----
+To learn more, visit [opentelemetry.io](https://opentelemetry.io/).
 
 ## Why PlayerZero Supports OTel
 
-OpenTelemetry is not just a standard — it’s the foundation for a shared understanding of how your system behaves.
+PlayerZero integrates with OTel to correlate backend telemetry with **real user sessions** in the frontend. By supporting the native OTLP format, we enable you to:
 
-PlayerZero integrates with OpenTelemetry to unlock a specific value:  
-**connecting backend telemetry with frontend sessions, users, and code.**
+- Use existing OTel exporters or collectors
+- Ingest logs, traces, and metrics in real time
+- Enrich these signals with user identity and session context
+- Connect issues to the commit, release, or function that caused them
 
-By aligning with the OTel standard:
-- We plug into your existing instrumentation, exporters, or collectors
-- We ingest logs, traces, and metrics using the native OTLP format
-- We correlate telemetry with user identity and session data from our Web SDK
-- We tie those signals back to the exact commit, release, or function that caused them
-
-You instrument how you want — manual spans, auto-instrumentation, custom logs — and PlayerZero receives those signals in real time, enriching them with user and code context.
-
----
+You choose how to instrument your code; PlayerZero adds user and code insights to each signal.
 
 ## What You Can Send
 
-As long as it follows the OTLP format, you can send:
-- **Traces (Spans)** – Distributed request flows
-- **Logs** – Structured backend logging
-- **Metrics** – System behavior or service-level indicators
+Anything in the OTel (OTLP) format:
 
-These signals are routed to PlayerZero’s ingest pipeline, where they’re merged into issue timelines, defect analysis, and regression detection.
+- **Traces (Spans)** – Distributed workflows across services
+- **Logs** – Structured log data
+- **Metrics** – Health or performance indicators
 
----
+PlayerZero automatically merges these signals into issues, timelines, and regression analysis.
+
+## Logs, Traces, and Metrics in PlayerZero
+
+While traditional observability platforms excel at dashboards and alerts, PlayerZero focuses on **end-to-end issue resolution**. We bridge your backend data with user sessions and code commits to surface what truly impacts customers.
+
+### Our Approach
+We correlate telemetry with:
+- User session timelines  
+- Frontend events and actions  
+- Commit and release data  
+- Known or repeating issues  
+
+This unified view helps identify root causes without toggling between multiple tools.
+
+### Frontend-to-Backend Trace Linking
+The **PlayerZero Web SDK** attaches a `traceparent` header to user actions. This:
+- Links frontend events to backend spans  
+- Shows end-to-end timelines spanning UI and system layers  
+- Maps traces to specific users, pages, and releases  
+
+### Trace Support
+- Accept all OTLP-compliant spans  
+- Detect root spans, measure latency, track multi-service requests  
+- Highlight repeat issues and performance spikes  
+
+Traces appear inside PlayerZero’s issue view and tie directly to user sessions.
+
+### Log Support
+- Ingest structured OTLP logs  
+- Associate them automatically to traces via `trace_id` or user/session context  
+- Group recurring log entries to identify patterns or regressions  
+
+Logs give deeper context alongside traces and user actions in one place.
+
+### Metric Support
+- Accept OTLP metrics (e.g., CPU usage, error rate, latency)  
+- Surface spikes and anomalies that align with real user impact  
+- No standalone dashboard: metrics are used to enrich issue timelines and triage  
+
+## Example Workflow
+
+1. **User Action**: A user clicks a button in the browser (Web SDK adds `traceparent`).  
+2. **Backend Spans/Logs**: The server emits spans and logs via OTel.  
+3. **Automatic Correlation**: PlayerZero merges frontend + backend data in real time.  
+
+If the request fails, PlayerZero can:
+- Flag a new or regressed issue  
+- Show the full session + logs + traces  
+- Reveal code commits causing the error  
 
 ## What’s Next?
 
-Once you’ve instrumented your stack, you can begin forwarding data to PlayerZero:
-
 - **[Use PlayerZero’s Endpoint](/docs/integrations/opentelemetry/playerzero-endpoint)**  
-  Configure your OTLP exporter to point to our backend.
+  Point your OTLP exporter to our ingest service.
 
 - **[Logs, Traces, and Metrics](/docs/integrations/opentelemetry/logs-traces-metrics)**  
-  See how PlayerZero puts telemetry to use in defect workflows.
+  Dive deeper into how we use each OTel signal to resolve issues.
 
 - **[OpenTelemetry Recipes](/docs/integrations/opentelemetry/recipes)**  
-  View stack-specific configuration examples (Java, Node.js, Python, etc).
+  Check out stack-specific examples (Node.js, Java, Python, etc.).
 
