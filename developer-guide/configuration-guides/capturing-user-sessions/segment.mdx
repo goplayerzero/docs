@@ -1,26 +1,17 @@
 ---
-title: "Segment"
+title: "Segment Setup Guide"
+sidebarTitle: "Segment"
+description: "This guide walks you through connecting PlayerZero to Segment to capture user sessions and events without changing your frontend code."
 ---
 
-# Segment Integration Landing Page
 
-## Overview
-- **What this section is for**: Enable PlayerZero in your app using Segment — no code changes required.
-- **Key benefits**:
-  - Seamless integration in seconds.
-  - Instantly forward all `track()` and `identify()` calls to PlayerZero.
-  - Automatic session monitoring without needing to update your frontend.
-- **Who this is for**: Developers and analysts already using [Segment](https://segment.com/) for event tracking and identity management.
-
-## Basic Setup Guide
-
-### Prerequisites
+## Prerequisites
 - Access to Segment’s **Destination catalog**
-- Your PlayerZero **Project ID** (from Settings > Data Collection)
+- Your PlayerZero [Project ID](https://go.playerzero.app/setting/web).
 
-### Step-by-Step Instructions
+## Step-by-Step Instructions
 
-#### 1. Visit the PlayerZero Destination Page in Segment
+### 1. Visit the PlayerZero Destination Page in Segment
 
 <Card
   title="PlayerZero destination in Segment"
@@ -70,13 +61,13 @@ Once on the page:
 
 ![Segment Setup Step 1](/images/Screen_Shot_2022-10-19_at_11.51.06_AM.png)
 
-#### 2. Add Your PlayerZero Project ID
+### 2. Add Your PlayerZero Project ID
 
 - In PlayerZero, go to [Settings > Data Collection](https://go.playerzero.app/setting/data)
 - Find the **Segment** section and copy your **Project ID**
 - In Segment, paste it into the `PlayerZero Project Id` field
 
-#### 3. Enable the Destination
+### 3. Enable the Destination
 
 Once configured:
 
@@ -86,19 +77,6 @@ Once configured:
 ![Segment Setup Step 2](/images/Screen_Shot_2022-10-19_at_11.52.23_AM.png)
 
 That’s it! PlayerZero is now live via Segment.
-
-## 3. Available Integration Guides
-
-- **[npm Installation](/docs/integrations/npm)**  
-  Use the PlayerZero SDK directly with modern frontend frameworks.
-
-- **[Script Tag Setup](/docs/integrations/script-tag)**  
-  Install with a `<script>` tag if you don’t use Segment or a bundler.
-
-- **[Domain Configuration](/docs/domain-controls)**  
-  Control which data is collected and adjust feature toggles.
-
----
 
 ## Configure Your Domains
 

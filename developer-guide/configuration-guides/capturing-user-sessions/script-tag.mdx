@@ -1,36 +1,25 @@
 ---
-title: "Script Tag"
+title: "Script Tag Setup Guide"
+sidebarTitle: "Script Tag"
+description: "This guide walks you through setting up the PlayerZero SDK using a script tag to start monitoring and improving your frontend applications."
 ---
 
+## Prerequisites
+- Access to your project’s HTML codebase.
+- Your PlayerZero [Project ID](https://go.playerzero.app/setting/web).
 
----
+## Step-by-Step Instructions
 
-# Script Tag Setup Landing Page
+### 1. Add the PlayerZero Script
 
-## 1. Overview
-- **What this section is for**: Walk you through adding PlayerZero to your site using a `<script>` tag — no build tools required.
-- **Key benefits**:
-  - Quick setup for static sites or simple HTML/CSS/JS projects.
-  - Lightweight and ideal for sites not using npm or frameworks.
-- **Who this is for**: Developers working with raw HTML or sites without bundlers like Webpack, Vite, or Parcel.
-
-## 2. Basic Setup Guide
-
-### Prerequisites
-- A basic HTML file where you can add script tags.
-- Your PlayerZero Project ID from the dashboard.
-
-### Step-by-Step Instructions
-
-#### 1. Add the PlayerZero Script Tag
-
-Paste this inside your `<head>` or just before `</body>`:
+Paste this inside your `<head>` or just before the closing `</body>` tag:
 
 ```html
 <script src="https://cdn.playerzero.app/sdk-web.js"></script>
 ```
+### 2. Initialize the SDK
 
-#### 2. Initialize PlayerZero
+Insert the initialization script after loading the PlayerZero SDK:
 
 ```html
 <script>
@@ -38,9 +27,9 @@ Paste this inside your `<head>` or just before `</body>`:
 </script>
 ```
 
-#### 3. Identify the User (Optional)
+### 3. Identify the User (Recommended)
 
-If you know the user’s identity, add this snippet after initialization:
+Once the user is authenticated or known:
 
 ```html
 <script>
@@ -50,5 +39,15 @@ If you know the user’s identity, add this snippet after initialization:
     group: "Marketing",
   });
 </script>
+```
 
-You’re all set! PlayerZero will now begin tracking sessions and linking them to your dashboard.
+## Next Steps
+
+That's it! Once the SDK is installed and initialized, you can visit the [Users page](https://go.playerzero.app/users) in PlayerZero to see live user sessions being captured.
+
+If you want to control where PlayerZero is active, visit the [Domain Settings](/developer-guide/configuration-guides/capturing-user-sessions/domain-settings) guide to configure domain-level access and environment-specific behavior.
+
+Want to extend your integration further? Explore the [Advanced SDK Usage](/developer-guide/configuration-guides/capturing-user-sessions/advanced-sdk-usage) guide to unlock features like custom event tracking, devtools links, and user metadata enhancements.
+
+
+

@@ -1,32 +1,23 @@
 ---
-title: "Npm"
+title: "Npm Setup Guide"
+sidebarTitle: "Npm"
+description: "This guide walks you through setting up the PlayerZero SDK using npm to start monitoring and improving your frontend applications."
 ---
 
-# npm Installation Landing Page
-
-## Overview
-- **What this section is for**: Guide you through integrating PlayerZero into your app using the `@goplayerzero/sdk-web` npm package.
-- **Key benefits**:
-  - Seamless SDK setup for modern JavaScript frameworks.
-  - Full access to PlayerZero’s API including identity tracking, event logging, and session linking.
-- **Who this is for**: Developers working in React, Angular, Vue, or other bundler-based frontend stacks.
-
-## Basic Setup Guide
-
-### Prerequisites
+## Prerequisites
 - Node.js and npm or yarn installed.
 - Access to your project’s frontend codebase.
-- Your PlayerZero Project ID.
+- Your PlayerZero [Project ID](https://go.playerzero.app/setting/web).
 
-### Step-by-Step Instructions
+## Step-by-Step Instructions
 
-#### 1. Install the SDK
+### 1. Install the SDK
 
 ```bash npm
 npm i @goplayerzero/sdk-web --save
 ```
 
-#### 2. Initialize the SDK
+### 2. Initialize the SDK
 
 Insert this early in your application’s entry point (e.g., index.js, main.ts, App.vue, etc.):
 
@@ -38,7 +29,7 @@ PlayerZero.init("your project id here");
 **Important:** PlayerZero.init should only be called once.
 Use PlayerZero.isInitialized() to check if initialization has occurred.
 
-#### 3. Identify the User (Recommended)
+### 3. Identify the User (Recommended)
 Once the user is authenticated or known:
 
 
@@ -50,3 +41,17 @@ PlayerZero.identify("user-id", {
 });
 
 ```
+
+---
+
+---
+
+## Next Steps
+
+That's it! Once the SDK is installed and initialized, you can visit the [Users page](https://go.playerzero.app/users) in PlayerZero to see live user sessions being captured.
+
+If you want to control where PlayerZero is active, visit the [Domain Settings](/developer-guide/configuration-guides/capturing-user-sessions/domain-settings) guide to configure domain-level access and environment-specific behavior.
+
+Want to extend your integration further? Explore the [Advanced SDK Usage](/developer-guide/configuration-guides/capturing-user-sessions/advanced-sdk-usage) guide to unlock features like custom event tracking, devtools links, and user metadata enhancements.
+
+

@@ -1,8 +1,10 @@
 ---
-title: "Microsoft Teams Setup"
+title: "Get Notifications Using Microsoft Teams"
+sidebarTitle: "Microsoft Teams Setup"
+description: "Learn how to connect Microsoft Teams to PlayerZero and receive real-time alerts for new issues, spikes, and deployments directly in your team's workflows."
 ---
 
-## Get Familiar With PlayerZero
+## Overview 
 
 PlayerZero helps engineering teams stay ahead of issues by filtering out noise and delivering real-time alerts on critical problems. Our Microsoft Teams integration keeps your team informed and enables quick action right where you collaborate.
 
@@ -12,7 +14,7 @@ PlayerZero helps engineering teams stay ahead of issues by filtering out noise a
 - Engage with the PlayerZero chatbot to triage incidents and monitor release activities
 - Link issues to specific code changes for faster resolution
 
-*Requires a PlayerZero account. Get started at https://www.playerzero.ai/get-started.*
+---
 
 ## Deploy & Adopt for IT Admins
 
@@ -28,37 +30,34 @@ In your PlayerZero account, navigate to the Settings tab and select "Release Ale
 
 #### 2. Accept Required Permissions
 
-When prompted, review and accept the necessary permissions for the PlayerZero app to function properly in Teams. See the [Permission Details](#permission-details) section below for a complete explanation of each permission.
+When prompted, review and accept the necessary permissions for the PlayerZero app to function properly in Teams.  
+See the permissions list below for full details.
 
-#### 3. Select Team for Notifications
-
-Choose which Microsoft Teams team should receive PlayerZero alerts and notifications.
-
-![Select Team](/images/microsoft-teams-dropdown.png)
-
-### Permission Details
-
+<Accordion title="Microsoft Teams Permissions">
 When installing the PlayerZero app in Microsoft Teams, administrators will need to review and approve the following permissions:
 
 | Permission | Why It's Needed |
 |------------|-----------------|
-| Edit user's channel messages | Allows the bot to update notifications with the latest information |
-| Read user channel messages | Enables the bot to process commands and requests in channels |
-| Read and write user channel messages | Necessary for the bot to respond to queries and provide updates |
-| Send channel messages | Required to deliver alerts and notifications to channels |
-| Read and write the names, descriptions, and settings of channels | Helps the bot properly configure and maintain channel connections |
-| Read and write directory data | Used to access team information for proper notification routing |
-| Read and write all groups | Required to manage team and channel connections |
-| Create teams | Allows automatic setup of dedicated alert channels if configured |
-| Sign in and read user profile | Enables user authentication with PlayerZero |
-| Read all app catalogs | Helps verify proper installation of the app |
-| Create channels | Required to set up dedicated notification channels if configured |
-| Create chats | Allows direct messaging for critical alerts |
-| Read and write all chat messages | Necessary for providing interactive responses to user queries |
-| Get a list of all teams | Required to display available teams for configuration |
-| Read selected installed Teams apps in all teams | Helps verify proper connection status |
-| Create chat and channel messages with anyone's identity and with any timestamp | Enables proper formatting of alert messages |
-| Read all users' full profiles | Used to associate Teams users with PlayerZero accounts |
+| Edit user's channel messages | Allows the bot to update notifications with the latest information. |
+| Read user channel messages | Enables the bot to process commands and requests in channels. |
+| Read and write user channel messages | Necessary for the bot to respond to queries and provide updates. |
+| Send channel messages | Required to deliver alerts and notifications to channels. |
+| Read and write the names, descriptions, and settings of channels | Helps the bot properly configure and maintain channel connections. |
+| Read and write directory data | Used to access team information for proper notification routing. |
+| Read and write all groups | Required to manage team and channel connections. |
+| Create teams | Allows automatic setup of dedicated alert channels if configured. |
+| Sign in and read user profile | Enables user authentication with PlayerZero. |
+| Read all app catalogs | Helps verify proper installation of the app. |
+| Create channels | Required to set up dedicated notification channels if configured. |
+| Create chats | Allows direct messaging for critical alerts. |
+| Read and write all chat messages | Necessary for providing interactive responses to user queries. |
+| Get a list of all teams | Required to display available teams for configuration. |
+| Read selected installed Teams apps in all teams | Helps verify proper connection status. |
+| Create chat and channel messages with anyone's identity and with any timestamp | Enables proper formatting of alert messages. |
+| Read all users' full profiles | Used to associate Teams users with PlayerZero accounts. |
+</Accordion>
+
+---
 
 ### Detailed Configuration Steps
 
@@ -67,8 +66,8 @@ When installing the PlayerZero app in Microsoft Teams, administrators will need 
 To set up the Microsoft Teams integration from PlayerZero:
 
 1. Log in to your PlayerZero account
-2. Navigate to the Settings tab 
-3. Find and select "Release Alerts" 
+2. Navigate to the Settings tab
+3. Find and select "Release Alerts"
 4. Toggle the "Send release notifications to channels in Microsoft Teams" option to ON
 5. Click the "Select the Team you would like to receive alerts" dropdown
 6. Choose the appropriate team (e.g., Engineering, Default Directory, or a specific project team)
@@ -77,8 +76,8 @@ To set up the Microsoft Teams integration from PlayerZero:
 #### On Microsoft Teams Side
 
 1. Sign in to the Teams Admin Center
-2. Navigate to Teams apps > Manage apps
-3. Search for "PlayerZero" and select "Allow"
+2. Navigate to **Teams apps > Manage apps**
+3. Search for **PlayerZero** and select **Allow**
 4. Once approved at the admin level, users can add the app to their teams:
    - Navigate to the desired team
    - Click "+" to add an app
@@ -86,10 +85,14 @@ To set up the Microsoft Teams integration from PlayerZero:
    - Select and add the app
 5. When first adding the PlayerZero bot to Teams, you'll see a welcome message:
 
-The bot will send an introductory message: "Thank you for installing the PlayerZero Copilot Bot! This bot will send release alert and new issue notifications to keep you updated about your product quality in Microsoft Teams."
+> "Thank you for installing the PlayerZero Copilot Bot! This bot will send release alert and new issue notifications to keep you updated about your product quality in Microsoft Teams."
 
-### How to Get Support
+---
 
-- Email: support@playerzero.ai
-- Documentation: https://www.playerzero.ai/docs/introduction
+## Next Steps
+
+Once your Microsoft Teams integration is live, you can fine-tune your alerting strategy to fit your team’s workflows. Explore these next steps to customize notifications and reduce noise:
+
+- [Setup Alerts for User Issues](/use-cases/monitor-for-issues/setup-performance-alerts)
+- [Mute Unwanted Notifications and Alerts](/use-cases/monitor-for-issues/reduce-alert-noise)
 
