@@ -34,7 +34,7 @@
 /* Card Text Container */
 .card-text {
     font-weight: 400;
- /* font-normal */
+    /* font-normal */
     /* text-base */
     color: white;
 }
@@ -94,4 +94,24 @@
 
 #navigation-items {
     width: max-content;
+}
+
+/* styles.css */
+
+/* styles.css */
+
+.visible-link-container {
+    margin: 8px 0;
+}
+
+.visible-link {
+    font-weight: 600;
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.2s;
+}
+
+.visible-link:hover {
+    color: #9B8FFF;
 }
