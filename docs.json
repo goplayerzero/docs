@@ -26,7 +26,7 @@
                         "pages": [
                             "use-cases/resolve-customer-issues/resolve-customer-issues-benefits",
                             "use-cases/retrieve-insights-from-code/retrieve-insights-from-code-benefits",
-                            "use-cases/monitor-for-issues/monitor-for-issues-benefits",
+                            "use-cases/monitor-for-anomalies/monitor-for-anomalies-benefits",
                             "use-cases/analyze-code-quality/analyze-code-quality-benefits",
                             "use-cases/create-documentation/create-documentation-benefits",
                             "use-cases/manage-sprawling-codebases/manage-sprawling-codebases-benefits"
@@ -134,12 +134,12 @@
                                 ]
                             },
                             {
-                                "group": "Monitor for Issues",
+                                "group": "Monitor for Anomalies",
                                 "pages": [
-                                    "use-cases/monitor-for-issues/setup-performance-alerts",
-                                    "use-cases/monitor-for-issues/monitor-runtime-performance",
-                                    "use-cases/monitor-for-issues/reduce-alert-noise",
-                                    "use-cases/monitor-for-issues/identify-deployment-issues"
+                                    "use-cases/monitor-for-anomalies/setup-performance-alerts",
+                                    "use-cases/monitor-for-anomalies/monitor-runtime-performance",
+                                    "use-cases/monitor-for-anomalies/reduce-alert-noise",
+                                    "use-cases/monitor-for-anomalies/identify-deployment-issues"
                                 ]
                             },
                             {
@@ -174,37 +174,6 @@
                             "developer-guide/security/playerzero-philosophy",
                             "developer-guide/security/omitting-files-with-pzignore",
                             "developer-guide/security/enabling-private-data-storage"
-                        ]
-                    }
-                ]
-            },
-            {
-                "tab": "Prompting with PlayerZero",
-                "groups": [
-                    {
-                        "group": "Prompting with PlayerZero",
-                        "pages": [
-                            {
-                                "group": "Learning About Your Codebase",
-                                "pages": [
-                                    "prompting/codebase/high-level-overviews",
-                                    "prompting/codebase/high-to-low-level"
-                                ]
-                            },
-                            {
-                                "group": "Debugging Logs and Traces",
-                                "pages": [
-                                    "prompting/debugging/connecting-codebase",
-                                    "prompting/debugging/orienting-context"
-                                ]
-                            },
-                            {
-                                "group": "Communicating Across Teams",
-                                "pages": [
-                                    "prompting/communication/non-technical-artifacts",
-                                    "prompting/communication/templates-formats"
-                                ]
-                            }
                         ]
                     }
                 ]

@@ -11,9 +11,11 @@ PlayerZero gives you powerful controls to fine-tune how your application's netwo
 
 By default, PlayerZero will flag any API response that takes longer than **8000ms** to resolve from the browser’s perspective.
 
-You can customize this threshold to match your app’s performance expectations.  
-(Example: lower it to 4000ms for performance-sensitive apps.)
-## Special API Error Phrases Sometimes APIs return a `200 OK` but the response still indicates a failure (e.g. `"error": true` in the body).
+You can customize this threshold to match your app’s performance expectations. (Example: lower it to 4000ms for performance-sensitive apps.)
+
+## Special API Error Phrases 
+
+Sometimes APIs return a `200 OK` but the response still indicates a failure (e.g. `"error": true` in the body).
 
 Add any known error keywords or patterns here so PlayerZero can detect and highlight those sessions too.
 

@@ -9,8 +9,7 @@ PlayerZero allows you to control how recording and monitoring behave across diff
 
 ## Where is this?
 
-You can access these controls under  
-[Settings > Web SDK](https://go.playerzero.app/setting/web).
+You can access these controls under [Settings > Web SDK](https://go.playerzero.app/setting/web).
 
 You’ll see a configuration interface that looks like this:
 
@@ -20,24 +19,15 @@ You’ll see a configuration interface that looks like this:
 
 Each domain has five configurable properties:
 
-1. **Enabled**  
-   Turns PlayerZero recording on or off for that domain.
+1. **Enabled** - Turns PlayerZero recording on or off for that domain.
 
-2. **Production**  
-   Labels events from this domain as production data.
+2. **Production** - Labels events from this domain as production data.
 
-3. **Show 'Share Devtools' Button**  
-   Enables the floating blue button. This is usually enabled on `localhost` and disabled elsewhere.  
-   Use `playerzero.prompt()` to integrate a custom button if needed.
+3. **Show 'Share Devtools' Button** - Enables the floating blue button. This is usually enabled on `localhost` and disabled elsewhere. Use `playerzero.prompt()` to integrate a custom button if needed.
 
-4. **Enable OpenTelemetry Integration**  
-   Enables monitoring and event capture.  
-   Recommended: **On for production and staging**, **Off for development**.
+4. **Enable OpenTelemetry Integration** - Enables monitoring and event capture. Recommended: **On for production and staging**, **Off for development**.
 
-5. **Dataset**  
-   Assign a custom Dataset label to help group events during analysis.
-
-> You can use glob patterns like `*.domain.com` to apply settings across subdomains.
+5. **Dataset** - Assign a custom Dataset label to help group events during analysis. You can use glob patterns like `*.domain.com` to apply settings across subdomains.
 
 <Warning>
 When adding domains:
@@ -51,17 +41,10 @@ Here’s how PlayerZero configures their environments:
 
 ![Domain Config Example](/images/web-sdk-domain-configuration-pz.png)
 
-- `localhost`  
-  Monitoring off, share button on.
+- `localhost` - Monitoring off, share button on.
 
-- `go.playerzero.app`  
-  Production enabled, share button hidden and custom embedded.
+- `go.playerzero.app` - Production enabled, share button hidden and custom embedded.
 
-- `*.playerzero.app`  
-  Staging and QA domains. Monitoring on and share button visible.
+- `*.playerzero.app` - Staging and QA domains. Monitoring on and share button visible.
 
-- `All other domains`  
-  Disabled to avoid capturing external or rogue environments.
-
----
-
+- `All other domains` - Disabled to avoid capturing external or rogue environments.
