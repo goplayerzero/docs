@@ -1,0 +1,96 @@
+---
+title: "Erlang / Elixir"
+description: "Learn how to instrument your Erlang or Elixir applications with OpenTelemetry and send data to PlayerZero."
+---
+
+import AutoInstrumentation from '/snippets/open-telemetry/auto-instrumentation.mdx';
+import ManualInstrumentation from '/snippets/open-telemetry/manual-instrumentation.mdx';
+import ExporterOverview from '/snippets/open-telemetry/exporter-overview.mdx';
+import CollectorOptional from '/snippets/open-telemetry/collector-optional.mdx';
+import HelpfulLinksIntro from '/snippets/open-telemetry/helpful-links-intro.mdx';
+
+# OpenTelemetry for Erlang / Elixir
+
+OpenTelemetry has solid support for the BEAM ecosystem, covering both Erlang and Elixir applications.  
+You can instrument Phoenix apps, LiveView, and other Elixir services.
+
+## Installation
+
+Add the following dependencies to your Elixir `mix.exs`:
+
+```bash
+{:opentelemetry, "> 1.0"}, {:opentelemetry_exporter, "> 1.0"}
+Run:
+mix deps.get
+```
+
+Full installation instructions:  
+👉 [OpenTelemetry Erlang/Elixir Getting Started](https://opentelemetry.io/docs/instrumentation/erlang/)
+
+## Auto-Instrumentation
+
+<AutoInstrumentation/>
+
+Some libraries like Phoenix and Ecto have automatic integration options.  
+You can enable automatic tracing with:
+
+```bash
+{:opentelemetry_phoenix, "> 1.0"}, {:opentelemetry_ecto, "> 1.0"}
+```
+
+Learn more:  
+👉 [Phoenix Auto-Instrumentation](https://hexdocs.pm/opentelemetry_phoenix/readme.html)
+
+## Manual Instrumentation
+
+<ManualInstrumentation/>
+
+Manually create spans in Elixir:
+
+```bash
+:otel_tracer.start_span("my-operation")
+your application logic
+:otel_tracer.end_span()
+```
+Or in Elixir (friendly wrapper):
+```bash
+OpenTelemetry.Tracer.with_span "my-operation" do
+your code
+end
+```
+
+Learn more:  
+👉 [Elixir Manual Tracing](https://hexdocs.pm/opentelemetry/)
+
+## Exporters
+
+<ExporterOverview/>
+
+To export telemetry to PlayerZero, configure the OTLP HTTP exporter:
+
+
+```bash
+OTEL_EXPORTER_OTLP_ENDPOINT=https://sdk.playerzero.app/otlp 
+OTEL_EXPORTER_OTLP_HEADERS=Authorization=Bearer <your-playerzero-token> 
+OTEL_TRACES_EXPORTER=otlp 
+OTEL_METRICS_EXPORTER=otlp
+```
+
+
+Official reference:  
+👉 [Elixir Exporter Setup](https://opentelemetry.io/docs/instrumentation/erlang/)
+
+## Optional: Using a Collector
+
+<CollectorOptional/>
+
+You can forward Erlang/Elixir telemetry to a collector before it reaches PlayerZero.
+
+## Helpful Links
+
+<HelpfulLinksIntro/>
+
+- [OpenTelemetry Erlang/Elixir Overview](https://opentelemetry.io/docs/instrumentation/erlang/)
+- [OpenTelemetry Elixir GitHub](https://github.com/open-telemetry/opentelemetry-erlang)
+- [Phoenix Telemetry Instrumentation](https://hexdocs.pm/opentelemetry_phoenix/readme.html)
+

@@ -1,0 +1,109 @@
+---
+title: "Share Codebase Knowledge"
+sidebarTitle: "Share Codebase Knowledge"
+description: "PlayerZero helps your team capture and share crucial code insights by combining AI analysis with your own expertise."
+---
+
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
+# Overview
+
+PlayerZero transforms your codebase interactions into shareable knowledge by letting you generate contextual explanations of code that combine AI analysis with your own expertise. Without needing to rely on the time of other people, you can gain or share knowledge by leveraging PlayerZero's AI chat experience. 
+
+## Prerequisites
+
+<SourceControlManagement/>
+
+---
+
+## Process
+
+### 1. Kickoff an AI Chat, Set Context
+Open PlayerZero’s AI chat interface and let it know you want to share some key insights about your code. For example:
+
+> "I want to explain how our payment module handles retries after failed attempts. Can we create a knowledge session for that?"
+
+This prompt sets the stage and helps the AI tailor responses to your specific topic.
+
+👉 [Start an AI Chat session](https://go.playerzero.app)
+
+### 2. Provide Context About the Code  
+Offer relevant details about files, major components, or architectural decisions. You don’t need to write a formal document—just describe the essential points:
+
+> "The `payment-retry.js` file includes logic for checking if a payment should be retried, referencing our rate-limit configuration in `config.js`."
+
+From here, the AI will help create a structured explanation that includes references, critical gotchas, and related modules or dependencies.
+
+### 3. Refine with AI Assistance 
+Use the AI to clarify or deepen the explanation. You can:
+- Ask for reorganizing details
+- Include references to relevant version control history
+- Highlight architectural implications
+- Flag potential pitfalls for new developers
+
+This ensures your knowledge session covers the information people really need.
+
+### 4. Add Code Examples or References
+Include relevant code snippets or commit references. The AI can transform informal descriptions into clean, readable examples. These examples help teammates quickly grasp how the code works:
+
+> "Here’s a snippet showing how retries are handled for payment errors. Can we format it clearly for future reference?" or "Please provide a code snippet showing how retries are handled for payment errors"
+
+### 5. **Review and Enhance**  
+Check your session for accuracy and completeness. Request the AI’s help to:
+- Point out missing pieces
+- Suggest improved flow or structure
+- Incorporate short historical notes (e.g., “We added this after version 1.2 because….”)
+
+### 6. **Share Sessions**  
+Once your explanation is polished, share it directly within PlayerZero. Teammates can comment or ask follow-ups, creating a living document that evolves with your code.
+
+---
+
+## Additional Prompting Tips
+
+Use these categories to help structure your sessions. 
+
+<AccordionGroup>
+
+  <Accordion title="Capture Tribal Knowledge">
+    **Context & Typical Questions**  
+    - How do I highlight the reasons behind [specific architectural decision]?  
+    - What complexities or gotchas do we have in [part of the codebase]?  
+    - Which dependencies or environment factors affect this logic?
+  </Accordion>
+
+  <Accordion title="Interactive System Understanding">
+    **Context & Typical Questions**  
+    - How can I connect changes across multiple repositories?  
+    - Where can I find historical references for [legacy module]?  
+    - How do I trace a feature’s evolution from initial commit to present?
+  </Accordion>
+
+  <Accordion title="Key Use Cases">
+    **Context & Typical Questions**  
+    - Can you outline main debugging steps for [critical system issue]?  
+    - Which modules or services are most relevant for [feature area]?  
+    - How do teams handle cross-team handoffs or code reviews in PlayerZero?
+  </Accordion>
+
+  <Accordion title="Advantages">
+    **Context & Typical Questions**  
+    - How do we preserve system knowledge for new hires?  
+    - Why is AI-assisted documentation more efficient than static docs?  
+    - How does PlayerZero reduce dependency on key team members?
+  </Accordion>
+
+</AccordionGroup>
+
+**Prompting Tips**
+
+1. **Combine details** – “Explain both our retry logic and the fallback process when the user is offline.”  
+2. **Ask for formatting** – “Can you present that explanation in bullet points with references to file paths?”  
+3. **Request clarifications** – “What potential issues might arise from concurrency in our retry mechanism?”  
+4. **Use follow-ups** – “Show me how to add a note about external API rate limits in this explanation.”
+
+---
+
+## Summary and Next Steps
+
+By leveraging PlayerZero’s AI chat, your team can transform scattered or undocumented system knowledge into accessible and continuously updated resources. Whether you’re onboarding new developers, clarifying complex features, or preserving tribal knowledge, these interactive sessions keep your code insights relevant and easy to explore.

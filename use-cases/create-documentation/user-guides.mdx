@@ -1,0 +1,100 @@
+---
+title: "Generate Internal Knowledge Documentation and Guides"
+sidebarTitle: "Produce User Guides"
+description: "Use PlayerZero’s AI to generate and refine internal documentation by asking questions about your codebase or product functionality."
+---
+
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
+# Overview
+
+With PlayerZero, teams can quickly generate internal documentation by asking questions about any aspect of their codebase or product functionality, receiving detailed explanations drawn from the entire system. The AI assistant breaks down complex systems into digestible guides and explains code implementations, helping new team members understand both the how and why of system design. This shared knowledge base accelerates onboarding and ensures consistent understanding across the organization, reducing the time senior team members spend explaining common concepts.
+
+## Prerequisites
+
+<SourceControlManagement/>
+
+---
+
+## Process
+
+### 1. Identify Documentation Needs
+Determine which areas need documentation and consider common questions from new team members. Compile a list of key systems or processes to cover—anything from fundamental architecture overviews to specific feature implementations.
+
+### 2. Kickoff an AI Chat, Set Context
+Open PlayerZero’s AI chat interface and begin by asking foundational questions, as informed by step #1:
+
+> "Can you explain how our authentication system works across our services?"  
+> "What are the main components of our data processing pipeline?"
+
+This ensures the AI understands the scope of your system and tailors explanations accordingly.
+
+👉 [Start an AI Chat session](https://go.playerzero.app)
+
+### 3. Generate Detailed Explanations
+Ask the AI to elaborate on system architecture, code implementations, business logic, or common workflows. The AI provides context-aware explanations by drawing from your codebase, ensuring accuracy and relevance to your specific environment.
+
+### 4. Create Onboarding Guides
+Target your questions toward new team members who need a high-level overview of your stack:
+
+> "Can you create a guide for new developers about our deployment process?"  
+> "Help me create an overview of our main services and how they interact."
+
+These guides accelerate onboarding, so new hires can quickly get up to speed on how everything works.
+
+### 5. Enhance with Examples
+Ask for relevant code samples directly from your codebase. The AI can pull specific snippets and show how to implement or modify them, helping to illustrate common use cases or best practices.
+
+### 6. Organize and Share
+Share the guides with the appropriate teams. Use PlayerZero’s collaboration features to collect feedback or allow direct edits. This approach keeps everyone aligned on how the system operates.
+
+---
+
+## Additional Prompting Tips
+
+Use the categories below to guide your documentation inquiries. 
+
+<AccordionGroup>
+
+  <Accordion title="Foundational Explanations">
+    **Context & Typical Questions**  
+    - What fundamental systems or libraries does our product rely on?  
+    - How do major application layers communicate with each other?  
+    - Which core design principles does our architecture follow?  
+  </Accordion>
+
+  <Accordion title="System Architecture & Components">
+    **Context & Typical Questions**  
+    - Where can I find an overview of our microservices and their interactions?  
+    - How does data flow between the frontend, backend, and database?  
+    - Which services are most critical, and how are they deployed or scaled?  
+  </Accordion>
+
+  <Accordion title="Implementation Details">
+    **Context & Typical Questions**  
+    - Can you break down the logic in [specific file or function]?  
+    - What patterns or conventions are used throughout the codebase?  
+    - How are edge cases, errors, or exceptions handled in [module]?  
+  </Accordion>
+
+  <Accordion title="Onboarding & Collaboration">
+    **Context & Typical Questions**  
+    - Can you create an onboarding checklist for new developers?  
+    - How do we share and maintain internal docs among different teams?  
+    - Which tools or commands do new hires need to get started?  
+  </Accordion>
+
+</AccordionGroup>
+
+**Prompting Tips**
+
+1. **Combine details** – “How do I document our authentication flow and data processing pipeline in the same guide?”  
+2. **Ask for formatting** – “Format a deployment process guide as a step-by-step checklist.”  
+3. **Request clarifications** – “Which code examples are most relevant for our onboarding docs?”  
+4. **Use follow-ups** – “Help me integrate this debugging workflow into our existing developer guide.”
+
+---
+
+## Summary and Next Steps
+
+By harnessing PlayerZero’s AI-powered chat, your team can generate and maintain a centralized knowledge base that scales alongside your codebase. Whether you’re creating high-level system overviews or detailed how-to guides, the AI’s context-aware responses ensure everyone has access to accurate, well-structured documentation.

@@ -1,0 +1,117 @@
+---
+title: "Generate Architecture Diagrams and Other Shareable Assets"
+sidebarTitle: "Generate Architecture Diagrams"
+description: "PlayerZero helps you generate and share professional-level system architecture documentation with integrated Mermaid diagrams."
+---
+
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
+# Overview
+
+PlayerZero streamlines the creation and sharing of comprehensive system architecture documentation through its integrated Mermaid diagramming support. Teams can easily generate professional-quality diagrams that span entire systems—from frontend to backend, across multiple repositories and services—and share these diagrams with a single click. This guide walks you through how to create visual representations of complex architectures so you can better understand your codebase and feel more comfortable bridging the gap between technical and non-technical team members.
+
+## Prerequisites
+
+<SourceControlManagement/>
+
+---
+
+## Process
+
+### 1. Kickoff an AI Chat, Set Context
+Begin by opening PlayerZero’s AI chat interface and clarifying what you want to achieve:
+
+> “I need a high-level architecture diagram for our microservices application, showing how each service communicates and any external integrations.”
+
+This initial step helps the AI tailor diagram suggestions to your specific goals and system requirements.
+
+👉 [Start an AI Chat session](https://go.playerzero.app)
+
+
+### 2. Prompt the AI Chat to Build a Diagram
+Provide the AI with an initial description of your system or application layout. For example:
+
+> “We have a React frontend, a Node.js backend, and a separate Python service handling data processing. They communicate via HTTP requests and a message queue.”
+
+From here, the AI will generate a baseline Mermaid diagram that captures the main components and their interactions.
+
+### 3. Refine the Scope of the Diagram
+Once you have a rough outline, continue the conversation to focus on the most important components:
+
+> “Please highlight the payment service integration with external payment gateways, and group the caching layer to show read/write flows.”
+
+You can break the architecture into logical sections or emphasize critical parts. This ensures the final diagram provides the clarity you need.
+
+### 4. Customize Appearance
+PlayerZero’s AI can help format your Mermaid diagram to improve readability:
+
+> “Use a flowchart style. Color-code the microservices for better visual clarity, and arrange them horizontally.”
+
+Though color is optional, you can request structural enhancements like grouping related services or annotating data flows. The AI will update the Mermaid diagram accordingly.
+
+### 5. Export
+Once you’re satisfied with the diagram, you have multiple export options:
+- **Click on the diagram** to view it in full screen  
+- **Use the copy button** to copy the diagram code to your clipboard  
+- **Download** the diagram as an SVG file for easy inclusion in other documents  
+
+### 6. Share the Thread
+Make collaboration effortless:
+- **Click “Share”** in the interface  
+- **Enter email addresses** of team members you’d like to invite  
+- The recipients get an email with a direct link to view your diagram and documentation  
+
+### 7. Collaborate
+Team members can open the shared diagram within their PlayerZero account. Any interactions or updates you make are visible to all shared users in real-time, ensuring everyone has access to the latest documentation.
+
+---
+
+## Additional Prompting Tips
+
+Below are categories to guide your diagramming process. 
+
+<AccordionGroup>
+
+  <Accordion title="Mermaid Diagram Setup">
+    **Context & Typical Questions**  
+    - How do I configure a basic Mermaid diagram for my system?  
+    - Which diagram type (flowchart, sequence, class) best suits my architecture?  
+    - How can I label nodes and edges effectively for clarity?  
+  </Accordion>
+
+  <Accordion title="Service Interactions & Dependencies">
+    **Context & Typical Questions**  
+    - How do I represent complex microservice interactions?  
+    - What’s the best way to show external service dependencies?  
+    - Can I highlight async communication vs. synchronous calls?  
+  </Accordion>
+
+  <Accordion title="Advanced Diagram Customizations">
+    **Context & Typical Questions**  
+    - How do I visually group services or subsystems?  
+    - Can I include notes about security layers or authentication flows?  
+    - Which styling or formatting options does Mermaid support?  
+  </Accordion>
+
+  <Accordion title="Collaboration & Sharing">
+    **Context & Typical Questions**  
+    - How do I share diagrams with both technical and non-technical teams?  
+    - Can I export diagrams in multiple formats?  
+    - What version control or real-time collaboration features are available?  
+  </Accordion>
+
+</AccordionGroup>
+
+**Prompting Tips**
+
+1. **Combine details** – “How do I highlight both frontend and backend repositories in a single diagram?”  
+2. **Ask for formatting** – “Format my Mermaid diagram to show directional flows from left to right.”  
+3. **Request clarifications** – “Can you show me how to label database read/write operations?”  
+4. **Use follow-ups** – “Add a message queue to reflect asynchronous communication between services.”
+
+---
+
+## Summary and Next Steps
+
+With PlayerZero, generating and refining system architecture documentation becomes a visual and collaborative process. Whether you’re mapping a small monolithic app or a complex microservices ecosystem, the AI chat helps create clear, up-to-date diagrams and supporting documentation that teams can easily reference.
+

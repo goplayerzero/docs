@@ -1,0 +1,81 @@
+---
+title: "Ask Questions about Key Services, Files and Functions"
+sidebarTitle: "Ask your Codebase Questions"
+description: "Empower your entire team to explore and understand your codebase using AI-driven insights."
+---
+
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
+# Overview
+
+PlayerZero’s code reasoning capability allows both technical and non-technical team members to interact with their codebase through natural language questions, receiving contextually aware responses that draw from actual source code, recent changes, and documentation. In this guide, we will dive deep into how you can retrieve key insights from services, files, and functions—without requiring support and product teams to parse complex code themselves.
+
+## Prerequisites
+
+<SourceControlManagement/>
+
+---
+
+## Process
+
+### 1. Kickoff an AI Chat, Set Context 
+From the input field on the homepage, you can ask a question directly to PlayerZero.
+
+- *Example*: “Where is the main implementation of the user authentication service?”
+
+### 2. Ask Follow-Up Questions
+PlayerZero provides targeted explanations and suggestions based on your focus areas, drawing from both codebase knowledge and user session data.
+
+- *Example*: “Who recently modified the user authentication flow and why?”
+
+---
+
+## Role-Focused Prompting
+
+Depending on your role, the AI chat can provide different types of insights. Use these categories to guide your questions and investigations.
+
+**Contextual Scenarios**
+
+<AccordionGroup>
+
+  <Accordion title="Questions for Developers">
+    - Where is the main implementation of [specific function/service]?  
+    - Show me all the places where [method/class] is being used  
+    - What changed in the [specific file/service] in recent PRs?  
+    - How does our authentication flow work across services?  
+  </Accordion>
+
+  <Accordion title="Questions for Support">
+    - What happens when a user clicks [specific button/action]?  
+    - Where are errors logged for [specific feature]?  
+    - What are the possible error states for [specific flow]?  
+    - How does the system validate [specific type of input]?  
+  </Accordion>
+
+  <Accordion title="Questions for Product">
+    - What features are implemented in [specific area of product]?  
+    - How are we currently implementing [specific product capability]?  
+    - What systems are involved in delivering [specific feature]?  
+    - Show me all the different ways users can [accomplish specific goal]  
+  </Accordion>
+
+</AccordionGroup>
+
+---
+
+## Prompting Tips
+
+1. **Anchor concepts together** – “How does [Service A] interact with [Library B]?”
+2. **Adjust context scope** – Zoom in on specific files or pull system-wide dependencies.
+3. **Define the output you want** – Ask for code snippets, summaries, relationships, or histories.
+4. **Follow the thread** – Use follow-ups like “Where else is this service used?” 
+
+---
+
+## Summary and Next Steps
+
+With PlayerZero, code exploration is both collaborative and context-driven. Whether you’re an engineer investigating implementation details or a product manager understanding feature capabilities, AI-assisted insight into your codebase streamlines the process and reveals key interactions and dependencies.
+
+Want to explore how systems are connected and started asking questions? 
+
+👉 [Start an AI Chat session](https://go.playerzero.app)

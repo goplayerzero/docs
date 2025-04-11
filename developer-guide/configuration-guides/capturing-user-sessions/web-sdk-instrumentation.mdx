@@ -1,0 +1,28 @@
+---
+title: "Web SDK Instrumentation"
+description: "Install and configure the PlayerZero Web SDK to capture user sessions, track events, and generate debugging insights in your application."
+---
+
+## Overview
+
+This guide walks you through installing and initializing the PlayerZero Web SDK in your application. Once integrated, you’ll be able to track users, send custom events, and generate debugging links. To learn more about how PlayerZero leverages user sesssions, see the [User Session Data](/connect-data-to-playerzero/user-session-data) overview.
+
+## Basic Setup Guide
+
+### Prerequisites
+- You’ll need your **Project ID**, which can be found under [**Settings > Web SDK**](https://go.playerzero.app/setting/web) in the PlayerZero dashboard.
+- Decide which integration method you prefer:
+  - Install the **npm** package (recommended for most modern frontend frameworks)
+  - Add a direct **script** tag (no build system required)
+  - Connect **Segment** events (integrate via analytics pipeline)
+
+## Available Integration Guides
+
+Choose the integration method that fits your stack:
+
+- **[npm Installation](/developer-guide/configuration-guides/capturing-user-sessions/npm)** - Install the PlayerZero SDK via `npm` or `yarn`. Best for React, Angular, Vue, and other modern frontend frameworks.
+
+- **[Script Tag Setup](/developer-guide/configuration-guides/capturing-user-sessions/script-tag)** - Add PlayerZero to your site with a single script tag. Ideal for websites without a module bundler.
+
+- **[Segment Events Integration](/developer-guide/configuration-guides/capturing-user-sessions/segment)** - Use your existing Segment integration to send events and identify users with no extra SDK setup.
+

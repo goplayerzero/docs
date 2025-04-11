@@ -1,0 +1,79 @@
+---
+title: "The PlayerZero Philosophy"
+description: "Our perspective on privacy, data handling, and code-centric intelligence."
+---
+
+## Overview 
+
+PlayerZero is designed to help engineering teams uncover, diagnose, and resolve software issues by grounding insights in the one place all technical problems ultimately touch: the codebase.
+
+Our platform connects signals across telemetry, user sessions, support tickets, and repositories to give your team a unified, contextual view of your software systems. But in doing so, we also take a clear position on data privacy and system boundaries.
+
+This page outlines how we think about data access, storage, and protection.
+
+---
+
+## We Don’t Store Code
+
+When you connect your codebase to PlayerZero, we reference it — but we don’t keep a copy.
+
+Instead, we use commit metadata, file paths, and diff information to correlate events back to specific code changes. This gives you insight without ever persisting the actual contents of your codebase.
+
+---
+
+## We Mask PII Before It Leaves the Browser
+
+PlayerZero automatically redacts a wide range of sensitive data before it ever reaches our servers, including:
+
+- Emails  
+- Usernames and full names  
+- Addresses  
+- Phone numbers  
+- Credit card numbers  
+- Tokens and keys
+
+This redaction happens at the edge — in the browser or client — ensuring that sensitive fields are stripped or masked before transmission.
+
+You can also define custom fields to redact based on your application’s structure. If there's something you want masked, we'll help you catch it before it leaves the user’s device.
+
+---
+
+## Your Storage, If You Prefer
+
+For teams with additional privacy or compliance requirements, we support private object storage via S3-compatible buckets.
+
+This allows you to:
+- Store devtools artifacts (like session captures) on infrastructure you own
+- Apply your own encryption and access controls
+- Retain full ownership of any persisted data
+
+We connect to your storage layer via scoped credentials and use it for temporary reads/writes — nothing is stored by PlayerZero.
+
+---
+
+## You Control What We See
+
+We provide tools to make sure PlayerZero only works with the parts of your system you want it to:
+
+- `.pzignore` allows you to exclude sensitive files or directories from ingestion.
+- You can configure custom redaction rules for telemetry and session data.
+- We scope access to repositories and integrations using the minimum required permissions.
+
+Everything we ingest is tied back to your code — not abstracted away into a black box. That’s how we keep our insights relevant, and your data footprint small.
+
+---
+
+## Designed for Trust
+
+We don’t treat security as a marketing checkbox — it’s foundational to how we build and operate.
+
+From redaction at the source, to scoped access across integrations, to optional self-hosted storage — our goal is to give you clarity and control, not complexity.
+
+We’ll never store your code.  
+We’ll never collect PII we don’t need.  
+And we’ll always be transparent about where your data is going and why.
+
+---
+
+Need more detail for procurement or compliance? Reach out to [support@playerzero.ai](mailto:support@playerzero.ai).
+

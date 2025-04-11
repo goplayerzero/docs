@@ -1,0 +1,90 @@
+---
+title: "Identify Issues Caused by New Releases and Deployments "
+sidebarTitle: "Identify Issues after Deployments"
+description: "PlayerZero acts as an automated watchdog for new deployments by creating dedicated release-specific monitoring channels that actively track and alert teams to any issues that emerge after a deployment."
+---
+
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
+import WebSdk from '/snippets/prerequisites/web-sdk.mdx';
+
+# Overview
+
+PlayerZero acts as an automated watchdog for new deployments by creating dedicated release-specific monitoring channels that actively track and alert teams to any issues that emerge after a deployment. PlayerZero automatically correlates user experiences, error patterns, and performance metrics with deployment timelines, helping teams quickly identify whether new issues are related to recent code changes. Leverage this guide to get real-time visibility into release health through automated issue detection and escalation, enabling quick, data-driven decisions about release stability.
+
+## Prerequisites
+
+<SourceControlManagement/>
+
+<WebSdk/>
+
+---
+
+## Process
+
+PlayerZero helps your team move faster by automatically organizing deployments, correlating issues to recent changes, and providing a centralized place to review release health. Follow these steps to effectively use PlayerZero for release alerts and monitoring.
+
+### 1. Choose Your Release Strategy
+
+When creating or updating a release, consider how you want PlayerZero to track and escalate issues. You can use AI-driven suggestions to quickly set up or modify your release strategy:
+
+
+1. **Daily/Scheduled Strategy** - Ideal for teams with multiple scheduled releases per day
+   - Set specific times for deployments using cron syntax  
+   - Configure whether new pull requests default to current or next release  
+
+2. **Weekly Strategy** - Perfect for teams with regular weekly deployment schedules
+   - Choose your preferred deployment day and time (e.g., Tuesdays at 4:00 PM)  
+   - Set repeat frequency (every 1, 2, 3, or 4 weeks)   
+   - Perfect for teams with regular weekly deployment schedules
+
+3. **Monthly Strategy** - Perfect for teams with regular monthly deployment schedules
+   - Choose the usual deployment time (e.g., 4:00 PM)  
+   - Define the day of each month the release occurs
+
+4. **Manual Strategy** - Ideal for teams that need deployment flexibility
+   - Best for teams deploying multiple times per day  
+   - You control when to create new releases and deploy  
+
+<Tip> If you have a unique deployment cadence, you can chat with PlayerZero’s AI to refine your strategy and get recommended settings.</Tip>
+
+### 2. Configure Your Release Channel Settings
+
+Once you’ve established a release strategy, set up your release channel preferences to get timely alerts and updates:
+
+- Navigate to **Settings → Release Alerts**  
+- Choose your communications provider (Slack or Teams)  
+- Add a channel prefix to identify your project (e.g. "[team name]")  
+- Make sure to enable notifications so that new issues or regressions are surfaced in real-time
+
+### 3. Analyze Release Performance in PlayerZero (Release Cards)
+
+PlayerZero automatically creates a “Release Card” for each deployment. To review the health of your current release:
+
+- Go to the **Home** page to see a list of active releases and click on the current release card  
+- Monitor included pull requests, active issues, and user adoption metrics  
+- Access user sessions that demonstrate issues or performance slowdowns  
+- Review real-time performance metrics like page load times and error rates  
+- Compare release metrics against prior deployments for a historical view
+
+### 4. Create a New Release Manually
+
+If you prefer manual control or need an out-of-band deployment:
+
+1. Navigate to **Past Releases → Create New Release**  
+2. Click the **Create New Release** button and choose between an immediate or scheduled release  
+3. Select your target environment (e.g., staging or production)  
+4. Configure release details:  
+   - **Release Name** – Provide a descriptive name  
+   - **Release Date** – Specify the date of the deployment  
+   - **Related PRs** – Select which pull requests to include
+
+### 5. Roll Back a Release
+
+If a new release is triggered in PlayerZero and you wish to roll it back, you can do so by clicking "Rollback" in the Latest Release section. All release details will get removed including user adoption, issues, complaints and requests and all future data will be lumped with the previous release.
+
+---
+
+## Summary and Next Steps
+
+In this guide, we’ve covered how to use PlayerZero’s automated release monitoring and alerting to stay ahead of deployment-related issues. By defining a release strategy, configuring your channel settings, and analyzing real-time metrics and user sessions, your team can move quickly to resolve problems before they significantly impact end users. If needed, you can roll back and immediately begin triaging issues with a clear audit trail of what changed and when.

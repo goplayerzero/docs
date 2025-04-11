@@ -1,0 +1,154 @@
+---
+title: "Sync Project Management Data"
+description: "Connect tools like Jira to give PlayerZero real-time visibility into issues, stories, and releases."
+---
+
+## Overview 
+
+Integrating your project management tools with PlayerZero lets you sync:
+
+- Issues and bugs logged by your team
+- Stories and features being worked on
+- Internal feedback and improvement tickets
+- Release activities linked to engineering work
+
+By connecting your project management system, PlayerZero builds a complete map between user sessions, defects, and ongoing development activities — helping you understand risk earlier and resolve issues faster.
+
+---
+
+## Setup Instructions
+
+The integration process is simple and UI-driven:
+
+1. From the PlayerZero web app, navigate to the **Home** page.
+2. Click **Connectors**.
+3. Select your project management tool (e.g., Jira Software, Azure DevOps).
+4. Authorize PlayerZero to access your project management system.
+5. Enter your domain, workspace, or API credentials if required.
+6. PlayerZero will begin syncing issues, stories, and releases automatically.
+
+---
+
+## Popular Platforms
+
+### Jira Software
+
+Jira Software is one of the most widely used project management platforms for engineering teams. PlayerZero’s Jira Software integration:
+
+- Supports deep two-way sync with issues, stories, and epics.
+- Auto-links development work to defect detection.
+- Pulls fields like assignees, statuses, comments, attachments, and priorities.
+
+---
+
+### Azure DevOps
+
+Azure DevOps provides Boards and Pipelines for managing engineering work. PlayerZero’s Azure DevOps integration:
+
+- Supports syncing bugs, features, tasks, and user stories.
+- Pulls metadata like status, assignee, iteration, and comments.
+
+---
+
+## Other Supported Platforms
+
+<Accordion title="Other Supported Platforms">
+- Linear
+- GitLab
+- Aha!
+- Asana
+- Basecamp
+- ClickUp
+- Height
+- Hive
+- Trello
+- Wrike
+- PivotalTracker
+- Rally
+- Zoho Desk
+</Accordion>
+
+We also support many other project management tools — if your platform supports standard OAuth-based integrations, it’s likely compatible with PlayerZero.
+
+Follow the same basic steps:
+
+1. Navigate to **Connectors** inside PlayerZero.
+2. Search for and select your project management tool.
+3. Authorize access and select the relevant project or workspace.
+
+---
+
+## Permissions and Data Access
+
+When connecting a project management system to PlayerZero, the following permissions and data access are required:
+
+<AccordionGroup>
+
+<Accordion title="Issues (Read and write)">
+The Issue object represents a task, bug, story, or epic within your project management system.
+- Title
+- Description
+- Status
+- Priority
+- Assignee
+- Reporter
+- Labels
+- Due Date
+- Sprint or Iteration
+- Parent Link (for Epics)
+- Subtasks
+- Created Timestamp
+- Updated Timestamp
+</Accordion>
+
+<Accordion title="Comments (Read and write)">
+The Comment object represents a discussion or note attached to an issue.
+- Body
+- Author
+- Created Timestamp
+- Updated Timestamp
+</Accordion>
+
+<Accordion title="Attachments (Read only)">
+The Attachment object represents a file or resource linked to an issue.
+- File Name
+- File URL
+- Author
+- Created Timestamp
+</Accordion>
+
+<Accordion title="Projects (Read only)">
+The Project object represents a collection of issues inside your tool.
+- Project Name
+- Project Key (if applicable)
+- Description
+- Created Timestamp
+</Accordion>
+
+<Accordion title="Users (Read only)">
+The User object represents individuals assigned to or reporting issues.
+- Name
+- Email Address
+- Is Active
+- Associated Projects
+</Accordion>
+
+<Accordion title="Sprints / Iterations (Read only)">
+The Sprint or Iteration object represents a planning cycle for groups of work.
+- Name
+- Start Date
+- End Date
+- Status (Active, Planned, Completed)
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+## What's Next?
+
+Once your project management tool is connected:
+
+- Issues, stories, and releases will appear linked to user sessions and defects inside PlayerZero.
+- You’ll be able to trace problems back to the exact work items that introduced them.
+- Future releases can automatically reference known risks and ongoing improvements.

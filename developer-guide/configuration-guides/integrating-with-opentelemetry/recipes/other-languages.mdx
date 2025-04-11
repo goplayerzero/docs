@@ -1,0 +1,50 @@
+---
+title: "Other Languages"
+description: "Learn how to connect other OpenTelemetry-supported languages to PlayerZero."
+---
+
+import HelpfulLinksIntro from '/snippets/open-telemetry/helpful-links-intro.mdx';
+
+# Other Languages
+
+OpenTelemetry supports a wide variety of languages beyond the major ones listed in this section.  
+If you're working with C++, Kotlin, Dart, C#, or any other OpenTelemetry-supported stack, you can still connect telemetry to PlayerZero.
+
+## General Approach
+
+The steps are the same no matter the language:
+
+1. **Instrument Your Application**  
+   Use your language’s OpenTelemetry SDK to create spans, logs, and metrics.  
+   👉 Refer to [opentelemetry.io/docs](https://opentelemetry.io/docs/) for detailed instructions per language.
+
+2. **Use an OTLP Exporter**  
+   Configure the exporter to send telemetry to PlayerZero’s endpoint:
+   
+   - `https://sdk.playerzero.app/otlp`
+   - With `Authorization: Bearer <your-playerzero-token>`
+
+3. **(Optional) Use a Collector**  
+   You can route telemetry through an OpenTelemetry Collector if you want additional processing, enrichment, or multi-destination forwarding.
+
+## Compatibility
+
+PlayerZero accepts:
+
+- **OTLP/HTTP** telemetry  
+- Across all major OpenTelemetry signal types: **traces**, **logs**, and **metrics**
+
+If your exporter supports OTLP/HTTP (almost all modern OpenTelemetry SDKs do), you're good to go.
+
+## Helpful Links
+
+<HelpfulLinksIntro/>
+
+- [OpenTelemetry Official Docs](https://opentelemetry.io/docs/)
+- [List of OpenTelemetry SDKs by Language](https://opentelemetry.io/docs/instrumentation/)
+- [OpenTelemetry Collector Overview](https://opentelemetry.io/docs/collector/)
+
+---
+
+> If you run into any issues integrating a less common language or stack, reach out to [support@playerzero.ai](mailto:support@playerzero.ai) — we're happy to help!
+

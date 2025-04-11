@@ -1,0 +1,82 @@
+---
+title: "PHP"
+description: "Learn how to instrument your PHP applications with OpenTelemetry and send data to PlayerZero."
+---
+
+import AutoInstrumentation from '/snippets/open-telemetry/auto-instrumentation.mdx';
+import ManualInstrumentation from '/snippets/open-telemetry/manual-instrumentation.mdx';
+import ExporterOverview from '/snippets/open-telemetry/exporter-overview.mdx';
+import CollectorOptional from '/snippets/open-telemetry/collector-optional.mdx';
+import HelpfulLinksIntro from '/snippets/open-telemetry/helpful-links-intro.mdx';
+
+# OpenTelemetry for PHP
+
+OpenTelemetry for PHP allows you to instrument your Laravel, Symfony, and custom PHP applications. The libraries support generating spans, traces, and sending data via OTLP.
+
+## Installation
+
+Install the required PHP packages via Composer:
+
+```bash
+composer require open-telemetry/opentelemetry 
+composer require open-telemetry/exporter-otlp
+```
+
+For full installation instructions:  
+👉 [OpenTelemetry PHP Getting Started](https://opentelemetry.io/docs/instrumentation/php/)
+
+## Auto-Instrumentation
+
+<AutoInstrumentation/>
+
+OpenTelemetry PHP currently focuses on manual instrumentation, but there are some framework-specific community efforts (e.g., Laravel).
+
+Future releases will bring more auto-instrumentation.
+
+## Manual Instrumentation
+
+<ManualInstrumentation/>
+
+You can manually create spans in PHP:
+
+```bash
+use OpenTelemetry\API\Trace\TracerProvider;
+$tracerProvider = TracerProvider::getDefaultTracerProvider(); $tracer = $tracerProvider->getTracer('my-service');
+$span = $tracer->spanBuilder('my-operation')->startSpan(); // your application logic $span->end();
+```
+
+Learn more:  
+👉 [PHP Manual Instrumentation Guide](https://opentelemetry.io/docs/instrumentation/php/manual/)
+
+## Exporters
+
+<ExporterOverview/>
+
+Set the OTLP exporter environment variables or configure directly in code:
+
+```bash
+OTEL_EXPORTER_OTLP_ENDPOINT=https://sdk.playerzero.app/otlp 
+OTEL_EXPORTER_OTLP_HEADERS=Authorization=Bearer <your-playerzero-token> 
+OTEL_TRACES_EXPORTER=otlp 
+OTEL_LOGS_EXPORTER=otlp 
+OTEL_METRICS_EXPORTER=otlp
+```
+
+
+Official reference:  
+👉 [PHP SDK Configuration](https://opentelemetry.io/docs/instrumentation/php/sdk/)
+
+## Optional: Using a Collector
+
+<CollectorOptional/>
+
+You can optionally forward telemetry through a collector for more advanced control over routing and transformation before reaching PlayerZero.
+
+## Helpful Links
+
+<HelpfulLinksIntro/>
+
+- [OpenTelemetry PHP Overview](https://opentelemetry.io/docs/instrumentation/php/)
+- [PHP SDK API Documentation](https://packagist.org/packages/open-telemetry/opentelemetry)
+- [PHP Manual Instrumentation](https://opentelemetry.io/docs/instrumentation/php/manual/)
+

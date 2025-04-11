@@ -1,0 +1,75 @@
+---
+title: "Monitor API Latency and Server Performance"
+sidebarTitle: "Monitor Runtime Telemetry"
+description: "Learn how to use PlayerZero’s anomaly detection and runtime telemetry tools to monitor server latency, analyze logs, identify affected users, and resolve issues using AI-powered insights."
+---
+
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
+import WebSdk from '/snippets/prerequisites/web-sdk.mdx';
+
+# Overview
+
+PlayerZero uses sophisticated anomaly detection algorithms to automatically surface critical issues. By identifying unusual error or latency patterns, PlayerZero notifies teams only when problems deviate significantly from normal behavior. This targeted approach helps teams maintain focus on the issues that matter most.
+
+This guide will walk you through how you can leverage PlayerZero's advanced anomaly detection and granular technical insights, so you can quickly spot critical errors, see exactly who is affected, and trace the root cause across all parts of the application.
+
+## Prerequisites
+
+<SourceControlManagement/>
+
+<WebSdk/>
+
+---
+
+## Process
+
+PlayerZero transforms scattered logs and error reports into fully contextualized issues, so you can see precisely when and how problems arise—and which users they affect. 
+
+### 1. **Visit the Logs Page**
+
+Begin by navigating to the [Logs Page](https://go.playerzero.app/logs) in PlayerZero. Here, you will find all errors and logs being passed into the PlayerZero platform. On this page, you can:
+
+- Filter logs by environment (Production/Pre-Production)
+- Search for specific error messages or patterns
+- Filter by dataset/service to focus on particular components
+- Sort by frequency, first occurrence, or last seen
+- Adjust time ranges for historical or real-time views
+
+<Note> PlayerZero captures only errors and specifically targeted logs defined through instrumentation. It logs information exclusively related to user-triggered actions—any other data is automatically discarded. </Note>
+
+### 2. Click into a Specific Log
+
+Each log entry in PlayerZero holds rich context for understanding the entire picture.
+
+- Full error message and stack trace
+- Associated metadata and system state
+- Environment details
+
+### 3. Identify Affected Users
+
+Scroll to the bottom of the log page to see each individual user session where the error occurred. PlayerZero ties each log or error event back to key context:
+
+- List of users who encountered the issue
+- Related actions
+- Demographic or segmentation data
+
+
+### 4. Replay the Moment the Issue Happened
+
+Click into a user session to see a single pane of glass view for what the application state looked like when the error occurred. PlayerZero presents the exact user journey with deep context:
+
+- Steps to reproduce
+- DOM snapshots
+- Network requests timeline
+- System logs and events
+- Browser console output
+- Application state changes
+
+---
+
+## Summary and Next Steps
+
+PlayerZero’s anomaly detection and customizable muting rules keep teams focused on the most critical errors. By automatically grouping similar problems and applying global rules across releases, PlayerZero ensures that your alerting workflow remains fine-tuned, preventing teams from being inundated with repetitive or low-impact notifications. Here are a few follow-ups that illuminate how can further refine and automate your monitoring experience:
+- [Setup Alerts for User Issues](/use-cases/monitor-for-anomalies/setup-performance-alerts) – PlayerZero actively tracks and alerts teams to any issues that emerge after a deployment.
+- [Mute any unwanted issues](/use-cases/monitor-for-anomalies/reduce-alert-noise) – Customize PlayerZero’s anomaly detection notifications to stay focused on the errors that truly matter.

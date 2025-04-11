@@ -1,0 +1,150 @@
+---
+title: "Connect Customer Ticketing Tools"
+description: "Integrate PlayerZero with your customer support platforms to correlate user-reported issues with code changes and telemetry."
+---
+
+## Overview 
+
+PlayerZero allows you to ingest customer tickets from your existing support platforms. This helps you:
+
+- Correlate external customer complaints with backend errors and user sessions
+- Prioritize issues based on real-world impact
+- Close the loop between customer support and engineering teams
+
+Once connected, PlayerZero automatically pulls in ticket metadata (like ticket IDs, descriptions, and timestamps) to enrich your incident and defect analysis.
+
+---
+
+## Setup Instructions
+
+The integration process is simple and UI-driven:
+
+1. From the PlayerZero web app, navigate to the **Home** page.
+2. Click **Connectors**.
+3. Select your ticketing platform (e.g., Zendesk, Jira Service Management, Salesforce Service Cloud).
+4. Authorize PlayerZero to access your ticketing system.
+5. Enter your domain, workspace, or API key if required.
+6. PlayerZero will begin syncing customer tickets for correlation with user sessions, telemetry, and defects.
+
+---
+
+## Popular Platforms
+
+### Zendesk
+
+Zendesk is one of the most widely used customer support platforms. PlayerZero’s Zendesk integration pulls in ticket data (title, description, timestamps, and user associations) for deep correlation with technical incidents.
+
+---
+
+### Jira Service Management
+
+Jira Service Management is Atlassian’s dedicated ITSM and support platform. PlayerZero can connect directly to Jira Service Management projects to ingest service tickets and customer-reported bugs.
+
+---
+
+### Salesforce Service Cloud
+
+Salesforce’s Service Cloud provides a CRM-native way to manage customer support workflows. With PlayerZero, you can link Salesforce tickets to incidents and defects seamlessly.
+
+---
+
+## Other Supported Platforms
+
+<Accordion title="Other Supported Platforms">
+- Dixa
+- Freshdesk
+- Fresh Service
+- Front
+- Gladly
+</Accordion>
+
+We also support many other customer support systems — if your platform supports standard OAuth-based integrations, it’s likely compatible with PlayerZero.
+
+---
+
+## Permissions and Data Access
+
+When connecting a ticketing system to PlayerZero, certain permissions are required to pull relevant data into the platform.  
+Here’s a breakdown of what PlayerZero accesses:
+
+<AccordionGroup>
+
+<Accordion title="Tickets (Read only)">
+The Ticket object represents a customer request or task within your system.
+- Assignees
+- Attachments
+- Completed Timestamp
+- Contact
+- Creator
+- Description
+- Due Date
+- Name
+- Parent Ticket
+- Priority
+- Remote Created Timestamp
+- Remote Updated Timestamp
+- Status
+- Ticket Type
+- Ticket URL
+</Accordion>
+
+<Accordion title="Comments (Read and write)">
+The Comment object represents a comment on a ticket.  
+(Note: Comment writing is currently under development and will need to be manually enabled in PlayerZero.)
+- Body
+- Privacy
+- Remote Created Timestamp
+- Ticket
+- User
+</Accordion>
+
+<Accordion title="Attachments (Read only)">
+The Attachment object represents a file or media attachment for a ticket.
+- Content Type
+- File Name
+- File URL
+- Remote Created Timestamp
+- Ticket
+</Accordion>
+
+<Accordion title="Contact (Read only)">
+The Contact object represents the customer, lead, or user that a ticket is associated with.
+- Details
+- Email Address
+- Name
+- Phone Number
+</Accordion>
+
+<Accordion title="Users (Read only)">
+The User object represents an employee within your organization handling tickets.
+- Email Address
+- Is Active
+- Name
+- Teams
+</Accordion>
+
+<Accordion title="Teams (Read only)">
+The Team object represents a group within your organization that handles support tickets.
+- Description
+- Name
+</Accordion>
+
+<Accordion title="Collections (Read only)">
+Collections group tickets into logical sets, such as "Engineering" or "Program Management."
+- Name
+- Description
+- Type
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+## What's Next?
+
+Once your customer ticketing tool is connected:
+
+- Tickets will appear linked to user sessions and defects inside PlayerZero.
+- You’ll be able to prioritize incidents by **customer impact**.
+- Future incidents can automatically reference previous similar customer issues.
+

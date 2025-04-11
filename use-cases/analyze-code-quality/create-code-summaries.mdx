@@ -1,0 +1,74 @@
+---
+title: "Create Line-by-Line Code Summaries"
+sidebarTitle: "Create Code Summaries"
+description: "PlayerZero creates clear, contextual code summaries for each change, helping teams understand what changed, why it matters, and how it impacts the system."
+---
+
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
+# Overview
+
+PlayerZero automatically generates clear, contextual summaries of code changes at both the pull request level and for individual file changes, making code reviews more efficient and accessible to all team members. Each changed file includes a detailed explanation of what was modified and why, helping reviewers quickly understand the impact and purpose of specific code modifications. Follow this guide to learn how to leverage PlayerZero-generated code summaries.
+
+## Prerequisites
+
+<SourceControlManagement/>
+
+---
+
+## Process
+
+This process walks you through initiating an AI-driven investigation in PlayerZero, starting with a question and refining insights through targeted follow-ups grounded in real code and user context.
+
+### 1. Understand Code Summaries in PlayerZero
+1. Navigate to the Pull Requests page and find your PR using the search functionality.
+2. The "Summary" tab provides a high-level overview of all changes, while the "Files Changed" tab shows detailed per-file summaries.
+3. In the Files Changed view, each modified file includes a summary explaining what changed and why, helping reviewers understand the context and purpose of specific modifications.
+
+<Tip> PlayerZero chunks code changes and uses AI embeddings to analyze both the modified code and its surrounding context, generating human-readable explanations that focus on functional changes rather than superficial modifications. These summaries are then enriched with repository-level context through a recursive summarization process that evaluates technical changes against defined product features to assess risk and impact. </Tip>
+
+### 2. Receive Code Summaries Natively in Your PRs
+- PlayerZero automatically adds both a high-level PR summary and detailed file-specific summaries as comments in your PR.
+- The summaries update automatically when new changes are pushed, ensuring reviewers always have current context.
+- Click through to PlayerZero for an interactive view that shows both the technical changes and their business impact.
+
+### 3. Understanding Feature Risk Analysis
+
+PlayerZero analyzes how your changes might impact different features of your product based on your defined Product Guidance. It is broken down into the following categories:
+
+- **None**: No direct impact to this feature
+- **Low**: Minor changes with minimal risk
+- **Moderate**: Significant changes requiring careful testing
+- **High**: Major changes with potential broad impact
+
+For each impacted feature, PlayerZero provides:
+
+- A summary of how the changes affect the feature
+- Specific areas requiring attention
+- Related test cases that should be prioritized
+- Historical context of past issues in these areas
+
+---
+
+## Setup Feature Guidance
+
+1. Navigate to [project guidance](https://go.playerzero.app/setting/guidance) in settings
+2. Configure product information for high-level context for analysis
+    1. Fill in your product name
+    2. Add a clear description of your product's purpose
+    - Note: This provides high-level context for analysis
+3. Add feature descriptions
+    1. Click "Create New Feature" to add each major feature
+    2. For each feature, provide:
+        - Feature Name
+        - Detailed description of what the feature does and its importance. 
+
+<Note> Chose features that are highly important for your organization, from a business perspective. Be thorough in your descriptions as this helps PlayerZero better understand your product's architecture and its impact on the bottom line. </Note>
+
+---
+
+## Summary and Next Steps
+
+By starting with a simple question and layering in focused follow-ups, you can use PlayerZero’s AI-powered chat to navigate your codebase and uncover meaningful insights—whether you’re debugging, learning, or planning changes. This process turns vague ideas into actionable investigation paths using real user data and code context.
+
+PlayerZero enhances your code review process with intelligent summaries and deep context, helping teams quickly understand changes and their broader implications. Now that you’ve guided an AI investigation, you can branch into other workflows powered by the same contextual engine.

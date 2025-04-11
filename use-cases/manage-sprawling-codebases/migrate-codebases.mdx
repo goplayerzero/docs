@@ -1,0 +1,133 @@
+---
+title: "Migrate Code Between Languages or Frameworks"
+sidebarTitle: "Migrate Codebases"
+description: "PlayerZero streamlines code migrations by providing AI-powered analysis, language translations, and best practices."
+---
+
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
+# Overview
+
+PlayerZero enables code migration projects by providing AI-powered code analysis that can understand and explain functionality across most programming languages. The platform offers intelligent code search capabilities so developers can locate and analyze similar code patterns across different repositories.
+
+## Prerequisites
+
+<SourceControlManagement/>
+
+---
+
+## Process
+
+### 1. Kickoff an AI Chat, Set Context 
+Begin by opening PlayerZero's AI chat interface and clearly stating your goal. For example:
+
+> "I need to migrate our user authentication service from Python to TypeScript. Let's start by understanding the current implementation."
+
+This establishes the context and helps the AI tailor its assistance to your specific migration objectives.
+
+👉 [Start an AI Chat session](https://go.playerzero.app)
+
+### 2. Code Discovery and Understanding
+Next, use PlayerZero’s intelligent code search to locate relevant files and understand their purpose:
+
+> "Show me all the files related to user authentication."  
+> "Explain the core authentication flow in this code."  
+> "What external services does this code interact with?"
+
+Review the code in the citation viewer panel to see the complete context. Ask additional follow-up questions to get deeper insights into business logic or integration points.
+
+### 3. Plan Your Migration Strategy
+Once you understand the code, ask the AI for guidance on how to approach the migration:
+
+> "What are the main classes and functions we need to migrate?"  
+> "Are there any language-specific features in the Python code that need special handling in TypeScript?"  
+> "Show me similar authentication implementations in TypeScript from our codebase."
+
+The AI can highlight any critical dependencies, frameworks, or library changes you should be aware of before proceeding.
+
+### 4. Iterative Translation  
+Begin translating core components one at a time to maintain clarity and control:
+
+> "Convert this User class to TypeScript, maintaining all functionality."  
+> "How should we handle these Python decorators in TypeScript?"  
+> "Show me how to implement this async pattern in TypeScript."
+
+Ask the AI to explain any important differences between languages—like error handling, asynchronous patterns, or type definitions—to ensure the new implementation remains secure and efficient.
+
+### 5. Integration Verification
+Once you have translated core pieces, verify their interactions with other services or components:
+
+> "Show me all services that call this authentication code."  
+> "How should we update these service calls for the TypeScript version?"  
+> "What changes are needed in our API layer?"
+
+Leverage the AI’s knowledge of your broader codebase to keep the migration aligned and consistent.
+
+### 6. Documentation and Best Practices
+Remember to document the newly migrated code and any relevant changes:
+
+> "Add TypeScript documentation comments to this code."  
+> "What TypeScript-specific best practices should we apply here?"  
+> "Help me document the key differences between the original and new implementation."
+
+Proper documentation ensures smooth handoffs and long-term maintainability.
+
+### 7. Create a Testing Strategy
+Finally, confirm that your migrated code is fully tested and stable:
+
+> "How should we test this TypeScript implementation?"  
+> "Show me examples of similar TypeScript tests in our codebase."  
+> "What edge cases should we consider in our tests?"
+
+Continually refine your tests as you proceed, ensuring no functionality is lost or inadvertently changed.
+
+---
+
+## Additional Prompting Tips
+
+Use the categories below to guide your code migration journey. 
+
+<AccordionGroup>
+
+  <Accordion title="Discovery & Analysis">
+    **Context & Typical Questions**  
+    - Where is [component/class] used throughout the codebase?  
+    - Which files reference [functionName]?  
+    - How do I see the full context of a function to ensure I understand dependencies?  
+  </Accordion>
+
+  <Accordion title="Translation & Rewriting">
+    **Context & Typical Questions**  
+    - How do I convert Python decorators to TypeScript decorators?  
+    - How can I handle async logic between different languages?  
+    - What library replacements should I be aware of?  
+  </Accordion>
+
+  <Accordion title="Integration & Dependencies">
+    **Context & Typical Questions**  
+    - Which services or APIs call this code?  
+    - How do I update external integrations for the new implementation?  
+    - Are there any hidden dependencies that might break during migration?  
+  </Accordion>
+
+  <Accordion title="Testing & Validation">
+    **Context & Typical Questions**  
+    - What test coverage do we already have, and how do we expand it?  
+    - How do I replicate test cases in the new language?  
+    - Which edge cases should we be most concerned about during migration?  
+  </Accordion>
+
+</AccordionGroup>
+
+**Prompting Tips**
+
+1. **Ask for deeper context** – “Explain how this Python function interacts with the database.”  
+2. **Request specific translations** – “Translate this piece of code into TypeScript with comments.”  
+3. **Clarify dependencies** – “What major libraries or frameworks does this code rely on?”  
+4. **Iterate and refine** – “Suggest improvements for performance after translation.”
+
+---
+
+## Summary and Next Steps
+
+With PlayerZero, migrating code between languages or frameworks becomes a structured, informed process. The AI chat maintains context, provides targeted insights, and helps you refactor effectively. Whether you’re transitioning a small module or an entire application, PlayerZero ensures minimal disruptions while preserving business logic and security considerations.

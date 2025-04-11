@@ -1,0 +1,41 @@
+---
+title: "Generate Code that Fixes Customer Issues"
+sidebarTitle: "Generate Code Fixes"
+description: "PlayerZero suggests targeted code fixes by combining session data, code context, and historical patterns to resolve issues at their root."
+---
+
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
+import WebSdk from '/snippets/prerequisites/web-sdk.mdx';
+
+# Overview
+PlayerZero guides developers to effective code fixes by combining session recordings, error context, and code understanding into a unified analysis. It examines similar historical fixes and the specific user interactions that triggered the issue, helping developers understand both what to fix and why—ensuring solutions address the root cause while aligning with established patterns. In this guide, we will explore how to generate targeted code fixes by continuing an AI chat, asking focused follow-up questions, and evaluating refined solution paths using PlayerZero’s internal workspace.
+
+## Prerequisites
+
+<SourceControlManagement/>
+
+<WebSdk/>
+
+---
+
+## Process
+### 1. Open an AI Chat Session
+
+This workflow kicks off after you’ve created a chat with PlayerZero, where work has already been done to create a context window and internal workspace around the issue at hand. To learn how to do this, read the [trace errors to code](/use-cases/resolve-customer-issues/trace-errors-to-code) guide.
+
+### 2. Ask Follow-up Questions
+
+Ask follow-up questions around key areas. Key areas might include specific error messages that catch your attention, code snippets you want to understand better, particular parts of the code (such as key services or files), or possible alternative routes or root causes to confirm.
+
+PlayerZero provides targeted explanations and suggestions based on your focus areas, drawing from both codebase knowledge and user session data.
+
+### 3. Review and Refine
+Assess, compare, and dive into different solutions and issue pathways.
+
+<Note> PlayerZero keeps all context—code, debug data, and previous chats—readily available and interconnected, allowing you to build a complete understanding of the solution.</Note>
+
+---
+
+## Summary and Next Steps
+This workflow leverages past code changes, user-triggered context, and debugging history to suggest fixes aligned with established patterns and best practices. The result is a deeper understanding of both what needs to be fixed and why, reducing the likelihood of patching symptoms instead of root causes. To build on this process, use the links below to further interrogate your codebase, analyze dependencies, and enforce standards.

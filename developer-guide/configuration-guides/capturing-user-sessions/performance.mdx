@@ -1,0 +1,85 @@
+---
+title: "Privacy and Performance"
+sidebarTitle: "Privacy & Performance"
+description: "Understand how the PlayerZero SDK stays lightweight, efficient, and optimized for frontend performance."
+---
+
+## What is the PlayerZero SDK?
+
+- **Identity & Tracing:** Joins the identity of the user with tracing data.
+- **Frontend OTEL:** Implements frontend observability in line with OpenTelemetry standards.
+- **Actions:** Captures user actions and events efficiently.
+- **Network Traffic:** Monitors network requests with minimal overhead.
+
+---
+
+## 1. Lightweight and Predictable Performance
+
+The PlayerZero Web SDK was built as a minimal, efficient SDK designed to integrate into web applications without impacting user experience. The core library is under 105 KB minified, providing:
+- High-frequency, asynchronous event tracking and local buffering.
+- Optimized JSON-based payload encoding.
+- Efficient, compressed communication with our backend.
+- Real-time adjustments via dynamic configuration.
+- DOM recording leveraging the standard built-in Mutation Observer API.
+
+---
+
+## 2. Optimized Core Implementation
+
+PlayerZero’s Web SDK is written entirely in modern JavaScript, leveraging native browser features to ensure fast, concurrent, and memory-efficient operation. Our lightweight wrapper uses an external recording script that works across different web environments while maintaining minimal resource overhead.
+
+---
+
+## 3. Asynchronous and Non-blocking Operation
+
+The PlayerZero SDK executes most of its work asynchronously ensuring that performance monitoring occurs in parallel with your application’s core functions.
+
+---
+
+## Managing Multiple SDKs
+
+When multiple observability SDKs are deployed on a site, the SDK that sets the trace ID first will determine the trace context. This behavior conforms to the W3C trace context specification. As long as the trace ID follows the W3C standard, any potential collision does not cause issues. If you have further questions about managing multiple SDKs, please contact us.
+
+---
+
+## Detailed Performance Metrics
+
+### Network Bandwidth
+
+**PlayerZero Network Bandwidth Measurements**  
+In its default configuration, the PlayerZero Web SDK has been engineered to keep network usage minimal. Approximate upload/download metrics are shown below:
+- **Download Bandwidth:** Approximately ~100 bytes per minute.
+- **Upload Bandwidth:** Approximately ~200 bytes per minute.
+
+These values are achieved through efficient JSON payload encoding and batched event transmission, ensuring that only essential data is communicated.
+
+*Note: Actual bandwidth usage may vary depending on the application workload.*
+
+---
+
+### Disk Storage
+
+**PlayerZero Disk Storage Usage**  
+PlayerZero caches data to disk temporarily and defers large transmissions until the page is idle. This strategy ensures that data uploads occur during idle times, minimizing the impact during active user interactions.
+
+---
+
+## Frequently Asked Questions
+
+**Will PlayerZero have a significant impact on my site's performance?**  
+No. The PlayerZero snippet is designed to be lightweight and efficient, ensuring minimal impact on your site’s performance.
+
+**Is the PlayerZero snippet large?**  
+No. The core snippet is approximately 105 KB minified, making it smaller than many other web resources. In comparison, many industry-standard browser observability SDKs are 1000 KB or larger.
+
+**How does PlayerZero record data?**  
+PlayerZero uses event listeners and observers to detect user interactions, network requests, and errors. The data is recorded as it happens, with heavier processing deferred to background tasks or performed server-side, ensuring the main application remains responsive.
+
+**What is the impact of event processing or uploading data?**  
+Most operations in PlayerZero resolve in fractions of a millisecond. Even when additional processing or data uploads are required, tasks are usually executed asynchronously and efficiently, resulting in negligible blocking time.
+
+**Will the PlayerZero script loading impact my site?**  
+No. The PlayerZero snippet loads asynchronously, so it will not delay your site’s rendering or interactivity.
+
+**What happens if I run multiple observability SDKs?**  
+When multiple SDKs are present, the one that sets the trace ID first will determine the trace context. This behavior adheres to the W3C trace context specification and prevents issues, as long as the trace ID conforms to the standard. If you have further questions about managing multiple SDKs, please reach out to us.

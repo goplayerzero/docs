@@ -1,0 +1,98 @@
+---
+title: "Ruby"
+description: "Learn how to instrument your Ruby applications with OpenTelemetry and send data to PlayerZero."
+---
+
+import AutoInstrumentation from '/snippets/open-telemetry/auto-instrumentation.mdx';
+import ManualInstrumentation from '/snippets/open-telemetry/manual-instrumentation.mdx';
+import ExporterOverview from '/snippets/open-telemetry/exporter-overview.mdx';
+import CollectorOptional from '/snippets/open-telemetry/collector-optional.mdx';
+import HelpfulLinksIntro from '/snippets/open-telemetry/helpful-links-intro.mdx';
+
+# OpenTelemetry for Ruby
+
+OpenTelemetry offers full support for Ruby, making it easy to add observability to your Rails apps, Sinatra services, and background jobs.
+
+## Installation
+
+Install the OpenTelemetry Ruby gems:
+
+```bash
+gem install opentelemetry-sdk
+gem install opentelemetry-exporter-otlp
+gem install opentelemetry-instrumentation-all
+```
+
+Or add them to your `Gemfile`:
+
+```bash
+gem 'opentelemetry-sdk'
+gem 'opentelemetry-exporter-otlp'
+gem 'opentelemetry-instrumentation-all'
+```
+
+For full installation instructions:  
+👉 [OpenTelemetry Ruby Getting Started](https://opentelemetry.io/docs/instrumentation/ruby/)
+
+## Auto-Instrumentation
+
+<AutoInstrumentation/>
+
+In Ruby, you can automatically instrument popular frameworks like Rails, Rack, and ActiveRecord:
+
+```bash
+require 'opentelemetry/sdk' 
+require 'opentelemetry/instrumentation/all'
+OpenTelemetry::SDK.configure do |c| c.use_all() end
+```
+
+Learn more:  
+👉 [Ruby Auto-Instrumentation Setup](https://opentelemetry.io/docs/instrumentation/ruby/automatic/)
+
+## Manual Instrumentation
+
+<ManualInstrumentation/>
+
+You can manually create spans in your Ruby code:
+
+```bash
+tracer = OpenTelemetry.tracer_provider.tracer('my-service')
+tracer.in_span('my-operation') do |span|
+    your application logic
+end
+```
+
+Learn more:  
+👉 [Ruby Manual Instrumentation Guide](https://opentelemetry.io/docs/instrumentation/ruby/manual/)
+
+## Exporters
+
+<ExporterOverview/>
+
+You can configure the OTLP exporter via environment variables:
+
+```bash
+OTEL_EXPORTER_OTLP_ENDPOINT=https://sdk.playerzero.app/otlp 
+OTEL_EXPORTER_OTLP_HEADERS=Authorization=Bearer <your-playerzero-token> 
+OTEL_TRACES_EXPORTER=otlp 
+OTEL_LOGS_EXPORTER=otlp 
+OTEL_METRICS_EXPORTER=otlp
+```
+
+Official reference:  
+👉 [Ruby SDK Configuration](https://opentelemetry.io/docs/instrumentation/ruby/sdk/)
+
+## Optional: Using a Collector
+
+<CollectorOptional/>
+
+You can optionally route telemetry through an OpenTelemetry Collector before sending it to PlayerZero.
+
+## Helpful Links
+
+<HelpfulLinksIntro/>
+
+- [OpenTelemetry Ruby Overview](https://opentelemetry.io/docs/instrumentation/ruby/)
+- [Ruby SDK Setup](https://opentelemetry.io/docs/instrumentation/ruby/sdk/)
+- [Rails Instrumentation](https://opentelemetry.io/docs/instrumentation/ruby/instrumentation/rails/)
+

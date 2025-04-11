@@ -1,0 +1,121 @@
+---
+title: "Understand Legacy or Foreign Code"
+sidebarTitle: "Understand Foreign Code"
+description: "PlayerZero helps you gain a deep understanding of your codebase through natural language queries and contextual AI assistance."
+---
+
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
+# Overview
+
+By building a deep understanding of your code's architecture and recent changes, PlayerZero can explain complex implementations in clear technical terms with direct references to the source. When you need to debug issues or take ownership of another developer's code, you can quickly ramp up without piecing together scattered documentation or chasing down former team members for context. Simply ask the AI about any part of the implementation and get immediate, technically accurate explanations tailored to your project.
+
+## Prerequisites
+
+<SourceControlManagement/>
+
+---
+
+## Process
+
+### 1. Kickoff an AI Chat, Set Context
+Open PlayerZero’s AI chat interface and clearly state your goal. For example:
+
+> "I need to figure out how the user authentication logic works in our Node.js service. Can you walk me through the relevant code files and dependencies?"
+
+This initial query sets the context and helps the AI focus on the specific code area you need to understand.
+
+👉 [Start an AI Chat session](https://go.playerzero.app)
+
+### 2. Ask Code-Level Questions
+Describe what you’re looking for in plain English. You might ask:
+
+> "Show me the function that processes webhook events and explain its key steps."
+
+PlayerZero will locate relevant files, highlight important code sections, and provide an overview of how the code works.
+
+### 3. Refine with AI Assistance
+Build on the AI’s response by asking follow-up questions. The AI can:
+
+- Identify missing information
+- Suggest potential interactions or dependencies
+- Provide deeper explanations of the code’s business purpose
+
+Keep this conversation going until you have a clear grasp of the technical flow.
+
+### 4. Dive into Dependencies
+Ask the AI to surface how the code connects to other services, libraries, or APIs:
+
+> "What other parts of the system call this webhook handler?"
+> "How does the data flow once we receive the webhook event?"
+
+PlayerZero will trace through your codebase to show integrations, data paths, and potential failure points.
+
+### 5. Review and Summarize
+Have PlayerZero provide a concise summary of the code’s logic and purpose. This can include:
+
+- How user interactions trigger certain flows
+- The key data transformations or validations
+- The overall business logic behind the feature
+
+These summaries act as living documentation you can reference later or share with teammates.
+
+### 6. Share Knowledge
+Once you’re confident in your understanding, use PlayerZero’s collaboration features to share these insights:
+
+- Tag relevant teammates and invite them to review
+- Copy direct links to AI explanations
+- Enable feedback and comments
+
+This centralizes context for everyone, from developers to product managers.
+
+---
+
+## Additional Prompting Tips
+
+Use the categories below to guide your code exploration. 
+
+<AccordionGroup>
+
+  <Accordion title="Search & Discovery">
+    **Context & Typical Questions**  
+    - How do I locate code related to [specific feature or module]?  
+    - Can PlayerZero show me where user authentication is implemented?  
+    - Which files handle [particular function or service]?  
+  </Accordion>
+
+  <Accordion title="Contextual Understanding">
+    **Context & Typical Questions**  
+    - Explain how this code works in the larger system.  
+    - What business purpose does this code serve?  
+    - Which services or files are related to this code?  
+  </Accordion>
+
+  <Accordion title="Debugging & Issue Resolution">
+    **Context & Typical Questions**  
+    - What might cause [specific error] to occur?  
+    - Where do we handle similar exceptions in the codebase?  
+    - Which recent changes affected this functionality?  
+  </Accordion>
+
+  <Accordion title="Collaboration & Knowledge Sharing">
+    **Context & Typical Questions**  
+    - How do I share these findings with another developer?  
+    - Can I keep AI-generated explanations alongside the code?  
+    - How do we maintain version control for code clarifications or doc updates?  
+  </Accordion>
+
+</AccordionGroup>
+
+**Prompting Tips**
+
+1. **Combine details** – “Find the `email notification` code and explain how user preferences are applied.”  
+2. **Ask for historical context** – “When was this last changed, and who did it?”  
+3. **Request clarifications** – “What are the main error handling strategies here?”  
+4. **Use follow-ups** – “Show me where else these patterns appear in the codebase.”
+
+---
+
+## Summary and Next Steps
+
+With PlayerZero, understanding and onboarding to complex codebases becomes a streamlined and collaborative effort. Whether you’re dissecting a single function or analyzing large-scale microservices, the AI assistant provides contextual, in-depth explanations, fosters knowledge sharing, and keeps everything easily searchable.

@@ -1,0 +1,100 @@
+---
+title: "Detect Regressions using Historical Context"
+sidebarTitle: "Detect Regressions"
+description: "PlayerZero leverages historical tickets and code embeddings to automatically generate regression tests for your pull requests."
+---
+
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
+# Overview
+
+PlayerZero identifies regressions by comparing your current code changes against historical bugs and customer frustrations. Through AI-driven embeddings, PlayerZero creates semantic fingerprints of both new code diffs and past tickets, then uses vector similarity matching to surface the most relevant historical issues. If overlaps are found, PlayerZero generates targeted regression tests directly in your PR, highlighting exactly which past problems could recur. Follow this guide to learn how to leverage PlayerZero-generated regression tests.
+
+## Prerequisites
+
+<SourceControlManagement/>
+
+---
+
+## Process
+
+### 1. Understand Regression Tests in PlayerZero PRs
+
+1. Navigate to the Pull Requests page and use the search bar to find your PR by title, branch name, or content.
+2. Open your PR and look for the "Regression Tests" section, which shows potential issues that could recur based on historical data - each regression test includes the original customer issue, when it occurred, and why it's relevant to your current changes.
+3. Click on any regression test to see detailed context about the historical issue, including the original customer complaint, impact, and specific areas of code that were involved.
+
+
+### 2. Receive Regression Tests natively in your PRs
+
+- PlayerZero automatically adds regression tests to your PR comments, with each test linked to historical issues and customer feedback that were associated with the modified code.
+- Each regression test includes a "Regression remembered from an issue" tag with the date of the original issue, making it clear why this test was generated and helping teams avoid repeating past problems.
+- Click through to PlayerZero to see the full context of each regression, including the original ticket, customer impact, and complete history of the issue.
+
+---
+
+## Ask the AI about Regressions
+
+Want to understand potential regressions faster? You can interact directly with PlayerZero’s AI Chat to explore the origin, frequency, and impact of historical issues tied to your code changes.
+
+👉 [Start an AI Chat session](https://go.playerzero.app)
+
+Use the categories below to guide your investigation with the right level of historical context. 
+
+**Contextual Scenarios**
+
+<AccordionGroup>
+
+  <Accordion 
+    title="Previously Reported Bugs – Ensuring repeat issues are squashed"
+  >
+    **Context Scenarios**:
+    - You see a regression test flagged from a known bug and want to verify it.
+    - You’re analyzing the root cause of a bug to confirm your new PR won’t trigger it again.
+    - You need to learn if there’s an established fix or workaround for this bug in another part of the code.
+  </Accordion>
+
+  <Accordion 
+    title="Customer Frustrations – Matching code changes to past user pain points"
+  >
+    **Context Scenarios**:
+    - You’re reminded of a previous complaint and want to see if the same code area is affected.
+    - You’re prioritizing user-impactful changes and need to confirm coverage for critical customer issues.
+    - You want to confirm that new code logic addresses or improves the frustrating scenarios previously reported.
+  </Accordion>
+
+  <Accordion 
+    title="Tracing Overlapping Areas – Finding related files or modules"
+  >
+    **Context Scenarios**:
+    - The regression test points to multiple files historically linked by a single bug.
+    - You need to understand how different services or modules tie into a past incident.
+    - You’re investigating whether your PR inadvertently touches code with a known vulnerability.
+  </Accordion>
+
+  <Accordion 
+    title="Avoiding Future Risk – Preventing the same pitfalls"
+  >
+    **Context Scenarios**:
+    - You’re adding new logic on top of a previously fragile flow.
+    - You want to confirm that tests cover edge cases around code that failed before.
+    - You’re ensuring the same root cause doesn’t remain hidden in other parts of the codebase.
+  </Accordion>
+
+</AccordionGroup>
+
+**Prompting Tips**
+
+1. **Anchor concepts together** – “How does [Service A] interact with [Library B]?”
+2. **Adjust context scope** – Zoom in on specific files or pull system-wide dependencies.
+3. **Define the output you want** – Ask for code snippets, summaries, relationships, or histories.
+4. **Follow the thread** – Use follow-ups like “Where else is this service used?” 
+
+---
+
+## Summary and Next Steps
+
+By following these steps, you ensure every significant past issue or customer complaint relevant to your code changes is flagged in your PR. PlayerZero’s automated regression checks reduce the risk of reintroducing historical bugs, guiding you to review and validate these areas proactively.
+
+With your codebase connected, PlayerZero maps every pull request to a curated set of regression tests based on semantic overlaps. This goes beyond simple file matching—PlayerZero’s AI searches for underlying similarities in code, logic, and bug descriptions. As a result, your team can systematically prevent regressions and keep development flowing confidently.
+

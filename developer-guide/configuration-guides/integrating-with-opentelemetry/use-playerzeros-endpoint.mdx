@@ -1,0 +1,104 @@
+---
+title: "Use PlayerZero's Endpoint"
+description: "Configure your OpenTelemetry setup to export traces, logs, and metrics to PlayerZero."
+---
+
+## Overview
+
+Every team’s OpenTelemetry setup is a little different. Whether you rely on manual instrumentation, auto-instrumentation, custom collectors, or language-specific agents, PlayerZero can work with your setup.
+
+<Note>If your telemetry is OpenTelemetry-compliant, you can forward it to PlayerZero.</Note>
+
+Once connected, PlayerZero enriches your telemetry with user sessions, code insights, and deep issue analysis.
+
+---
+
+## Step 1: Instrument OpenTelemetry
+
+To use PlayerZero’s capabilities around defects, user sessions, and code insights, you first need to **instrument** your application with OTel. Instrumentation generates the traces, logs, and metrics that capture your application’s runtime behavior.
+
+### Where to Start
+- Check out [OpenTelemetry Concepts: Instrumentation](https://opentelemetry.io/docs/concepts/instrumentation/)  
+- Decide on [Automatic vs. Manual Instrumentation](https://opentelemetry.io/docs/concepts/instrumentation/#automatic-instrumentation)
+
+### Recommended Setup: Auto-Instrumentation
+We suggest **auto-instrumentation** for supported stacks. It requires minimal effort and immediately starts capturing meaningful signals like HTTP and database spans.
+
+### Manual Instrumentation
+If your language or frameworks don’t fully support auto-instrumentation—or if you need custom spans—manual instrumentation lets you precisely define what’s captured. This can be more work but offers granular control.
+
+### PlayerZero Tip
+If you’re using the **PlayerZero Web SDK**, be sure to enable **Trace Headers** under **Settings > Web SDK → Enable OpenTelemetry Headers**. This allows the frontend to pass a `traceparent` header to your backend, linking user actions to backend spans automatically.
+
+---
+
+## Step 2: Configure the PlayerZero Endpoint
+
+Once you’ve confirmed your app is emitting OTel data (via auto or manual instrumentation), you’re ready to **point your exporter** at PlayerZero.
+
+### Understanding Your Configuration Context
+OpenTelemetry supports many configuration methods:
+
+- `.properties` files (e.g., Java, Spring Boot)
+- Environment variables (e.g., Node.js, Docker)
+- YAML configs (e.g., `otel-config.yaml`)
+- CLI flags or Helm charts (Kubernetes)
+- OpenTelemetry Collector pipelines
+
+Wherever you set these values, the goal is to direct OTel signals to PlayerZero’s **OTLP** endpoint.
+
+### Required OTLP Config
+
+```properties
+otel.service.name=MyServiceName
+otel.exporter.otlp.endpoint=https://sdk.playerzero.app/otlp
+otel.exporter.otlp.headers=Authorization=Bearer <your-api-token>
+otel.traces.exporter=otlp
+otel.logs.exporter=otlp
+otel.metrics.exporter=otlp
+```
+
+> **Note:** Your API token is available in the PlayerZero dashboard under **Settings → API Keys**.
+
+---
+
+## How It Works
+
+Once your exporter is configured:
+
+- **Telemetry Flow**: OTel sends traces, logs, and metrics directly to PlayerZero’s OTLP endpoint.
+- **Frontend Linking**: If the Web SDK is enabled, frontend user sessions automatically link to backend spans via `traceparent`.
+- **Intelligent Analysis**: PlayerZero analyzes incoming telemetry for anomalies, regressions, and user-facing defects, surfacing them with full session context.
+
+> You can also duplicate telemetry to other observability platforms — simply configure multiple exporters if needed.
+
+---
+
+## About Instrumentation
+
+Instrumenting your application is the first step toward capturing the telemetry that PlayerZero can enrich and analyze. If you're just getting started, the examples below will guide you through setting up instrumentation for your specific language or framework.
+
+
+## Language-Specific Quick Links
+
+Choose your stack to get started with instrumentation:
+
+- **[Java →](/developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/java)** How to set up OpenTelemetry SDKs and Java Agents for tracing and logging.
+
+- **[Node.js →](/developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/node)** Auto-instrument HTTP, Express, and database libraries in Node.js apps.
+
+- **[Python →](/developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/python)** Enable OpenTelemetry for Python apps using Django, Flask, or FastAPI.
+
+- **[Go →](/developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/go)** Instrument Go services manually or with common auto-instrumentation helpers.
+
+- **[.NET →](/developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/dotnet)** Use OpenTelemetry with ASP.NET Core and background worker services.
+
+- **[Ruby →](/developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/ruby)** Set up OpenTelemetry in Ruby applications and Rails services.
+
+- **[Rust →](/developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/rust)** Add observability to Rust applications with tracing and metrics libraries.
+
+- **[PHP →](/developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/php)** Bring OpenTelemetry observability into your PHP apps and services.
+
+- **[Swift →](/developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/swift)** Capture telemetry from Swift and iOS applications.
+
+- **[Erlang/Elixir →](/developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/erlang-elixir)** Connect telemetry from BEAM-based apps like Erlang or Elixir/docs/integrations/opentelemetry/recipes/.

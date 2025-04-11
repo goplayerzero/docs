@@ -1,0 +1,94 @@
+---
+title: "Advanced SDK Usage"
+description: "Learn how to unlock advanced features of the PlayerZero Web SDK, including custom event tracking, devtools integrations, and fine-tuning behavior for your application."
+---
+
+## Overview
+
+The PlayerZero Web SDK offers a range of advanced methods beyond basic initialization, giving you greater flexibility and control over how user sessions, analytics events, and devtools integrations are handled. This guide is for developers looking to extend PlayerZero’s functionality, troubleshoot edge cases, and build custom workflows on top of PlayerZero’s core capabilities.
+
+## Advanced SDK Methods
+
+Once PlayerZero is initialized, you can use a variety of SDK methods to enhance functionality.
+
+### Track Custom Analytics Events
+
+Send additional analytics events to PlayerZero:
+
+`PlayerZero.track("checkout", { item: "chocolate" });`
+
+### Generate a Devtools URL
+
+Generate a link that opens the session directly in PlayerZero devtools:
+
+`PlayerZero.devtoolsUrl().then((url) => { console.log("PlayerZero Devtools URL", url); });`
+
+### Full API Reference
+
+- `PlayerZero.init(projectId: string)`  
+  Initialize PlayerZero with your project ID.
+
+- `PlayerZero.isInitialized(): boolean`  
+  Returns whether PlayerZero has already been initialized.
+
+- `PlayerZero.identify(userId: string, metadata: Record<string, unknown>)`  
+  Identify a user with metadata.
+
+- `PlayerZero.setUserVars(metadata: Record<string, unknown>)`  
+  Set additional metadata on the current user without re-identifying.
+
+- `PlayerZero.track(event: string, metadata?: Record<string, unknown>)`  
+  Track an event in PlayerZero.
+
+- `PlayerZero.prompt()`  
+  Open the Devtools share window.
+
+- `PlayerZero.devtoolsUrl(): Promise<string>`  
+  Returns a URL that opens the current session in devtools.
+
+- `PlayerZero.kill()`  
+  Permanently shut down PlayerZero on the current page session.
+
+---
+
+## Building a Custom Devtools Button
+
+The default blue share button is disabled on production environments. To give users a branded way to trigger the devtools popup, you can build your own button using the `playerzero.prompt()` method.
+
+This allows you to integrate a custom trigger (like a button) anywhere in your application UI. The function is available globally when PlayerZero is active on the page.
+
+You can even test this directly in your browser console by running `playerzero.prompt()` on a page where PlayerZero is initialized.
+
+---
+
+## Resolving Missing Network Calls
+
+### Problem
+
+In rare cases, PlayerZero may fail to capture network traffic when other libraries (e.g., Apollo GraphQL, Sentry, DataDog RUM) override `window.fetch` or `XMLHttpRequest`.
+
+### Solution
+
+To address this, embed a small patch script **as the first script tag in your HTML `<head>`** — before any third-party libraries are loaded.
+
+This ensures that PlayerZero wraps `window.fetch` before any other library does, giving it access to monitor requests and errors reliably.
+
+If this problem doesn’t apply to you, you can safely ignore this step.
+
+---
+
+## Next Steps
+
+Looking for more? Explore:
+
+- **[Domain Controls](/docs/domain-controls)**  
+  Adjust PlayerZero's behavior by environment, hostname, or domain.
+
+- **[Thresholds and Filtering](/docs/integrations/devtools)**  
+  Customize how your team uses PlayerZero's debugging tools.
+
+
+---
+
+That’s everything you need to extend and optimize your PlayerZero integration.
+

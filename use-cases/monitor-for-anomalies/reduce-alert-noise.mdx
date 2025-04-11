@@ -1,0 +1,64 @@
+---
+title: "Mute Unwanted Notifications and Alerts"
+sidebarTitle: "Reduce Alert Noise"
+description: "Learn how to reduce alert fatigue by creating muting rules for non-critical issues. Customize PlayerZero's anomaly detection notifications to stay focused on the errors that truly matter."
+---
+
+import SourceControlManagement from '/snippets/prerequisites/source-control-management.mdx';
+
+import WebSdk from '/snippets/prerequisites/web-sdk.mdx';
+
+# Overview
+
+PlayerZero uses sophisticated anomaly detection algorithms to identify unusual patterns of errors or latency, ensuring teams are only notified when issues represent significant deviations from normal behavior. This guide will show you how to create customized muting rules based on specific API patterns or issue similarities, allowing you to strategically filter out known issues or expected behaviors while staying alert to critical problems. 
+## Prerequisites
+
+<SourceControlManagement/>
+
+<WebSdk/>
+
+---
+
+## Process
+
+PlayerZero helps your team stay proactive by identifying anomalies—whether they’re spikes in existing issues, brand-new errors, or performance degradations—and allowing you to fine-tune how your team receives alerts.
+
+### 1. Understand Errors in PlayerZero
+
+Begin by navigating to the [Logs Page](https://go.playerzero.app/logs) in PlayerZero. Here, you will find all errors and logs being passed into the PlayerZero platform. 
+
+
+### 2. Identify Issues you want to Mute
+
+Once you’ve identified unimportant or noisy errors, filter out or mute the noise so you can focus on truly critical issues. To do this click the “Mute” button next to the error name.
+
+### 3. Define your Muting Strategy
+
+#### Set API-Based Muting
+
+1. Define the API Endpoint Rule, specifying:
+   - **Status Code** (e.g., `"404"` or `"4.*"`)  
+   - **HTTP Method** (e.g., `"GET"`, `"POST"`)  
+   - **URL Pattern** (e.g., `"/api/v1/users/*"`)  
+2. Review matching issues.  
+3. Click **Create** to activate your muting rule.
+
+#### Set Similarity-Based Muting
+
+1. Select **Create Similarity Rule**.  
+2. Choose a similarity threshold:
+   - **Almost Exactly** for exact matches  
+   - **Similar** for close variations  
+   - **Loose** for broader patterns  
+3. Review the preview:
+   - Which issues will be muted  
+   - Which issues will remain active  
+4. Click **Create** to finalize.
+
+---
+
+## Summary and Next Steps
+
+PlayerZero ensures your team remains informed of impactful problems without drowning in repetitive or low-priority notifications. By combining anomaly-based alerts and flexible muting rules, you can trust that each alert you receive signals a real deviation from normal behavior. As you refine your alerting criteria, PlayerZero continues to automatically classify, group, and track issues, maintaining a high-level view of your application’s health.  
+
+Learn about how PlayerZero actively tracks and alerts teams to any issues that emerge after a deployment in the [Setup Alerts for User Issues](/use-cases/monitor-for-anomalies/setup-performance-alerts) guide.

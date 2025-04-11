@@ -1,0 +1,79 @@
+---
+title: "Java"
+description: "Learn how to instrument your Java applications with OpenTelemetry and send data to PlayerZero."
+---
+
+import AutoInstrumentation from '/snippets/open-telemetry/auto-instrumentation.mdx';
+import ManualInstrumentation from '/snippets/open-telemetry/manual-instrumentation.mdx';
+import ExporterOverview from '/snippets/open-telemetry/exporter-overview.mdx';
+import CollectorOptional from '/snippets/open-telemetry/exporter-overview.mdx';
+import HelpfulLinksIntro from '/snippets/open-telemetry/helpful-links-intro.mdx';
+
+# OpenTelemetry for Java
+
+OpenTelemetry provides a powerful and mature set of tools to instrument Java applications. With support for auto-instrumentation, manual span creation, and OTLP exporters, you can quickly start collecting traces, logs, and metrics from your Java services.
+
+## Installation
+
+To get started, you’ll need to add the OpenTelemetry Java libraries to your project.  
+You can use Maven, Gradle, or your preferred build tool.
+
+Refer to the official installation guide:  
+
+👉 [OpenTelemetry Java Getting Started](https://opentelemetry.io/docs/instrumentation/java/automatic/)
+
+## Auto-Instrumentation
+
+<AutoInstrumentation/>
+
+For Java, you can use the OpenTelemetry Java Agent to auto-instrument your application without code changes.
+
+- Download the agent jar.
+- Start your application with the `-javaagent` JVM argument pointing to the downloaded jar.
+
+Learn more:  
+
+👉 [Java Auto-Instrumentation Setup](https://opentelemetry.io/docs/instrumentation/java/automatic/)
+
+## Manual Instrumentation
+
+<ManualInstrumentation/>
+
+If you need more control, you can manually create spans inside your Java codebase using the OpenTelemetry API and SDK.
+
+Learn more:  
+
+👉 [Java Manual Instrumentation Guide](https://opentelemetry.io/docs/instrumentation/java/manual/)
+
+## Exporters
+
+<ExporterOverview/>
+
+For Java, you typically configure exporters via environment variables or code configuration.
+
+Essential properties to set:
+
+- `OTEL_EXPORTER_OTLP_ENDPOINT=https://sdk.playerzero.app/otlp`
+- `OTEL_EXPORTER_OTLP_HEADERS=Authorization=Bearer <your-playerzero-token>`
+- `OTEL_TRACES_EXPORTER=otlp`
+- `OTEL_LOGS_EXPORTER=otlp`
+- `OTEL_METRICS_EXPORTER=otlp`
+
+Official reference:  
+
+👉 [Java SDK Configuration](https://opentelemetry.io/docs/instrumentation/java/sdk_configuration/)
+
+## Optional: Using a Collector
+
+<CollectorOptional/>
+
+If you want to process or route telemetry centrally, you can forward your Java application's telemetry to a collector before sending it to PlayerZero.
+
+## Helpful Links
+
+<HelpfulLinksIntro/>
+
+- [OpenTelemetry Java Overview](https://opentelemetry.io/docs/instrumentation/java/)
+- [Automatic Instrumentation (Java Agent)](https://opentelemetry.io/docs/instrumentation/java/automatic/)
+- [Manual Instrumentation in Java](https://opentelemetry.io/docs/instrumentation/java/manual/)
+- [Java SDK Configuration](https://opentelemetry.io/docs/instrumentation/java/sdk_configuration/)
