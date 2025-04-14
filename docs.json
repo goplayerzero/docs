@@ -169,6 +169,14 @@
                         ]
                     },
                     {
+                        "group": "Observability API",
+                        "pages": [
+                            "developer-guide/api/tracks",
+                            "developer-guide/api/logs",
+                            "developer-guide/api/spans"
+                        ]
+                    },
+                    {
                         "group": "Security and Data Privacy",
                         "pages": [
                             "developer-guide/security/playerzero-philosophy",
