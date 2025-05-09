@@ -13,14 +13,6 @@ This page outlines how we think about data access, storage, and protection.
 
 ---
 
-## We Don’t Store Code
-
-When you connect your codebase to PlayerZero, we reference it — but we don’t keep a copy.
-
-Instead, we use commit metadata, file paths, and diff information to correlate events back to specific code changes. This gives you insight without ever persisting the actual contents of your codebase.
-
----
-
 ## We Mask PII Before It Leaves the Browser
 
 PlayerZero automatically redacts a wide range of sensitive data before it ever reaches our servers, including:
