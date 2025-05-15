@@ -5,7 +5,7 @@ description: "This guide walks you through setting up the PlayerZero SDK using a
 ---
 
 ## Prerequisites
-- Access to your project’s HTML codebase.
+- Access to your project’s frontend codebase.
 - Your PlayerZero [API Key](https://go.playerzero.app/setting/api-tokens).
 
 ## Step-by-Step Instructions
@@ -14,17 +14,18 @@ description: "This guide walks you through setting up the PlayerZero SDK using a
 
 Paste this inside your `<head>` or just before the closing `</body>` tag:
 
-```html
+```javascript
 <script type="text/javascript"
-            src="https://go.playerzero.app/record/<websdk_token>"
-            async crossorigin></script>
+        src="https://go.playerzero.app/record/<websdk_token>"
+        async crossorigin>
+</script>
 ```
 
 ### 2. Initialize the SDK
 
 Insert the initialization script after loading the PlayerZero SDK:
 
-```html
+```javascript
 <script>
   PlayerZero.init("your project id here");
 </script>
@@ -34,7 +35,7 @@ Insert the initialization script after loading the PlayerZero SDK:
 
 Once the user is authenticated or known:
 
-```html
+```javascript
 <script>
   PlayerZero.identify("user-id", {
     name: "Jane Doe",
@@ -42,6 +43,65 @@ Once the user is authenticated or known:
     group: "Marketing",
   });
 </script>
+```
+
+---
+### Example Implementations
+
+#### Single Page Application (SPA) Setup
+
+Once PlayerZero has been initialized, the below snippet demonstrates how to call the playerzero.identify method and capture user details in PlayerZero.
+
+```javascript
+const userId = "userId";
+const metadata = {
+  name: "<DISPLAY_NAME>",
+  email: "<USER_EMAIL>",
+  group: "<CUSTOMER_ID_OR_OTHER_GROUP>", // Optional
+};
+
+if (window.playerzero) {
+  window.playerzero.identify(userId, metadata);
+} else {
+  window.addEventListener(
+    "playerzero_ready",
+    () => { window.playerzero.identify(userId, metadata) },
+    { once: true }
+  );
+}
+```
+
+#### Server Side Rendered (SSR) Setup
+
+Once PlayerZero has been initialized, the below snippet demonstrates how to call the playerzero.identify method and capture user details in PlayerZero.
+
+```javascript
+const userId = "<USER_ID>";
+const metadata = {
+  name: "<USER_NAME>",
+  email: "<USER_EMAIL>",
+  group: "<GROUP>", // optional
+};
+
+const setCookie = (traceId) => {
+  document.cookie = `pz-traceid=${traceId}; Path=/;`;
+};
+
+if (window.playerzero) {
+  // PlayerZero has loaded
+  window.playerzero.identify(userId, metadata);
+  window.playerzero.onTraceChange(setCookie);
+} else {
+  // Wait for PlayerZero to load
+  window.addEventListener(
+    "playerzero_ready",
+    () => {
+      window.playerzero.identify(userId, metadata);
+      window.playerzero.onTraceChange(setCookie);
+    },
+    { once: true }
+  );
+}
 ```
 
 ## Next Steps
