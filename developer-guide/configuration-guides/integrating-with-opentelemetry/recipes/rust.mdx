@@ -44,9 +44,6 @@ let tracer = global::tracer("my-service");
 tracer.in_span("my-operation", |_cx| { // your application logic });
 ```
 
-Learn more:  
-👉 [Rust Manual Instrumentation Guide](https://opentelemetry.io/docs/instrumentation/rust/manual/)
-
 ## Exporters
 
 <ExporterOverview/>
@@ -58,9 +55,6 @@ Key configuration:
 ```bash
 Endpoint: https://sdk.playerzero.app/otlp Headers: Authorization=Bearer <your-playerzero-token>
 ```
-
-Official reference:  
-👉 [Rust OTLP Exporter Setup](https://opentelemetry.io/docs/instrumentation/rust/exporters/otlp/)
 
 ## Optional: Using a Collector
 
@@ -74,4 +68,3 @@ You can optionally forward telemetry through an OpenTelemetry Collector before r
 
 - [OpenTelemetry Rust Overview](https://opentelemetry.io/docs/instrumentation/rust/)
 - [Rust SDK Crate Documentation](https://docs.rs/opentelemetry/latest/opentelemetry/)
-- [Rust Manual Tracing](https://opentelemetry.io/docs/instrumentation/rust/manual/)
