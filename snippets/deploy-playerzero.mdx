@@ -3,6 +3,8 @@
 1. A PlayerZero account – you can get started by [**creating an account**](https://go.playerzero.app/).
 2. Sufficient permissions to grant PlayerZero read access to your code and read/write access for managing pull requests in your SCM (Source Control Management) system.
 
+<Note>To connect SCM systems, admin permissions are required on the repository you want to integrate.</Note>
+
 ## Process
 <Steps>
     <Step title="Create or Join a Project">
@@ -45,16 +47,19 @@ At the top-left of the PlayerZero portal, select the option to create/join a new
 
 The primary step is to grant PlayerZero access to your source control management (SCM) system. You may have already connected an SCM system during the signup process. If so, you can proceed to enabling specific repositories below.
 
+<Note>To connect SCM systems, admin permissions are required on the repository you want to integrate.</Note>
+
 To connect a repository:
 
-1. Find the appropriate SCM connector on the homepage, or navigate to the [SCM connector list page](https://go.playerzero.app/setting/repos) in settings
-2. Select Your SCM System
+1. Find the appropriate SCM connector on the homepage, or navigate to the [SCM connector list page](https://go.playerzero.app/setting/repos) in settings  
+2. Select your SCM system  
+3. Authorize PlayerZero with the required admin permissions on the repositories you wish to enable
 
 ## Enable Specific Repositories
 
 After connecting your SCM, you need to select which repositories PlayerZero should monitor. In the settings page, toggle the repositories you want to enable for ingestion.
 
-- On the [SCM connector list page](https://go.playerzero.app/setting/repos), toggle on repositories that should be ingested. 
+- On the [SCM connector list page](https://go.playerzero.app/setting/repos), toggle on repositories that should be ingested  
 - Here you can also toggle the primary reference branch (Main/Master)
 
 ## Allow for Ingestion
