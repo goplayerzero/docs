@@ -36,16 +36,16 @@ In your PlayerZero account:
 - You’ll be redirected to Slack’s authorization screen
 - Review and approve the requested permissions for the PlayerZero bot
 
-#### 3. Configure Channel Prefix (Optional)
+#### 3. Choose Your Notification Channel
 
-After enabling Slack, you’ll have the option to configure a **Channel Prefix**.  
-This prefix helps PlayerZero automatically create and organize dedicated alert channels in your workspace.
+Once authenticated, you will be able to select the specific Slack channel for your release notifications:
 
-- **Channel Prefix**: Optional. Add up to 4 alphanumeric characters (no dash at the end).
-- Helps identify release-related channels by project.
-- Especially useful when managing multiple projects within the same Slack workspace.
+- As indicated in "Step 3: Choose your notification channel," select the desired existing public Slack channel from the dropdown menu. This is where PlayerZero will send release notifications.
+- You can only use one channel per notification setup at a time.
 
-> Example: Setting a prefix like `web-` would create channels such as `#web-release-alerts`.
+#### 4. Configure Notification Preferences
+
+- As shown in "Step 4: Configure notification preferences," choose which events you want to be notified about (e.g., "On Issue" to get notified when new issues are detected in a release).
 
 <Accordion title="Slack Permissions">
 When installing the PlayerZero app in Slack, admins will be asked to approve the following permissions:
@@ -64,17 +64,19 @@ When installing the PlayerZero app in Slack, admins will be asked to approve the
 
 ### Detailed Configuration Steps
 
+
 #### On PlayerZero Side
 
-1. Log in to your PlayerZero account
-2. Navigate to **Settings > Release Alerts**
-3. Toggle the Slack integration ON
-4. Click **Connect Slack**
-5. Grant the necessary permissions
-6. (Optional) Set a **Channel Prefix** to organize alerts by project
-7. Click **Connect PlayerZero**
+1.  Log in to your PlayerZero account.
+2.  Navigate to **Settings > Release Alerts**.
+3.  Toggle the **Slack** integration ON under "Step 1: Choose your notification platform."
+4.  Click the button to connect Slack (this may be labeled "Connect Slack" or be part of the toggle action).
+5.  You will be redirected to Slack to grant the necessary permissions. Review and approve them.
+6.  Once authenticated, you will be returned to PlayerZero. In "Step 3: Choose your notification channel," select the specific existing public Slack channel from the dropdown list where you want to receive release notifications.
+7.  In "Step 4: Configure notification preferences," choose the events for which you want to receive alerts (e.g., toggle "On Issue" ON).
+8.  Ensure your configuration is saved (this might be an explicit "Save" button or automatic).
 
-Once connected, PlayerZero will automatically create the necessary alert channels based on your project configuration.
+Once connected and configured, PlayerZero will send notifications for the selected events to your chosen Slack channel.
 
 ---
 
@@ -82,7 +84,6 @@ Once connected, PlayerZero will automatically create the necessary alert channel
 
 Once your Slack integration is live, you can fine-tune your alerting strategy to fit your team’s workflows. Explore these next steps to customize notifications and reduce noise:
 
-- [Setup Alerts for User Issues](/use-cases/monitor-for-anomalies/setup-performance-alerts)
-- [Mute Unwanted Notifications and Alerts](/use-cases/monitor-for-anomalies/reduce-alert-noise)
-
+- [Setup Alerts for User Issues](/use-cases/monitor-for-issues/setup-performance-alerts)
+- [Mute Unwanted Notifications and Alerts](/use-cases/monitor-for-issues/reduce-alert-noise)
 
