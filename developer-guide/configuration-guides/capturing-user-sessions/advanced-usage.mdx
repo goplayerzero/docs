@@ -21,16 +21,13 @@ Send additional analytics events to PlayerZero:
 
 Generate a link that opens the session directly in PlayerZero devtools:
 
-`PlayerZero.devtoolsUrl().then((url) => { console.log("PlayerZero Devtools URL", url); });`
+`const url = playerzero.devtools(); console.log("PlayerZero Devtools URL", url);`
 
 ### Full API Reference
 
-- `PlayerZero.init(projectId: string)`  
-  Initialize PlayerZero with your project ID.
-
-- `PlayerZero.isInitialized(): boolean`  
-  Returns whether PlayerZero has already been initialized.
-
+- `PlayerZero.init(apiToken: string)`
+  Initialize PlayerZero with your project's API token. Find your API token on the Settings > API Tokens page.
+  
 - `PlayerZero.identify(userId: string, metadata: Record<string, unknown>)`  
   Identify a user with metadata.
 
@@ -43,10 +40,13 @@ Generate a link that opens the session directly in PlayerZero devtools:
 - `PlayerZero.prompt()`  
   Open the Devtools share window.
 
-- `PlayerZero.devtoolsUrl(): Promise<string>`  
+- `playerzero.devtools(): string`
   Returns a URL that opens the current session in devtools.
 
-- `PlayerZero.kill()`  
+- `playerzero.onTraceChange(callback: (traceId: string) => void)`  
+  Register a callback function that gets called when the trace ID changes.
+
+- `playerzero.kill(reason?: string)`  
   Permanently shut down PlayerZero on the current page session.
 
 ---
