@@ -25,29 +25,23 @@ Generate a link that opens the session directly in PlayerZero devtools:
 
 ### Full API Reference
 
-- `PlayerZero.init(apiToken: string)`
-  Initialize PlayerZero with your project's API token. Find your API token on the Settings > API Tokens page.
+- `PlayerZero.init(apiToken: string)` - Initialize PlayerZero with your project's API token. Find your API token on the Settings > API Tokens page.
   
-- `PlayerZero.identify(userId: string, metadata: Record<string, unknown>)`  
-  Identify a user with metadata.
+- `PlayerZero.identify(userId: string, metadata: Record<string, unknown>)` - Identify a user with metadata.
 
-- `PlayerZero.setUserVars(metadata: Record<string, unknown>)`  
-  Set additional metadata on the current user without re-identifying.
+- `PlayerZero.setUserVars(metadata: Record<string, unknown>)` - Set additional metadata on the current user without re-identifying.
 
-- `PlayerZero.track(event: string, metadata?: Record<string, unknown>)`  
-  Track an event in PlayerZero.
+- `PlayerZero.track(event: string, metadata?: Record<string, unknown>)` - Track an event in PlayerZero.
 
-- `PlayerZero.prompt()`  
-  Open the Devtools share window.
+- `PlayerZero.prompt()` - Open the Devtools share window.
 
-- `playerzero.devtools(): string`
-  Returns a URL that opens the current session in devtools.
+- `playerzero.devtools(): string` - Returns a URL that opens the current session in devtools.
 
-- `playerzero.onTraceChange(callback: (traceId: string) => void)`  
-  Register a callback function that gets called when the trace ID changes.
+- `playerzero.traceId(): string` - Returns the current trace ID for the session.
 
-- `playerzero.kill(reason?: string)`  
-  Permanently shut down PlayerZero on the current page session.
+- `playerzero.onTraceChange(callback: (traceId: string) => void)` - Register a callback function that gets called when the trace ID changes.
+
+- `playerzero.kill(reason?: string)` - Permanently shut down PlayerZero on the current page session.
 
 ---
 
