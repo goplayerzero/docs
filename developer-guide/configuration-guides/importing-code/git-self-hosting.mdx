@@ -7,14 +7,14 @@ description: "Connect your on-premises GitLab instance to PlayerZero for code in
 
 PlayerZero integrates with **self-hosted GitLab** so you can leverage AI-powered insights and ask questions about your codebase. Your code remains secure—PlayerZero analyzes it without mirroring repositories externally.
 
-<Note>**Admin permissions required** on any repository you want to connect.</Note>
+<Note>**Developer permissions required** on any repository you want to connect.</Note>
 
 ## Prerequisites
 
 1. **PlayerZero Account** – [Create one](https://go.playerzero.app) if needed
 2. **Admin Access** – Admin rights on repositories you plan to connect
 3. **Personal Access Token** – GitLab PAT with **`api`** and **`write_repository`** scopes
-4. **Network Access** – Your GitLab server must be reachable from PlayerZero
+4. **Network Access** – Your GitLab server must be connected to the internet and reachable from PlayerZero
 
 ## Setup Steps
 
@@ -25,7 +25,6 @@ PlayerZero integrates with **self-hosted GitLab** so you can leverage AI-powered
 ### 2. Configure Connection
 - Enter your **Personal Access Token** (with `api` and `write_repository` scopes)
 - Add your **GitLab URL** (e.g., `https://gitlab.example.com`)
-  - Must start with `http://` or `https://` (HTTPS recommended)
 - Click **Validate** to verify connectivity
 
 ### 3. Enable Repositories
@@ -40,12 +39,3 @@ Processing begins immediately and takes minutes to hours depending on repository
 - **Automatic PAT Rotation** – Weekly security rotation every Monday
 - **Code Analysis** – PlayerZero analyzes repositories for AI insights
 - **Chat Ready** – Ask questions about your codebase once ingestion completes
-
-## Troubleshooting
-
-| Issue | Solution |
-|-------|----------|
-| "Cannot connect" | Verify GitLab server is reachable; check firewall rules |
-| "Invalid token" | Regenerate PAT with `api` & `write_repository` scopes |
-| "No repositories" | Ensure you have **Admin** access on desired repositories |
-| "URL validation failed" | Use proper URL format starting with `http://` or `https://` |
