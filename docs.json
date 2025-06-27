@@ -126,7 +126,7 @@
                                 ]
                             },
                             {
-                                "group": "Retrieve Inisghts from Code",
+                                "group": "Retrieve Insights from Code",
                                 "pages": [
                                     "use-cases/retrieve-insights-from-code/ask-codebase-questions",
                                     "use-cases/retrieve-insights-from-code/identify-dependencies",
