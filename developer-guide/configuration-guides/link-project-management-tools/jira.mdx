@@ -1,4 +1,53 @@
 ---
-title: "Jira"
+title: "Integrate Jira Service Management"
+description: "Connect Jira Software projects to PlayerZero for real-time issue sync, defect traceability, and AI-powered debugging."
 ---
+
+## Overview
+
+The Jira integration creates a **two-way bridge** between Jira Software and PlayerZero.  
+Once connected, PlayerZero will:
+
+- **Import** issues, stories, epics, and sprints in near real-time  
+- **Link** user-facing defects to the exact Jira ticket that introduced them  
+- **Surface** ticket status, assignee, and priority inside every PlayerZero incident  
+
+> By unifying production signals with your backlog, PlayerZero helps teams triage faster and ship with confidence.
+
+---
+
+## Prerequisites
+
+| Requirement | Details |
+|-------------|---------|
+| **PlayerZero Role** | Admin (for initial setup) |
+| **Jira Role** | Jira **Site Admin** or project-admin with API token |
+| **API Token** | Generate from `https://id.atlassian.com/manage-profile/security/api-tokens` |
+
+---
+
+## Step-by-Step Setup
+
+### 1. Start the Connector
+1. In PlayerZero, go to **Home → Settings → Product Management**.  
+2. Select **Jira**.
+
+### 2. Authorize Access
+- Enter your **Atlassian email** and **API token**.  
+- Click **Validate**
+
+### 3. Choose Sites & Projects
+1. Pick the Jira **site** (e.g., `myteam.atlassian.net`).  
+2. Check the **projects/collections** you want to sync.  
+
+### 4. Finish & Sync
+- Click **Connect**.  
+- An initial ingestion job starts (large projects may process on a delay).  
+
+## What's Next?
+
+Once your project management tool is connected:
+
+- You’ll be able to trace problems back to the exact work items that introduced them.
+- Future releases can automatically reference known risks and ongoing improvements.
 

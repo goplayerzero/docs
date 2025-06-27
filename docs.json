@@ -109,7 +109,13 @@
                                     }
                                 ]
                             },
-                            "developer-guide/configuration-guides/link-project-management-tools/sync-project-management-data",
+                            {
+                                "group": "Sync Project Management Data",
+                                "pages": [
+                                    "developer-guide/configuration-guides/link-project-management-tools/sync-project-management-data",
+                                    "developer-guide/configuration-guides/link-project-management-tools/jira"
+                                ]
+                            },
                             "developer-guide/configuration-guides/connect-customer-ticketing/sync-customer-ticket-data",
                             {
                                 "group": "Receive Notifications and Alerts",
