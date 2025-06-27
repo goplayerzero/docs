@@ -56,7 +56,13 @@
                     {
                         "group": "Configuration Guides",
                         "pages": [
-                            "developer-guide/configuration-guides/importing-code/import-git-setup-guide",
+                            {
+                                "group": "Import Git Setup Guides",
+                                "pages": [
+                                    "developer-guide/configuration-guides/importing-code/import-git-setup-guide",
+                                    "developer-guide/configuration-guides/importing-code/git-self-hosting"
+                                ]
+                            },
                             {
                                 "group": "Capturing User Sessions",
                                 "pages": [
