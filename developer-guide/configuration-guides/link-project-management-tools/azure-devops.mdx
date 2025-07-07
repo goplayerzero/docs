@@ -1,4 +1,55 @@
 ---
-title: "Azure DevOps"
+title: "Azure DevOps Ticketing Integration"
+description: "Connect Azure DevOps Boards to PlayerZero for real-time work item sync, defect traceability, and AI-powered debugging."
 ---
 
+## Overview
+
+The Azure DevOps integration creates a **two-way bridge** between Azure Boards and PlayerZero.  
+Once connected, PlayerZero will:
+
+- **Import** work items like user stories, bugs, and tasks in near real-time  
+- **Link** user-facing defects to the exact Azure DevOps item that introduced them  
+- **Surface** item status, assignee, and priority inside every PlayerZero incident  
+
+> By unifying production signals with your backlog, PlayerZero helps teams triage faster and ship with confidence.
+
+---
+
+## Prerequisites
+
+| Requirement | Details |
+|-------------|---------|
+| **PlayerZero Role** | Admin (for initial setup) |
+| **Azure Role** | Project Admin or higher |
+| **Personal Access Token (PAT)** | Create one [here](https://dev.azure.com/) with access to Work Items |
+
+---
+
+## Step-by-Step Setup
+
+### 1. Start the Connector
+1. In PlayerZero, go to **Home → Settings → Product Management**.  
+2. Select **Azure DevOps**.
+
+### 2. Authorize Access
+- Enter your **organization URL** (e.g., `https://dev.azure.com/myteam`)  
+- Paste your **Personal Access Token (PAT)**  
+- Click **Validate**
+
+### 3. Choose Projects
+1. Select the Azure Boards **projects** you want to sync  
+2. Choose which **work item types** (e.g., Bug, Task, User Story) to include  
+
+### 4. Finish & Sync
+- Click **Connect**  
+- An initial ingestion job begins (large projects may process on a delay)  
+
+---
+
+## What's Next?
+
+Once Azure Boards is connected:
+
+- You’ll be able to trace problems back to the exact work items that introduced them.
+- Future incidents can reference known risks or outstanding improvements tied to Azure DevOps.
