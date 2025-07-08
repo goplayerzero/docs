@@ -121,7 +121,6 @@
                             {
                                 "group": "Receive Notifications and Alerts",
                                 "pages": [
-                                    "developer-guide/configuration-guides/notification-integrations/microsoft-teams",
                                     "developer-guide/configuration-guides/notification-integrations/slack"
                                 ]
                             }
