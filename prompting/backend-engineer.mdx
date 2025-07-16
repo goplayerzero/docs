@@ -1,0 +1,201 @@
+---
+title: "Backend Engineer"
+description: "PlayerZero suggests targeted code fixes by combining session data, code context, and historical patterns to resolve issues at their root."
+---
+
+## PlayerZero AI Chat: Backend Engineer Guide
+
+### Role‑Specific Value of PlayerZero AI Chat
+    As a backend engineer, PlayerZero AI Chat revolutionizes how you navigate complex distributed systems, debug production issues, and understand service interactions.
+
+    - **System Architecture Intelligence:** Understand service dependencies, API contracts, and data flow across microservices and databases  
+    - **Database and Query Insights:** Find database schemas, query patterns, and optimization opportunities across your data layer  
+    - **API Discovery and Tracing:** Locate endpoints, understand request/response flows, and trace business logic through multiple services  
+    - **Integration Pattern Analysis:** Understand how services communicate, handle failures, and maintain data consistency  
+    - **Performance and Scaling Context:** Identify bottlenecks, analyze resource‑usage patterns, and understand system behavior under load  
+    - **Production Issue Correlation:** Connect error logs, user sessions, and performance traces to identify root causes in distributed systems  
+
+## Prompting Best Practices and Examples
+
+#### Effective Prompting Strategies
+      1. **Think in System Flows, Not Individual Files**  
+         - *GOOD:* “Find the user authentication service.”  
+         - *BETTER:* “Show me the complete user‑authentication flow from API request through JWT validation, database lookup, and response generation.”  
+
+      2. **Combine Code with Production Behavior**  
+         - *GOOD:* “Find the payment processing code.”  
+         - *BETTER:* “Show me the payment‑processing implementation related to errors or performance issues users have experienced during checkout.”  
+
+      3. **Focus on Business Logic and Data Flow**  
+         - *GOOD:* “Find database queries for orders.”  
+         - *BETTER:* “Trace how order data flows from creation through payment processing, inventory updates, and fulfillment, including all database interactions.”  
+
+      4. **Consider Service Boundaries and Integration**  
+         - *GOOD:* “Show me the notification service.”  
+         - *BETTER:* “How does the notification service integrate with the user service and email provider? Show me the API contracts, error handling, and retry logic.”  
+
+#### Unsatisfactory Prompting Examples
+      1. **Single‑File Focus**  
+         - *POOR:* “Show me `UserController.java`.”  
+         - **WHY:** Misses the broader system context and service interactions.  
+         - *BETTER:* “Show me how user management works across all services, including authentication, authorization, and user data persistence.”  
+
+      2. **Technology‑Specific Without Context**  
+         - *POOR:* “Find all Redis usage.”  
+         - **WHY:** Doesn’t explain what you’re trying to understand or accomplish.  
+         - *BETTER:* “Show me how we use Redis for session management and caching, including any performance patterns or expiration strategies.”  
+
+      3. **Generic Performance Questions**  
+         - *POOR:* “Why is the system slow?”  
+         - **WHY:** Too vague for the AI to provide targeted assistance.  
+         - *BETTER:* “Users are experiencing slow response times on the product‑search API. Show me the search implementation, database queries, and any recent performance traces.”  
+
+      4. **Infrastructure Without Application Context**  
+         - *POOR:* “Show me Kubernetes configs.”  
+         - **WHY:** Misses the connection between infrastructure and application behavior.  
+         - *BETTER:* “Show me how the order‑processing service is deployed and configured, and how that relates to the recent timeout errors we’ve been seeing.”  
+
+## Backend Use Cases
+> **TIP:** Before you get started, double‑check which repositories and datasets PlayerZero has access to. You can find this in your settings at **go.playerzero.app/settings**.
+
+#### Understanding System Architecture & Dependencies
+##### System Architecture Intelligence
+        - “Map out the complete microservices architecture for the e‑commerce platform, showing how user‑management, inventory, payment, and notification services interact.”  
+        - “Show me the service‑dependency graph for the order‑processing system, including all upstream and downstream services.”  
+        - “Trace the data flow from user registration through account activation, including all service interactions and database updates.”  
+
+##### API Discovery and Tracing
+        - “Map out all the APIs involved in the user‑registration process, including validation, email verification, and account activation.”  
+        - “Show me how the inventory service exposes its APIs and how other services consume them, including error handling.”  
+        - “Trace all API calls involved in processing a customer order from cart to fulfillment.”  
+
+##### Integration Pattern Analysis
+        - “Show me how the inventory service communicates with the order service and handles race conditions.”  
+        - “Analyze the event‑driven architecture patterns used between the payment and notification services.”  
+        - “Find all the integration patterns used for external API communication and their failure‑handling strategies.”  
+
+##### Service Dependency Mapping
+        - “Map out all the dependencies for the notification service: upstream services that trigger notifications, downstream services for delivery, external APIs, database tables, and configuration requirements.”  
+        - “Show me everything the order service depends on, including databases, external APIs, message queues, and configuration.”  
+        - “Trace all the services that depend on the user authentication service and how they would be affected by changes.”  
+
+#### Database & Data Management
+##### Database and Query Insights
+        - “Show me the complete database schema for user management and how it relates to the authentication and authorization tables.”  
+        - “Find all database queries related to order processing and analyze their performance patterns.”  
+        - “Map out the database relationships for the product‑catalog system, including indexes and constraints.”  
+
+##### Trace Data Flow
+        - “Trace how order data flows from creation through payment processing, inventory updates, and fulfillment, including all database interactions.”  
+        - “Show me how user preferences are stored, updated, and synchronized across different services and databases.”  
+        - “Map the complete data journey for a product review from submission to display, including all transformation steps.”  
+
+##### Data Consistency Analysis
+        - “Show me how we maintain data consistency between the user service, payment service, and order service. Include transaction boundaries, eventual‑consistency patterns, and conflict resolution.”  
+        - “Analyze how inventory levels are kept consistent between the warehouse system and the e‑commerce platform.”  
+        - “Find all the mechanisms used to ensure data integrity across the distributed order‑processing system.”  
+
+##### User Data Privacy Audit
+        - “Audit how we handle user‑data privacy: show me data‑collection points, storage mechanisms, access controls, and data‑deletion processes across all services.”  
+        - “Find all places where personally identifiable information is stored and show me the encryption and access‑control patterns.”  
+        - “Trace how user data flows through the system and identify all privacy‑compliance checkpoints.”  
+
+#### Debugging & Issue Resolution
+##### Production Issue Correlation
+        - “Show me what happened during the 503 errors yesterday between 2‑3 PM. Include the affected services, user sessions, error logs, and any infrastructure metrics.”  
+        - “Trace the cascade of failures that led to the payment‑processing outage last week.”  
+        - “Find the root cause of the timeout errors in the search API and show me the code path, database queries, and external service calls involved.”  
+
+##### Error Handling and Debugging
+        - “Show me all the error‑handling patterns in the payment‑processing flow and any recent production failures.”  
+        - “Find where we log authentication failures and show me the error‑propagation patterns.”  
+        - “Trace the error handling in the order‑fulfillment pipeline and identify potential failure points.”  
+
+##### Real‑Time Issue Resolution
+        - “Show me what happened during the 503 errors yesterday between 2‑3 PM, including affected services, user sessions, error logs, and infrastructure metrics.”  
+        - “Analyze the database‑connection timeout errors from this morning and show me the connection‑pool configuration and usage patterns.”  
+        - “Find the cause of the memory leak in the notification service and show me the resource‑management patterns.”  
+
+##### Root Cause Analysis
+        - “Find the root cause of timeout errors in the search API and show me the code path, database queries, and external service calls involved.”  
+        - “Trace the authentication failures back to their source and show me all the validation steps and potential failure points.”  
+        - “Analyze the payment‑processing errors and show me the complete transaction flow and error‑handling logic.”  
+
+#### Performance & Scalability
+##### Performance and Scaling Context
+        - “Identify bottlenecks in the order‑processing system and show me resource‑usage patterns under high load.”  
+        - “Analyze the performance characteristics of the user‑authentication service and its scalability limits.”  
+        - “Show me the caching strategies across all services and their impact on system performance.”  
+
+##### Analyze Database Queries for Optimization
+        - “Analyze the database queries in the product‑catalog service and identify optimization opportunities.”  
+        - “Show me the most expensive queries in the reporting system and suggest indexing strategies.”  
+        - “Find all N+1 query problems in the user dashboard and show me optimization approaches.”  
+
+##### Handle Concurrent User Sessions
+        - “Show me how we handle concurrent user sessions and where we might have race conditions.”  
+        - “Analyze the session‑management system for potential concurrency issues and deadlocks.”  
+        - “Find all the places where we need to handle concurrent access to shared resources.”  
+
+##### Scalability Planning
+        - “Analyze the current database query patterns in the reporting service and show me how they might perform under 10× the current load, including indexes, caching, and optimization opportunities.”  
+        - “Show me the scalability constraints in the notification system and what would need to change for 100× more users.”  
+        - “Evaluate the order‑processing system’s ability to handle Black‑Friday‑level traffic.”  
+
+##### Performance Impact Analysis
+        - “We’re planning to add real‑time notifications to the dashboard. Show me the current WebSocket implementation, message‑queuing system, and estimate the performance impact on the user service.”  
+        - “Analyze the impact of adding full‑text search to the product catalog on database performance.”  
+        - “Show me how adding audit logging to all user actions would affect system performance.”  
+
+#### Security & Authentication
+##### Trace Security Implementations
+        - “Find all endpoints that accept payment information and trace their security implementations.”  
+        - “Show me the security‑validation chain for admin operations across all services.”  
+        - “Trace how sensitive user data is protected throughout the password‑reset flow.”  
+
+##### Complete OAuth Implementation
+        - “Show me the complete OAuth implementation including token validation, refresh logic, and security headers.”  
+        - “Trace the JWT token lifecycle from generation through validation to expiration.”  
+        - “Find all the OAuth scopes and permissions used across the system and their enforcement.”  
+
+##### Handle Sensitive User Data
+        - “Find all places where we handle sensitive user data and analyze the encryption patterns.”  
+        - “Show me how credit‑card information is processed and stored, including all security measures.”  
+        - “Trace how user passwords are handled from input through storage and validation.”  
+
+##### Check Permissions Across Services
+        - “Trace how permissions are checked across different services for admin operations.”  
+        - “Show me the authorization flow for user‑data access and how it prevents unauthorized access.”  
+        - “Find all the role‑based access‑control implementations and their consistency across services.”  
+
+#### Integration & Message Processing
+##### Event Publishing and Consumption
+        - “Show me how the order service publishes events and how other services consume them.”  
+        - “Trace the event flow when a user updates their profile and how it propagates through the system.”  
+        - “Find all the event‑driven communication patterns and their error‑handling strategies.”  
+
+##### External API Integrations
+        - “Find all the external API integrations and their error‑handling and retry mechanisms.”  
+        - “Show me how we integrate with the payment gateway and handle all the edge cases.”  
+        - “Trace the third‑party email‑service integration and its fallback strategies.”  
+
+##### Background Job Processing
+        - “Trace how user actions trigger background job processing and how we handle failures.”  
+        - “Show me the queue‑management system and how it handles job prioritization and retry logic.”  
+        - “Find all the asynchronous processing patterns and their monitoring mechanisms.”  
+
+#### System Monitoring
+##### Proactive Monitoring Setup
+        - “Show me all the places where we should add monitoring for the new payment‑processing feature, including error rates, performance thresholds, and business metrics.”  
+        - “Find the critical paths in the order‑fulfillment system that need comprehensive monitoring.”  
+        - “Analyze the user‑authentication flow and identify all the monitoring points needed for security and performance.”  
+
+##### System Health Monitoring
+        - “Show me all the health‑check endpoints across services and how they report system status.”  
+        - “Find the metrics‑collection points in the database layer and their performance impact.”  
+        - “Trace the logging patterns across all services and identify any gaps in observability.”  
+
+##### Business Metrics Monitoring
+        - “Show me how business metrics like conversion rates and revenue are calculated and monitored.”  
+        - “Find all the places where we should track user‑engagement metrics and system‑usage patterns.”  
+        - “Analyze the order‑processing flow and identify key business metrics that need monitoring.”  

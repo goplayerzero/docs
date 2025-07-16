@@ -197,6 +197,17 @@
                         ]
                     }
                 ]
+            },
+            {
+                "tab": "How to Use PlayerZero",
+                "pages": [
+                    "prompting/prompting-basics",
+                    "prompting/frontend-developer",
+                    "prompting/backend-engineer",
+                    "prompting/support",
+                    "prompting/data-analyst",
+                    "prompting/qa-engineer"
+                ]
             }
         ]
     },
