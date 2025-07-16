@@ -21,23 +21,13 @@ Paste this inside your `<head>` or just before the closing `</body>` tag:
 </script>
 ```
 
-### 2. Initialize the SDK
-
-Insert the initialization script after loading the PlayerZero SDK:
-
-```javascript
-<script>
-  PlayerZero.init("your project id here");
-</script>
-```
-
-### 3. Identify the User (Recommended)
+### 2. Identify the User (Recommended)
 
 Once the user is authenticated or known:
 
 ```javascript
 <script>
-  PlayerZero.identify("user-id", {
+  playerzero.identify("user-id", {
     name: "Jane Doe",
     email: "jane@example.com",
     group: "Marketing",
@@ -80,7 +70,7 @@ const userId = "<USER_ID>";
 const metadata = {
   name: "<USER_NAME>",
   email: "<USER_EMAIL>",
-  group: "<GROUP>", // optional
+  group: "<CUSTOMER_ID_OR_OTHER_GROUP>", // optional
 };
 
 const setCookie = (traceId) => {
