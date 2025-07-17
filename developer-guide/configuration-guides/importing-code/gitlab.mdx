@@ -1,42 +1,103 @@
 ---
 title: "GitLab"
-description: "Connect your on-premises GitLab instance to PlayerZero for code insights and AI-powered debugging."
+description: "Connect GitLab repositories to PlayerZero for AI-powered code analysis, pull request insights, and conversational code exploration."
 ---
 
-## Overview
+## Required Permissions
 
-PlayerZero integrates with **self-hosted GitLab** so you can leverage AI-powered insights and ask questions about your codebase. Your code remains secure—PlayerZero analyzes it without mirroring repositories externally.
+<Note>Admin access to your GitLab instance is required to create Personal Access Tokens with the necessary permissions.</Note>
 
-<Note>**Developer permissions required** on any repository you want to connect.</Note>
+PlayerZero requires specific permissions through a GitLab Personal Access Token (PAT). When creating your PAT, ensure the following scopes are enabled:
 
-## Prerequisites
+1. API permissions:
+    - api (full API access for repository and merge request operations)
+    
+2. Repository permissions:
+    - write_repository (read repository content and post merge request comments)
 
-1. **PlayerZero Account** – [Create one](https://go.playerzero.app) if needed
-2. **Developer Access** – Admin rights on repositories you plan to connect
-3. **Personal Access Token** – GitLab PAT with **`api`** and **`write_repository`** scopes
-4. **Network Access** – Your GitLab server must be connected to the internet and reachable from PlayerZero
+<Note>
+You must have at least Developer level access to the GitLab projects you want to connect. These permissions enable PlayerZero to read your code, analyze merge requests, and provide automated insights directly in your development workflow.
+</Note>
 
-## Setup Steps
+## Basic Setup Guide
 
-### 1. Connect GitLab
-1. Go to **Settings → Code** in PlayerZero
-2. Click **Connect GitLab** → **Self-hosted GitLab**
+### Prerequisites
+1. A PlayerZero account. You can get started by [creating an account](https://go.playerzero.app).
+2. Admin access to your Bitbucket workspace to:
+- Authorize OAuth applications
+- Grant repository access permissions
+- Configure integration settings
 
-### 2. Configure Connection
-- Enter your **Personal Access Token** (with `api` and `write_repository` scopes)
-- Add your **GitLab URL** (e.g., `https://gitlab.example.com`)
-- Click **Validate** to verify connectivity
+### 1. Create a Personal Access Token
 
-### 3. Enable Repositories
-1. Select repositories from the list (archived repos excluded)
-2. Choose primary branch (e.g., `main`)
-3. Click **Import**
+Create a PAT in GitLab with the required permissions:
 
-Processing begins immediately and takes minutes to hours depending on repository size.
+1. Sign in to your GitLab instance
+2. Navigate to User Settings → Access Tokens (or Profile → Access Tokens)
+3. Click "Create personal access token" and configure:
+    - Token name: PlayerZero Integration
+    - Expiration date: Set appropriate expiration (1 year recommended)
+    - Scopes: Select the following permissions:
+        - api (complete API access)
+        - write_repository (read repository content and write to repository)
+4. Click "Create personal access token" and copy the generated token immediately
 
-## What Happens Next?
+### 2. Configure PlayerZero Integration
 
-- **Automatic PAT Rotation** – Weekly security rotation every Monday
-- **Code Analysis** – PlayerZero analyzes repositories for AI insights
-- **Chat Ready** – Ask questions about your codebase once ingestion completes
+Connect your GitLab instance to PlayerZero:
 
+1. Navigate to Settings → Code in your PlayerZero dashboard
+2. Select GitLab from the available SCM providers
+3. Choose your GitLab type:
+    - Cloud GitLab (for GitLab.com)
+    - Self-hosted GitLab (for your own GitLab instance)
+4. If using self-hosted GitLab, enter your GitLab URL (e.g., https://gitlab.example.com)
+5. Paste your Personal Access Token
+6. Click "Add Connector" to establish the connection
+
+### 3. Configure Repository Access
+
+After connecting GitLab, configure which repositories PlayerZero should monitor:
+
+1. Return to the Settings → Code section in PlayerZero
+2. Toggle on the repositories you want PlayerZero to analyze
+3. Select the primary branch for each repository (typically main or master)
+
+<Note>
+PlayerZero only accesses repositories where you have at least Developer permissions. Repository data is not imported until you enable specific repositories in your PlayerZero settings.
+</Note>
+
+### 4. Repository Synchronization
+
+Once enabled, PlayerZero will begin importing and analyzing your repository data:
+
+1. Initial sync may take several minutes to hours depending on repository size
+2. PlayerZero will sync new commits and merge requests automatically
+3. Monitor progress in the Settings → Code section
+
+
+### Self-hosted GitLab Setup
+
+For self-hosted GitLab instances, additional considerations apply:
+
+#### Prerequisites:
+
+    - GitLab instance accessible via HTTP/HTTPS
+    - Network connectivity between PlayerZero and your GitLab instance
+    - Admin access to create Personal Access Tokens
+
+#### Network Requirements
+
+    - Your GitLab instance must be accessible by PlayerZero
+    - If your GitLab instance is behind a firewall, contact PlayerZero support for IP whitelisting
+    - HTTPS is strongly recommended for security
+
+### Token Management - Token Rotation
+
+PlayerZero supports automatic token rotation for GitLab:
+
+    - If enabled, PlayerZero will automatically rotate your PAT before expiration
+    - Manual token updates can be done through Settings → Code
+    - Contact support if you encounter token rotation issues
+
+These permissions enable PlayerZero to provide code analysis, merge request insights, and AI-powered code conversations while maintaining security and access control within your GitLab environment.
