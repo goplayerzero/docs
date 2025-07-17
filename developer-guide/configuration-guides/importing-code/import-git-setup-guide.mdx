@@ -5,50 +5,57 @@ description: "Connect your self-hosted source control to PlayerZero to monitor c
 
 ## Overview
 
-This guide walks you through connecting your source code to PlayerZero. Once integrated, you’ll be able to use the PlayerZero chat feature to ask questions about your codebase. To learn more about how PlayerZero accesses and uses your code, see the [Source Control Management](/connect-data-to-playerzero/source-control-management) overview.
+PlayerZero integrates with your source control management (SCM) system to provide AI-powered code analysis and conversational support. Once connected, you can use PlayerZero's chat feature to ask questions about your codebase, analyze pull requests, and get insights into your code structure and changes.
+
+Each SCM provider has specific setup requirements and permissions that PlayerZero needs to function properly. Detailed configuration instructions for each provider are available in their respective setup guides.
 
 ## Supported SCM Connectors
 
 PlayerZero currently supports integration with the following source control providers:
 
-- **GitHub**
-- **GitLab**
-- **Bitbucket**
-- **Azure Repos**
-
-If your organization uses one of these systems, you can connect it directly during setup.
-
-<Note>To connect any of these systems, admin permissions are required on the repository you want to integrate.</Note>
-
-## Basic Setup Guide
-
-### Prerequisites
-1. A PlayerZero account. You can get started by [creating an account](https://go.playerzero.app).
-2. Admin access is required on your SCM to:
-    - Grant PlayerZero read access to your code
-    - Grant read/write access to manage pull requests
-
-### 1. Connect Your Code
-The primary step is to grant PlayerZero access to your Source Control Management system. You may have already connected an SCM system during the signup process. If so, you can skip directly to enabling specific repositories. To get started, go to the [Settings page](https://go.playerzero.app/setting/repos).
-
-1. Navigate to the **Settings** tab in PlayerZero and select the **Code** anchor.
-2. Select your SCM system (GitHub, GitLab, or Bitbucket, etc.) when prompted.
-
-### 2. Enable Specific Repositories
-After connecting your SCM, select which repositories PlayerZero should monitor.
-
-1. On the **Settings** tab inside the **Code** anchor, toggle on the repositories you want to ingest.
-2. Choose the primary reference branch (e.g., Main or Master).
-
-### 3. Allow for Ingestion
-Once you’ve enabled your repositories, PlayerZero will begin analyzing the code to surface relevant insights. This process can take anywhere from a few minutes to several hours, depending on the size and complexity of your repositories.
-
-## Next Steps
-
-Want to learn different ways to talk to your codebase? Read through our guides or start a chat directly
-
-👉 [Ask Your Codebase Questions](/use-cases/retrieve-insights-from-code/ask-codebase-questions)
-
-👉 [Start an AI Chat session](https://go.playerzero.app)
+- [**Azure Setup Guide**](/developer-guide/configuration-guides/importing-code/azure) - Connect Azure Repos using Personal Access Tokens
+- [**Bitbucket Setup Guide**](/developer-guide/configuration-guides/importing-code/bitbucket) - Connect Bitbucket Cloud and Server repositories
+- [**GitHub Setup Guide**](/developer-guide/configuration-guides/importing-code/github) - Connect GitHub.com and GitHub Enterprise repositories
+- [**GitLab Setup Guide**](/developer-guide/configuration-guides/importing-code/gitlab) - Connect GitLab.com and self-hosted GitLab instances
 
 
+## Permissions
+
+PlayerZero requires specific permissions from your SCM provider to deliver its full functionality. The exact permission names and scopes vary by provider, but the core requirements are consistent across all platforms.
+
+
+### Required Permissions
+
+#### Repository Access
+
+    - Read access to repositories - PlayerZero needs to clone and read repository contents to understand your codebase structure, analyze files, and provide accurate responses to your questions about the code.
+    - Read access to branches and commits - This allows PlayerZero to track code changes, understand commit history, and provide context-aware analysis of your development workflow.
+
+#### Pull Request Access
+
+    - Read access to pull requests - PlayerZero analyzes pull request content, diffs, and metadata to provide insights about code changes and their potential impact.
+    - Write access to pull request comments - PlayerZero can automatically post summaries, risk assessments, and other analytical insights directly to your pull requests, streamlining your code review process.
+
+#### Metadata Access
+
+    - Read access to repository metadata - This includes repository names, descriptions, and basic organizational information needed to properly organize and display your connected repositories.
+
+### Why These Permissions Are Needed
+
+PlayerZero uses these permissions to provide several key features:
+
+    - AI-powered code chat - Answer questions about your codebase by analyzing repository contents and structure
+    - Pull request analysis - Automatically generate summaries and risk assessments for code changes
+    - Code context awareness - Understand relationships between files, functions, and modules across your repositories
+    - Real-time synchronization - Keep your code data up-to-date as you make changes and create pull requests
+
+### Security Considerations
+
+PlayerZero takes security seriously and follows these principles:
+
+    - Least privilege access - Only requests the minimum permissions necessary for functionality
+    - Secure token storage - All access tokens and credentials are encrypted and stored securely
+    - Regular synchronization - Repository data is synced periodically rather than maintaining persistent connections
+    - Audit logging - All repository access is logged for security and compliance purposes
+
+The specific permission names and setup process vary by SCM provider. Consult your provider's setup guide for detailed instructions on configuring the correct permissions for your organization.

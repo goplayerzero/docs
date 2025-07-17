@@ -1,5 +1,42 @@
 ---
-title: "Gitlab"
+title: "GitLab"
+description: "Connect your on-premises GitLab instance to PlayerZero for code insights and AI-powered debugging."
 ---
 
+## Overview
+
+PlayerZero integrates with **self-hosted GitLab** so you can leverage AI-powered insights and ask questions about your codebase. Your code remains secure—PlayerZero analyzes it without mirroring repositories externally.
+
+<Note>**Developer permissions required** on any repository you want to connect.</Note>
+
+## Prerequisites
+
+1. **PlayerZero Account** – [Create one](https://go.playerzero.app) if needed
+2. **Developer Access** – Admin rights on repositories you plan to connect
+3. **Personal Access Token** – GitLab PAT with **`api`** and **`write_repository`** scopes
+4. **Network Access** – Your GitLab server must be connected to the internet and reachable from PlayerZero
+
+## Setup Steps
+
+### 1. Connect GitLab
+1. Go to **Settings → Code** in PlayerZero
+2. Click **Connect GitLab** → **Self-hosted GitLab**
+
+### 2. Configure Connection
+- Enter your **Personal Access Token** (with `api` and `write_repository` scopes)
+- Add your **GitLab URL** (e.g., `https://gitlab.example.com`)
+- Click **Validate** to verify connectivity
+
+### 3. Enable Repositories
+1. Select repositories from the list (archived repos excluded)
+2. Choose primary branch (e.g., `main`)
+3. Click **Import**
+
+Processing begins immediately and takes minutes to hours depending on repository size.
+
+## What Happens Next?
+
+- **Automatic PAT Rotation** – Weekly security rotation every Monday
+- **Code Analysis** – PlayerZero analyzes repositories for AI insights
+- **Chat Ready** – Ask questions about your codebase once ingestion completes
 

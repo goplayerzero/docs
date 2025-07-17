@@ -1,5 +1,75 @@
 ---
-title: "Github"
+title: "GitHub"
+description: "PlayerZero for Github automatically imports your codebase into PlayerZero, providing automatic risk analysis, release monitoring, and other AI enabled features."
 ---
 
+GitHub is a cloud-based Git repository hosting service to store and manage source code, with tools for collaboration.
 
+<Note>Admin permissions are required on your GitHub organization to install the PlayerZero GitHub App.</Note>
+
+## Basic Setup Guide
+
+### Prerequisites
+1. A PlayerZero account. You can get started by [creating an account](https://go.playerzero.app).
+2. Admin access to your GitHub organization to:
+        - Install the PlayerZero GitHub App
+        - Grant repository access permissions
+        - Configure webhook notifications
+    
+### 1. Install the PlayerZero GitHub App
+
+PlayerZero uses a GitHub App installation for secure, granular access to your repositories.
+
+    1. Navigate to Settings → Code in your PlayerZero dashboard
+    2. Select GitHub from the available SCM providers
+    3. Click Install GitHub App - this will redirect you to GitHub
+    4. Select your GitHub organization and choose which repositories to grant access to
+    5. Click Install to complete the GitHub App installation
+
+### 2. Configure Repository Access
+After installing the GitHub App, configure which repositories PlayerZero should monitor.
+
+    1. Return to the Settings → Code section in PlayerZero
+    2. Toggle on the repositories you want PlayerZero to analyze
+    3. Select the primary branch for each repository (typically main or master)
+
+<Note>
+PlayerZero only accesses repositories you explicitly grant permission to. Repository data is not imported until you enable specific repositories in your PlayerZero settings.
+</Note>
+
+### 3. Repository Synchronization
+
+Once enabled, PlayerZero will begin importing and analyzing your repository data.
+
+    1. Initial sync may take several minutes to hours depending on repository size
+    2. PlayerZero will sync new commits and pull requests automatically
+    3. Monitor progress in the Settings → Code section
+
+## GitHub Enterprise Setup
+
+For GitHub Enterprise Server installations, additional configuration is required:
+
+    1. GitHub Enterprise Server with API access enabled
+    2. Network connectivity between PlayerZero and your GitHub Enterprise instance
+    3. Admin access to create GitHub Apps on your Enterprise instance
+
+### Enterprise Configuration Steps
+
+    1. Contact PlayerZero support to configure Enterprise settings
+    2. Provide your GitHub Enterprise Server URL and network details
+    3. Create a GitHub App on your Enterprise instance with the required permissions
+    4. Configure webhook URLs and authentication secrets
+    5. Follow the standard repository configuration process above
+
+### Required Permissions
+
+    1. Repository permissions:
+        - Contents: Read (access repository files and code)
+        - Metadata: Read (repository information)
+        - Pull requests: Read & Write (analyze PRs and post comments)
+        - Commits: Read (track code changes)
+
+    2. Organization permissions:
+        - Members: Read (understand team structure)
+
+These permissions enable PlayerZero to provide code analysis, pull request insights, and AI-powered code conversations while maintaining security and access control.

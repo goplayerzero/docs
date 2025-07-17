@@ -60,7 +60,10 @@
                                 "group": "Import Git Setup Guides",
                                 "pages": [
                                     "developer-guide/configuration-guides/importing-code/import-git-setup-guide",
-                                    "developer-guide/configuration-guides/importing-code/git-self-hosting"
+                                    "developer-guide/configuration-guides/importing-code/github",
+                                    "developer-guide/configuration-guides/importing-code/azure",
+                                    "developer-guide/configuration-guides/importing-code/bitbucket",
+                                    "developer-guide/configuration-guides/importing-code/gitlab"
                                 ]
                             },
                             {
