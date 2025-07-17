@@ -16,7 +16,7 @@ description: "PlayerZero suggests targeted code fixes by combining session data,
 
 ## Prompting Best Practices and Examples
 
-#### Effective Prompting Strategies
+### Effective Prompting Strategies
       1. **Think in System Flows, Not Individual Files**  
          - *GOOD:* “Find the user authentication service.”  
          - *BETTER:* “Show me the complete user‑authentication flow from API request through JWT validation, database lookup, and response generation.”  
@@ -33,7 +33,7 @@ description: "PlayerZero suggests targeted code fixes by combining session data,
          - *GOOD:* “Show me the notification service.”  
          - *BETTER:* “How does the notification service integrate with the user service and email provider? Show me the API contracts, error handling, and retry logic.”  
 
-#### Unsatisfactory Prompting Examples
+### Unsatisfactory Prompting Examples
       1. **Single‑File Focus**  
          - *POOR:* “Show me `UserController.java`.”  
          - **WHY:** Misses the broader system context and service interactions.  
@@ -55,7 +55,7 @@ description: "PlayerZero suggests targeted code fixes by combining session data,
          - *BETTER:* “Show me how the order‑processing service is deployed and configured, and how that relates to the recent timeout errors we’ve been seeing.”  
 
 ## Backend Use Cases
-<Note>Before you get started, double‑check which repositories and datasets PlayerZero has access to. You can find this in your settings at **go.playerzero.app/settings</Note>
+<Note>Before you get started, double‑check which repositories and datasets PlayerZero has access to. You can find this in your settings at [go.playerzero.app/settings](go.playerzero.app/settings)</Note>
 
 ### Understanding System Architecture & Dependencies
 ##### **System Architecture Intelligence**
