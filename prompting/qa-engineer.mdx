@@ -1,18 +1,17 @@
 ---
-title: "QA Engineer"
+title: "Prompting Strategies for QA Engineers"
+sidebarTitle: "QA Engineer"
 description: "PlayerZero uncovers hidden bugs by analyzing code paths, business rules, and system interactions—empowering QA teams to design thorough tests and validate real‑world behavior."
 ---
 
 ## PlayerZero AI Chat: QA Engineer Guide
 
-  ### Role‑Specific Value of PlayerZero AI Chat
     As a QA engineer, PlayerZero AI Chat revolutionizes how you understand system behavior, design comprehensive test strategies, and pinpoint failure points through deep code analysis.
 
     - **Comprehensive Test‑Coverage Analysis:** Identify critical code paths, branches, and integration points that demand testing.  
     - **Edge‑Case Discovery:** Surface boundary conditions, unusual workflows, and error‑handling scenarios often missed by manual reviews.  
     - **Integration‑Testing Insights:** Map service dependencies, API contracts, and data flows to craft effective integration tests.  
     - **Business‑Logic Understanding:** Reveal complex validation rules so you can create meaningful, real‑world test cases.  
-    - **Automation Opportunities:** Spot repetitive patterns, API endpoints, and workflows best suited for automated testing.  
     - **Bug Reproduction Guidance:** Trace system behavior in code to recreate issues quickly and verify fixes with confidence.  
 
   ## Prompting Best Practices and Examples
@@ -56,193 +55,193 @@ description: "PlayerZero uncovers hidden bugs by analyzing code paths, business 
          - *BETTER:* “Show me the order‑processing flow—including error conditions, timeouts, and data‑validation failures—to test.”  
 
   ## QA‑Specific Use Cases
-    > **TIP:** Before you start, confirm which repositories and datasets PlayerZero can access under **go.playerzero.app/settings**.
+<Note>Before you get started, double‑check which repositories and datasets PlayerZero has access to. You can find this in your settings at **go.playerzero.app/settings</Note>
 
-    #### Test Coverage Analysis & Planning
-      ##### Comprehensive Workflow Testing
+    ### Test Coverage Analysis & Planning
+      ##### **Comprehensive Workflow Testing**
         - “Show me the user‑profile update functionality and list all code paths, validation rules, and error scenarios that need testing.”  
         - “Map the shopping‑cart implementation—including add/remove items, quantity updates, and inventory‑conflict edge cases.”  
         - “Find the password‑reset workflow and show all security checks, error conditions, and UX scenarios to test.”  
 
-      ##### Critical‑Path Identification
+      ##### **Critical‑Path Identification**
         - “Highlight the most critical business logic in payment processing and help prioritize testing by user impact.”  
         - “Find code paths in order fulfillment that could cause revenue loss if they fail.”  
         - “Identify authentication and authorization flows requiring rigorous testing.”  
 
-      ##### Edge‑Case Discovery
+      ##### **Edge‑Case Discovery**
         - “Show input validation for user registration and surface boundary conditions—max field lengths, special characters, i18n issues.”  
         - “Find cart‑quantity limits and reveal business rules around maximum orders, bulk purchases, and inventory constraints.”  
         - “Analyze date/time handling in scheduling and list timezone, DST, and calendar edge cases to test.”  
 
-      ##### Test Scenario Generation
+      ##### **Test Scenario Generation**
         - “Show discount‑calculation logic and outline test cases for different discount types, combinations, and edge cases.”  
         - “Find the permission system and list role‑based access scenarios and security boundaries to test.”  
         - “Trace subscription billing—upgrades, downgrades, prorations, cancellations—and surface test scenarios.”  
 
-    #### Integration Testing Strategy
-      ##### Service Integration Mapping
+    ### Integration Testing Strategy
+      ##### **Service Integration Mapping**
         - “Show how the order service interacts with inventory and payment services, including all failure and recovery mechanisms.”  
         - “Map user‑authentication flow across services and identify integration points to test.”  
         - “List all external API integrations with error‑handling, timeouts, and retry logic to validate.”  
 
-      ##### API Contract Testing
+      ##### **API Contract Testing**
         - “Show user‑management API endpoints and help design contract tests for request/response validation and backward compatibility.”  
         - “Find payment‑processing API contracts and list edge cases and error conditions to test.”  
         - “Map notification‑service APIs and design tests for message types and delivery failures.”  
 
-      ##### Data Flow Integration Testing
+      ##### **Data Flow Integration Testing**
         - “Show user‑data flow between the main app and reporting system; list all sync points needing tests.”  
         - “Find inventory‑management integration points and test data consistency across systems.”  
         - “Trace order‑processing data flow and identify risks to data integrity.”  
 
-      ##### Cross‑System Consistency Testing
+      ##### **Cross‑System Consistency Testing**
         - “Show how customer data syncs between CRM and billing systems and outline consistency checks.”  
         - “Find locations where account info is replicated and test synchronization reliability.”  
         - “Map product‑catalog sync and identify failure scenarios to test.”  
 
-    #### Business Logic Validation
-      ##### Business‑Rule Testing
+    ### Business Logic Validation
+      ##### **Business‑Rule Testing**
         - “Show discount‑calculation logic and outline test cases for different discount types and combinations.”  
         - “Find the permission system and list role‑based access scenarios to validate.”  
         - “Trace subscription billing for upgrades, downgrades, prorations, and cancellations.”  
 
-      ##### Calculation‑Logic Verification
+      ##### **Calculation‑Logic Verification**
         - “Show shipping‑cost calculations, including discounts and international shipping edge cases.”  
         - “Find tax‑calculation logic and list diverse tax scenarios to test.”  
         - “Trace commission‑calculation logic and reveal all rules and edge cases.”  
 
-      ##### Workflow‑State Testing
+      ##### **Workflow‑State Testing**
         - “Show order‑processing workflow and identify all state transitions and rules to test.”  
         - “Find user‑onboarding flow and list decision points and validations.”  
         - “Trace product‑approval workflow and surface rules and edge cases.”  
 
-      ##### Data‑Validation Rule Testing
+      ##### **Data‑Validation Rule Testing**
         - “Show validation rules for customer profiles and design boundary and invalid‑input tests.”  
         - “Find product‑catalog validation logic and list rules and constraints.”  
         - “Analyze transaction validation and outline edge cases and error conditions.”  
 
-    #### Error Handling & Edge Cases
-      ##### Exception Scenario Testing
+    ### Error Handling & Edge Cases
+      ##### **Exception Scenario Testing**
         - “Show error handling in file uploads and design tests for varied failure scenarios.”  
         - “Find user‑form validation logic and identify malicious‑input tests.”  
         - “Map DB transaction handling and surface concurrency and rollback scenarios.”  
 
-      ##### Failure‑Mode Analysis
+      ##### **Failure‑Mode Analysis**
         - “Show error handling in payment processing—declined cards, network failures, timeouts.”  
         - “Find authentication‑failure handling—account lockout, brute‑force prevention, credential validation.”  
         - “Map file‑upload failures—oversized files, invalid formats, storage issues.”  
 
-      ##### Resource‑Constraint Testing
+      ##### **Resource‑Constraint Testing**
         - “Show system behavior under high load and outline resource‑constraint tests.”  
         - “Find memory‑management patterns and design memory‑leak tests.”  
         - “Analyze DB connection handling and test pool exhaustion scenarios.”  
 
-      ##### Network & External‑Dependency Testing
+      ##### **Network & External‑Dependency Testing**
         - “Show handling of external‑API failures and timeouts.”  
         - “Find retry logic and circuit‑breaker patterns and test their effectiveness.”  
         - “Map external dependencies and design varied failure‑scenario tests.”  
 
-    #### Performance Testing Insights
-      ##### Bottleneck Identification
+    ### Performance Testing Insights
+      ##### **Bottleneck Identification**
         - “Analyze product search and pinpoint DB queries, caching, and bottlenecks for load testing.”  
         - “Show dashboard loading sequence and list components that may cause performance issues.”  
         - “Find most expensive operations in order processing and design performance tests.”  
 
-      ##### Database‑Performance Testing
+      ##### **Database‑Performance Testing**
         - “Show reporting‑system queries and flag ones needing performance tests.”  
         - “Find data‑aggregation processes and outline tests for different volumes.”  
         - “Analyze user search queries and design performance validations.”  
 
-      ##### Scalability Testing Strategy
+      ##### **Scalability Testing Strategy**
         - “Show notification‑system throughput handling and identify scalability tests.”  
         - “Find registration flow and design high‑concurrency tests.”  
         - “Analyze payment processing for scalability constraints.”  
 
-      ##### Caching & Optimization Testing
+      ##### **Caching & Optimization Testing**
         - “Show product‑catalog caching and design cache‑invalidation tests.”  
         - “Find session‑management caching and test expiration/performance.”  
         - “Analyze API‑response caching and outline effectiveness tests.”  
 
-    #### Security Testing Through Code
-      ##### Authentication Security Testing
+    ### Security Testing Through Code
+      ##### **Authentication Security Testing**
         - “Show complete OAuth flow and design tests for token validation, refresh, and session management.”  
         - “Find password‑reset workflow and flag vulnerabilities to test.”  
         - “Analyze MFA implementation and list security scenarios.”  
 
-      ##### Authorization Testing Strategy
+      ##### **Authorization Testing Strategy**
         - “Show permission checks across services and design auth‑bypass tests.”  
         - “Find role‑based access control and flag privilege‑escalation scenarios.”  
         - “Map admin‑access controls and list security boundaries.”  
 
-      ##### Input Security Testing
+      ##### **Input Security Testing**
         - “Show user‑input handling across the app and identify injection and auth‑bypass risks.”  
         - “Find user‑data processing points and design SQL‑injection and XSS tests.”  
         - “Analyze file‑upload security and list attack vectors to test.”  
 
-      ##### Data Security Testing
+      ##### **Data Security Testing**
         - “Show handling and encryption of sensitive data and suggest security tests.”  
         - “Find payment‑information processing and design PCI‑compliance tests.”  
         - “Analyze privacy controls and list data‑protection scenarios.”  
 
-    #### Bug Investigation & Root‑Cause Analysis
-      ##### Code‑Based Bug Reproduction
+    ### Bug Investigation & Root‑Cause Analysis
+      ##### **Code‑Based Bug Reproduction**
         - “Show order‑calculation logic and investigate incorrect tax calculations.”  
         - “Find session‑management code and reproduce unexpected logouts.”  
         - “Trace email notifications and debug missing confirmation emails.”  
 
-      ##### System‑Behavior Analysis
+      ##### **System‑Behavior Analysis**
         - “Show cart persistence logic and debug disappearing items.”  
         - “Find product search implementation and reproduce inconsistent results.”  
         - “Analyze profile updates and debug unsaved changes.”  
 
-      ##### Integration‑Issue Investigation
+      ##### **Integration‑Issue Investigation**
         - “Show payment‑order integration and debug unprocessed payments.”  
         - “Find inventory sync logic and reproduce incorrect stock levels.”  
         - “Trace notification system and debug missing alerts.”  
 
-      ##### Data‑Consistency Issue Analysis
+      ##### **Data‑Consistency Issue Analysis**
         - “Show cross‑system user‑data sync and debug inconsistencies.”  
         - “Find order‑history logic and reproduce missing orders.”  
         - “Analyze pricing system and debug incorrect prices.”  
 
-    #### Test Automation Opportunities
-      ##### Automation Strategy Development
+    ### Test Automation Opportunities
+      ##### **Automation Strategy Development**
         - “Show onboarding flow and identify repetitive test scenarios for automation.”  
         - “Find CMS API endpoints and design automated CRUD tests.”  
         - “Analyze form‑validation patterns and create reusable test components.”  
 
-      ##### Regression‑Testing Automation
+      ##### **Regression‑Testing Automation**
         - “Show code paths using auth service and identify tests needed after security updates.”  
         - “Find payment components and design automated regression tests.”  
         - “Analyze product catalog and design automated data‑management tests.”  
 
-      ##### Integration‑Test Automation
+      ##### **Integration‑Test Automation**
         - “Show order‑processing integrations and design automated communication tests.”  
         - “Find external API integrations and create automated contract tests.”  
         - “Map notification workflows and design automated delivery tests.”  
 
-      ##### Performance‑Test Automation
+      ##### **Performance‑Test Automation**
         - “Show DB query patterns and flag queries for automated performance testing.”  
         - “Find critical user workflows and design automated response‑time tests.”  
         - “Analyze resource‑usage patterns and automate memory/CPU/storage tests.”  
 
-    #### Quality Metrics & Reporting
-      ##### Test‑Coverage Assessment
+    ### Quality Metrics & Reporting
+      ##### **Test‑Coverage Assessment**
         - “Show user‑management system and evaluate current test coverage.”  
         - “Find business‑critical workflows and suggest coverage improvements.”  
         - “Analyze error‑handling patterns and highlight coverage gaps.”  
 
-      ##### Quality‑Trend Analysis
+      ##### **Quality‑Trend Analysis**
         - “Show most frequently changed code and recommend QA focus areas.”  
         - “Find components with highest bug rates and suggest improved testing.”  
         - “Analyze system complexity and flag areas requiring thorough tests.”  
 
-      ##### Risk‑Based Testing Strategy
+      ##### **Risk‑Based Testing Strategy**
         - “Show critical business logic and prioritize testing by impact and complexity.”  
         - “Find newest features and recent changes to target in QA.”  
         - “Analyze historically error‑prone areas and design targeted tests.”  
 
-      ##### Testing‑Efficiency Optimization
+      ##### **Testing‑Efficiency Optimization**
         - “Show current testing patterns and identify ways to reduce redundancy.”  
         - “Find time‑consuming tests and suggest optimizations.”  
         - “Analyze maintenance overhead and propose more reliable, maintainable tests.”  
