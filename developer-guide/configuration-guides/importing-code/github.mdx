@@ -3,9 +3,23 @@ title: "GitHub"
 description: "PlayerZero for Github automatically imports your codebase into PlayerZero, providing automatic risk analysis, release monitoring, and other AI enabled features."
 ---
 
-GitHub is a cloud-based Git repository hosting service to store and manage source code, with tools for collaboration.
+
+## Required Permissions
 
 <Note>Admin permissions are required on your GitHub organization to install the PlayerZero GitHub App.</Note>
+
+PlayerZero requires specific permissions to deliver its full functionality. The PlayerZero GitHub App requests the following permissions:
+
+    1. Repository permissions:
+        - Contents: Read (access repository files and code)
+        - Metadata: Read (repository information)
+        - Pull requests: Read & Write (analyze PRs and post comments)
+        - Commits: Read (track code changes)
+
+    2. Organization permissions:
+        - Members: Read (understand team structure)
+
+These permissions enable PlayerZero to provide code analysis, pull request insights, and AI-powered code conversations while maintaining security and access control.
 
 ## Basic Setup Guide
 
@@ -61,15 +75,4 @@ For GitHub Enterprise Server installations, additional configuration is required
     4. Configure webhook URLs and authentication secrets
     5. Follow the standard repository configuration process above
 
-### Required Permissions
-
-    1. Repository permissions:
-        - Contents: Read (access repository files and code)
-        - Metadata: Read (repository information)
-        - Pull requests: Read & Write (analyze PRs and post comments)
-        - Commits: Read (track code changes)
-
-    2. Organization permissions:
-        - Members: Read (understand team structure)
-
-These permissions enable PlayerZero to provide code analysis, pull request insights, and AI-powered code conversations while maintaining security and access control.
+The same permissions listed above apply to GitHub Enterprise installations. These permissions enable PlayerZero to provide code analysis, pull request insights, and AI-powered code conversations while maintaining security and access control.
