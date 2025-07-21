@@ -1,0 +1,150 @@
+---
+title: "Code Dry Runs"
+sidebarTitle: "Code Dry Runs"
+description: "Simulate and validate test scenarios through AI-powered predictions before running actual tests, helping teams identify risks, refine strategies, and strengthen coverage."
+---
+
+## What Are Code Dry Runs?
+
+Code Dry Runs allow you to describe **test scenarios in natural language** and have AI simulate what would happen before you run actual tests.  This "testing before testing" approach helps you:
+
+- Identify potential issues early  
+- Assess risk before execution  
+- Validate testing strategies  
+- Uncover edge cases through AI-driven analysis  
+
+## Scenario Creation
+
+Build structured scenarios with the following components:
+
+<AccordionGroup>
+
+<Accordion title="Title & Description">
+- Create named scenarios for specific testing situations.  
+- Provide a clear description of what you're trying to validate or test.  
+</Accordion>
+
+<Accordion title="Initial State">
+- Define starting conditions for the test, including:  
+  - Required setup or seed data  
+  - User permissions and access levels  
+  - System configurations needed before testing begins  
+</Accordion>
+
+<Accordion title="Interventions">
+- Outline step-by-step actions for the scenario, such as:  
+  - User interactions or system events  
+  - Optional hints for each step to guide execution  
+  - Indicators for what to watch for or measure  
+</Accordion>
+
+<Accordion title="Expected Outcome">
+- Define what success looks like:  
+  - Specific behaviors or UI states  
+  - Data changes or persistence results  
+  - Final system state validation  
+</Accordion>
+
+<Accordion title="Source Integration">
+- Automatically generate scenarios from:  
+  - Existing tickets  
+  - Historical issues and known regressions  
+  - Relevant user reports tied to your codebase  
+</Accordion>
+
+</AccordionGroup>
+
+```
+Scenario Title: [Name]
+
+Initial State:
+[Describe starting conditions, data, or setup required]
+
+Interventions:
+Step 1: [User action] (Hint: [Optional guidance])
+Step 2: [System interaction] (Hint: [What to watch for])
+Step 3: [Expected behavior]
+
+Expected Outcome:
+[Describe the final result, state, or behavior expected]
+```
+
+## Simulation and Analysis
+
+Run scenarios through AI-powered simulation — no actual code execution required.
+
+<AccordionGroup>
+
+<Accordion title="AI-Powered Execution">
+- The AI processes each step in your scenario.  
+- Predictions are based on:  
+  - Your codebase  
+  - Historical failure patterns  
+  - Known dependencies and system behavior  
+</Accordion>
+
+<Accordion title="Status Tracking">
+- Monitor simulations in real time.  
+- Scenarios progress through states:  
+  - Pending → Running → Finished or Canceled  
+- Includes progress indicators and status logs.  
+</Accordion>
+
+<Accordion title="State Analysis">
+- View intermediate states as the AI “walks through” each intervention.  
+- Understand the assumptions, data transitions, and expected results at every stage.  
+</Accordion>
+
+<Accordion title="Risk Assessment">
+- The AI assigns a likelihood of success:  
+  - Unlikely  
+  - Uncertain  
+  - Very Likely  
+- Ratings are based on historical outcomes and risk signals in your code.  
+</Accordion>
+
+<Accordion title="Prediction vs Reality">
+- Compare the AI’s predicted results with your expected outcomes.  
+- Get explanations for any gaps to refine your assumptions.  
+- Surface potential edge cases or untested paths before you commit to actual testing.  
+</Accordion>
+
+</AccordionGroup>
+
+
+## Use Cases
+
+<AccordionGroup>
+
+<Accordion title="UI Testing">
+- Simulate user interactions and complex flows.  
+- Validate responsive design, navigation, and form submissions without running full UI tests.  
+</Accordion>
+
+<Accordion title="Backend Testing">
+- Model API calls and service interactions.  
+- Analyze data validation, error handling, and integration points.  
+</Accordion>
+
+<Accordion title="Database Interactions">
+- Predict data persistence, transaction handling, and load behavior.  
+- Evaluate integrity checks and potential performance bottlenecks before load testing.  
+</Accordion>
+
+</AccordionGroup>
+
+
+## Why It Matters
+
+Code Dry Runs transform testing by providing **intelligent pre-analysis**, allowing teams to:
+
+- Refine test scenarios before committing time to execution  
+- Identify risks and weak points early  
+- Build more comprehensive and resilient test coverage  
+- Reduce wasted time on redundant or low-value test cases
+
+## Get Started
+
+👉 Setup guide
+
+👉 Jump to the app

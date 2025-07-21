@@ -1,47 +1,152 @@
 {
-    "$schema": "https://mintlify.com/docs.json",
-    "theme": "mint",
-    "name": "PlayerZero",
-    "colors": {
-        "primary": "#030712",
-        "light": "#fafafa",
-        "dark": "#030712"
-    },
-    "favicon": "/favicon.svg",
-    "navigation": {
-        "tabs": [
-            {
-                "tab": "About PlayerZero",
-                "groups": [
-                    {
-                        "group": "Getting Started with PlayerZero",
-                        "pages": [
-                            "home",
-                            "how-playerzero-works",
-                            "deploy-playerzero"
-                        ]
-                    },
-                    {
-                        "group": "PlayerZero Use Cases",
-                        "pages": [
-                            "use-cases/resolve-customer-issues/resolve-customer-issues-benefits",
-                            "use-cases/retrieve-insights-from-code/retrieve-insights-from-code-benefits",
-                            "use-cases/monitor-for-anomalies/monitor-for-anomalies-benefits",
-                            "use-cases/analyze-code-quality/analyze-code-quality-benefits",
-                            "use-cases/create-documentation/create-documentation-benefits",
-                            "use-cases/manage-sprawling-codebases/manage-sprawling-codebases-benefits"
-                        ]
-                    },
-                    {
-                        "group": "Connect Data to PlayerZero",
-                        "pages": [
-                            "connect-data-to-playerzero/source-control-management",
-                            "connect-data-to-playerzero/user-session-data",
-                            "connect-data-to-playerzero/backend-telemetry",
-                            "connect-data-to-playerzero/product-ticketing",
-                            "connect-data-to-playerzero/customer-ticketing"
-                        ]
-                    }
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "PlayerZero",
+  "colors": {
+    "primary": "#030712",
+    "light": "#fafafa",
+    "dark": "#030712"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "About PlayerZero",
+        "groups": [
+          {
+            "group": "Getting Started with PlayerZero",
+            "pages": [
+              "home",
+              "how-playerzero-works",
+              "deploy-playerzero"
+            ]
+          },
+          {
+            "group": "PlayerZero Use Cases",
+            "pages": [
+              "use-cases/resolve-customer-issues/resolve-customer-issues-benefits",
+              "use-cases/retrieve-insights-from-code/retrieve-insights-from-code-benefits",
+              "use-cases/monitor-for-anomalies/monitor-for-anomalies-benefits",
+              "use-cases/analyze-code-quality/analyze-code-quality-benefits",
+              "use-cases/create-documentation/create-documentation-benefits",
+              "use-cases/manage-sprawling-codebases/manage-sprawling-codebases-benefits"
+            ]
+          },
+          {
+            "group": "Connect Data to PlayerZero",
+            "pages": [
+              "connect-data-to-playerzero/source-control-management",
+              "connect-data-to-playerzero/product-ticketing",
+              "connect-data-to-playerzero/customer-ticketing",
+              "connect-data-to-playerzero/user-session-data",
+              "connect-data-to-playerzero/backend-telemetry"
+
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Developer Guides",
+        "groups": [
+          {
+            "group": "Deploy PlayerZero",
+            "pages": [
+              "developer-guide/quickstart-guide"
+            ]
+          },
+          {
+            "group": "Configuration Guides",
+            "pages": [
+              {
+                "group": "Import Git Setup Guides",
+                "pages": [
+                  "developer-guide/configuration-guides/importing-code/import-git-setup-guide",
+                  "developer-guide/configuration-guides/importing-code/github",
+                  "developer-guide/configuration-guides/importing-code/azure",
+                  "developer-guide/configuration-guides/importing-code/bitbucket",
+                  "developer-guide/configuration-guides/importing-code/gitlab"
+                ]
+              },
+              {
+                "group": "Capturing User Sessions",
+                "pages": [
+                  {
+                    "group": "Web SDK Guide",
+                    "pages": [
+                      "developer-guide/configuration-guides/capturing-user-sessions/web-sdk-instrumentation",
+                      "developer-guide/configuration-guides/capturing-user-sessions/npm",
+                      "developer-guide/configuration-guides/capturing-user-sessions/script-tag",
+                      "developer-guide/configuration-guides/capturing-user-sessions/segment",
+                      "developer-guide/configuration-guides/capturing-user-sessions/advanced-usage"
+                    ]
+                  },
+                  {
+                    "group": "Web SDK Settings",
+                    "pages": [
+                      "developer-guide/configuration-guides/capturing-user-sessions/domain-settings",
+                      "developer-guide/configuration-guides/capturing-user-sessions/thresholds-and-filtering"
+                    ]
+                  },
+                  "developer-guide/configuration-guides/capturing-user-sessions/performance"
+                ]
+              },
+              {
+                "group": "Integrating with OpenTelemetry",
+                "pages": [
+                  "developer-guide/configuration-guides/integrating-with-opentelemetry/the-opentelemetry-standard",
+                  "developer-guide/configuration-guides/integrating-with-opentelemetry/use-playerzeros-endpoint",
+                  {
+                    "group": "OpenTelemetry Recipes",
+                    "pages": [
+                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/java",
+                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/node",
+                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/python",
+                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/go",
+                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/dotnet",
+                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/ruby",
+                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/rust",
+                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/php",
+                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/swift",
+                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/erlang-elixir",
+                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/other-languages"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Sync Project Management Data",
+                "pages": [
+                  "developer-guide/configuration-guides/link-project-management-tools/sync-project-management-data",
+                  "developer-guide/configuration-guides/link-project-management-tools/jira",
+                  "developer-guide/configuration-guides/link-project-management-tools/azure-devops"
+                ]
+              },
+              "developer-guide/configuration-guides/connect-customer-ticketing/sync-customer-ticket-data",
+              {
+                "group": "Receive Notifications and Alerts",
+                "pages": [
+                  "developer-guide/configuration-guides/notification-integrations/slack"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "User Guides",
+            "pages": [
+              {
+                "group": "Resolve Customer Issues",
+                "pages": [
+                  "use-cases/resolve-customer-issues/capture-session-context",
+                  "use-cases/resolve-customer-issues/trace-errors-to-code",
+                  "use-cases/resolve-customer-issues/generate-code-fixes"
+                ]
+              },
+              {
+                "group": "Retrieve Insights from Code",
+                "pages": [
+                  "use-cases/retrieve-insights-from-code/ask-codebase-questions",
+                  "use-cases/retrieve-insights-from-code/identify-dependencies",
+                  "use-cases/retrieve-insights-from-code/enforce-coding-standards"
                 ]
             },
             {
@@ -196,68 +301,139 @@
                             "developer-guide/security/enabling-private-data-storage"
                         ]
                     }
-                ]
-            },
-            {
-                "tab": "How to Use PlayerZero",
+              },
+              {
+                "group": "Monitor for Anomalies",
                 "pages": [
-                    "prompting/prompting-basics",
-                    "prompting/frontend-developer",
-                    "prompting/backend-engineer",
-                    "prompting/support",
-                    "prompting/data-analyst",
-                    "prompting/qa-engineer"
+                  "use-cases/monitor-for-anomalies/setup-performance-alerts",
+                  "use-cases/monitor-for-anomalies/monitor-runtime-performance",
+                  "use-cases/monitor-for-anomalies/reduce-alert-noise",
+                  "use-cases/monitor-for-anomalies/identify-deployment-issues"
                 ]
-            }
+              },
+              {
+                "group": "Analyze Code Quality",
+                "pages": [
+                  "use-cases/analyze-code-quality/generate-functional-tests",
+                  "use-cases/analyze-code-quality/detect-regressions",
+                  "use-cases/analyze-code-quality/create-code-summaries"
+                ]
+              },
+              {
+                "group": "Create Documentation",
+                "pages": [
+                  "use-cases/create-documentation/generate-architecture-diagrams",
+                  "use-cases/create-documentation/detailed-api-docs",
+                  "use-cases/create-documentation/user-guides"
+                ]
+              },
+              {
+                "group": "Manage Sprawling Codebases",
+                "pages": [
+                  "use-cases/manage-sprawling-codebases/migrate-codebases",
+                  "use-cases/manage-sprawling-codebases/understand-legacy-code",
+                  "use-cases/manage-sprawling-codebases/share-codebase-knowledge"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Observability API",
+            "pages": [
+              "developer-guide/api/tracks",
+              "developer-guide/api/logs",
+              "developer-guide/api/spans"
+            ]
+          },
+          {
+            "group": "Security and Data Privacy",
+            "pages": [
+              "developer-guide/security/playerzero-philosophy",
+              "developer-guide/security/omitting-files-with-pzignore",
+              "developer-guide/security/enabling-private-data-storage"
+            ]
+          }
         ]
-    },
-    "logo": {
-        "light": "/logo/light-logo.svg",
-        "dark": "/logo/dark-logo.svg"
-    },
-    "api": {
-        "openapi": [
-            "openapi.yml"
-        ],
-        "mdx": {
-            "server": "https://sdk.playerzero.app",
-            "auth": {
-                "method": "bearer"
-            }
-        }
-    },
-    "background": {
-        "color": {
-            "dark": "#09090b"
-        }
-    },
-    "navbar": {
-        "links": [
-            {
-                "label": "Request Demo",
-                "href": "https://www.playerzero.ai/book-demo"
-            }
-        ],
-        "primary": {
-            "type": "button",
-            "label": "Login",
-            "href": "https://go.playerzero.app/"
-        }
-    },
-    "footer": {
-        "socials": {
-            "website": "https://www.playerzero.ai/",
-            "linkedin": "https://www.linkedin.com/company/playerzero/",
-            "twitter": "https://twitter.com/goplayerzero",
-            "slack": "https://playerzerocom-uhb1146.slack.com/join/shared_invite/zt-1i4nsidth-bmObDACsU_Ci8Lw2ttExXg#/shared-invite/email"
-        }
-    },
-    "integrations": {
-        "gtm": {
-            "tagId": "GTM-5T6DH5S"
-        },
-        "posthog": {
-            "apiKey": "phc_ARRFxqzeoII9b01gH5R3P0xhM8E565ZNmwo9I3N2Bxh"
-        }
+      },
+      {
+        "tab": "How to Use PlayerZero",
+        "groups": [
+          {
+            "group": "Workflows",
+            "pages": [
+              "how-to-guides/workflows"
+            ]
+          },
+          {
+            "group": "Features",
+            "pages": [
+              "features/ai-chat",
+              "features/code-summary",
+              "features/debug-reports"
+            ]
+          },
+          {
+            "group": "Prompting Best Practices",
+            "pages": [
+              "how-to-guides/prompting-basics",
+              "how-to-guides/frontend-developer",
+              "how-to-guides/backend-engineer",
+              "how-to-guides/support",
+              "how-to-guides/data-analyst",
+              "how-to-guides/qa-engineer"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/light-logo.svg",
+    "dark": "/logo/dark-logo.svg"
+  },
+  "api": {
+    "openapi": [
+      "openapi.yml"
+    ],
+    "mdx": {
+      "server": "https://sdk.playerzero.app",
+      "auth": {
+        "method": "bearer"
+      }
     }
+  },
+  "background": {
+    "color": {
+      "dark": "#09090b"
+    }
+},
+  "navbar": {
+    "links": [
+      {
+        "label": "Request Demo",
+        "href": "https://www.playerzero.ai/book-demo"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Login",
+      "href": "https://go.playerzero.app/"
+    }
+  },
+  "footer": {
+    "socials": {
+      "website": "https://www.playerzero.ai/",
+      "linkedin": "https://www.linkedin.com/company/playerzero/",
+      "twitter": "https://twitter.com/goplayerzero",
+      "slack": "https://playerzerocom-uhb1146.slack.com/join/shared_invite/zt-1i4nsidth-bmObDACsU_Ci8Lw2ttExXg#/shared-invite/email"
+    }
+  },
+  "integrations": {
+    "gtm": {
+      "tagId": "GTM-5T6DH5S"
+    },
+    "posthog": {
+      "apiKey": "phc_ARRFxqzeoII9b01gH5R3P0xhM8E565ZNmwo9I3N2Bxh"
+    }
+  }
 }

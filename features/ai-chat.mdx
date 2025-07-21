@@ -1,0 +1,178 @@
+---
+title: "AI Player Chat"
+sidebarTitle: "AI Player Chat"
+description: "PlayerZero’s AI Player serves as your knowledge partner, helping you navigate complex codebases, debug issues, and analyze code changes through natural conversation."
+---
+
+## What Is AI Player Chat?
+
+PlayerZero’s **AI Player Chat** acts as your **knowledge-rich agent**, designed to help you understand, investigate, and solve problems across your codebase and systems. Whether you’re debugging a tricky issue, exploring architecture, or researching historical changes, the AI Player provides fast, context-aware insights.
+
+To use it, navigate to any project in PlayerZero and start a conversation through the free‑form prompt interface.
+
+---
+
+## Starting Points
+
+<AccordionGroup>
+
+<Accordion title="Free‑Form Input">
+- **Access Point:** Available on the homepage and within any project view.  
+- **Use Case:** Ideal for open-ended questions, quick lookups, or initiating deep investigations.  
+- **Behavior:** AI builds context from your selected project and branch, then continues to expand the conversation as you refine your queries.  
+</Accordion>
+
+<Accordion title="Debug Report">
+- **Access Point:** From any session replay or Debug Report timeline.  
+- **Use Case:** Perfect when you need to investigate user-reported issues with full session, DOM, and trace context.  
+- **Behavior:** Clicking “Find in My Code” or “Debug” launches a chat that’s pre-loaded with session data, related logs, and linked code paths for faster root-cause analysis.  
+</Accordion>
+
+<Accordion title="Log Error">
+- **Access Point:** From any error log, stack trace, or telemetry panel.  
+- **Use Case:** For digging into specific errors or performance alerts without starting a fresh session view.  
+- **Behavior:** AI automatically correlates the log or stack trace with relevant files, recent commits, and known historical issues, so you can jump straight to a potential fix.  
+</Accordion>
+
+<Accordion title="PR Summary">
+- **Access Point:** Directly from Pull Request pages in PlayerZero.  
+- **Use Case:** Quickly understand what a PR changes, potential risks, and how it may impact customers.  
+- **Behavior:** AI generates a natural-language summary, identifies impacted areas, and lets you ask follow-up questions about specific functions, modules, or risks.  
+</Accordion>
+
+</AccordionGroup>
+
+
+## Modes of Operation
+
+<AccordionGroup>
+
+<Accordion title="Fast Mode">
+- **Purpose:** Instant responses for straightforward questions.  
+- **Best For:** Simple code lookups, lightweight explanations, or quick verifications.  
+- **Ideal When:** You need an answer *now* and don’t need detailed reasoning.  
+</Accordion>
+
+<Accordion title="Normal Mode">
+- **Purpose:** Balanced speed and detail, with transparent reasoning.  
+- **Best For:** Most investigation and debugging work.  
+- **Special Feature:** Toggle **“View Thought Process”** to see how the AI connects files, context, and logic.  
+</Accordion>
+
+<Accordion title="DeepThink / Deep Research Mode">
+- **Purpose:** Comprehensive exploration of your codebase and systems.  
+- **Best For:** Complex investigations (e.g., *“How does authentication work across all services?”*).  
+- **Behavior:** The AI systematically analyzes files, dependencies, and historical changes to produce a detailed, end‑to‑end understanding.  
+</Accordion>
+
+</AccordionGroup>
+
+
+## Context & Navigation Features
+
+<AccordionGroup>
+
+<Accordion title="Repo and Branch Selection">
+- Point the agent at specific **Repositories branches** at any time during your chat.  
+- Switch between **Git branches** at any time during your chat.  
+- The AI keeps your investigation context, analyzing how code and logic differ between versions.  
+</Accordion>
+
+<Accordion title="Follow‑Up Questions">
+- Build deeper understanding by **layering questions**.  
+- The AI **remembers your conversation history** and evolves responses as you refine your investigation.  
+</Accordion>
+
+<Accordion title="Fork Conversation">
+- Split into **parallel threads** to explore multiple topics (e.g., one thread for performance bottlenecks, another for API behaviors).  
+- Keeps your original investigation intact while exploring side questions.  
+</Accordion>
+
+<Accordion title="Context Workspace">
+- A **persistent workspace** tracks:  
+  - Files you’ve viewed  
+  - Code patterns analyzed  
+  - Problems under investigation  
+- The AI uses this workspace to **maintain continuity across your session**.  
+</Accordion>
+
+<Accordion title="Semantic Code Search">
+Ask about **functionality in plain English** and the AI will:  
+  - Search your entire repository with **semantic understanding** (not just keywords).  
+  - **Map relationships** across files.  
+  - Suggest **related areas of code** you may not have considered.  
+</Accordion>
+
+</AccordionGroup>
+
+
+## Model Training Dataset
+
+<AccordionGroup>
+
+<Accordion title="Code">
+- Full repository structures and files  
+- Branch-specific code and diffs  
+- Semantic embeddings of functions, classes, and modules  
+- Cross-file dependency mapping  
+- Historical changes and commit context  
+</Accordion>
+
+<Accordion title="Tickets">
+- Pull from support tickets, bug reports, feature requests, and customer issues  
+- Surface historical context for **recurring or related problems**  
+- Correlate reported behavior with relevant code or changes  
+</Accordion>
+
+<Accordion title="Telemetry">
+Leverage **session and performance data**, including:  
+  - User session traces  
+  - Error logs and stack traces  
+  - Network requests and console logs  
+  - Performance metrics and usage trends  
+</Accordion>
+
+</AccordionGroup>
+
+
+## Actionable Outputs
+
+<AccordionGroup>
+
+<Accordion title="Diagrams">
+Generate **visualizations** like:  
+  - Mermaid diagrams  
+  - Network and flow charts  
+  - System architecture diagrams  
+  - Process workflows for debugging or onboarding  
+</Accordion>
+
+<Accordion title="Documents">
+Automatically create:  
+  - Technical documentation  
+  - Investigation summaries  
+  - Troubleshooting guides  
+  - Structured code analysis reports  
+</Accordion>
+
+<Accordion title="Code Snippets">
+Write and deliver:  
+  - Example code snippets and test implementations  
+  - Fix and refactor suggestions  
+  - Executable stubs based on **your actual code patterns**  
+</Accordion>
+
+<Accordion title="Tickets">
+Generate structured content to support issue tracking:  
+  - Bug write‑ups and root cause summaries  
+  - Feature requirement outlines  
+  - Problem descriptions for direct ticket creation  
+</Accordion>
+
+</AccordionGroup>
+
+## Get Started
+
+👉 Setup guide
+
+👉 Jump to the app

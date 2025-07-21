@@ -16,174 +16,223 @@ As a Tier 1 Support specialist, PlayerZero AI Chat transforms how you diagno
 
 ## Prompting Best Practices and Examples
 
-### Effective Prompting Strategies  
-1. **Start with User Language, Not Technical Terms**  
-   - *GOOD:* “Find issues with login problems.”  
-   - *BETTER:* “A user says they can’t log in and keep getting an error message. Show me what might be causing login failures and similar recent reports.”  
+### Effective Prompting Strategies
 
-2. **Focus on User Impact and Business Context**  
-   - *GOOD:* “Show me payment processing code.”  
-   - *BETTER:* “Multiple users report their credit‑card payments are being declined. What could cause this and how do we fix it?”  
+<AccordionGroup>
 
-3. **Ask for Solutions, Not Just Explanations**  
-   - *GOOD:* “Why is the checkout page slow?”  
-   - *BETTER:* “Users complain about slow checkout. Show me causes of delay and any temporary work‑arounds I can offer.”  
+<Accordion title="Start with User Language, Not Technical Terms">
+- *GOOD:* “Find issues with login problems.”  
+- *BETTER:* “A user says they can’t log in and keep getting an error message. Show me what might be causing login failures and similar recent reports.”  
+</Accordion>
 
-4. **Include Timeline and Pattern Context**  
-   - *GOOD:* “Find email‑delivery issues.”  
-   - *BETTER:* “Since yesterday, users haven’t received password‑reset emails. Show me the email system, recent changes, and similar past issues.”  
+<Accordion title="Focus on User Impact and Business Context">
+- *GOOD:* “Show me payment processing code.”  
+- *BETTER:* “Multiple users report their credit‑card payments are being declined. What could cause this and how do we fix it?”  
+</Accordion>
 
-### Unsatisfactory Prompting Examples  
-1. **Single‑Issue Focus Without Context**  
-   - *POOR:* “User can’t access dashboard.”  
-   - **WHY:** Too little context for pattern recognition or solution finding.  
-   - *BETTER:* “A user can’t access their dashboard after login. Show me dashboard‑access issues and the questions I should ask them.”  
+<Accordion title="Ask for Solutions, Not Just Explanations">
+- *GOOD:* “Why is the checkout page slow?”  
+- *BETTER:* “Users complain about slow checkout. Show me causes of delay and any temporary work‑arounds I can offer.”  
+</Accordion>
 
-2. **Vague Problem Descriptions**  
-   - *POOR:* “Something is broken.”  
-   - **WHY:** Not enough information for targeted help.  
-   - *BETTER:* “Users get an error when updating profiles. Show me profile‑update issues and what these errors might mean.”  
+<Accordion title="Include Timeline and Pattern Context">
+- *GOOD:* “Find email‑delivery issues.”  
+- *BETTER:* “Since yesterday, users haven’t received password‑reset emails. Show me the email system, recent changes, and similar past issues.”  
+</Accordion>
 
-3. **Looking for Code Instead of Solutions**  
-   - *POOR:* “Show me the user‑registration code.”  
-   - **WHY:** Focuses on details without solving the user’s problem.  
-   - *BETTER:* “Users can’t complete registration—form won’t submit. Show me registration issues and how to help them sign up.”  
+</AccordionGroup>
 
----
+### Unsatisfactory Prompting Examples
 
-## Support Use Cases  
+<AccordionGroup>
+
+<Accordion title="Single‑Issue Focus Without Context">
+- *POOR:* “User can’t access dashboard.”  
+- **WHY:** Too little context for pattern recognition or solution finding.  
+- *BETTER:* “A user can’t access their dashboard after login. Show me dashboard‑access issues and the questions I should ask them.”  
+</Accordion>
+
+<Accordion title="Vague Problem Descriptions">
+- *POOR:* “Something is broken.”  
+- **WHY:** Not enough information for targeted help.  
+- *BETTER:* “Users get an error when updating profiles. Show me profile‑update issues and what these errors might mean.”  
+</Accordion>
+
+<Accordion title="Looking for Code Instead of Solutions">
+- *POOR:* “Show me the user‑registration code.”  
+- **WHY:** Focuses on details without solving the user’s problem.  
+- *BETTER:* “Users can’t complete registration—form won’t submit. Show me registration issues and how to help them sign up.”  
+</Accordion>
+
+</AccordionGroup>
+
+## Support Use Cases
 <Note>Before you get started, double‑check which repositories and datasets PlayerZero has access to. You can find this in your settings at [go.playerzero.app/settings](go.playerzero.app/settings)</Note>
 
-### Issue Diagnosis & Triage  
+### Issue Diagnosis & Triage
 
-##### **User Problem Translation**
+<AccordionGroup>
+
+<Accordion title="User Problem Translation">
 - “A user says the shopping cart *keeps emptying itself*. Show me cart‑related issues and likely causes.”  
 - “Multiple users can’t upload profile pictures. Show me upload functionality and recent changes that might affect it.”  
 - “User gets *something went wrong* when canceling a subscription. What does this error mean and how do I help them?”  
+</Accordion>
 
-##### **Pattern Recognition & Impact Assessment** 
+<Accordion title="Pattern Recognition & Impact Assessment">
 - “Are other users having login problems today? Show me recent login issues and whether this is widespread.”  
 - “Pages have loaded slowly since this morning. Show me if other users are affected and what changed.”  
 - “Customer can’t find order history. Show me similar reports and whether this is a known issue.”  
+</Accordion>
 
-##### **System Behavior Analysis** 
+<Accordion title="System Behavior Analysis">
 - “User’s account shows duplicate charges. Show me billing‑system behavior and how to tell if this is real or a display bug.”  
 - “Premium features disappeared for a customer. Show me account‑management code and info engineers need.”  
 - “Data export stuck at *processing*. Show me export functionality and realistic timing expectations.”  
+</Accordion>
 
-##### **Issue Categorization & Prioritization** 
+<Accordion title="Issue Categorization & Prioritization">
 - “Checkout abandonment due to payment errors. Show me payment flow, criticality, and temporary solutions.”  
 - “Three users can’t see order history but can place orders. Show me account‑data patterns and possible causes.”  
 - “International payment declined. Show me payment‑processing restrictions and config issues.”  
+</Accordion>
 
-##### **Cross‑System Issue Analysis** 
+<Accordion title="Cross‑System Issue Analysis">
 - “Customer issue spans multiple systems. Show me how accounts, billing, and product access interact.”  
 - “Data inconsistent across the app. Show me synchronization patterns and potential causes.”  
 - “Workflow fails at several points. Show me the complete user journey and where it might break.”  
+</Accordion>
 
----
+</AccordionGroup>
 
-### Solution Finding & Work‑arounds  
+### Solution Finding & Work‑arounds
 
-##### **Immediate Solution Discovery** 
+<AccordionGroup>
+
+<Accordion title="Immediate Solution Discovery">
 - “Password‑reset emails not received. Show me reset flow and alternative ways to help users.”  
 - “Data export stuck. Show me export logic and what timing to communicate.”  
 - “Duplicate charges showing. Show me billing behavior and how to confirm validity.”  
+</Accordion>
 
-##### **Work‑around Identification** 
+<Accordion title="Work‑around Identification">
 - “Mobile app feature broken—show me web alternatives to guide the user.”  
 - “Preferred payment method failing—show me options to complete purchase.”  
 - “Slow checkout—show causes and temporary work‑arounds.”  
+</Accordion>
 
-##### **Alternative Solution Paths** 
+<Accordion title="Alternative Solution Paths">
 - “Login fails—show account‑recovery and alternative authentication methods.”  
 - “File upload keeps failing—show upload limits and alternative submission methods.”  
 - “User can’t find a feature—show navigation patterns and guidance.”  
+</Accordion>
 
-##### **Temporary Fix Strategies** 
+<Accordion title="Temporary Fix Strategies">
 - “Checkout errors—show payment system and manual processes to complete purchase.”  
 - “Subscription renewal failed—show management system and how to process manually.”  
 - “Device sync not working—show sync logic and manual steps users can take.”  
+</Accordion>
 
----
+</AccordionGroup>
 
-### User Communication & Translation  
+### User Communication & Translation
 
-##### **Explaining Technical Issues in User Terms** 
+<AccordionGroup>
+
+<Accordion title="Explaining Technical Issues in User Terms">
 - “How do I explain international‑payment declines? Show restrictions and customer‑friendly language.”  
 - “Why is the data export slow? Show export process and expectation‑setting tips.”  
 - “Customer asks about payment security. Show measures and reassuring explanations.”  
+</Accordion>
 
-##### **Setting Accurate Expectations** 
+<Accordion title="Setting Accurate Expectations">
 - “When will login be fixed? Show recent changes and realistic timeline.”  
 - “User worried about data safety after error—show data‑handling assurances.”  
 - “Customer upset about performance—show system capabilities and realistic response times.”  
+</Accordion>
 
-##### **Providing Status Updates** 
+<Accordion title="Providing Status Updates">
 - “User requests ticket updates—show root‑cause progress I can share.”  
 - “Payment‑issue status—show recent fixes to communicate.”  
 - “Feature outage status—show dev status and timeline.”  
+</Accordion>
 
-##### **Building User Confidence** 
+<Accordion title="Building User Confidence">
 - “Data‑loss fears—show recovery mechanisms for reassurance.”  
 - “Account security worries—show protections and how to explain them.”  
 - “User hesitant to retry after failure—show reliability evidence to build confidence.”  
+</Accordion>
 
-##### **Business Impact Communication** 
+<Accordion title="Business Impact Communication">
 - “High‑value client impacted—show systems they rely on and prioritization steps.”  
 - “Issue affecting customer operations—show critical functionality and expedited resolution path.”  
 - “Problem may signal broader issue—show related functionality and assess wider impact.”  
+</Accordion>
 
----
+</AccordionGroup>
 
-### Escalation & Documentation  
+### Escalation & Documentation
 
-##### **Preparing Technical Escalations** 
+<AccordionGroup>
+
+<Accordion title="Preparing Technical Escalations">
 - “Escalating account‑sync issue—show sync code and details engineering needs.”  
 - “Premium subscription mis‑behavior—show subscription logic and escalation info.”  
 - “Unusual payment failure—show payment flow and technical context.”  
+</Accordion>
 
-##### **Gathering Diagnostic Information** 
+<Accordion title="Gathering Diagnostic Information">
 - “Escalate payment failure—show code, error details, and context.”  
 - “Data not syncing—show sync logic and info to collect.”  
 - “Dashboard shows incorrect data—show sources and diagnostic info needed.”  
+</Accordion>
 
-##### **Documentation for Knowledge Base** 
+<Accordion title="Documentation for Knowledge Base">
 - “Users confused by new dashboard—show changes and help draft explanation.”  
 - “FAQ on export timeframes—show export logic and accurate expectations.”  
 - “Payment security questions—show security measures and create reassuring article.”  
+</Accordion>
 
-##### **Escalation Impact Assessment** 
+<Accordion title="Escalation Impact Assessment">
 - “Checkout issue—show scope and business impact before escalating.”  
 - “Unique account issue—show management patterns to decide escalation urgency.”  
 - “Feature request—show current capabilities to frame for product team.”  
+</Accordion>
 
----
+</AccordionGroup>
 
-### Customer Experience Management  
+### Customer Experience Management
 
-##### **Proactive Issue Prevention** 
+<AccordionGroup>
+
+<Accordion title="Proactive Issue Prevention">
 - “New feature deployed—show functionality and potential user issues to watch.”  
 - “Scheduled maintenance—show affected systems and user‑impact messaging.”  
 - “New integration launch—show integration points and anticipated support questions.”  
+</Accordion>
 
-##### **User Education & Guidance** 
+<Accordion title="User Education & Guidance">
 - “Users struggle with new checkout—show flow and draft step‑by‑step guide.”  
 - “Subscription billing confusion—show billing logic and clear explanations.”  
 - “Account security settings help—show features and walkthrough.”  
+</Accordion>
 
-##### **Feedback Collection & Analysis** 
+<Accordion title="Feedback Collection & Analysis">
 - “Multiple complaints about a feature—show implementation and structure feedback.”  
 - “Feature already exists—show capabilities to educate users.”  
 - “Mobile usability issues—show mobile code and document feedback.”  
+</Accordion>
 
-##### **Customer Success Optimization** 
+<Accordion title="Customer Success Optimization">
 - “Customer not seeing value—show key features and success guidance.”  
 - “Inefficient usage—show best practices and user education.”  
 - “Cancellation risk due to performance—show system capabilities and address concerns.”  
+</Accordion>
 
-##### **Historical Context Research** 
+<Accordion title="Historical Context Research">
 - “Problem started ‘a few weeks ago’—show recent dashboard changes that might apply.”  
 - “Feature ‘used to work differently’—show change history to understand perception.”  
 - “Account behavior changed suddenly—show account‑management logic and possible causes.”  
+</Accordion>
 
+</AccordionGroup>

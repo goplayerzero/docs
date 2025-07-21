@@ -1,0 +1,316 @@
+---
+title: "Prompting Strategies for Data Analysts"
+sidebarTitle: "Data Analyst"
+description: "PlayerZero uncovers data schemas, business logic, and data flows directly from code and system behavior to accelerate analysis."
+---
+
+## PlayerZero AI Chat: Data Analyst Guide
+
+As a data analyst, PlayerZero AI Chat revolutionizes how you understand data systems, discover data sources, and analyze business logic through code exploration.
+
+- **Data Schema Discovery:** Understand database structures, relationships, and data models across your entire system.  
+- **Business Logic Analysis:** Trace how business rules are implemented in code and how they affect data quality and meaning.  
+- **Data Pipeline Understanding:** Map data flows from collection through transformation to storage and reporting.  
+- **Data Quality Insights:** Identify validation rules, constraints, and data processing logic that impact data integrity.  
+- **Data Integration Mapping:** Discover how different systems exchange data and maintain consistency.  
+
+## Prompting Best Practices and Examples
+
+### Effective Prompting Strategies
+
+<AccordionGroup>
+
+<Accordion title="Focus on Data Flows, Not Individual Tables">
+- *GOOD:* “Show me the user table schema.”  
+- *BETTER:* “Trace how user data flows from registration through profile updates to account deletion, including all transformations and validations.”  
+</Accordion>
+
+<Accordion title="Connect Business Logic to Data Implementation">
+- *GOOD:* “Find revenue calculation code.”  
+- *BETTER:* “Show me how revenue metrics are calculated in the code, including any business rules, discounts, refunds, and how this data is stored and aggregated.”  
+</Accordion>
+
+<Accordion title="Understand Data Quality Through Code">
+- *GOOD:* “Show me data validation.”  
+- *BETTER:* “What validation rules and data‑quality checks are implemented for customer data, and how do they ensure data consistency across the system?”  
+</Accordion>
+
+<Accordion title="Map Data Sources and Destinations">
+- *GOOD:* “Find database connections.”  
+- *BETTER:* “Show me all the places where user‑behavior data is collected, how it’s processed, and where it’s ultimately stored or exported.”  
+</Accordion>
+
+</AccordionGroup>
+
+### Unsatisfactory Prompting Examples
+
+<AccordionGroup>
+
+<Accordion title="Schema‑Only Requests">
+- *POOR:* “Show me the database schema.”  
+- **WHY:** Misses business logic and data‑processing context.  
+- *BETTER:* “Show me the customer data model including how it’s validated, processed, and used in business calculations.”  
+</Accordion>
+
+<Accordion title="Generic Data Requests">
+- *POOR:* “Find all data tables.”  
+- **WHY:** Too broad and doesn’t specify analytical purpose.  
+- *BETTER:* “Show me all data models related to user engagement and how they connect to calculate retention metrics.”  
+</Accordion>
+
+<Accordion title="Tool‑Specific Without Context">
+- *POOR:* “Show me SQL queries.”  
+- **WHY:** Doesn’t explain what you’re trying to understand about the data.  
+- *BETTER:* “Show me how product‑performance metrics are calculated, including the database queries and business logic involved.”  
+</Accordion>
+
+<Accordion title="Missing Business Context">
+- *POOR:* “Find API endpoints.”  
+- **WHY:** Doesn’t connect to data‑analysis needs.  
+- *BETTER:* “Show me API endpoints that expose customer data and how they transform or filter information for different use cases.”  
+</Accordion>
+
+</AccordionGroup>
+
+## Data Analyst Use Cases
+<Note>Before you get started, double‑check which repositories and datasets PlayerZero has access to. You can find this in your settings at [go.playerzero.app/settings](go.playerzero.app/settings)</Note>
+
+### Data Schema Discovery & Modeling
+
+<AccordionGroup>
+
+<Accordion title="Database Schema Exploration">
+- “Show me the complete data model for e‑commerce orders, including relationships with customers, products, payments, and shipping.”  
+- “Map out the user‑engagement data structure and how different user actions are tracked and stored.”  
+- “Find all the database tables and models related to financial transactions and revenue tracking.”  
+</Accordion>
+
+<Accordion title="Data Relationship Analysis">
+- “Show me how customer data relates to order history, payment information, and support tickets across different tables.”  
+- “Map out the product‑catalog structure, including categories, attributes, pricing, and inventory relationships.”  
+- “Find all the foreign‑key relationships in the user‑management system and how they maintain data integrity.”  
+</Accordion>
+
+<Accordion title="Data Model Evolution">
+- “Show me the database‑migration history for the order system and how the schema has changed over time.”  
+- “Find all recent changes to the user data model and how they affect existing analytics.”  
+- “Trace the evolution of the product‑catalog schema and identify any breaking changes.”  
+</Accordion>
+
+<Accordion title="Cross‑System Data Mapping">
+- “Show me how customer data is structured differently across the main application, CRM, and billing systems.”  
+- “Map out data‑model differences between the operational database and the analytics warehouse.”  
+- “Find all the data‑transformation rules when moving data between systems.”  
+</Accordion>
+
+</AccordionGroup>
+
+### Business Logic & Calculations
+
+<AccordionGroup>
+
+<Accordion title="Metric Calculation Discovery">
+- “Show me how customer lifetime value is calculated in the code, including all the business rules and data sources involved.”  
+- “Find how ‘active users’ is defined in the codebase and show me all the different ways this metric might be calculated across different features.”  
+- “Trace how conversion rate is calculated in the code and what events and data points contribute to this metric.”  
+</Accordion>
+
+<Accordion title="Business Rule Implementation">
+- “Show me the business logic behind customer segmentation and how users are categorized for marketing campaigns.”  
+- “Find the discount‑calculation logic and show me how different discount types, combinations, and business rules are applied.”  
+- “Trace how subscription billing is calculated, including upgrades, downgrades, prorations, and cancellation logic.”  
+</Accordion>
+
+<Accordion title="Data Processing Logic">
+- “Show me how product‑recommendation algorithms work and what data they use to generate suggestions.”  
+- “Find the logic for determining user subscription status and how it affects feature access and billing.”  
+- “Trace how inventory levels are calculated and updated across different systems.”  
+</Accordion>
+
+<Accordion title="Financial and Revenue Calculations">
+- “Show me how monthly recurring revenue is calculated, including all the business rules for subscriptions, upgrades, and cancellations.”  
+- “Find the tax‑calculation logic and show me how different tax rates and rules are applied based on location.”  
+- “Trace how commission calculations work for sales teams, including all the business rules and data sources.”  
+</Accordion>
+
+</AccordionGroup>
+
+### Data Pipeline Understanding
+
+<AccordionGroup>
+
+<Accordion title="Data Collection and Ingestion">
+- “Show me how user‑activity data flows from collection through processing to storage and reporting.”  
+- “Trace the data pipeline for inventory management from product updates to stock‑level reporting.”  
+- “Map out how customer‑support ticket data is processed and aggregated for reporting dashboards.”  
+</Accordion>
+
+<Accordion title="Data Transformation Processes">
+- “Show me how raw user events are transformed into meaningful analytics metrics.”  
+- “Find all the data‑transformation rules applied when moving data from operational systems to the data warehouse.”  
+- “Trace how product‑sales data is aggregated and transformed for executive reporting.”  
+</Accordion>
+
+<Accordion title="ETL Process Analysis">
+- “Show me how daily sales data is aggregated and transformed for the data warehouse, including any business rules or calculations.”  
+- “Find the ETL processes that prepare customer data for analytics and what transformations are applied.”  
+- “Trace how real‑time events are batched and processed for historical reporting.”  
+</Accordion>
+
+<Accordion title="Data Synchronization Patterns">
+- “Show me how customer data is synchronized between the main application and reporting systems, including all validation rules and consistency checks.”  
+- “Find all the data‑sync processes between different databases and how they handle conflicts.”  
+- “Trace how changes in the operational database are propagated to analytics systems.”  
+</Accordion>
+
+</AccordionGroup>
+
+### Data Quality & Validation
+
+<AccordionGroup>
+
+<Accordion title="Validation Rule Discovery">
+- “Show me all the data‑validation rules for user profiles and how they prevent data‑quality issues.”  
+- “Find the data‑consistency checks between the order system and inventory system.”  
+- “Show me how duplicate detection works for customer records and email addresses.”  
+</Accordion>
+
+<Accordion title="Data Integrity Mechanisms">
+- “Show me all the data‑validation rules that ensure customer email addresses are properly formatted and unique.”  
+- “Find the business logic that determines valid product categories and how hierarchy is maintained.”  
+- “Trace how date ranges are validated in reporting interfaces and what constraints are enforced.”  
+</Accordion>
+
+<Accordion title="Data Completeness Analysis">
+- “Show me how required fields are enforced for customer profiles and what happens when data is missing.”  
+- “Find the logic that determines when a user record is considered complete for analysis purposes.”  
+- “Trace how missing data is handled in reporting and what default values or exclusions are applied.”  
+</Accordion>
+
+<Accordion title="Data Consistency Verification">
+- “Show me how the system ensures inventory counts match between the warehouse system and the e‑commerce platform.”  
+- “Find all the places where user account balances are calculated and verify they use consistent business rules.”  
+- “Trace how order totals are validated across different systems and what discrepancy‑handling exists.”  
+</Accordion>
+
+</AccordionGroup>
+
+### Reporting & Analytics Implementation
+
+<AccordionGroup>
+
+<Accordion title="Dashboard and Report Generation">
+- “Show me how the executive dashboard calculates key business metrics and where the underlying data comes from.”  
+- “Find the code that generates automated reports and how it ensures data accuracy and completeness.”  
+- “Trace how custom report builders work and what data sources and calculations are available to users.”  
+</Accordion>
+
+<Accordion title="KPI and Metric Calculation">
+- “Show me how conversion rate is calculated in the code and what events and data points contribute to this metric.”  
+- “Find the business logic behind customer segmentation and how users are categorized for marketing campaigns.”  
+- “Trace how churn‑prediction models use customer data and what features are most important.”  
+</Accordion>
+
+<Accordion title="Data Aggregation Patterns">
+- “Show me how user‑engagement metrics are calculated and aggregated for different time periods.”  
+- “Find all the roll‑up calculations used in financial reporting and how they handle different fiscal periods.”  
+- “Trace how product‑performance metrics are aggregated across different categories and regions.”  
+</Accordion>
+
+<Accordion title="Analytics Data Access">
+- “Show me how analytics queries are structured and what indexes are used for performance.”  
+- “Find all the data‑access patterns used by reporting tools and how they’re optimized.”  
+- “Trace how user permissions affect data access in analytics and reporting systems.”  
+</Accordion>
+
+</AccordionGroup>
+
+### Data Integration & External Sources
+
+<AccordionGroup>
+
+<Accordion title="API Data Integration">
+- “Show me how external marketing data is integrated into our customer‑analytics platform.”  
+- “Find all the third‑party data sources and how they’re validated and processed.”  
+- “Trace how payment‑processor data is integrated with our internal transaction records.”  
+</Accordion>
+
+<Accordion title="Data Import and Export Processes">
+- “Show me how customer data is exported for marketing campaigns and what transformations are applied.”  
+- “Find all the data‑import processes and how they handle data validation and error recovery.”  
+- “Trace how product‑catalog data is synchronized with external systems.”  
+</Accordion>
+
+<Accordion title="Cross‑Platform Data Consistency">
+- “Show me how customer data is kept consistent between the e‑commerce platform and the CRM system.”  
+- “Find all the data‑synchronization mechanisms between different business systems.”  
+- “Trace how changes in one system propagate to other systems and maintain data integrity.”  
+</Accordion>
+
+<Accordion title="External Data Validation">
+- “Show me how external data feeds are validated before being integrated into our analytics.”  
+- “Find all the data‑quality checks applied to imported customer data.”  
+- “Trace how address validation works with external services and how errors are handled.”  
+</Accordion>
+
+</AccordionGroup>
+
+### Performance & Optimization
+
+<AccordionGroup>
+
+<Accordion title="Query Performance Analysis">
+- “Analyze the database queries used in customer analytics and identify optimization opportunities.”  
+- “Show me the most expensive queries in the reporting system and suggest indexing strategies.”  
+- “Find all the queries that might not scale well with increased data volume.”  
+</Accordion>
+
+<Accordion title="Data Processing Optimization">
+- “Show me how large data‑processing jobs are optimized and what caching strategies are used.”  
+- “Find all the batch‑processing jobs and analyze their performance characteristics.”  
+- “Trace how data‑aggregation processes are optimized for different reporting needs.”  
+</Accordion>
+
+<Accordion title="Storage and Archiving Strategies">
+- “Show me how historical data is archived and what retention policies are implemented.”  
+- “Find all the data compression and storage‑optimization techniques used.”  
+- “Trace how old data is moved between different storage tiers.”  
+</Accordion>
+
+<Accordion title="Analytics Performance Tuning">
+- “Show me how analytics queries are optimized for different user‑access patterns.”  
+- “Find all the materialized views and summary tables used to improve reporting performance.”  
+- “Trace how real‑time analytics are balanced with batch processing for optimal performance.”  
+</Accordion>
+
+</AccordionGroup>
+
+### Data Governance & Compliance
+
+<AccordionGroup>
+
+<Accordion title="Data Privacy Implementation">
+- “Show me how personally identifiable information is handled throughout the data pipeline.”  
+- “Find all the data masking and anonymization processes used in analytics.”  
+- “Trace how user consent preferences affect data collection and processing.”  
+</Accordion>
+
+<Accordion title="Data Access Control">
+- “Show me how data‑access permissions are implemented across different analytics tools.”  
+- “Find all the role‑based access controls for sensitive customer data.”  
+- “Trace how data‑sharing agreements are enforced in the codebase.”  
+</Accordion>
+
+<Accordion title="Audit Trail and Compliance">
+- “Show me how data changes are tracked and logged for compliance purposes.”  
+- “Find all the audit mechanisms for data access and modifications.”  
+- “Trace how data retention policies are implemented and enforced.”  
+</Accordion>
+
+<Accordion title="Data Lineage Tracking">
+- “Trace how product‑pricing data flows from the admin interface through validation, storage, API exposure, and eventually to customer‑facing displays.”  
+- “Show me how customer data moves through the system and all the transformation points.”  
+- “Find all the data sources that contribute to executive reporting and how they’re combined.”  
+</Accordion>
+
+</AccordionGroup>
