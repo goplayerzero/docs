@@ -20,12 +20,9 @@
           {
             "group": "PlayerZero Use Cases",
             "pages": [
-              "use-cases/resolve-customer-issues/resolve-customer-issues-benefits",
-              "use-cases/retrieve-insights-from-code/retrieve-insights-from-code-benefits",
-              "use-cases/monitor-for-anomalies/monitor-for-anomalies-benefits",
-              "use-cases/analyze-code-quality/analyze-code-quality-benefits",
-              "use-cases/create-documentation/create-documentation-benefits",
-              "use-cases/manage-sprawling-codebases/manage-sprawling-codebases-benefits"
+              "use-cases/agentic-debugging",
+              "use-cases/system-knowledge",
+              "use-cases/code-simulations"
             ]
           },
           {
@@ -120,60 +117,7 @@
               }
             ]
           },
-          {
-            "group": "User Guides",
-            "pages": [
-              {
-                "group": "Resolve Customer Issues",
-                "pages": [
-                  "use-cases/resolve-customer-issues/capture-session-context",
-                  "use-cases/resolve-customer-issues/trace-errors-to-code",
-                  "use-cases/resolve-customer-issues/generate-code-fixes"
-                ]
-              },
-              {
-                "group": "Retrieve Insights from Code",
-                "pages": [
-                  "use-cases/retrieve-insights-from-code/ask-codebase-questions",
-                  "use-cases/retrieve-insights-from-code/identify-dependencies",
-                  "use-cases/retrieve-insights-from-code/enforce-coding-standards"
-                ]
-              },
-              {
-                "group": "Monitor for Anomalies",
-                "pages": [
-                  "use-cases/monitor-for-anomalies/setup-performance-alerts",
-                  "use-cases/monitor-for-anomalies/monitor-runtime-performance",
-                  "use-cases/monitor-for-anomalies/reduce-alert-noise",
-                  "use-cases/monitor-for-anomalies/identify-deployment-issues"
-                ]
-              },
-              {
-                "group": "Analyze Code Quality",
-                "pages": [
-                  "use-cases/analyze-code-quality/generate-functional-tests",
-                  "use-cases/analyze-code-quality/detect-regressions",
-                  "use-cases/analyze-code-quality/create-code-summaries"
-                ]
-              },
-              {
-                "group": "Create Documentation",
-                "pages": [
-                  "use-cases/create-documentation/generate-architecture-diagrams",
-                  "use-cases/create-documentation/detailed-api-docs",
-                  "use-cases/create-documentation/user-guides"
-                ]
-              },
-              {
-                "group": "Manage Sprawling Codebases",
-                "pages": [
-                  "use-cases/manage-sprawling-codebases/migrate-codebases",
-                  "use-cases/manage-sprawling-codebases/understand-legacy-code",
-                  "use-cases/manage-sprawling-codebases/share-codebase-knowledge"
-                ]
-              }
-            ]
-          },
+          
           {
             "group": "Observability API",
             "pages": [
@@ -197,12 +141,15 @@
         "groups": [
           {
             "group": "Workflows",
-            "pages": ["how-to-guides/workflows"]
+            "pages": [
+		"how-to-guides/workflows",
+              "how-to-guides/sdlc"
+	]
           },
           {
             "group": "Features",
             "pages": [
-              "features/ai-chat",
+              "features/ai-player",
               "features/code-summary",
               "features/debug-reports"
             ]
