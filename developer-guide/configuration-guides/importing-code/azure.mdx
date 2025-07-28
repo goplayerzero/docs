@@ -1,5 +1,116 @@
 ---
-title: "Azure"
+title: "Azure DevOps"
+description: "Connect Azure DevOps repositories to PlayerZero for AI-powered code analysis, pull request insights, and conversational code exploration."
 ---
 
+## Required Permissions
 
+<Note>Admin access to your Azure DevOps organization is required to create Personal Access Tokens with the necessary permissions.</Note>
+
+PlayerZero requires specific permissions through an Azure DevOps Personal Access Token (PAT). When creating your PAT, ensure the following scopes are enabled:
+
+1. **Code**
+   - Read (access repository files and code structure)
+
+2. **Pull Request Threads**
+   - Read & Write (analyze pull requests and post automated comments)
+
+3. **Analytics**
+   - Read (gather metrics and insights from Azure DevOps analytics)
+
+4. **Project and Team**
+   - Read (fetch project metadata and team assignments)
+
+
+<Note>
+You may need to click "Show all scopes" when creating your PAT to see all available permissions. These permissions enable PlayerZero to read your code, analyze pull requests, and provide automated insights directly in your development workflow.
+</Note>
+
+## SCM Setup Guide
+
+### Prerequisites
+1. A PlayerZero account. You can get started by [creating an account](https://go.playerzero.app).
+2. Admin access to your Azure DevOps organization to:
+- Create Personal Access Tokens (PATs)
+- Configure token permissions
+- Access organization settings
+
+### 1. Create a Personal Access Token
+
+Follow these steps to create a PAT with the required permissions for PlayerZero:
+
+1. Sign in to your Azure DevOps organization:  
+   `https://dev.azure.com/{organization}`
+
+2. Navigate to **User Settings → Personal Access Tokens**
+
+3. Click **“New Token”** and configure the following:
+   - **Name**: PlayerZero Integration  
+   - **Organization**: Select your organization  
+   - **Expiration**: Set an appropriate expiration (365 days recommended)  
+   - **Scopes**: Click **“Show all scopes”** and enable:
+     - **Code** → Read  
+     - **Pull Request Threads** → Read & Write  
+     - **Analytics** → Read  
+     - **Project and Team** → Read  
+
+4. Click **“Create”** and **copy the generated token**. 
+
+
+### 2. Configure PlayerZero Integration
+
+Connect your Azure DevOps organization to PlayerZero:
+
+1. Navigate to Settings → Code in your PlayerZero dashboard
+2. Select Azure DevOps from the available SCM providers
+3. Enter your Azure DevOps organization name (from dev.azure.com/{organization})
+4. Paste your Personal Access Token
+5. Click "Add Connector" to establish the connection
+
+### 3. Configure Repository Access
+
+After connecting Azure DevOps, configure which repositories PlayerZero should monitor for your project.
+
+<Note>About Projects: A project in PlayerZero is a workspace that combines your application's repositories with telemetry data and user sessions. Connect repositories that are relevant to your project's monitoring goals to correlate code changes with user behavior and application issues.</Note>
+
+    1. Navigate to Repository Settings
+        - Go to your project Settings → Repositories
+
+    2. Import Repositories
+        - In the "Import Repository" section, click the "Select a Provider" dropdown
+        - Choose your Azure DevOps organization from the list
+        - PlayerZero will display all available repositories from your organization
+
+    3. Add and Configure Repositories
+        - Click "Import" next to each repository you want to monitor
+        - Select repositories containing code relevant to your project (frontend, backend, or full-stack repos)
+        - For each connected repository in the "Connected Repositories" section:
+            - Set Primary Branch: Click the branch button (e.g., "main") to select which branch to monitor
+            - Toggle Active Status: Use the toggle switch to enable/disable monitoring
+
+### 4. Repository Synchronization
+
+Once enabled, PlayerZero will begin importing and analyzing your repository data:
+
+1. Initial sync may take several minutes to hours depending on repository size
+2. PlayerZero will sync new commits and pull requests automatically
+3. Monitor progress in the Settings → Code section
+
+### Token Management
+
+#### Token Security
+
+    - Store your PAT securely and never share it publicly
+    - Use the minimum required permissions for security
+    - Set appropriate expiration dates and rotate tokens regularly
+    - Monitor token usage through Azure DevOps security settings
+
+#### Token Renewal
+        
+When your PAT expires:
+
+1. Create a new PAT with the same permissions
+2. Update the token in PlayerZero Settings → Code
+3. Click "Update Configuration" to refresh the connection
+
+These permissions enable PlayerZero to provide code analysis, pull request insights, and AI-powered code conversations while maintaining security and access control within your Azure DevOps environment.

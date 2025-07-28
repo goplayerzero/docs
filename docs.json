@@ -51,7 +51,10 @@
                 "group": "Import Git Setup Guides",
                 "pages": [
                   "developer-guide/configuration-guides/importing-code/import-git-setup-guide",
-                  "developer-guide/configuration-guides/importing-code/git-self-hosting"
+                  "developer-guide/configuration-guides/importing-code/github",
+                  "developer-guide/configuration-guides/importing-code/gitlab",
+                  "developer-guide/configuration-guides/importing-code/bitbucket",
+                  "developer-guide/configuration-guides/importing-code/azure"
                 ]
               },
               {
@@ -117,7 +120,7 @@
               }
             ]
           },
-          
+
           {
             "group": "Observability API",
             "pages": [
@@ -141,10 +144,7 @@
         "groups": [
           {
             "group": "Workflows",
-            "pages": [
-		"how-to-guides/workflows",
-              "how-to-guides/sdlc"
-	]
+            "pages": ["how-to-guides/workflows", "how-to-guides/sdlc"]
           },
           {
             "group": "Features",
@@ -217,4 +217,3 @@
     }
   }
 }
-
