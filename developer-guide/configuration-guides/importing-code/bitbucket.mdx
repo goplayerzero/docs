@@ -5,29 +5,27 @@ description: "Connect Bitbucket repositories to PlayerZero for AI-powered code a
 
 ## Required Permissions
 
-<Note>Admin access to your Bitbucket workspace is required to authorize the PlayerZero OAuth application.</Note>
+<Note>PlayerZero connects to Bitbucket using OAuth and inherits permissions from the authenticated user. Admin access is **not required** unless restricted repositories need to be accessed.</Note>
 
-PlayerZero requires specific permissions through OAuth authorization. When connecting Bitbucket, you'll be asked to authorize the following scopes:
+When connecting Bitbucket, PlayerZero uses your existing user permissions. No additional scopes are requested beyond what your account already has access to.
 
-1. Repository permissions:
-    - Repositories: Read (access repository files and code structure)
-    - Repositories: Write (limited write access for integration purposes)
-    
-2. Pull Request permissions:
-    - Pull requests: Read & Write (analyze pull requests and post automated comments)
-    
-3. Workspace permissions:
-    - Account: Read (basic account information)
+PlayerZero leverages these permissions to:
+
+1. Read repository files and structure  
+2. Analyze pull requests and post automated comments  
+3. Access basic account metadata (e.g., username, email)
 
 <Note>
-These permissions are granted through Bitbucket's OAuth flow, providing secure access to only the repositories you explicitly select. PlayerZero uses these permissions to read your code, analyze pull requests, and provide automated insights directly in your development workflow.
+Access is limited to only the repositories you explicitly select during the OAuth authorization process. PlayerZero does not request or retain broader access than what your Bitbucket user account already has permission to see.
 </Note>
 
 ## Basic Setup Guide
 
 ### Prerequisites
+
 1. A PlayerZero account. You can get started by [creating an account](https://go.playerzero.app).
 2. Admin access to your Bitbucket workspace to:
+
 - Authorize OAuth applications
 - Grant repository access permissions
 - Configure integration settings
@@ -43,11 +41,11 @@ Connect your Bitbucket workspace to PlayerZero through OAuth:
 5. Review the requested permissions and click "Grant access"
 6. You'll be redirected back to PlayerZero with authorization complete
 
-### 2. Configure Repository Access 
+### 2. Configure Repository Access
 
 After OAuth authorization, configure which repositories PlayerZero should monitor:
 
-<Note>About Projects: A project in PlayerZero is a workspace that combines your application's repositories with telemetry data and user sessions. Connect repositories that are relevant to your project's monitoring goals to correlate code changes with user behavior and application issues.</Note>
+<Note>About Projects: A project in PlayerZero is a workspace that combines your application's repositories with telemetry data, user sessions, and ticketing systems. Connect repositories and tickets that are relevant to your project's monitoring goals to correlate code changes, user behavior, and reported issues.</Note>
 
     1. Navigate to Repository Settings
         - Go to your project Settings → Repositories
@@ -103,6 +101,7 @@ For Bitbucket Server installations, additional configuration may be required:
     - Admin access to configure OAuth applications
 
 #### Server Configuration:
+
 Contact PlayerZero support for assistance with Bitbucket Server configuration, as it requires custom OAuth application setup and network configuration.
 
 These permissions enable PlayerZero to provide code analysis, pull request insights, and AI-powered code conversations while maintaining security and access control within your Bitbucket environment.
