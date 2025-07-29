@@ -1,0 +1,119 @@
+---
+title: "Setup PlayerZero MCP Server"
+sidebarTitle: "Setup MCP Server"
+description: "Use PlayerZero to monitor, diagnose, and resolve software issues before they reach your users."
+---
+
+## Prerequisites
+
+- Active PlayerZero account with project access  
+- *Editor* or *Owner* permissions in that project  
+- An MCP-compatible AI assistant (VS Code, Copilot, Cursor, etc.)
+
+---
+
+## Step 1: Create an MCP Token
+
+
+1. **Open Project Settings**  
+   - Log in at https://go.playerzero.app 
+   - Choose your organization & project  
+   - Navigate to **Settings → MCP Tokens**
+
+2. **Generate Token**  
+   - Click **New Token**  
+   - Give it a descriptive name, e.g. `Cursor MCP` or `Claude Desktop`  
+   - Click **Create Token**  
+   - **Copy & store the token immediately** – it won’t be shown again.
+
+3. **Token details**  
+   - Expires in **90 days**  
+   - Scoped to **one** project  
+   - Create multiple tokens for different tools or teammates
+
+---
+
+## Step 2: Configure Your MCP Client
+
+Use the following syntax:
+```
+{
+    "mcp": {
+
+        "inputs": [
+            {
+                "id": "api-key",
+                "type": "promptString",
+                "description": "Your API key for the MCP server"
+            }
+        ],
+        "servers": {
+            "playerzero": {                      
+                "url": "https://playerzero.ai/api/mcp", 
+                "headers": {
+                    "Authorization": "Bearer [ENTER TOKEN HERE]",
+                },
+            }
+        }
+    },
+    "chat.mcp.discovery.enabled": true
+}
+```
+
+
+## Step 3: Available Tools
+**`playerzero_status`**: Tests your connection to PlayerZero.
+```
+Use the playerzero_status tool to check if PlayerZero is working.
+```
+**Response:**
+- "true" if connection is successful
+- Error message if there are authentication or connection issues
+
+**`ask_playerzero`**: Query your codebase using PlayerZero's AI.
+
+**Parameters:**
+- **`query`** (required): Your question about the codebase
+- **`playerId`** (optional): Continue existing conversation
+- **`lastMessageId`** (optional): Resume from specific message
+Usage Examples:
+```
+Use ask_playerzero to find all authentication-related files in the codebase.
+
+Use ask_playerzero to explain how the user registration process works.
+
+Use ask_playerzero to identify potential security vulnerabilities in the API routes.
+```
+
+
+## Step 4: Best Practices
+
+<AccordionGroup>
+<Accordion title="Conversation Continuity">
+	- The ask_playerzero tool returns playerId and lastMessageId in responses
+	- Use these values in subsequent queries to maintain conversation context
+	- This enables more accurate and contextual responses
+	</Accordion>
+
+<Accordion title="Query Optimization">
+	- Be specific in your questions for better results
+	- Ask about particular files, functions, or architectural patterns
+	- Use follow-up questions to dive deeper into specific areas
+	- Visit our [Prompting Guides](/user-guides/prompting-basics) for more tips!
+	</Accordion>
+
+<Accordion title="Token Management">
+	**Token Management**
+	- Rotate tokens regularly (every 60-90 days)
+	- Use descriptive names to track token usage
+	- Delete unused tokens to maintain security
+	- Each team member should have their own token
+	</Accordion>
+</AccordionGroup>
+
+
+## Security Considerations
+- **Token Security:** Store MCP tokens securely and never commit them to version control
+- **Project Scope:** Tokens only provide access to the specific project they were created for
+- **Audit Trail:** All MCP interactions are logged in your PlayerZero project
+- **Expiration:** Tokens automatically expire after 90 days for security

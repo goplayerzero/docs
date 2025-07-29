@@ -1,0 +1,36 @@
+---
+title: "MCP Server (Model Context Protocol)"
+sidebarTitle: "MCP Server"
+---
+
+PlayerZero’s MCP server integration brings your codebase intelligence directly into the IDE (and GitHub Copilot). Ask questions about your code, debug issues, and gain insights from live telemetry—all without leaving your editor.
+
+- **Deep Codebase Understanding** – Query your entire repository with AI-powered search  
+- **Branch-Aware Analysis** – Work across different Git branches seamlessly  
+- **Issue Investigation** – Access error logs, traces, and user-session data  
+- **Real-Time Telemetry** – Integrate live application data and monitoring  
+- **Conversation Continuity** – Multi-turn chats that build context over time  
+
+
+## Available Tools
+**playerzero_status**: Health check for your PlayerZero connection
+```
+@playerzero playerzero_status
+```
+
+**ask_playerzero**: Query PlayerZero about your codebase and application data
+
+Example:
+```
+@playerzero How does user authentication work in this codebase?
+```
+
+## Additional Parameters
+- Conversations automatically maintain context
+- PlayerZero handles session management internally
+- No manual parameter management required
+
+
+## Get Started
+
+👉 [Setup guide](/developer-guide/configuration-guides/mcp-setup)

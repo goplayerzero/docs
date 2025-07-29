@@ -3,9 +3,9 @@
   "theme": "mint",
   "name": "PlayerZero",
   "colors": {
-    "primary": "#030712",
-    "light": "#fafafa",
-    "dark": "#030712"
+    "primary": "#27391E",
+    "light": "#D6D1C9",
+    "dark": "#27391E"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -139,19 +139,30 @@
           }
         ]
       },
+ 
       {
         "tab": "User Guides",
         "groups": [
           {
             "group": "Workflows",
-            "pages": ["user-guides/workflows", "user-guides/sdlc"]
+            "pages": [
+              "user-guides/workflows",
+              "user-guides/sdlc"
+            ]
           },
           {
             "group": "Features",
             "pages": [
               "features/ai-player",
-              "features/code-summary",
-              "features/debug-reports"
+              "features/code-sim",
+              "features/code-reviews",
+              "features/debug-reports",
+              {
+                "group": "Additional Features",
+                "pages": [
+                  "features/mcp-server"
+                ]
+              }
             ]
           },
           {

@@ -65,11 +65,11 @@
 
 /* Card Variants */
 .card-primary {
-    background-color: #7B6BFF;
+    background-color: #E65532;
 }
 
 .card-primary:hover {
-    background-color: #9B8FFF;
+    background-color: #F06B48;
 }
 
 .card-secondary {
@@ -115,3 +115,5 @@
 .visible-link:hover {
     color: #553c9a;
 }
+
+

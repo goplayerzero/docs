@@ -1,0 +1,27 @@
+/* =========================
+   SDLC table – extra tweaks
+   ========================= */
+
+/* 1. Centre 👍 emoji cells (all rows except last, all cols except first) */
+.sdlc-table tbody tr:not(:last-child) td:not(:first-child) {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* 2. Centre the *bottom row* too (all cols except first) */
+.sdlc-table tbody tr:last-child td:not(:first-child) {
+  text-align: center;
+}
+
+/* 3. Shrink left-hand column in every body row */
+.sdlc-table tbody td:first-child {
+  font-size: 0.75rem;   /* 14 px if root = 16 px */
+  font-weight: 500;
+}
+
+/* 4. Shrink all cells in the bottom row */
+.sdlc-table tbody tr:last-child td {
+  font-size: 0.75rem;
+}
+
+/* (Header stays default size) */
