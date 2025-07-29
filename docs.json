@@ -38,7 +38,7 @@
         ]
       },
       {
-        "tab": "Developer Guides",
+        "tab": "Setup Guides",
         "groups": [
           {
             "group": "Deploy PlayerZero",
@@ -140,11 +140,11 @@
         ]
       },
       {
-        "tab": "How to Use PlayerZero",
+        "tab": "User Guides",
         "groups": [
           {
             "group": "Workflows",
-            "pages": ["how-to-guides/workflows", "how-to-guides/sdlc"]
+            "pages": ["user-guides/workflows", "user-guides/sdlc"]
           },
           {
             "group": "Features",
@@ -157,12 +157,12 @@
           {
             "group": "Prompting Best Practices",
             "pages": [
-              "how-to-guides/prompting-basics",
-              "how-to-guides/frontend-developer",
-              "how-to-guides/backend-engineer",
-              "how-to-guides/support",
-              "how-to-guides/data-analyst",
-              "how-to-guides/qa-engineer"
+              "user-guides/prompting-basics",
+              "user-guides/frontend-developer",
+              "user-guides/backend-engineer",
+              "user-guides/support",
+              "user-guides/data-analyst",
+              "user-guides/qa-engineer"
             ]
           }
         ]
