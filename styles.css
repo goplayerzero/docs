@@ -116,4 +116,13 @@
     color: #553c9a;
 }
 
+/* =========================================
+   Use-Case tiles (inside the wrapper)
+   ========================================= */
+
+.usecase-cards .card {               /* base */
+  border: 1px solid #9CA3AF;         /* light gray outline               */
+  transition: border-color .12s, box-shadow .12s;
+}
+
 
