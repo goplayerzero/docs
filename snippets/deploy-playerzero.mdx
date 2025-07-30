@@ -42,25 +42,21 @@
 At the top-left of the PlayerZero portal, select the option to create/join a new project. If you don't see the project you're looking for listed, contact your project admin and ask them to either invite you directly or enable domain sharing.
 
 
+## Connect & Enable Repositories
 
-## Connect Your Code
+To connect PlayerZero to your version control and select which repositories to monitor, follow the guide for your SCM:
 
-The primary step is to grant PlayerZero access to your source control management (SCM) system. You may have already connected an SCM system during the signup process. If so, you can proceed to enabling specific repositories below.
+- **GitHub** – [GitHub Integration Guide](/developer-guide/configuration-guides/importing-code/github)
+- **GitLab** – [GitLab Integration Guide](/developer-guide/configuration-guides/importing-code/gitlab)
+- **Bitbucket** – [Bitbucket Integration Guide](/developer-guide/configuration-guides/importing-code/bitbucket)
+- **Azure DevOps** – [Azure DevOps Integration Guide](/developer-guide/configuration-guides/importing-code/azure)
 
-<Note>To connect SCM systems, admin permissions are required on the repository you want to integrate.</Note>
+Each guide walks you through:
 
-To connect a repository:
+1. Authorizing PlayerZero with the required permissions  
+2. Picking the repositories (and primary branch) you’d like PlayerZero to analyze  
 
-1. Find the appropriate SCM connector on the homepage, or navigate to the [SCM connector list page](https://go.playerzero.app/setting/repos) in settings  
-2. Select your SCM system  
-3. Authorize PlayerZero with the required admin permissions on the repositories you wish to enable
-
-## Enable Specific Repositories
-
-After connecting your SCM, you need to select which repositories PlayerZero should monitor. In the settings page, toggle the repositories you want to enable for ingestion.
-
-- On the [SCM connector list page](https://go.playerzero.app/setting/repos), toggle on repositories that should be ingested  
-- Here you can also toggle the primary reference branch (Main/Master)
+<Note>Admin permissions are required on the repositories you connect.</Note>
 
 ## Allow for Ingestion
 
