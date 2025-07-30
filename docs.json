@@ -3,9 +3,9 @@
   "theme": "mint",
   "name": "PlayerZero",
   "colors": {
-    "primary": "#27391E",
-    "light": "#D6D1C9",
-    "dark": "#27391E"
+    "primary": "#000000",
+    "light": "#bdbdbd",
+    "dark": "#E65532"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -202,13 +202,13 @@
     "links": [
       {
         "label": "Request Demo",
-        "href": "https://www.playerzero.ai/book-demo"
+        "href": "https://playerzero.ai/request-demo"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Login",
-      "href": "https://go.playerzero.app/"
+      "href": "https://playerzero.ai/login"
     }
   },
   "footer": {
