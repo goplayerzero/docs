@@ -208,7 +208,7 @@
     "primary": {
       "type": "button",
       "label": "Login",
-      "href": "https://playerzero.ai/login"
+      "href": "https://go.playerzero.app"
     }
   },
   "footer": {
