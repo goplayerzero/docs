@@ -1,0 +1,235 @@
+---
+title: "Prompting Strategies for Business Analysts & Solution Architects"
+sidebarTitle: "Business Analyst"
+description: "PlayerZero turns sprawling systems into living documentation—mapping architecture, tracing business rules to code, and accelerating understanding of complex domains."
+---
+
+## PlayerZero AI Chat: Business Analyst / Solution Architect Guide
+
+As a Business Analyst or Solution Architect, PlayerZero AI Chat helps you turn “how the system really works” into clear, traceable artifacts.
+
+- **Access Living Documentation & Architecture Maps:** Generate current-state maps of services, data models, APIs, and dependencies from the code and runtime behavior.  
+- **Connect Business Rules to Code:** Trace policies, pricing rules, SLAs, and workflows directly to the functions, services, and jobs that implement them.  
+- **Shorten Learning Curves:** Bootstrap domain knowledge, uncover hidden edge cases, and surface decision context so you can onboard quickly and design solutions with confidence.  
+
+## Prompting Best Practices and Examples
+
+### Effective Prompting Strategies
+
+<AccordionGroup>
+
+<Accordion title="Ask for End-to-End Flows, Not Isolated Components">
+- *GOOD:* “Show me the checkout service.”  
+- *BETTER:* “Map the end-to-end checkout flow—from cart submission to payment capture, fulfillment, and post-purchase notifications—including external services and failure paths.”  
+</Accordion>
+
+<Accordion title="Tie Business Concepts to Concrete Implementations">
+- *GOOD:* “Where is discounting handled?”  
+- *BETTER:* “Show all discount business rules (codes, stacking limits, eligibility) and trace each rule to the exact modules, jobs, and API endpoints that implement them.”  
+</Accordion>
+
+<Accordion title="Request Artifacts You Can Share (Diagrams, Tables, Traceability)">
+- *GOOD:* “Explain the subscription lifecycle.”  
+- *BETTER:* “Produce a sequence diagram of the subscription lifecycle (create, upgrade/downgrade, proration, renewal, cancel). Include the services, events, and data stores involved, and list the key business rules referenced.”  
+</Accordion>
+
+<Accordion title="Include Non-Functional Requirements (NFRs) and Constraints">
+- *GOOD:* “Where is rate limiting implemented?”  
+- *BETTER:* “Show how we enforce SLAs (rate limits, timeouts, retries) for the public API, the configuration points, and where SLOs are monitored and alerted.”  
+</Accordion>
+
+<Accordion title="Add Timeline and Change Context">
+- *GOOD:* “How did billing change?”  
+- *BETTER:* “List billing-rule changes in the last 90 days, the PRs involved, impacted services, and any migrations or feature flags tied to the rollout.”  
+</Accordion>
+
+</AccordionGroup>
+
+### Unsatisfactory Prompting Examples
+
+<AccordionGroup>
+
+<Accordion title="Vague Business-Only Requests">
+- *POOR:* “How does pricing work?”  
+- **WHY:** Too broad; lacks system scope and artifacts.  
+- *BETTER:* “List pricing strategies (tiered, usage-based, discounts) and map each to the code paths and data models that implement them, with example inputs/outputs.”  
+</Accordion>
+
+<Accordion title="Tool-Specific Without Goal">
+- *POOR:* “Show all APIs.”  
+- **WHY:** Lacks purpose; yields unprioritized lists.  
+- *BETTER:* “Show APIs used in the customer-onboarding journey and how they enforce KYC/verification requirements.”  
+</Accordion>
+
+<Accordion title="Component-Level Focus Without Integration">
+- *POOR:* “Open the payment controller.”  
+- **WHY:** Misses orchestration, retries, and dependencies.  
+- *BETTER:* “Map the payment orchestration across services, queues, and third-party processors, including error handling, idempotency, and reconciliation jobs.”  
+</Accordion>
+
+<Accordion title="Solution-First Without Constraints">
+- *POOR:* “We should add a cache—where?”  
+- **WHY:** Ignores bottlenecks and correctness requirements.  
+- *BETTER:* “Identify read-heavy endpoints with p95>400ms and propose safe caching layers with invalidation rules and consistency trade-offs.”  
+</Accordion>
+
+</AccordionGroup>
+
+## Core Use Cases for BAs & SAs
+<Note>Before you get started, double-check which repositories and datasets PlayerZero has access to. You can find this in your settings at [go.playerzero.app/settings](go.playerzero.app/settings)</Note>
+
+### Living Documentation & Architecture Maps
+
+<AccordionGroup>
+
+<Accordion title="System & Service Topology">
+- “Generate a service-dependency map for order, payment, inventory, and notification services, including external providers.”  
+- “Show a C4-style overview of the platform with containers, major components, and data stores.”  
+- “List event topics and which services publish/subscribe to each.”  
+</Accordion>
+
+<Accordion title="Interface & Contract Catalogs">
+- “Catalog all public API endpoints for account management with request/response shapes and auth requirements.”  
+- “List gRPC/GraphQL/REST interfaces between checkout and billing, with versioning and backward-compat details.”  
+- “Show message schemas for asynchronous jobs and where they are produced/consumed.”  
+</Accordion>
+
+<Accordion title="Runtime Behavior & Observability">
+- “Map the critical paths instrumented with tracing and show current SLOs, alert thresholds, and dashboards.”  
+- “Show long-running jobs and their schedules, dependencies, and failure notifications.”  
+- “List feature flags controlling user-visible flows and who owns them.”  
+</Accordion>
+
+</AccordionGroup>
+
+### Business Rules & Policy Traceability
+
+<AccordionGroup>
+
+<Accordion title="Pricing, Discounting, and Eligibility">
+- “Trace discount eligibility rules to code, list edge cases (stacking, exclusivity), and show unit tests covering them.”  
+- “Map usage-based pricing calculation, including meters, aggregation windows, and rounding rules.”  
+- “Show tax/VAT logic by region and how configuration overrides are applied.”  
+</Accordion>
+
+<Accordion title="Access, Entitlements, and Segmentation">
+- “List entitlement checks for premium features and where roles/permissions are enforced.”  
+- “Show segmentation rules for marketing campaigns and where segments are computed and stored.”  
+- “Trace trial/expiration rules and grace periods to services and scheduled jobs.”  
+</Accordion>
+
+<Accordion title="Compliance & Policy Controls">
+- “Show where PII handling, masking, and retention policies are implemented for user profiles.”  
+- “Map audit-logging implementation for admin actions and how logs are queried for compliance.”  
+- “Show consent-management logic and how it propagates to data collection and exports.”  
+</Accordion>
+
+</AccordionGroup>
+
+### Cross-System Process & Data Flows
+
+<AccordionGroup>
+
+<Accordion title="Order-to-Cash / Lead-to-Revenue">
+- “Produce a sequence diagram of order-to-cash: order creation, invoicing, payment, fulfillment, and revenue recognition.”  
+- “Map lead ingestion from marketing to CRM to product signup and data warehouse.”  
+- “Show reconciliation jobs between gateway settlements and internal ledger entries.”  
+</Accordion>
+
+<Accordion title="Data Lineage & Transformations">
+- “Trace customer profile fields from input through validation, storage, and analytics pipelines.”  
+- “List ETL/ELT jobs that transform raw events into executive dashboards and the business rules they apply.”  
+- “Show where referential integrity is enforced across operational DB and warehouse.”  
+</Accordion>
+
+<Accordion title="Integration Points & Contracts">
+- “List external providers (payments, KYC, tax, messaging) and their failover/retry strategies.”  
+- “Show webhook consumers and how signature verification and replay protection are handled.”  
+- “Map batch imports/exports with schedules, SLAs, and error-recovery paths.”  
+</Accordion>
+
+</AccordionGroup>
+
+### Impact Analysis & Change Planning
+
+<AccordionGroup>
+
+<Accordion title="Blast Radius & Risk">
+- “Given PR #____, list impacted services, feature flags, and downstream consumers; estimate blast radius and required test scenarios.”  
+- “Show tables, migrations, and backfill jobs affected by the new subscription schema.”  
+- “Identify backward-compat risks for API v2 and how v1 clients are supported.”  
+</Accordion>
+
+<Accordion title="Rollout, Flags & Migrations">
+- “Show the rollout plan for feature X: flags, percentage ramp, guardrails, and automatic rollback conditions.”  
+- “List data migrations with timings, lock behavior, and recovery steps.”  
+- “Map dependencies that must be deployed together (or in sequence) to avoid incidents.”  
+</Accordion>
+
+<Accordion title="Stakeholder & SLA Considerations">
+- “Which customers/segments are affected by this change and what SLAs are at risk?”  
+- “Show dashboards/alerts teams should watch during rollout and the on-call schedules.”  
+- “Draft customer-facing impact notes with precise timing and mitigation steps.”  
+</Accordion>
+
+</AccordionGroup>
+
+### Requirements, Acceptance Criteria & Tests
+
+<AccordionGroup>
+
+<Accordion title="Traceability from Requirement → Code → Tests">
+- “For the requirement ‘users can pause subscriptions’, list implementing modules and existing tests; propose missing acceptance tests.”  
+- “Generate acceptance criteria for the new refund policy and link to validation rules in code.”  
+- “Map user stories to endpoints, events, and DB changes they rely on.”  
+</Accordion>
+
+<Accordion title="Edge Cases & Negative Paths">
+- “List boundary conditions for address validation (i18n, formats, PO boxes) and where they’re enforced.”  
+- “Show failure modes for payment retries and idempotency collisions.”  
+- “Identify concurrency risks in cart updates and how they’re mitigated.”  
+</Accordion>
+
+<Accordion title="Documentation & RFC Support">
+- “Draft an RFC outline for introducing store credits, including alternatives, trade-offs, and migration plan.”  
+- “Generate a comparison of design options for auth session storage with pros/cons and references to code.”  
+- “Create a decision record (ADR) summarizing the selected approach with links to PRs.”  
+</Accordion>
+
+</AccordionGroup>
+
+### Onboarding & Knowledge Transfer
+
+<AccordionGroup>
+
+<Accordion title="Role-Specific Starter Packs">
+- “Create a 30-day onboarding map for a new architect: critical services, read-mes, dashboards, and alerts to learn.”  
+- “Summarize recurring pain points and their known mitigations with code references.”  
+- “List tribal-knowledge gotchas for deployments and schema changes.”  
+</Accordion>
+
+<Accordion title="Glossary & Domain Concepts">
+- “Generate a glossary of domain terms (e.g., ‘plan’, ‘entitlement’, ‘invoice’) with canonical definitions and where they’re enforced.”  
+- “Map synonym/alias usage across code and data to reduce ambiguity.”  
+- “Show which metrics are considered ‘source of truth’ for revenue vs. product analytics.”  
+</Accordion>
+
+</AccordionGroup>
+
+### Performance, Reliability & Cost (NFRs)
+
+<AccordionGroup>
+
+<Accordion title="SLOs, Bottlenecks & Capacity">
+- “List SLOs for user-facing APIs and show endpoints currently breaching p95 targets.”  
+- “Identify top cost drivers (DB reads/writes, egress, third-party calls) and potential optimizations.”  
+- “Show retry/circuit-breaker policies and where back-pressure is implemented.”  
+</Accordion>
+
+<Accordion title="Scalability & Degradation Plans">
+- “Document graceful-degradation paths if inventory service is unavailable.”  
+- “Map sharding/partitioning strategies and hotspots in multi-tenant workloads.”  
+- “List caching layers and invalidation rules tied to critical pages.”  
+</Accordion>
+
+</AccordionGroup>
