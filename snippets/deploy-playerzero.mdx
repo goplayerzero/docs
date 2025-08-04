@@ -1,6 +1,6 @@
 ## Prerequisites
 
-1. A PlayerZero account – you can get started by [**creating an account**](https://go.playerzero.app/).
+1. A PlayerZero account – you can get started by [**creating an account**](https://playerzero.ai/).
 2. Sufficient permissions to grant PlayerZero read access to your code and read/write access for managing pull requests in your SCM (Source Control Management) system.
 
 <Note>To connect SCM systems, admin permissions are required on the repository you want to integrate.</Note>
@@ -26,13 +26,13 @@
 
 ### **If you're creating a project for the first time**
 
-1. [Create an account](https://go.playerzero.app)
+1. [Create an account](https://playerzero.ai)
 2. Name and create a workspace
 <Note> If you want other teammembers with the same email domain to be able to automatically join, check the "Allow anyone with @domain emails to join this project." box.</Note>
 
 ### **If you're joining an existing project**
 
-1. [Create an account](https://go.playerzero.app)
+1. [Create an account](https://playerzero.ai)
 2. If sharing has been setup correctly for the desired project, the name of the project will appear.
 <Note>If you do not see the "Join an existing project" option, but rather just the "Create a new project" option, then contact your project admin and ask them to either invite you directly or enable domain sharing.</Note>
 
@@ -42,25 +42,21 @@
 At the top-left of the PlayerZero portal, select the option to create/join a new project. If you don't see the project you're looking for listed, contact your project admin and ask them to either invite you directly or enable domain sharing.
 
 
+## Connect & Enable Repositories
 
-## Connect Your Code
+To connect PlayerZero to your version control and select which repositories to monitor, follow the guide for your SCM:
 
-The primary step is to grant PlayerZero access to your source control management (SCM) system. You may have already connected an SCM system during the signup process. If so, you can proceed to enabling specific repositories below.
+- **GitHub** – [GitHub Integration Guide](/developer-guide/configuration-guides/importing-code/github)
+- **GitLab** – [GitLab Integration Guide](/developer-guide/configuration-guides/importing-code/gitlab)
+- **Bitbucket** – [Bitbucket Integration Guide](/developer-guide/configuration-guides/importing-code/bitbucket)
+- **Azure DevOps** – [Azure DevOps Integration Guide](/developer-guide/configuration-guides/importing-code/azure)
 
-<Note>To connect SCM systems, admin permissions are required on the repository you want to integrate.</Note>
+Each guide walks you through:
 
-To connect a repository:
+1. Authorizing PlayerZero with the required permissions  
+2. Picking the repositories (and primary branch) you’d like PlayerZero to analyze  
 
-1. Find the appropriate SCM connector on the homepage, or navigate to the [SCM connector list page](https://go.playerzero.app/setting/repos) in settings  
-2. Select your SCM system  
-3. Authorize PlayerZero with the required admin permissions on the repositories you wish to enable
-
-## Enable Specific Repositories
-
-After connecting your SCM, you need to select which repositories PlayerZero should monitor. In the settings page, toggle the repositories you want to enable for ingestion.
-
-- On the [SCM connector list page](https://go.playerzero.app/setting/repos), toggle on repositories that should be ingested  
-- Here you can also toggle the primary reference branch (Main/Master)
+<Note>Admin permissions are required on the repositories you connect.</Note>
 
 ## Allow for Ingestion
 
@@ -70,8 +66,7 @@ Once you’ve enabled your repositories, PlayerZero will begin analyzing the cod
 
 Congratulations! Now that you’re up and running, here are the next steps to get the most out of PlayerZero:
 
-- [**Invite Your Team**](https://go.playerzero.app/setting/team) – Add team members to collaborate on issue tracking and resolution.
-- [**Integrate with Project Management**](https://go.playerzero.app/setting/product-management) – Connect PlayerZero to Jira, Azure DevOps, or other tools to sync issues with your workflow.
-- [**Connect Customer Ticketing**](https://go.playerzero.app/setting/support-tickets) – Link PlayerZero with Zendesk and other customer support platforms to correlate issues with user reports.
+- [**Invite Your Team**](https://playerzero.ai/pz/settings/projects/playerzero/members) – Add team members to collaborate on issue tracking and resolution.
+- [**Integrate with Ticketing Services**](https://playerzero.ai/pz/settings/projects/playerzero/integrations) – Connect PlayerZero to Jira, Azure DevOps, or other tools to sync issues with your workflow.
 - [**Instrument the WebSDK**](/developer-guide/configuration-guides/capturing-user-sessions/web-sdk-instrumentation) – Enable user session tracking by integrating PlayerZero’s frontend WebSDK.
 - [**Set Up OpenTelemetry**](/developer-guide/configuration-guides/integrating-with-opentelemetry/the-opentelemetry-standard) – Implement distributed tracing by connecting PlayerZero with OpenTelemetry.
