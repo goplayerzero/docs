@@ -117,7 +117,8 @@
                 "pages": [
                   "developer-guide/configuration-guides/notification-integrations/slack"
                 ]
-              }
+              },
+              "developer-guide/configuration-guides/mcp-setup"
             ]
           },
 
@@ -139,16 +140,13 @@
           }
         ]
       },
- 
+
       {
         "tab": "User Guides",
         "groups": [
           {
             "group": "Workflows",
-            "pages": [
-              "user-guides/workflows",
-              "user-guides/sdlc"
-            ]
+            "pages": ["user-guides/workflows", "user-guides/sdlc"]
           },
           {
             "group": "Features",
@@ -159,9 +157,7 @@
               "features/debug-reports",
               {
                 "group": "Additional Features",
-                "pages": [
-                  "features/mcp-server"
-                ]
+                "pages": ["features/mcp-server"]
               }
             ]
           },

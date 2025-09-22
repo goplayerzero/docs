@@ -35,7 +35,10 @@ description: "Use PlayerZero to monitor, diagnose, and resolve software issues b
 
 ## Step 2: Configure Your MCP Client
 
-Use the following syntax:
+### Primary Configuration (Recommended) 
+
+Use Server-Sent Events (SSE) transport for most MCP clients: 
+
 ```
 {
     "mcp": {
@@ -60,23 +63,27 @@ Use the following syntax:
 }
 ```
 
-
 ## Step 3: Available Tools
-**`playerzero_status`**: Tests your connection to PlayerZero.
-```
-Use the playerzero_status tool to check if PlayerZero is working.
-```
+
+### **`playerzero_status`**
+
+**Description**: Tests your connection to PlayerZero
+
+**Request**: Use the playerzero_status tool to check if PlayerZero is working.
+
 **Response:**
 - "true" if connection is successful
 - Error message if there are authentication or connection issues
+### **`ask_playerzero`**
 
-**`ask_playerzero`**: Query your codebase using PlayerZero's AI.
+**Description**: Query your codebase using PlayerZero's AI. 
 
-**Parameters:**
-- **`query`** (required): Your question about the codebase
-- **`playerId`** (optional): Continue existing conversation
-- **`lastMessageId`** (optional): Resume from specific message
-Usage Examples:
+**Parameters**: 
+query (required): Your question about the codebase 
+playerId (optional): Continue existing conversation 
+lastMessageId (optional): Resume from specific message 
+
+**Usage Examples**:
 ```
 Use ask_playerzero to find all authentication-related files in the codebase.
 
