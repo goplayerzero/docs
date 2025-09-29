@@ -15,7 +15,11 @@
         "groups": [
           {
             "group": "Getting Started with PlayerZero",
-            "pages": ["home", "how-playerzero-works", "deploy-playerzero"]
+            "pages": [
+              "introduction",
+              "how-playerzero-works",
+              "deploy-playerzero"
+            ]
           },
           {
             "group": "PlayerZero Use Cases",
