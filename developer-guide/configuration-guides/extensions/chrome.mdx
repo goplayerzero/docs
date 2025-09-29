@@ -1,0 +1,123 @@
+---
+title: "Setup Google Chrome Extension"
+description: "Capture and analyze any webpage instantly using PlayerZero's AI-powered insights and your codebase context."
+---
+
+## Prerequisites
+
+- Active PlayerZero account with project access  
+- *Editor* or *Owner* permissions in that project  
+- Google Chrome browser (version 88 or later)
+
+---
+
+## Step 1: Install the Chrome Extension
+
+**Chrome Web Store Installation** 
+   - Open Google Chrome
+   - Go to the Chrome Web Store
+   - Search for "PlayerZero"
+   - Click **Add to Chrome**
+   - Click **Add Extension** when prompted
+
+---
+
+## Step 2: Create an API Token
+
+1. **Open Project Settings**  
+   - Log in at https://playerzero.ai 
+   - Choose your organization & project  
+   - Navigate to **Settings → API Tokens**
+
+2. **Generate Token**  
+   - Click **New Token**  
+   - Give it a descriptive name, e.g. `Chrome Extension - [Your Name]`  
+   - Click **Create Token**  
+   - **Copy & store the token immediately** – it won't be shown again.
+
+3. **Token details**  
+   - Expires in **90 days**  
+   - Scoped to **one** project  
+   - Required for extension authentication
+
+---
+
+## Step 3: Configure the Extension
+
+1. **Access Extension Settings**
+   - Click the PlayerZero extension icon in your Chrome toolbar
+   - Click **Settings** or **Configure**
+
+2. **Enter Authentication Details**
+   - Paste your API token in the authentication field
+   - Enter your PlayerZero portal URL (e.g., `https://your-org.playerzero.app`)
+   - Click **Save** or **Connect**
+
+3. **Verify Connection**
+   - Navigate to any webpage
+   - Click the PlayerZero extension icon
+   - Look for "Connected" status or similar confirmation
+
+---
+
+## Step 4: Use the Extension
+
+1. **Capture & Analyze**
+   - Browse to any webpage you want to analyze
+   - Click the PlayerZero extension icon
+   - Click **Analyze This Page** or **Ask Question**
+
+2. **AI-Powered Analysis**
+   - The extension captures the page content
+   - A new PlayerZero session opens in your browser
+   - Ask questions about the captured content
+   - Get insights powered by your project's codebase context
+
+---
+
+## Step 5: Best Practices
+
+<AccordionGroup>
+<Accordion title="Usage Tips">
+- **Custom Questions**: Enter specific questions before capturing for targeted analysis
+- **Additional Instructions**: Provide context or specific analysis requirements
+- **Complete Loading**: Ensure webpages finish loading before capturing
+- **Multiple Sessions**: Each capture creates a new analysis session
+</Accordion>
+
+<Accordion title="Troubleshooting">
+- **Connection Issues**: Verify your MCP token hasn't expired (90 days)
+- **Capture Failures**: Some websites block content capture due to security policies
+- **Permission Errors**: Ensure you have editor access to your PlayerZero project
+- **Token Expired**: Create a new token and update extension configuration
+</Accordion>
+
+<Accordion title="Token Management">
+- **Regular Rotation**: Update tokens every 60-90 days before expiration
+- **Secure Storage**: Never share MCP tokens with others
+- **Extension Console**: Right-click extension icon → "Inspect popup" for debugging
+- **Multiple Tokens**: Create separate tokens for different team members
+</Accordion>
+</AccordionGroup>
+
+---
+
+## Extension Features
+
+### **Web Page Capture**
+Instantly captures any webpage's content for analysis, including:
+- HTML content and structure
+- Text content and metadata
+- Page context and styling information
+
+### **AI-Powered Analysis**
+- Ask questions about captured page content
+- Get intelligent insights using your codebase context
+- Access PlayerZero's full analysis capabilities
+- Create reproducible analysis sessions
+
+### **Project Integration**
+- Direct connection to your PlayerZero projects
+- Access to repository context and code insights
+- Secure authentication with project-scoped tokens
+

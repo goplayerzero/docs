@@ -122,6 +122,7 @@
                   "developer-guide/configuration-guides/notification-integrations/slack"
                 ]
               },
+              "developer-guide/configuration-guides/single-sign-on/sso",
               "developer-guide/configuration-guides/mcp-setup"
             ]
           },

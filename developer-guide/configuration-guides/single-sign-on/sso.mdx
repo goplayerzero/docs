@@ -1,0 +1,332 @@
+---
+title: "Setup Single Sign-On (SSO)"
+description: "Connect your organization's identity provider to PlayerZero for secure, centralized authentication using Microsoft Entra, Google, Okta, Auth0, and other OIDC-compliant providers."
+---
+
+## Required Permissions
+
+<Note>Organization Owner access is required in PlayerZero to configure SSO. Admin access to your identity provider is also required to create application registrations and configure authentication settings.</Note>
+
+PlayerZero supports SSO integration with multiple identity providers through standard OpenID Connect (OIDC) protocols. When configuring SSO, ensure you have the following access:
+
+1. **Identity Provider Access**
+   - Admin permissions to create application registrations
+   - Ability to configure redirect URIs and authentication settings
+   - Permission to grant API scopes (openid, email, profile)
+
+2. **PlayerZero Access**
+   - Organization Owner role in PlayerZero
+   - Access to organization settings and authentication configuration
+
+<Note>
+SSO configuration affects all users in your organization. Users with email domains matching your SSO configuration will be automatically redirected to your identity provider for authentication.
+</Note>
+
+## Supported Identity Providers
+
+PlayerZero automatically detects and optimizes for these providers:
+
+- **Microsoft Entra ID** (formerly Azure AD) - `microsoftonline.com`
+- **Google Workspace** - `google.com`  
+- **Auth0** - `auth0.com`
+- **Okta** - `okta.com`
+- **Other OIDC-compliant providers**
+
+## Basic Setup Guide
+
+### Prerequisites
+
+1. A PlayerZero organization with Owner permissions
+2. Admin access to your identity provider to:
+   - Create application registrations
+   - Configure OAuth/OIDC settings
+   - Assign user permissions
+
+### Choose Your Identity Provider
+
+Click on your identity provider below for specific setup instructions:
+
+- **[Microsoft Entra ID](#microsoft-entra-id-setup)** - Azure Active Directory integration
+- **[Google Workspace](#google-workspace-setup)** - Google SSO integration
+- **[Okta](#okta-setup)** - Okta identity provider setup
+- **[Auth0](#auth0-setup)** - Auth0 platform integration
+- **[Other OIDC Providers](#other-oidc-providers-setup)** - Generic OIDC setup
+
+---
+
+## Microsoft Entra ID Setup
+
+### 1. Create Entra ID Application Registration
+
+1. Navigate to **Azure Portal → Azure Active Directory → App registrations**
+2. Click **"New registration"** and configure:
+   - **Name**: PlayerZero SSO
+   - **Supported account types**: Accounts in this organizational directory only
+   - **Redirect URI**: Web - `https://[your-playerzero-domain]/api/auth/sso`
+3. Note the **Application (client) ID** from the Overview page
+4. Create a **client secret** in Certificates & secrets
+5. Add **Microsoft Graph permissions**:
+   - `openid` (Sign users in)
+   - `email` (Read user email)
+   - `profile` (Read user profile)
+
+### 2. Configure SSO in PlayerZero
+
+1. Navigate to **Settings → SSO Configuration** in your PlayerZero dashboard
+2. Click **"Add SSO Configuration"**
+3. Enter your **Entra domain**:
+   - Format: `login.microsoftonline.com/[tenant-id]` or `[tenant].microsoftonline.com`
+   - Example: `contoso.microsoftonline.com`
+4. Click **"Fetch from Well-Known"** to auto-populate endpoints
+5. Enter your **Client ID** and **Client Secret** from step 1
+6. Verify the auto-populated settings:
+   - **Authorization Endpoint**: `https://login.microsoftonline.com/[tenant]/oauth2/v2.0/authorize`
+   - **Token Endpoint**: `https://login.microsoftonline.com/[tenant]/oauth2/v2.0/token`
+   - **Scopes**: `openid email profile`
+
+### 3. Test and Deploy
+
+1. Click **"Test Connection"** to verify the configuration
+2. Complete authentication in the popup window
+3. After successful test, click **"Save Configuration"**
+
+---
+
+## Google Workspace Setup
+
+### 1. Create Google OAuth Application
+
+1. Go to **Google Cloud Console → APIs & Services → Credentials**
+2. Create **OAuth 2.0 Client ID**:
+   - **Application type**: Web application
+   - **Name**: PlayerZero SSO
+   - **Authorized redirect URIs**: `https://[your-playerzero-domain]/api/auth/sso`
+3. Note the **Client ID** and **Client Secret**
+
+### 2. Configure SSO in PlayerZero
+
+1. Navigate to **Settings → SSO Configuration** in your PlayerZero dashboard
+2. Click **"Add SSO Configuration"**
+3. Enter your **Google domain**: `accounts.google.com`
+4. Click **"Fetch from Well-Known"** to auto-populate endpoints
+5. Enter your **Client ID** and **Client Secret** from step 1
+6. Verify the auto-populated settings:
+   - **Authorization Endpoint**: `https://accounts.google.com/o/oauth2/v2/auth`
+   - **Token Endpoint**: `https://oauth2.googleapis.com/token`
+   - **Scopes**: `openid email profile`
+
+### 3. Test and Deploy
+
+1. Click **"Test Connection"** to verify the configuration
+2. Complete authentication in the popup window
+3. After successful test, click **"Save Configuration"**
+
+---
+
+## Okta Setup
+
+### 1. Create Okta Application
+
+1. Sign in to your **Okta Admin Console**
+2. Navigate to **Applications → Applications**
+3. Click **"Create App Integration"**:
+   - **Sign-in method**: OIDC - OpenID Connect
+   - **Application type**: Web Application
+4. Configure the application:
+   - **App integration name**: PlayerZero SSO
+   - **Sign-in redirect URIs**: `https://[your-playerzero-domain]/api/auth/sso`
+   - **Controlled access**: Assign to appropriate groups/users
+5. Note the **Client ID** and **Client Secret**
+
+### 2. Configure SSO in PlayerZero
+
+1. Navigate to **Settings → SSO Configuration** in your PlayerZero dashboard
+2. Click **"Add SSO Configuration"**
+3. Enter your **Okta domain**: `[your-org].okta.com`
+4. Click **"Fetch from Well-Known"** to auto-populate endpoints
+5. Enter your **Client ID** and **Client Secret** from step 1
+6. Verify the auto-populated settings:
+   - **Authorization Endpoint**: `https://[your-org].okta.com/oauth2/v1/authorize`
+   - **Token Endpoint**: `https://[your-org].okta.com/oauth2/v1/token`
+   - **Scopes**: `openid email profile`
+
+### 3. Test and Deploy
+
+1. Click **"Test Connection"** to verify the configuration
+2. Complete authentication in the popup window
+3. After successful test, click **"Save Configuration"**
+
+---
+
+## Auth0 Setup
+
+### 1. Create Auth0 Application
+
+1. Sign in to your **Auth0 Dashboard**
+2. Navigate to **Applications → Applications**
+3. Click **"Create Application"**:
+   - **Name**: PlayerZero SSO
+   - **Application Type**: Regular Web Applications
+4. Configure the application settings:
+   - **Allowed Callback URLs**: `https://[your-playerzero-domain]/api/auth/sso`
+   - **Allowed Web Origins**: `https://[your-playerzero-domain]`
+5. Note the **Client ID** and **Client Secret** from the Settings tab
+
+### 2. Configure SSO in PlayerZero
+
+1. Navigate to **Settings → SSO Configuration** in your PlayerZero dashboard
+2. Click **"Add SSO Configuration"**
+3. Enter your **Auth0 domain**: `[your-tenant].auth0.com`
+4. Click **"Fetch from Well-Known"** to auto-populate endpoints
+5. Enter your **Client ID** and **Client Secret** from step 1
+6. Verify the auto-populated settings:
+   - **Authorization Endpoint**: `https://[your-tenant].auth0.com/authorize`
+   - **Token Endpoint**: `https://[your-tenant].auth0.com/oauth/token`
+   - **Scopes**: `openid email profile`
+
+### 3. Test and Deploy
+
+1. Click **"Test Connection"** to verify the configuration
+2. Complete authentication in the popup window
+3. After successful test, click **"Save Configuration"**
+
+---
+
+## Other OIDC Providers Setup
+
+### 1. Create OIDC Application
+
+1. Create an OAuth 2.0/OIDC application in your provider
+2. Configure the application:
+   - **Name**: PlayerZero SSO
+   - **Redirect URI**: `https://[your-playerzero-domain]/api/auth/sso`
+   - **Scopes**: Ensure `openid`, `email`, and `profile` are available
+3. Note the **Client ID** and **Client Secret**
+
+### 2. Configure SSO in PlayerZero
+
+Connect your identity provider to PlayerZero:
+
+1. Navigate to **Settings → SSO Configuration** in your PlayerZero dashboard
+2. Click **"Add SSO Configuration"**
+3. Choose your setup method:
+
+#### Auto-Discovery (Recommended):
+1. Enter your **IdP domain** in the well-known endpoint field:
+   - **Entra**: `login.microsoftonline.com/[tenant-id]` or `[tenant].microsoftonline.com`
+   - **Google**: `accounts.google.com`
+   - **Auth0**: `[tenant].auth0.com`
+   - **Okta**: `[org].okta.com`
+2. Click **"Fetch from Well-Known"** to auto-populate configuration
+3. PlayerZero will automatically detect and configure:
+   - Authorization endpoint
+   - Token endpoint
+   - User info endpoint
+   - PKCE support
+   - Supported scopes
+
+#### Manual Configuration:
+If auto-discovery isn't available, manually enter:
+- **Domain**: Your organization's email domain (e.g., `company.com`)
+- **Client ID**: From your identity provider application
+- **Client Secret**: From your identity provider application  
+- **Authorization Endpoint**: OAuth authorization URL
+- **Token Endpoint**: OAuth token exchange URL
+- **Scopes**: `openid email profile` (minimum required)
+
+### 3. Test SSO Configuration
+
+Verify your configuration before deployment:
+
+1. Click **"Test Connection"** in the PlayerZero SSO configuration
+2. PlayerZero will:
+   - Validate your configuration settings
+   - Open a popup window for SSO authentication
+   - Test the complete OAuth flow
+   - Verify user information retrieval
+3. **Complete the authentication** in the popup window
+4. Wait for **"SSO connection test succeeded"** confirmation
+
+<Note>
+The test uses a temporary session that doesn't affect your actual SSO configuration. You must see a successful test before proceeding to save the configuration.
+</Note>
+
+### 4. Deploy SSO Configuration
+
+Activate SSO for your organization:
+
+1. After successful testing, click **"Save Configuration"**
+2. The SSO configuration will be activated immediately
+3. Users with matching email domains will be redirected to SSO on their next login
+
+### 5. User Provisioning
+
+PlayerZero handles user provisioning automatically:
+
+<Note>About User Management: PlayerZero automatically creates accounts for new users signing in via SSO and links existing accounts based on email address matching. User attributes (name, email, profile) are synced from your identity provider during each login.</Note>
+
+- **Existing users**: Automatically linked by email address
+- **New users**: Created on first SSO login  
+- **User attributes**: Synced from identity provider (name, email, profile)
+- **Access control**: Managed through your identity provider's user assignments
+
+## Advanced Configuration
+
+### Multiple Domain Support
+
+Configure SSO for multiple email domains:
+
+1. Create separate SSO configurations for each domain
+2. Each configuration can use the same or different identity providers
+3. Users are routed to the appropriate SSO provider based on their email domain
+
+### Token Authentication Methods
+
+Choose the appropriate token endpoint authentication method:
+
+- **ClientSecretBasic** (recommended): Sends credentials via Authorization header
+- **ClientSecretPost**: Sends credentials in the request body
+
+### PKCE Configuration
+
+PlayerZero automatically enables PKCE (Proof Key for Code Exchange) when supported by your identity provider for enhanced security.
+
+## Enterprise Configuration
+
+### Microsoft Entra ID Advanced Setup
+
+For enterprise Entra deployments:
+
+#### Conditional Access Integration:
+- SSO inherits all Entra conditional access policies
+- Multi-factor authentication requirements
+- Device compliance policies
+- Location-based access controls
+
+#### Custom Claims Configuration:
+PlayerZero automatically maps standard OIDC claims:
+- `sub` → User identifier
+- `email` → Email address
+- `given_name` → First name  
+- `family_name` → Last name
+- `name` → Display name
+
+### Token Management
+
+#### Automatic Token Refresh:
+- PlayerZero automatically manages token refresh cycles
+- Refresh tokens are handled transparently
+- Token expiration: Configurable (default: 3 days)
+
+#### Configuration Updates:
+When updating SSO settings:
+1. Test configuration changes before saving
+2. Users may need to re-authenticate after major changes
+3. Monitor the Settings → SSO Configuration section for connection status
+
+### Security Considerations
+
+- Monitor SSO usage through your identity provider's audit logs  
+- Implement appropriate conditional access policies in your identity provider
+
+These configurations enable PlayerZero to provide secure, centralized authentication while maintaining security and access control through your organization's identity management system.
