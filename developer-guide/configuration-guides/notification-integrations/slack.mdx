@@ -1,89 +1,81 @@
 ---
 title: "Get Notifications Using Slack"
 sidebarTitle: "Slack Setup"
-description: "Learn how to connect Slack to PlayerZero and receive real-time alerts for new issues, spikes, and deployments directly in your team's workflows."
+description: "Connect Slack to PlayerZero to send real-time alerts for issue clusters, anomaly spikes, and deployments directly into your team's channels and DMs."
 ---
 
 ## Overview
 
-PlayerZero helps engineering teams stay ahead of issues by filtering out noise and delivering real-time alerts on critical problems. Our Slack integration keeps your team informed and enables quick action directly within your workflows.
+PlayerZero's Slack integration delivers high-signal alerts directly into Slack, so your team can triage faster and jump straight to session replays, distributed traces, and the exact code changes that introduced issues.
 
-### Key Uses
+### Who this is for
+- **Org owners/admins** — install & configure the integration.
+- **Engineers/QA** — receive alerts with deep links to replays, traces, and issue clusters; triage in Slack threads or DMs.
 
-- Receive instant notifications about new issues, error spikes, and performance anomalies
-- Get real-time deployment updates sent to your Slack channels
-- Interact with the PlayerZero bot to triage incidents and monitor release activity
-- Link alerts directly to code changes for faster diagnosis and resolution
-
----
-
-## Deploy & Adopt for IT Admins
-
-### Setting Up Slack Integration
-
-Follow these simple steps to configure your PlayerZero Slack integration:
-
-#### 1. Enable Slack Integration
-
-In your PlayerZero account:
-
-- Navigate to the **Settings** tab
-- Select **Release Alerts**
-- Toggle the **Slack integration** ON
-
-#### 2. Authenticate with Slack
-
-- You’ll be redirected to Slack’s authorization screen
-- Review and approve the requested permissions for the PlayerZero bot
-
-#### 3. Choose Your Notification Channel
-
-Once authenticated, you will be able to select the specific Slack channel for your release notifications:
-
-- As indicated in "Step 3: Choose your notification channel," select the desired existing public Slack channel from the dropdown menu. This is where PlayerZero will send release notifications.
-- You can only use one channel per notification setup at a time.
-
-#### 4. Configure Notification Preferences
-
-- As shown in "Step 4: Configure notification preferences," choose which events you want to be notified about (e.g., "On Issue" to get notified when new issues are detected in a release).
-
-<Accordion title="Slack Permissions">
-When installing the PlayerZero app in Slack, admins will be asked to approve the following permissions:
-
-| Permission | Why It's Needed |
-|------------|-----------------|
-| Post messages in channels | Allows the bot to deliver real-time alerts. |
-| Access user email addresses | Maps Slack users to PlayerZero accounts. |
-| View basic information about public channels | Lets PlayerZero show available channels during setup. |
-| Send messages as PlayerZero | Delivers formatted alerts from the PlayerZero bot. |
-| Start direct messages | Sends critical alerts as DMs when needed. |
-| View members of your workspace | Helps identify who should receive notifications. |
-</Accordion>
+### Quick links
+- **Org notifications:** `playerzero.ai/current-org/settings/notifications`  
+- **Project alerts:** `playerzero.ai/current-org/settings/projects/current-project/alerts`  
+- **Privacy Policy:** [playerzero.ai/legal/privacy-policy](https://playerzero.ai/legal/privacy-policy)  
+- **Support:** [help@playerzero.ai](mailto:help@playerzero.ai)
 
 ---
 
-### Detailed Configuration Steps
+## Install & Connect Slack
 
+1. **Enable Slack integration**  
+   In PlayerZero, go to **Settings → Notifications → Slack** and click **Connect**.  
+   ![Fig 1 — Connect Slack in PlayerZero Settings](/images/slack-1.png)
 
-#### On PlayerZero Side
+2. **Authorize in Slack**  
+   Sign in to your workspace and review the permissions requested and click **Allow** to grant access.  
+   ![Fig 2 — Slack OAuth consent screen](/images/slack-2.png)
 
-1.  Log in to your PlayerZero account.
-2.  Navigate to **Settings > Release Alerts**.
-3.  Toggle the **Slack** integration ON under "Step 1: Choose your notification platform."
-4.  Click the button to connect Slack (this may be labeled "Connect Slack" or be part of the toggle action).
-5.  You will be redirected to Slack to grant the necessary permissions. Review and approve them.
-6.  Once authenticated, you will be returned to PlayerZero. In "Step 3: Choose your notification channel," select the specific existing public Slack channel from the dropdown list where you want to receive release notifications.
-7.  In "Step 4: Configure notification preferences," choose the events for which you want to receive alerts (e.g., toggle "On Issue" ON).
-8.  Ensure your configuration is saved (this might be an explicit "Save" button or automatic).
-
-Once connected and configured, PlayerZero will send notifications for the selected events to your chosen Slack channel.
+3. **Choose channel & events**  
+   - At the **org level**, pick a default channel for notifications.  
+   - At the **project level**, go to **Project Settings → Alerts**, enable Slack, choose a channel, and select event types (Issue Clusters, Anomaly Spikes, Deployments).  
+   ![Fig 3 — Select Slack channel and events](/images/slack-3.png)
 
 ---
 
-## Next Steps
+## Using PlayerZero in Slack
 
-Once your Slack integration is live, you can fine-tune your alerting strategy to fit your team’s workflows. Explore these next steps to customize notifications and reduce noise:
+- **Channels:** Alerts include issue cluster summaries, affected user counts, environment, release version, and a **View in PlayerZero** deep link that takes you directly to session replays, distributed traces, or the Debugger UI. Reply in a **thread** to discuss with your team.  
+- **DMs with the bot:** Receive direct alerts for critical issue clusters or anomaly spikes that exceed your configured thresholds. Subscribe or unsubscribe to specific project notifications.
 
-- [Setup Alerts for User Issues](/use-cases/monitor-for-issues/setup-performance-alerts)
-- [Mute Unwanted Notifications and Alerts](/use-cases/monitor-for-issues/reduce-alert-noise)
+---
+
+## Permissions We Request (and Why)
+
+| Permission | Why |
+|------------|-----|
+| Post messages in channels | Deliver issue cluster alerts, anomaly spike notifications, and deployment summaries in your chosen channel |
+| View basic info about public channels | Show available channels during setup |
+| View members of your workspace | Identify recipients for DMs and map Slack users to PlayerZero resolved identities |
+| Send DMs / act as PlayerZero | Deliver direct or critical alerts with session replay and trace links |
+| Access user email addresses | Map Slack users to PlayerZero accounts for identity resolution and alert routing |
+
+---
+
+## Privacy, Data Handling & Requests
+
+- **What we receive:** workspace/channel IDs, user IDs/emails, and message metadata required to deliver and log alerts.  
+- **How we use it:** send notifications, route messages, map Slack users to PlayerZero accounts, and maintain reliability.  
+- **Access, transfer, or deletion:** Data is retained until projects have been deleted and removed from the PlayerZero platform. please reach out directly to [help@playerzero.ai](mailto:help@playerzero.ai). Our team will work with you to process your request.  
+- **Full details:** see our [Privacy Policy](https://playerzero.ai/legal/privacy-policy).
+
+---
+
+## Support
+
+- **Contact:** [help@playerzero.ai](mailto:help@playerzero.ai)  
+- **Response time:** within **2 business days**  
+- Support resources are **publicly accessible** (no login required).
+
+---
+
+## Uninstall / Disconnect
+
+- **From Slack:** Go to Slack → **Apps → PlayerZero → Configuration → Remove app**.  
+- **From PlayerZero:** Go to **Settings → Notifications → Slack → Disconnect**.  
+- **After uninstall:** data is handled per retention/deletion rules; contact us for deletion requests.
 
