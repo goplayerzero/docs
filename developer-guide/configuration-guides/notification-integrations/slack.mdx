@@ -13,9 +13,9 @@ PlayerZero's Slack integration delivers high-signal alerts directly into Slack, 
 - **Engineers/QA** — receive alerts with deep links to replays, traces, and issue clusters; triage in Slack threads or DMs.
 
 ### Quick links
-- **Org notifications:** `playerzero.ai/current-org/settings/notifications`  
-- **Project alerts:** `playerzero.ai/current-org/settings/projects/current-project/alerts`  
-- **Privacy Policy:** [playerzero.ai/legal/privacy-policy](https://playerzero.ai/legal/privacy-policy)  
+- **Org notifications:** - [Organization Setup](https://playerzero.ai/current-org/settings/notifications)
+- **Project alerts:** - [Project Setup](https://playerzero.ai/current-org/settings/projects/current-project/alerts)
+- **Privacy Policy:** - [playerzero.ai/legal/privacy-policy](https://playerzero.ai/legal/privacy-policy)  
 - **Support:** [help@playerzero.ai](mailto:help@playerzero.ai)
 
 ---
@@ -23,16 +23,16 @@ PlayerZero's Slack integration delivers high-signal alerts directly into Slack, 
 ## Install & Connect Slack
 
 1. **Enable Slack integration**  
-   In PlayerZero, go to **Settings → Notifications → Slack** and click **Connect**.  
+   In PlayerZero, go to **Settings → Notifications → Slack** and click **Connect**.
    ![Fig 1 — Connect Slack in PlayerZero Settings](/images/slack-1.png)
 
 2. **Authorize in Slack**  
-   Sign in to your workspace and review the permissions requested and click **Allow** to grant access.  
+   Sign in to your workspace and review the permissions requested and click **Allow** to grant access.
    ![Fig 2 — Slack OAuth consent screen](/images/slack-2.png)
 
 3. **Choose channel & events**  
    - At the **org level**, pick a default channel for notifications.  
-   - At the **project level**, go to **Project Settings → Alerts**, enable Slack, choose a channel, and select event types (Issue Clusters, Anomaly Spikes, Deployments).  
+   - At the **project level**, go to **Project Settings → Alerts**, enable Slack, choose a channel, and select event types (Issue Clusters, Anomaly Spikes, Deployments).
    ![Fig 3 — Select Slack channel and events](/images/slack-3.png)
 
 ---
@@ -40,19 +40,7 @@ PlayerZero's Slack integration delivers high-signal alerts directly into Slack, 
 ## Using PlayerZero in Slack
 
 - **Channels:** Alerts include issue cluster summaries, affected user counts, environment, release version, and a **View in PlayerZero** deep link that takes you directly to session replays, distributed traces, or the Debugger UI. Reply in a **thread** to discuss with your team.  
-- **DMs with the bot:** Receive direct alerts for critical issue clusters or anomaly spikes that exceed your configured thresholds. Subscribe or unsubscribe to specific project notifications.
-
----
-
-## Permissions We Request (and Why)
-
-| Permission | Why |
-|------------|-----|
-| Post messages in channels | Deliver issue cluster alerts, anomaly spike notifications, and deployment summaries in your chosen channel |
-| View basic info about public channels | Show available channels during setup |
-| View members of your workspace | Identify recipients for DMs and map Slack users to PlayerZero resolved identities |
-| Send DMs / act as PlayerZero | Deliver direct or critical alerts with session replay and trace links |
-| Access user email addresses | Map Slack users to PlayerZero accounts for identity resolution and alert routing |
+- **DMs with the bot:** Interact directly with the PlayerZero AI chat agents.
 
 ---
 
