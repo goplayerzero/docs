@@ -122,7 +122,12 @@
                   "developer-guide/configuration-guides/notification-integrations/slack"
                 ]
               },
-              "developer-guide/configuration-guides/single-sign-on/sso",
+              {
+                "group": "Setup Single Sign-On",
+                "pages": [
+                  "developer-guide/configuration-guides/single-sign-on/microsoft-entra"
+                ]
+              },
               "developer-guide/configuration-guides/mcp-setup"
             ]
           },
