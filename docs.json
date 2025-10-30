@@ -125,7 +125,8 @@
               {
                 "group": "Setup Single Sign-On",
                 "pages": [
-                  "developer-guide/configuration-guides/single-sign-on/microsoft-entra"
+                  "developer-guide/configuration-guides/single-sign-on/microsoft-entra",
+                  "developer-guide/configuration-guides/single-sign-on/okta"
                 ]
               },
               "developer-guide/configuration-guides/mcp-setup"
