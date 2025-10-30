@@ -3,7 +3,7 @@ title: "Okta SSO Setup"
 description: "Connect your organization's identity provider to PlayerZero for secure, centralized authentication using Okta."
 ---
 
-<Note>Organization **Owner** access is required in PlayerZero to configure SSO. **Okta Administrator** access is required in Azure to create the app registration and adjust settings.</Note>
+<Note>Organization **Owner** access is required in PlayerZero to configure SSO. **Okta Administrator** access is required in Okta to create the app registration and adjust settings.</Note>
 
 ## Overview
 
@@ -63,5 +63,6 @@ On the New Web App Integration Screen:
 Once SSO is **saved and enabled**, PlayerZero will **invalidate existing sessions**:
 
 - **All users will be logged out** of PlayerZero.
+- When users log back in through SSO, they will be able to access all previous work. No data will be lost in the transition.
 
 
