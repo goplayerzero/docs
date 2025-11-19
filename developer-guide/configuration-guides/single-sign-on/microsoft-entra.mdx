@@ -16,7 +16,14 @@ This guide walks you through creating a Microsoft Entra app registration and wir
 - A PlayerZero organization where you are an **Owner**
 - Admin access to **Azure Portal** for your tenant
 - PlayerZero redirect URL: `https://playerzero.ai/api/auth/sso`
+
 ---
+
+## Multi-Tenant SSO 
+If your organization uses multiple email domains, each domain requires its **own SSO configuration** in PlayerZero. To add an additional domain:
+- Sign in to PlayerZero **using an account from that domain**, then create a new SSO config following the same steps in this guide.  
+- You will end up with **one SSO configuration per domain** in PlayerZero.  
+- How you structure this in Entra (single app vs. multiple apps) is flexible — PlayerZero does not impose a requirement here.
 
 ## Step 1 — Create the App Registration in Entra
 1. Select `Single Tenant` account type
