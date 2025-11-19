@@ -19,10 +19,13 @@ This guide walks you through creating an Okta app registration and wiring it to 
 ---
 
 ## Multi-Tenant SSO 
-If your organization uses multiple email domains, each domain requires its **own SSO configuration** in PlayerZero. To add an additional domain:
-- Sign in to PlayerZero **using an account from that domain**, then create a new SSO config following the same steps in this guide.  
-- You will end up with **one SSO configuration per domain** in PlayerZero.  
-- How you structure this in Entra (single app vs. multiple apps) is flexible — PlayerZero does not impose a requirement here.
+If your organization uses multiple email domains, each domain requires its **own SSO configuration** in PlayerZero.
+
+You may reuse the same Entra app registration for all domains if you choose. For each domain:
+- Sign in to PlayerZero **using an account from that domain**
+- Create a new SSO configuration starting at **Step 3 — Configure PlayerZero**
+
+PlayerZero will simply have **one SSO configuration per domain**, regardless of how you organize Entra (single app or multiple apps).
 
 ## Step 1 — Create the App Registration in Okta: 
 1. Select Sign-in method `OIDC - OpenID Connect`:
