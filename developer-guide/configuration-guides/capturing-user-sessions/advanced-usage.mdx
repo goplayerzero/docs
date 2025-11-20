@@ -69,6 +69,36 @@ This ensures that PlayerZero wraps `window.fetch` before any other library does,
 
 If this problem doesn’t apply to you, you can safely ignore this step.
 
+```html
+<script>
+  const originalFetch = window.fetch;
+  if (!window["playerzero"]) window["playerzero"] = {};
+
+  window["playerzero"]["monkey_patch_ts"] = performance.now();
+  window.fetch = function (url, options) {
+    // preserve arity
+    if (
+      window["playerzero"] &&
+      window["playerzero"]["before_fetch_apply"] &&
+      window["playerzero"]["after_fetch_apply"]
+    ) {
+      const beforeFetchApplyResult = window["playerzero"]["before_fetch_apply"](
+        url,
+        options
+      );
+      const args = arguments;
+      return new Promise((resolve) => {
+        originalFetch.apply(this, args).then((response) => {
+          return window["playerzero"]
+            ["after_fetch_apply"](response, beforeFetchApplyResult)
+            .finally(() => resolve(response));
+        });
+      });
+    } else return originalFetch.apply(this, arguments);
+  };
+</script>
+```
+
 ---
 
 ## Next Steps
@@ -78,9 +108,3 @@ Looking for more? Explore:
 - **[Domain Controls](/developer-guide/configuration-guides/capturing-user-sessions/domain-settings)** - Adjust PlayerZero's behavior by environment, hostname, or domain.
 
 - **[Thresholds and Filtering](/developer-guide/configuration-guides/capturing-user-sessions/thresholds-and-filtering)** - Customize how your team uses PlayerZero's debugging tools.
-
-
----
-
-That’s everything you need to extend and optimize your PlayerZero integration.
-
