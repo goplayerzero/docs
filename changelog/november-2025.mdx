@@ -15,6 +15,7 @@ What this means for your teams: Support engineers eliminate context switching be
   alt="Slack message menu showing Ask PlayerZero action with project and workflow stage modal"
 />
 
+
 ---
 
 ## Share AI-generated documentation publicly
@@ -28,17 +29,13 @@ What this means for your teams: Customer success shares investigation summaries 
   src="/images/changelog/november-2025/public-docs-light.png"
   alt="Player artifact panel with Private/Public toggle and shareable link"
 />
-<img
-  className="hidden dark:block"
-  src="/images/changelog/november-2025/public-docs-dark.png"
-  alt="Player artifact panel with Private/Public toggle and shareable link"
-/>
+
 
 ---
 
-## AI memory system with semantic retrieval
+## Introducing PlayerZero Memories
 
-PlayerZero now learns from past investigations and surfaces relevant context automatically. The memory system stores your team's knowledge and leverages it to improve response quality over time — like a digital immune system that gets stronger with every exposure.
+PlayerZero now learns from past investigations and surfaces relevant context automatically. The memory system captures your knowledge and leverages it to improve response quality over time — like a digital immune system that gets stronger with every exposure.
 
 What this means for your teams: Senior engineers document tribal knowledge that surfaces automatically in future investigations. Support teams build a searchable knowledge base from resolved issues without manual wiki maintenance. QA engineers record test scenarios and edge cases discovered during investigation—AI suggests similar patterns when relevant. Engineering managers track architectural decisions with their rationale, accessible through semantic search instead of scattered documentation. Every investigation strengthens the system, reducing duplicate work and improving response consistency across teams.
 
@@ -47,17 +44,13 @@ What this means for your teams: Senior engineers document tribal knowledge that 
   src="/images/changelog/november-2025/memory-system-light.png"
   alt="Player chat showing possibly-relevant-memories section with expandable memory cards"
 />
-<img
-  className="hidden dark:block"
-  src="/images/changelog/november-2025/memory-system-dark.png"
-  alt="Player chat showing possibly-relevant-memories section with expandable memory cards"
-/>
+
 
 ---
 
-## Visual workflow builder with drag-and-drop
+## Create and edit Workflows with visual builder
 
-We replaced the legacy workflow editor with a full-screen visual builder using ReactFlow. Design your backlog stages, draw connections between them, and configure transition rules through an intuitive node-and-edge interface — no more parsing text-based configuration. The builder validates workflow integrity in real-time, showing warnings on stages with no incoming or outgoing connections. Auto-reorganize uses a hierarchical layout algorithm to clean up complex workflows when things get messy.
+We replaced the legacy workflow editor with a full-screen visual builder. Design your backlog stages, draw connections between them, and configure transition rules through an intuitive node-and-edge interface — no more parsing text-based configuration. The builder validates workflow integrity in real-time, showing warnings on stages with no incoming or outgoing connections. Auto-reorganize uses a hierarchical layout algorithm to clean up complex workflows when things get messy.
 
 What this means for your teams: Iteration speed increases dramatically — drag to reorganize, draw to connect, click to configure. Engineering managers, DevOps engineers, Support leads, and Product managers more easily design and update their issue triage, incident root cause analysis, customer request escalation, and feature discovery workflows to match, or even improve upon, their existing internal processes.
 
@@ -66,15 +59,11 @@ What this means for your teams: Iteration speed increases dramatically — drag 
   src="/images/changelog/november-2025/workflow-builder-light.png"
   alt="Visual workflow builder canvas with connected stages and transition arrows"
 />
-<img
-  className="hidden dark:block"
-  src="/images/changelog/november-2025/workflow-builder-dark.png"
-  alt="Visual workflow builder canvas with connected stages and transition arrows"
-/>
+
 
 ---
 
-## Organization-level repository management
+## Manage repostiories centrally
 
 We introduced org-scoped repository lifecycle controls and human-friendly configuration names for all SCM connectors. Administrators now activate, deactivate, or delete repositories at the organization level with type-to-confirm safety guards — governance without project-by-project management overhead.
 
@@ -88,9 +77,10 @@ What this means for your teams: Engineering directors, security administrators, 
   alt="Organization settings showing Connected Git Providers with repository toggles"
 />
 
+
 ---
 
-## Rename AI investigation sessions
+## Rename Player sessions
 
 We added session renaming with real-time updates across all connected clients. Assign meaningful names to long-running investigations instead of relying on timestamps—better organization, better team coordination.
 
@@ -103,15 +93,11 @@ What this means for your teams: Support engineers organize multiple concurrent i
   src="/images/changelog/november-2025/rename-session-light.png"
   alt="Player title bar with rename dropdown and modal dialog"
 />
-<img
-  className="hidden dark:block"
-  src="/images/changelog/november-2025/rename-session-dark.png"
-  alt="Player title bar with rename dropdown and modal dialog"
-/>
+
 
 ---
 
-## Deep-link to specific messages
+## Deep-link to specific Player messages
 
 We introduced message-level deep linking throughout Player threads with persistent "Copy Link" actions for assistant and deep-research messages (or a hover button for user messages), and smooth scroll-to-message navigation. Share precise references to AI responses or user questions—no more "scroll down to the part where it talks about authentication.
 
@@ -122,11 +108,7 @@ What this means for your teams: Engineers reference specific AI analysis in code
   src="/images/changelog/november-2025/deep-link-light.png"
   alt="Player thread with Copy Link button and highlighted deep-linked message"
 />
-<img
-  className="hidden dark:block"
-  src="/images/changelog/november-2025/deep-link-dark.png"
-  alt="Player thread with Copy Link button and highlighted deep-linked message"
-/>
+
 
 ---
 
@@ -139,10 +121,5 @@ What this means for your teams: End users encountering errors see manageable inc
 <img
   className="block dark:hidden"
   src="/images/changelog/november-2025/error-messages-light.png"
-  alt="Player error message with friendly header and collapsible debug accordion"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/changelog/november-2025/error-messages-dark.png"
   alt="Player error message with friendly header and collapsible debug accordion"
 />
