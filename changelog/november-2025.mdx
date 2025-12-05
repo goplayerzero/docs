@@ -1,6 +1,217 @@
 ---
-title: "Coming Soon"
-sidebarTitle: "Novemeber 2025"
+title: "November 2025"
+sidebarTitle: "November 2025"
 ---
 
+## Start AI investigations directly from Slack
 
+PlayerZero AI Players now launch directly from Slack conversations. Use shortcuts, app mentions, or message actions to create Players without leaving your support channels—complete with workflow context, conversation threads, and attached images automatically captured.
+
+The integration uses Slack's official SDK with Events API and interactive components. When you trigger "Ask PlayerZero" from any message, we capture the thread context and optional stage selection through a modal UI. Players created from Slack carry multi-origin provenance tracking, storing the channel and thread references for full auditability. Image uploads follow a delayed flow via Pulsar topics, posting to Slack only after external upload completes.
+
+Example provenance structure:
+
+```typescript
+PlayerData.Origin = BranchReview | Chat | WebUrl | Webhook
+
+origin: {
+  type: "Chat",
+  channelRef: "C12345",
+  threadRef: "1234567890.123456",
+  source: "Slack"
+}
+```
+
+What this means for your teams: Support engineers eliminate context switching between Slack and the dashboard—every conversation thread becomes investigation provenance automatically. Engineering managers convert bug reports into tracked investigations without manual documentation. QA teams capture reproduction steps inline during testing. Product managers preserve feature requests with full conversation context. Every investigation step is already documented before it reaches engineering.
+
+[Screenshot suggestion: Slack message three-dot menu showing "Ask PlayerZero" action, followed by modal with project selector, workflow stage picker, and context input field]
+
+---
+
+## Share AI-generated documentation publicly
+
+We added public document sharing for Player artifacts with granular access control. Toggle any AI-generated document between private and public, then share a stable URL with external stakeholders—no authentication required for public documents.
+
+Each artifact's sharing state is tracked in a new `playerArtifactShare` collection with audit fields capturing who shared what and when. Public documents are served at `/doc/{org}/{project}/player/{playerId}/{docId}` via a Trusted backend endpoint that resolves tenant context and fetches the latest artifact content from PlayerStateDao. The ArtifactTool automatically emits shareable URLs in the artifact XML, enabling AI Players to paste links directly into external systems like Jira or Linear during investigations.
+
+Example artifact output with share URL:
+
+```xml
+<artifact id="abc123" share_url="https://app.playerzero.ai/doc/...">
+  [artifact content]
+</artifact>
+```
+
+What this means for your teams: Customer success shares investigation summaries with clients without granting platform access. Technical writers embed AI-generated documentation in external wikis with stable URLs instead of copy-paste. Support managers provide detailed responses via ticketing systems with full context preserved. Engineering teams collaborate with external partners using links that maintain byline metadata—player name, creation timestamp, and investigation provenance—all without manual export overhead.
+
+[Screenshot suggestion: Player artifact panel showing Private/Public toggle with shareable link and copy button. Public doc page displaying markdown-rendered content with "Created by [Player Name] on [Date]" header]
+
+---
+
+## AI memory system with semantic retrieval
+
+PlayerZero now learns from past investigations and surfaces relevant context automatically. The memory system stores knowledge with semantic embeddings, retrieves via nearest-neighbor search, and improves response quality over time—like a digital immune system that gets stronger with every exposure.
+
+Memories are stored per-organization in Puffer-backed vector storage using VOYAGE_3_LARGE embeddings. Each memory includes a hierarchical path (like file systems), contextual hooks describing when it's relevant, and the actual knowledge content. Players automatically search memories during initialization and inject "possibly-relevant-memories" into prompts. The MemoryTool allows explicit create, read, update, and search operations with configurable similarity thresholds and reranking for precision.
+
+Example memory structure and search:
+
+```typescript
+interface Memory {
+  path: string;              // "issues/authentication/oauth-timeout"
+  content: string;           // The knowledge to remember
+  hooks: string[];           // ["when debugging OAuth", "for 401 errors"]
+  embedding: number[];       // 1024-dim vector
+}
+
+// Semantic search with reranking
+const memories = await MemoryDao.search({
+  query: "authentication token expiration",
+  limit: 5,
+  threshold: 0.75
+});
+```
+
+What this means for your teams: Senior engineers document tribal knowledge that surfaces automatically in future investigations. Support teams build a searchable knowledge base from resolved issues without manual wiki maintenance. QA engineers record test scenarios and edge cases discovered during investigation—AI suggests similar patterns when relevant. Engineering managers track architectural decisions with their rationale, accessible through semantic search instead of scattered documentation. Every investigation strengthens the system, reducing duplicate work and improving response consistency across teams.
+
+[Screenshot suggestion: Player chat showing "possibly-relevant-memories" section above AI response with expandable memory cards. Settings UI showing hierarchical path organization with search bar for manual memory management]
+
+---
+
+## Visual workflow builder with drag-and-drop
+
+We replaced the legacy workflow editor with a full-screen visual builder using ReactFlow. Design your backlog stages, draw connections between them, and configure transition rules through an intuitive node-and-edge interface—no more parsing text-based configuration.
+
+The builder uses custom node types for stages (Entry/Work/Terminal) and the "Ticket Created" trigger. Node positions are persisted in a new `backlogNodePosition` collection, preserving your layout across sessions. Connecting two nodes opens a confirmation dialog to define the transition rule with optional instructions. The builder validates workflow integrity in real-time, showing warnings on stages with no incoming or outgoing connections. Auto-reorganize uses a hierarchical layout algorithm to clean up complex workflows when things get messy.
+
+Example node position persistence:
+
+```typescript
+interface BacklogNodePosition {
+  projectId: string;
+  nodeId: string;        // stage ID or "ticket-created"
+  position: { x: number; y: number };
+  type: "stage" | "trigger";
+}
+```
+
+What this means for your teams: Engineering managers design multi-stage approval workflows by dragging and connecting nodes instead of editing configuration files. DevOps engineers map incident response processes visually with self-documenting diagrams. Product managers model feature development pipelines with immediate validation feedback. Support leads build triage and escalation flows that new team members understand at a glance. Real-time validation prevents configuration errors before they cause workflow failures. Iteration speed increases dramatically—drag to reorganize, draw to connect, click to configure.
+
+[Screenshot suggestion: Full-screen workflow canvas with Entry stages on left, Work stages in middle, Terminal stages on right. Arrows connecting stages with transition labels. Bottom toolbar showing zoom controls and "Auto-reorganize" button. Side panel displaying selected stage details with edit/delete actions]
+
+---
+
+## Organization-level repository management
+
+We introduced org-scoped repository lifecycle controls and human-friendly configuration names for all SCM connectors. Administrators now activate, deactivate, or delete repositories at the organization level with type-to-confirm safety guards—governance without project-by-project management overhead.
+
+New org-scoped endpoints manage repository state with cascading updates to all project references. When you toggle a repository's active state at the org level, the change propagates to every project's RepoRef automatically. All SCM providers (GitHub, GitLab, Bitbucket, Azure) now support optional configuration names stored in `ScmConfig.name`, displayed as "Configuration Name (Provider Type)" for clarity. Reconnect actions refresh OAuth tokens without recreating configurations, preserving all project associations.
+
+Example endpoint structure:
+
+```typescript
+// Toggle repository active state
+PATCH /scm/gitRepo/{gitRepoId}
+{ active: boolean }
+
+// Delete repository (owner-only)
+DELETE /scm/gitRepo/{gitRepoId}
+
+interface ScmConfig {
+  id: ObjectId
+  name: String?           // Optional friendly name
+  type: ScmType          // GitHub, GitLab, etc.
+  active: Boolean
+}
+```
+
+What this means for your teams: Engineering directors govern code access across multiple teams from a single control plane. Security administrators control repository visibility organization-wide without touching individual projects. DevOps engineers manage SCM integrations centrally with clear ownership requirements—only org owners can delete repositories. IT administrators audit connected repositories for compliance using friendly names instead of cryptic IDs. Reconnection becomes painless when OAuth tokens expire or permissions change—refresh tokens without recreating the entire integration. Accidental exposure risk drops as repositories must be explicitly activated before use.
+
+[Screenshot suggestion: Organization settings page showing "Connected Git Providers" section with named configurations like "Production GitHub (GitHub App)". Each provider card lists repositories with active/inactive toggles. Delete dialog requiring typed confirmation showing hostname/type]
+
+---
+
+## Rename AI investigation sessions
+
+We added session renaming with real-time updates across all connected clients via WebSocket. Assign meaningful names to long-running investigations instead of relying on timestamps—better organization, better team coordination.
+
+The rename action appears in the player title bar dropdown. Validation enforces trimmed, non-empty strings with a 70-character maximum. When you rename a session, the backend persists the title in PlayerDataDao and emits a Title message over WebSocket. Distributed routing uses Valkey lock to ensure requests reach the correct node in multi-node deployments. Every connected viewer sees the title change instantly without page reload—no stale state, no manual refresh.
+
+Example API flow:
+
+```typescript
+POST /player/{playerId}/rename
+{ title: string }
+
+// Backend broadcasts
+PlayerDataDao.setTitle(playerId, title);
+PlayerMessage.Title.emit(title);
+
+// Frontend receives and updates
+case "Title":
+  processedItems.title = message.title;
+```
+
+What this means for your teams: Support engineers organize multiple concurrent investigations with descriptive names instead of hunting through timestamps. Engineering teams track related debugging sessions across sprints by naming them after features or issues. QA engineers label test runs by scenario or build number for faster retrospective analysis. Managers review team activity with context-rich session names that explain what each investigation covered. Title changes appear instantly for all team members—coordinate in real-time without confusion about which session is which. Find past investigations in seconds using meaningful names instead of remembering when something happened.
+
+[Screenshot suggestion: Player title bar showing renamed session with dropdown menu open, "Rename player" option highlighted. Modal dialog with text input displaying current title and validation feedback showing character count and trimmed preview]
+
+---
+
+## Deep-link to specific messages
+
+We introduced message-level deep linking throughout Player threads with persistent "Copy Link" actions and smooth scroll-to-message navigation. Share precise references to AI responses or user questions—no more "scroll down to the part where it talks about authentication."
+
+Every message group renders a "Copy Link" action row for assistant and deep-research messages, or a hover button for user messages. URLs include the messageId parameter and preserve existing query params for context. When loading a page with messageId, we disable initial stick-to-bottom behavior to prevent scroll conflicts with targeted navigation. The scroll handler uses retry logic with a ref-based tracker to prevent repeated scrolling during message streaming—a critical fix after users reported constant scroll interruptions.
+
+Example deep-link implementation:
+
+```typescript
+const url = `/${org}/${project}/player/${playerId}?messageId=${messageId}`;
+
+const lastMessageIdRef = useRef<string | null>(null);
+
+useEffect(() => {
+  const messageId = searchParams?.get("messageId");
+  
+  // Only reset scroll flag when messageId value changes
+  if (messageId !== lastMessageIdRef.current) {
+    lastMessageIdRef.current = messageId;
+    hasScrolledToMessageRef.current = false;
+  }
+  
+  if (!messageId || hasScrolledToMessageRef.current) return;
+  
+  // Scroll to target with retry logic, apply 3-second highlight
+}, [searchParams, itemGroups]);
+```
+
+The highlight uses a theme-aware background fade animation—visual feedback without layout shift or border pulse flicker.
+
+What this means for your teams: Engineers reference specific AI analysis in code review comments with clickable links instead of vague descriptions. Support teams share exact responses when escalating to engineering—"look at this message" becomes a URL. QA engineers link to investigation steps in bug reports, preserving full conversation context up to that point. Product managers cite AI recommendations in feature documentation with precise references. Async collaboration speeds up dramatically—drop a link in Slack, Jira, or Notion instead of scheduling a screen share to point at something. Deep links include full conversation history, so context is never lost.
+
+[Screenshot suggestion: Player thread showing assistant message with "Copy Link" button in bottom-right action row. Deep-linked message with 3-second background highlight animation (subtle fade from accent color to transparent). Browser URL bar displaying `?messageId=507f1f77bcf86cd799439011`]
+
+---
+
+## Improved error messages in Player chat
+
+We redesigned error presentation in Player conversations to show friendly headers with collapsible debug details instead of overwhelming stacktraces. Errors now surface first-line summaries inline—full diagnostics available behind a toggle when you need them.
+
+The ErrorMessage component renders a three-part structure: friendly header ("Something went wrong, I have notified the PlayerZero team"), first-line summary pulled from message or stacktrace, and collapsible "Debug Information" accordion with the full stacktrace. Styling shifted from destructive background to neutral panel with destructive border and monospaced text for technical details. The accordion only renders when a stacktrace is present, providing graceful fallback for message-only errors.
+
+Example component structure:
+
+```tsx
+<ErrorMessage>
+  <header>Something went wrong, I have notified the PlayerZero team.</header>
+  <firstLine>{message.split('\n')[0] || stacktrace.split('\n')[0]}</firstLine>
+  <Accordion title="Debug Information">
+    <pre>{fullStacktrace}</pre>
+  </Accordion>
+</ErrorMessage>
+```
+
+What this means for your teams: End users encountering errors see manageable incidents instead of catastrophic failures—reduced anxiety, clearer next steps. Support engineers triage issues with both user-friendly and developer views in the same component—no separate debug mode required. Engineers debugging production problems get full diagnostic information behind a single click—debuggability preserved without overwhelming the interface. QA teams document bugs with complete error details captured in screenshots. Signal-to-noise ratio improves dramatically by showing only essential details by default. Triage speeds up with consistent error format across all failure scenarios—you know exactly where to click for more information.
+
+[Screenshot suggestion: Player chat showing error message with friendly header, single-line summary, and collapsed "Debug Information" accordion. Second view showing expanded accordion with full monospaced stacktrace and destructive-colored border]
