@@ -185,6 +185,15 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Changelog",
+        "groups": [
+          {
+            "group": "Changelog",
+            "pages": ["changelog/november-2025"]
+          }
+        ]
       }
     ]
   },
