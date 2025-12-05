@@ -14,19 +14,14 @@ What this means for your teams: Support engineers eliminate context switching be
   src="/images/changelog/november-2025/slack-ai-light.png"
   alt="Slack message menu showing Ask PlayerZero action with project and workflow stage modal"
 />
-<img
-  className="hidden dark:block"
-  src="/images/changelog/november-2025/slack-ai-dark.png"
-  alt="Slack message menu showing Ask PlayerZero action with project and workflow stage modal"
-/>
 
 ---
 
 ## Share AI-generated documentation publicly
 
-We added public document sharing for Player artifacts with granular access control. Toggle any AI-generated document between private and public, then share a stable URL with external stakeholders—no authentication required for public documents.
+We added public document sharing for Player artifacts with granular access control. Toggle any AI-generated document between private and public, then share a stable URL with external stakeholders — no authentication required for public documents.
 
-What this means for your teams: Customer success shares investigation summaries with clients without granting platform access. Technical writers embed AI-generated documentation in external wikis with stable URLs instead of copy-paste. Support managers provide detailed responses via ticketing systems with full context preserved. Engineering teams collaborate with external partners using links that maintain metadata—player name, creation timestamp, and investigation provenance—without manual export overhead.
+What this means for your teams: Customer success shares investigation summaries with clients without granting platform access. Technical writers embed AI-generated documentation in external wikis with stable URLs instead of copy-paste. Support managers provide detailed responses via ticketing systems with full context preserved. Engineering teams collaborate with external partners using links that maintain metadata — player name, creation timestamp, and investigation provenance — without manual export overhead.
 
 <img
   className="block dark:hidden"
@@ -62,7 +57,7 @@ What this means for your teams: Senior engineers document tribal knowledge that 
 
 ## Visual workflow builder with drag-and-drop
 
-We replaced the legacy workflow editor with a full-screen visual builder using ReactFlow. Design your backlog stages, draw connections between them, and configure transition rules through an intuitive node-and-edge interface—no more parsing text-based configuration.The builder validates workflow integrity in real-time, showing warnings on stages with no incoming or outgoing connections. Auto-reorganize uses a hierarchical layout algorithm to clean up complex workflows when things get messy.
+We replaced the legacy workflow editor with a full-screen visual builder using ReactFlow. Design your backlog stages, draw connections between them, and configure transition rules through an intuitive node-and-edge interface — no more parsing text-based configuration. The builder validates workflow integrity in real-time, showing warnings on stages with no incoming or outgoing connections. Auto-reorganize uses a hierarchical layout algorithm to clean up complex workflows when things get messy.
 
 What this means for your teams: Iteration speed increases dramatically — drag to reorganize, draw to connect, click to configure. Engineering managers, DevOps engineers, Support leads, and Product managers more easily design and update their issue triage, incident root cause analysis, customer request escalation, and feature discovery workflows to match, or even improve upon, their existing internal processes.
 
@@ -83,18 +78,13 @@ What this means for your teams: Iteration speed increases dramatically — drag 
 
 We introduced org-scoped repository lifecycle controls and human-friendly configuration names for all SCM connectors. Administrators now activate, deactivate, or delete repositories at the organization level with type-to-confirm safety guards — governance without project-by-project management overhead.
 
-New org-scoped endpoints manage repository state with cascading updates to all project references. When you toggle a repository's active state at the org level, the change propagates to every project automatically. All SCM providers (GitHub, GitLab, Bitbucket, Azure) now support optional configuration names, displayed as "Configuration Name (Provider Type)" for clarity. Reconnect actions refresh OAuth tokens without recreating configurations, preserving all project associations.
+New org-scoped endpoints manage repository state with cascading updates to all project references. When you toggle a repository's active state at the org level, the change propagates to every project automatically. All SCM providers (GitHub, GitLab, Bitbucket, Azure) now support optional configuration names, displayed as "Configuration Name (Provider Type)" for clarity. Reconnect actions preserve all project associations.
 
-What this means for your teams: Engineering directors govern code access across multiple teams from a single control plane. Security administrators control repository visibility organization-wide without touching individual projects. DevOps engineers manage SCM integrations centrally with clear ownership requirements—only org owners can delete repositories. IT administrators audit connected repositories for compliance using friendly names instead of cryptic IDs. Reconnection becomes painless when OAuth tokens expire or permissions change—refresh tokens without recreating the entire integration. 
+What this means for your teams: Engineering directors, security administrators, and DevOps engineers govern code visibility and access across multiple teams from a central control plane with clear ownership requirements — only org owners can delete repositories. IT administrators audit connected repositories for compliance using friendly names instead of cryptic IDs. Reconnection becomes painless when tokens expire or permissions change — refresh tokens without recreating the entire integration. 
 
 <img
   className="block dark:hidden"
   src="/images/changelog/november-2025/org-repos-light.png"
-  alt="Organization settings showing Connected Git Providers with repository toggles"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/changelog/november-2025/org-repos-dark.png"
   alt="Organization settings showing Connected Git Providers with repository toggles"
 />
 
@@ -104,7 +94,7 @@ What this means for your teams: Engineering directors govern code access across 
 
 We added session renaming with real-time updates across all connected clients. Assign meaningful names to long-running investigations instead of relying on timestamps—better organization, better team coordination.
 
-The rename action appears in the player title bar dropdown. Validation enforces trimmed, non-empty strings with a 70-character maximum. Every connected viewer sees the title change instantly without page reload—no stale state, no manual refresh.
+The rename action appears in the player title bar dropdown. Validation enforces trimmed, non-empty strings with a 70-character maximum. Every connected viewer sees the title change instantly without page reload.
 
 What this means for your teams: Support engineers organize multiple concurrent investigations with descriptive names instead of hunting through timestamps. Engineering teams track related debugging sessions across sprints by naming them after features or issues. QA engineers label test runs by scenario or build number for faster retrospective analysis. Find past investigations in seconds using meaningful names instead of remembering when something happened.
 
@@ -125,7 +115,7 @@ What this means for your teams: Support engineers organize multiple concurrent i
 
 We introduced message-level deep linking throughout Player threads with persistent "Copy Link" actions for assistant and deep-research messages (or a hover button for user messages), and smooth scroll-to-message navigation. Share precise references to AI responses or user questions—no more "scroll down to the part where it talks about authentication.
 
-What this means for your teams: Engineers reference specific AI analysis in code review comments with clickable links instead of vague descriptions. Support teams share exact responses when escalating to engineering—"look at this message" becomes a URL. Deep links include full conversation history, so context is never lost.
+What this means for your teams: Engineers reference specific AI analysis in code review comments with clickable links instead of vague descriptions. Support teams share exact responses when escalating to engineering — "look at this message" becomes a URL. Deep links include full conversation history, so context is never lost.
 
 <img
   className="block dark:hidden"
