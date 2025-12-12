@@ -64,14 +64,14 @@
               {
                 "group": "Ticketing Integrations",
                 "pages": [
-                  "connector/linear",
-                  "connector/jira",
                   "connector/azure-devops",
                   "connector/confluence",
-                  "connector/salesforce",
                   "connector/hubspot",
-                  "connector/zendesk",
-                  "connector/servicenow"
+                  "connector/jira",
+                  "connector/linear",
+                  "connector/salesforce",
+                  "connector/servicenow",
+                  "connector/zendesk"
                 ]
               },
               {
