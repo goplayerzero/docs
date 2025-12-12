@@ -20,6 +20,16 @@ Once connected, PlayerZero AI agents can:
 - **Debug-to-ticket workflow** - Convert investigation findings into properly formatted Jira issues
 - **Cross-reference analysis** - When debugging, agents search related Jira tickets for historical context and known issues
 
+## Scopes & Permissions
+
+| Scope | Description |
+|-------|-------------|
+| `read:jira-work` | Read issues, projects, boards, and sprints |
+| `write:jira-work` | Create and update issues, comments, and attachments |
+| `read:jira-user` | Read user profiles and assignee information |
+| `manage:jira-webhook` | Manage webhooks for real-time updates |
+| `offline_access` | Maintain connection without re-authentication |
+
 ## Setup
 
 1. Navigate to **Settings → Integrations**
