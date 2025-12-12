@@ -62,6 +62,19 @@
                 ]
               },
               {
+                "group": "Ticketing Integrations",
+                "pages": [
+                  "connector/linear",
+                  "connector/jira",
+                  "connector/azure-devops",
+                  "connector/confluence",
+                  "connector/salesforce",
+                  "connector/hubspot",
+                  "connector/zendesk",
+                  "connector/servicenow"
+                ]
+              },
+              {
                 "group": "Capturing User Sessions",
                 "pages": [
                   {
@@ -111,19 +124,6 @@
                 "group": "Receive Notifications and Alerts",
                 "pages": [
                   "developer-guide/configuration-guides/notification-integrations/slack"
-                ]
-              },
-              {
-                "group": "Ticketing Integrations",
-                "pages": [
-                  "connector/linear",
-                  "connector/jira",
-                  "connector/azure-devops",
-                  "connector/confluence",
-                  "connector/salesforce",
-                  "connector/hubspot",
-                  "connector/zendesk",
-                  "connector/servicenow"
                 ]
               },
               {
