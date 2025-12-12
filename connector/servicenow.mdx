@@ -20,6 +20,16 @@ Once connected, PlayerZero AI agents can:
 - **Debug-to-incident workflow** - Convert investigation findings into properly categorized ServiceNow incidents
 - **Change correlation** - When debugging, agents identify recent changes that may have caused the issue
 
+## Scopes & Permissions
+
+PlayerZero requests access to ServiceNow via OAuth. The specific permissions depend on your ServiceNow instance configuration and the tables/applications you grant access to.
+
+Typical access includes:
+- **Incident table** - Read and write incidents
+- **Change request table** - Read change records
+- **CMDB** - Read configuration items
+- **User table** - Read user and group information
+
 ## Setup
 
 1. Navigate to **Settings → Integrations**
