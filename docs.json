@@ -123,6 +123,19 @@
                 ]
               },
               {
+                "group": "Ticketing Integrations",
+                "pages": [
+                  "connector/linear",
+                  "connector/jira",
+                  "connector/azure-devops",
+                  "connector/confluence",
+                  "connector/salesforce",
+                  "connector/hubspot",
+                  "connector/zendesk",
+                  "connector/servicenow"
+                ]
+              },
+              {
                 "group": "Setup Single Sign-On",
                 "pages": [
                   "developer-guide/configuration-guides/single-sign-on/microsoft-entra",
