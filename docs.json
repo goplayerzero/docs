@@ -62,6 +62,19 @@
                 ]
               },
               {
+                "group": "Ticketing Integrations",
+                "pages": [
+                  "connector/linear",
+                  "connector/jira",
+                  "connector/azure-devops",
+                  "connector/confluence",
+                  "connector/salesforce",
+                  "connector/hubspot",
+                  "connector/zendesk",
+                  "connector/servicenow"
+                ]
+              },
+              {
                 "group": "Capturing User Sessions",
                 "pages": [
                   {
@@ -107,15 +120,6 @@
                   }
                 ]
               },
-              {
-                "group": "Sync Project Management Data",
-                "pages": [
-                  "developer-guide/configuration-guides/link-project-management-tools/sync-project-management-data",
-                  "developer-guide/configuration-guides/link-project-management-tools/jira",
-                  "developer-guide/configuration-guides/link-project-management-tools/azure-devops"
-                ]
-              },
-              "developer-guide/configuration-guides/connect-customer-ticketing/sync-customer-ticket-data",
               {
                 "group": "Receive Notifications and Alerts",
                 "pages": [

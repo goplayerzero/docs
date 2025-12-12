@@ -1,27 +1,34 @@
 ---
-title: "Docs"
-description: "PlayerZero uses API connectors to quickly import data from your stack."
+title: "Integration Docs"
+description: "Connect your existing tools to PlayerZero for AI-assisted workflows."
 ---
-This page provides an overview and helpful resources for integrating with various connectors. 
-For each connector, you’ll find links to dedicated help pages detailing integration instructions, setup guides, and best practices. 
-Explore the documentation to streamline your integration process.
 
-### Support Tickets
-- [Freshdesk](https://help.merge.dev/en/articles/8695156-freshdesk-how-do-i-link-my-account)
-- [Freshservice](https://help.merge.dev/en/articles/10136211-freshservice-how-do-i-connect-using-a-custom-domain)
-- [Intercom](https://help.merge.dev/en/articles/8594482-intercom-how-do-i-link-my-account)
-- [Jira](https://help.merge.dev/en/articles/8563352-jira-how-do-i-link-my-account)
-- [Salesforce](https://help.merge.dev/en/articles/6594829-salesforce-how-do-i-link-my-account)
-- [ServiceNow](https://help.merge.dev/en/articles/8590199-servicenow-how-do-i-link-my-account)
-- [Zendesk](https://help.merge.dev/en/articles/8757498-zendesk-how-do-i-link-my-account)
+PlayerZero integrates with your existing stack through OAuth-based connections. Once connected, AI agents can read data from your tools, take actions on your behalf, and provide context-aware assistance.
 
-### Product Management
-- [Github](https://help.merge.dev/en/articles/8562560-github-how-do-i-link-my-account)
-- [Hubspot](https://help.merge.dev/en/articles/8594597-hubspot-how-do-i-link-my-account)
-- [Jira](https://help.merge.dev/en/articles/8563352-jira-how-do-i-link-my-account)
-- [Trello](https://help.merge.dev/en/articles/8757597-trello-how-do-i-link-my-account)
+## What Integrations Enable
 
+- **Read context** - AI agents access tickets, issues, documentation, and customer data when investigating problems
+- **Take actions** - Create issues, post comments, update statuses, and escalate findings to the right teams
+- **Cross-reference** - Search related records across tools to identify patterns and known issues
 
-Each link takes you to the corresponding external documentation, where you can find step-by-step instructions for setting up and managing the integration.
+## Supported Integrations
 
----
+| Integration | Category | What It Enables |
+|-------------|----------|-----------------|
+| [Linear](/connector/linear) | Project Management | Issue tracking, triage, comments |
+| [Jira](/connector/jira) | Project Management | Issue tracking, sprint context |
+| [Azure DevOps](/connector/azure-devops) | Project Management | Work items, boards, iterations |
+| [Confluence](/connector/confluence) | Documentation | Docs, runbooks, architecture |
+| [Salesforce](/connector/salesforce) | CRM | Accounts, cases, contacts |
+| [HubSpot](/connector/hubspot) | CRM | Contacts, companies, tickets |
+| [Zendesk](/connector/zendesk) | Support | Tickets, customer history |
+| [ServiceNow](/connector/servicenow) | IT Service | Incidents, changes, CMDB |
+
+## Setup
+
+All integrations follow the same process:
+
+1. Navigate to **Settings → Integrations**
+2. Find the integration and click **Connect**
+3. Authorize PlayerZero via OAuth
+4. Select which projects to enable
