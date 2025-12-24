@@ -1,0 +1,219 @@
+---
+title: "December 2025"
+sidebarTitle: "December 2025"
+---
+
+## Manage investigations from a unified Workflow Inbox
+
+We added a dedicated inbox view that organizes all active Players by workflow stage and approval status. You get a single surface to review, approve, and advance investigations without hunting through project listings or notification queues.
+
+### Technical details
+
+The inbox groups Players into four status categories: Need Approval, Needs Input, In Progress, and Done. Each stage shows a badge count of pending items. Clicking a Player opens it in embedded mode—a compact rendering optimized for inline review within the inbox panel. Bulk approval lets you select multiple Players and advance them through stages in one action.
+
+### Who uses this
+
+Support engineers triaging multiple incoming issues, engineering managers reviewing investigation progress across teams, QA leads monitoring test failure analyses, and DevOps engineers tracking incident root cause workflows.
+
+### What this means for your teams
+
+You eliminate the tab-switching between project views, notification panels, and individual Player sessions. Stage counts give immediate visibility into backlog health. Bulk approval removes the repetitive click-through for straightforward approvals.
+
+<img
+  className="block dark:hidden"
+  src="/images/changelog/december-2025/workflow-inbox-light.png"
+  alt="Workflow Inbox page showing stage sidebar with counts and Player list grouped by status"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/changelog/december-2025/workflow-inbox-dark.png"
+  alt="Workflow Inbox page showing stage sidebar with counts and Player list grouped by status"
+/>
+
+
+---
+
+## Track usage across your organization with Analytics
+
+We introduced an organization-level analytics dashboard and refined the existing usage page with richer visualizations. You now see questions asked, simulations run, and workflow activity broken down by project, origin, and time period.
+
+### Technical details
+
+The analytics surface pulls from streaming aggregation pipelines that track usage events in real-time. Questions display as stacked bar charts segmented by origin (Web, API, Slack, Chrome Extension). Simulations show pass rate alongside counts by scenario type. Workflow views render stage transitions as interactive graphs. Integration icons display up to three connected services with a tooltip showing the full list. Table columns support client-side sorting for quick comparisons.
+
+### Who uses this
+
+Engineering directors monitoring platform adoption, finance teams tracking usage for budgeting, product managers measuring feature engagement, and customer success managers demonstrating ROI to stakeholders.
+
+### What this means for your teams
+
+You get visibility into how your organization uses PlayerZero without exporting data or building custom dashboards. Pass rate trends surface simulation health at a glance. Project-level breakdowns help identify which teams benefit most and where adoption lags.
+
+<img
+  className="block dark:hidden"
+  src="/images/changelog/december-2025/usage-analytics-light.png"
+  alt="Organization Usage Analytics page with Questions stacked bar chart and project filter"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/changelog/december-2025/usage-analytics-dark.png"
+  alt="Organization Usage Analytics page with Questions stacked bar chart and project filter"
+/>
+
+
+---
+
+## Post rich-formatted comments to Jira
+
+We enabled Jira comments with full formatting—headings, code blocks, lists, and links—using Atlassian Document Format. AI-generated summaries now render properly in Jira instead of appearing as plain text.
+
+### Technical details
+
+When posting comments to Jira, PlayerZero converts markdown to Atlassian Document Format automatically. The conversion handles headings, ordered and unordered lists, code blocks with language hints, blockquotes, and inline formatting. Links preserve their display text and URL.
+
+### Who uses this
+
+Support engineers escalating issues to engineering with formatted context, engineering teams documenting root cause analysis in tickets, QA engineers attaching reproduction steps, and product managers adding structured notes to feature requests.
+
+### What this means for your teams
+
+Investigation summaries, code snippets, and structured analyses render correctly in Jira without manual reformatting. Engineers reading tickets see the same formatting the AI generated. Copy-paste cleanup becomes unnecessary.
+
+<img
+  className="block dark:hidden"
+  src="/images/changelog/december-2025/jira-adf-light.png"
+  alt="Jira ticket comment showing formatted AI-generated summary with headings and code block"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/changelog/december-2025/jira-adf-dark.png"
+  alt="Jira ticket comment showing formatted AI-generated summary with headings and code block"
+/>
+
+
+---
+
+## Navigate projects seamlessly in the Chrome Extension
+
+We added consistent multi-project support to the Chrome Extension. Project context now propagates correctly across all views—Home, Backlog, and Player creation—so you work within the right project without manual switching.
+
+### Technical details
+
+All backlog links, player creation flows, and navigation actions respect the selected project. Project state persists in Chrome storage and syncs across extension views. URLs generate with the correct project slug, and queries scope to the selected project automatically.
+
+### Who uses this
+
+Support engineers working across multiple product lines, QA engineers testing different applications, engineering managers overseeing several projects, and customer success managers handling multi-product accounts.
+
+### What this means for your teams
+
+You switch projects once and stay in context. Backlog items link to the correct project. New Players create in the expected location. The extension stops defaulting to the wrong project when you have multiple configured.
+
+<img
+  className="block dark:hidden"
+  src="/images/changelog/december-2025/chrome-extension-light.png"
+  alt="Chrome Extension sidebar showing project dropdown selector and Backlog view"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/changelog/december-2025/chrome-extension-dark.png"
+  alt="Chrome Extension sidebar showing project dropdown selector and Backlog view"
+/>
+
+
+---
+
+## Explore codebases with a dedicated AI subagent
+
+We introduced the Code Explorer subagent—a specialized tool that handles multi-step code exploration and returns structured summaries with relevant snippets. Instead of multiple search cycles, you describe what you want to understand and receive a synthesized report.
+
+### Technical details
+
+The Code Explorer performs semantic search, pattern matching, and file reads autonomously. It returns a structured report containing a high-level summary, key findings with file and function references, architecture notes, and curated code excerpts with line numbers. Agent trajectories save to organization-private storage for observability and debugging.
+
+### Who uses this
+
+Engineers investigating unfamiliar codebases, support engineers tracing customer-reported bugs to source, QA engineers understanding test coverage gaps, and new team members onboarding to complex systems.
+
+### What this means for your teams
+
+Complex code questions get answered in one request instead of iterative search-and-read cycles. Reports include specific file locations and line numbers for immediate navigation. AI exploration becomes auditable through saved trajectories.
+
+<img
+  className="block dark:hidden"
+  src="/images/changelog/december-2025/code-explorer-light.png"
+  alt="Player chat showing code exploration request with structured response in collapsible sections"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/changelog/december-2025/code-explorer-dark.png"
+  alt="Player chat showing code exploration request with structured response in collapsible sections"
+/>
+
+
+---
+
+## Simulation settings load correctly for new projects
+
+We fixed an issue where opening Code Simulation settings on a newly created project displayed an error instead of the default configuration. The settings page now handles first-time access gracefully.
+
+### Technical details
+
+The fix recognizes multiple error response formats that indicate a missing configuration. When detected, the page creates a default configuration automatically instead of showing an error state.
+
+### Who uses this
+
+Engineering teams setting up new projects, DevOps engineers configuring CI/CD integrations, and platform administrators onboarding new teams.
+
+### What this means for your teams
+
+New projects work immediately without manual configuration steps. The error message that blocked first-time setup is gone. Teams start running simulations faster.
+
+
+---
+
+## Telemetry rate limits adjusted for system stability
+
+We reduced default telemetry rate limits to improve ingestion stability under high load. New organizations and projects receive conservative defaults that prevent system strain while maintaining sufficient data capture.
+
+### Technical details
+
+Default rate limits decreased significantly for new organizations and projects. Existing configurations remain unchanged. Default logging verbosity was also reduced to lower processing overhead.
+
+### Who uses this
+
+Platform operators managing system resources, DevOps engineers monitoring ingestion health, and engineering teams with high-volume telemetry.
+
+### What this means for your teams
+
+Ingestion pipelines operate more predictably under burst traffic. New projects start with sustainable limits. Teams needing higher throughput can request limit increases.
+
+
+---
+
+## Git push operations complete reliably
+
+We extended timeout thresholds for commit and push operations to accommodate slow authentication handshakes, particularly with Azure DevOps. Operations that previously timed out now complete successfully and surface accurate error messages when they fail.
+
+### Technical details
+
+The timeout chain was extended to five minutes across all layers involved in git operations. Error message handling was improved to show actual git errors instead of generic timeout messages when authentication or permission issues occur.
+
+### Who uses this
+
+Engineers committing code through Player sessions, teams using Azure DevOps with token-based authentication, and DevOps engineers debugging push failures.
+
+### What this means for your teams
+
+Large commits complete instead of failing prematurely. Authentication errors display clearly—you see the actual problem instead of "request timed out." Debugging push failures becomes straightforward.
+
+
+---
+
+## Summary: Restoring clarity and control
+
+December's work focused on giving teams better visibility and smoother operations. The Workflow Inbox consolidates investigation management into a single view. Usage Analytics surfaces adoption patterns without custom tooling. Code Explorer reduces the friction of understanding unfamiliar code.
+
+Behind the scenes, we strengthened reliability—git operations complete instead of timing out, telemetry ingestion stays stable under load, and new projects configure themselves correctly.
+
+These changes reflect a consistent theme: removing obstacles between your teams and productive work. Less hunting through interfaces. Fewer cryptic errors. More time investigating, less time navigating.
