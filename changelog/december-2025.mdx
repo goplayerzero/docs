@@ -1,0 +1,123 @@
+---
+title: "December 2025"
+sidebarTitle: "December 2025"
+---
+
+## Accelerate issue triage with the Workflow Inbox
+
+We added a dedicated workflow inbox view that organizes all active Players by workflow stage and approval status. Clicking a Player opens it in embedded mode which is optimized for inline review. Bulk approval allows you to select multiple Players and advance them in one action. Filtering to just "My Issues" allows you to focus on only those tickets where you have contributed or where your approval is needed. You get a single surface to review, approve, and advance investigations.
+
+What this means for your teams: A focused view of issues needing input and approval helps accelerate issues through the workflow.
+
+<img
+  className="block dark:hidden"
+  src="/images/changelog/december-2025/workflow-inbox-light.png"
+  alt="Workflow Inbox page showing stage sidebar with counts and Player list grouped by status"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/changelog/december-2025/workflow-inbox-dark.png"
+  alt="Workflow Inbox page showing stage sidebar with counts and Player list grouped by status"
+/>
+
+
+---
+
+## Track adoption with Usage Analytics
+
+We introduced an organization-level usage analytics dashboard. You can now see detailed information about questions asked, simulations run, top contributors, and workflow activity. Questions asked can be segmented by origin and user. Simulations show pass rate alongside counts by scenario type. The usage analytics page is designed to help engineering managers and customer success managers target their team enablement efforts and also better understand and demonstrate platform ROI. 
+
+What this means for your teams: Gain visibility into how your organization uses PlayerZero. Project-level breakdowns help identify which teams are benefiting the most and where adoption lags.
+
+<img
+  className="block dark:hidden"
+  src="/images/changelog/december-2025/usage-analytics-light.png"
+  alt="Organization Usage Analytics page with Questions stacked bar chart and project filter"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/changelog/december-2025/usage-analytics-dark.png"
+  alt="Organization Usage Analytics page with Questions stacked bar chart and project filter"
+/>
+
+
+---
+
+## Post rich-formatted comments to Jira
+
+We enabled Jira comments with full formatting — headings, code blocks, lists, and links — using Atlassian Document Format. PlayerZero-generated investigation summaries and structured analyses now render properly in Jira instead of appearing as plain text.
+
+What this means for your teams: A simpler integration of PlayerZero into existing Jira workflows with no copy-paste reformatting required. 
+
+<img
+  className="block dark:hidden"
+  src="/images/changelog/december-2025/jira-adf-light.png"
+  alt="Jira ticket comment showing formatted AI-generated summary with headings and code block"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/changelog/december-2025/jira-adf-dark.png"
+  alt="Jira ticket comment showing formatted AI-generated summary with headings and code block"
+/>
+
+
+---
+
+## Multi-project UI support in the Chrome Extension
+
+We added consistent multi-project support to the Chrome Extension. Support, Customer Success, and Engineering users can view which Project they are in and switch between projects seamlessly to ensure they always ask questions or initiate Workflow issues with the correct Project context.
+
+What this means for your teams: New Players are always created in the expected location - no more seemingly-'lost' Players due to misunderstanding which Project they were started in. 
+
+<img
+  className="block dark:hidden"
+  src="/images/changelog/december-2025/chrome-extension-light.png"
+  alt="Chrome Extension sidebar showing project dropdown selector and Backlog view"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/changelog/december-2025/chrome-extension-dark.png"
+  alt="Chrome Extension sidebar showing project dropdown selector and Backlog view"
+/>
+
+
+---
+
+## New customized code explorer subagent
+
+We introduced the Code Explorer subagent — a specialized tool built in-house that handles multi-step code exploration and returns structured summaries efficiently and effectively. The Code Explorer performs semantic search, pattern matching, and file reads autonomously. It returns a report containing key findings with file and function references, architecture notes, and curated code excerpts with line numbers for engineering team members to easily cross-reference and validate as needed. 
+
+What this means for your teams: Complex code questions get answered accurately in one request instead of lengthy search-and-read cycles. 
+
+<img
+  className="block dark:hidden"
+  src="/images/changelog/december-2025/code-explorer-light.png"
+  alt="Player chat showing code exploration request with structured response in collapsible sections"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/changelog/december-2025/code-explorer-dark.png"
+  alt="Player chat showing code exploration request with structured response in collapsible sections"
+/>
+
+
+---
+
+## Simulation settings load correctly for new projects
+
+We fixed an issue where opening Code Simulation settings on a newly created project displayed an error instead of the default configuration. The settings page now handles first-time access gracefully.
+
+
+---
+
+## Telemetry rate limits adjusted
+
+We adjusted default telemetry rate limits to improve ingestion stability under high load. New organizations and projects receive conservative defaults that prevent system strain while maintaining sufficient data capture. Teams needing higher throughput can request limit increases.
+
+
+---
+
+## Git push operation timeout thresholds extended
+
+We extended timeout thresholds for commit and push operations to accommodate slow authentication handshakes. Operations that previously timed out now complete successfully, and surface accurate git error messages instead of generic timeout messages when specific authentication or permissions issues occur.
+
