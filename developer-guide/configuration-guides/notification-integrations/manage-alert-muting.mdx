@@ -1,0 +1,128 @@
+---
+title: "Manage Alert Muting"
+sidebarTitle: "Mute Rules"
+description: "Learn how to reduce alert fatigue by creating, viewing, and removing muting rules. Customize which issues trigger Slack notifications so your team can focus on the errors that truly matter."
+---
+
+## Overview
+
+PlayerZero uses anomaly detection to identify unusual patterns of errors or latency, ensuring teams are only notified when issues represent significant deviations from normal behavior. However, some issues may be known, expected, or low-priority. Mute rules let you strategically filter out these issues while staying alert to critical problems.
+
+When an issue has an active mute rule:
+- **No Slack notifications** are sent for new occurrences
+- The issue still appears in PlayerZero and continues to track data
+- Once all mute rules are removed, notifications resume automatically
+
+Manage your mute rules in the [PlayerZero platform](https://go.playerzero.app).
+
+---
+
+## View Muted Issues
+
+Navigate to the **Issues** page in PlayerZero. Use the filter dropdown at the top to view:
+
+| Filter | Description |
+|--------|-------------|
+| **All issues** | See all issues regardless of mute status |
+| **Muted** | Only issues with active mute rules (no alerts) |
+| **Not muted** | Only issues that will trigger alerts |
+
+This helps you quickly audit which issues are currently suppressed from notifications.
+
+---
+
+## View Mute Rules on an Issue
+
+Click into any issue to see its detail page. If the issue is muted, you'll see a **"Muted by X rules"** section showing:
+
+- The base issue the rule matches against
+- Who created the rule and when
+- The similarity threshold used (for similarity-based rules)
+
+This helps you understand why an issue isn't triggering alerts and who made that decision.
+
+---
+
+## Create a Mute Rule
+
+### From the Issues Page
+
+1. Navigate to the **Issues** page
+2. Find the issue you want to mute
+3. Click the **Mute** button next to the issue name
+
+### Define Your Muting Strategy
+
+PlayerZero supports two types of mute rules:
+
+#### Similarity-Based Muting
+
+Mute issues that are semantically similar to a base issue. This is useful for muting variations of the same underlying problem.
+
+1. Click **Mute** on an issue
+2. Choose a similarity threshold:
+   - **Almost Exactly** — Only very close matches (strictest)
+   - **Similar** — Close variations
+   - **Loosely Resembling** — Broader pattern matching (most inclusive)
+3. Preview which issues will be muted vs. remain active
+4. Click **Create** to activate the rule
+
+#### API-Based Muting
+
+Mute issues based on HTTP endpoint patterns. This is useful for filtering out expected errors from specific APIs.
+
+1. Click **Mute** on an issue
+2. Select **Create API Rule**
+3. Define the pattern:
+   - **Status Code** (e.g., `404` or `4.*` for all 4xx errors)
+   - **HTTP Method** (e.g., `GET`, `POST`, or `.*` for any method)
+   - **URL Pattern** (e.g., `/api/v1/users/*` or `/health.*`)
+4. Review matching issues
+5. Click **Create** to activate the rule
+
+---
+
+## Unmute an Issue
+
+To restore alerts for a muted issue, you need to remove the mute rule(s) affecting it:
+
+1. Navigate to the **Issues** page
+2. Click into the muted issue
+3. Find the **"Muted by X rules"** section
+4. Click the rule you want to remove
+5. Delete the rule
+
+<Warning>
+Deleting a mute rule may affect multiple issues. Similarity-based rules can match many similar issues, so removing one rule may unmute several issues at once. Review the rule's scope before deleting.
+</Warning>
+
+---
+
+## Best Practices
+
+### Start Narrow, Expand as Needed
+Begin with **Almost Exactly** similarity threshold. If you still receive too many alerts for variations, adjust to **Similar** or **Loosely Resembling**.
+
+### Review Muted Issues Periodically
+Use the **Muted** filter on the Issues page to audit suppressed issues. Some muted issues may become important over time or indicate new problems.
+
+### Coordinate with Your Team
+Mute rules are project-wide and affect all team members. Before muting a high-volume issue, ensure your team agrees it's safe to suppress.
+
+### Use API Rules for Expected Errors
+If your application has known, expected error responses (like 404s for deleted resources), API-based rules provide precise control without affecting unrelated issues.
+
+---
+
+## Summary
+
+Mute rules help your team stay focused on critical issues without being overwhelmed by noise. Key actions:
+
+| Action | How to Do It |
+|--------|--------------|
+| View muted issues | Issues page → Filter dropdown → "Muted" |
+| See why an issue is muted | Click into issue → "Muted by X rules" section |
+| Create a mute rule | Issues page → Click "Mute" on an issue |
+| Unmute an issue | Issue detail → "Muted by X rules" → Delete rule |
+
+For more on configuring Slack notifications, see [Slack Setup](/developer-guide/configuration-guides/notification-integrations/slack).

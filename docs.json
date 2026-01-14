@@ -123,7 +123,8 @@
               {
                 "group": "Receive Notifications and Alerts",
                 "pages": [
-                  "developer-guide/configuration-guides/notification-integrations/slack"
+                  "developer-guide/configuration-guides/notification-integrations/slack",
+                  "developer-guide/configuration-guides/notification-integrations/manage-alert-muting"
                 ]
               },
               {
