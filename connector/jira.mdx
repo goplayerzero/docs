@@ -22,13 +22,17 @@ Once connected, PlayerZero AI agents can:
 
 ## Scopes & Permissions
 
-| Scope | Description |
-|-------|-------------|
-| `read:jira-work` | Read issues, projects, boards, and sprints |
-| `write:jira-work` | Create and update issues, comments, and attachments |
-| `read:jira-user` | Read user profiles and assignee information |
-| `manage:jira-webhook` | Manage webhooks for real-time updates |
-| `offline_access` | Maintain connection without re-authentication |
+<Info>
+PlayerZero requests only the permissions needed for AI agents to assist with debugging and issue management. We follow the principle of least privilege—each permission directly enables a specific capability.
+</Info>
+
+| Scope | Why It's Needed |
+|-------|-----------------|
+| `read:jira-work` | **Context gathering** — Allows AI agents to read issue details, sprint context, and project structure when investigating bugs or cross-referencing related tickets |
+| `write:jira-work` | **Issue management** — Enables agents to create issues from debug sessions, post comments with findings, and update ticket fields when you ask them to triage or document work |
+| `read:jira-user` | **Team awareness** — Provides access to user profiles so agents can suggest appropriate assignees and understand who reported or owns issues |
+| `manage:jira-webhook` | **Real-time sync** — Allows PlayerZero to receive instant notifications when issues change, enabling agents to respond to updates without polling |
+| `offline_access` | **Persistent connection** — Maintains the integration without requiring you to re-authenticate, ensuring agents can access Jira context whenever needed |
 
 ## Setup
 

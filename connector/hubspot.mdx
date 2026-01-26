@@ -22,23 +22,39 @@ Once connected, PlayerZero AI agents can:
 
 ## Scopes & Permissions
 
-| Scope | Description |
-|-------|-------------|
-| `crm.objects.contacts.read` | Read contact records |
-| `crm.objects.contacts.write` | Create and update contacts |
-| `crm.objects.companies.read` | Read company records |
-| `crm.objects.companies.write` | Create and update companies |
-| `crm.objects.deals.read` | Read deal records |
-| `crm.objects.deals.write` | Create and update deals |
-| `crm.objects.custom.read` | Read custom objects |
-| `crm.objects.custom.write` | Create and update custom objects |
-| `crm.objects.owners.read` | Read owner assignments |
-| `crm.schemas.contacts.read` | Read contact schema |
-| `crm.schemas.companies.read` | Read company schema |
-| `crm.schemas.deals.read` | Read deal schema |
-| `crm.schemas.custom.read` | Read custom object schemas |
-| `tickets` | Full access to tickets |
-| `oauth` | OAuth authentication |
+<Info>
+PlayerZero requests only the permissions needed for AI agents to assist with customer context and support workflows. We follow the principle of least privilege—each permission directly enables a specific capability.
+</Info>
+
+### Contact & Company Access
+
+| Scope | Why It's Needed |
+|-------|-----------------|
+| `crm.objects.contacts.read` | **Customer identification** — Allows agents to look up contact details when investigating user-reported issues, correlating application users with HubSpot records |
+| `crm.objects.contacts.write` | **Contact updates** — Enables agents to add notes or update contact records when you ask them to document support interactions |
+| `crm.objects.companies.read` | **Account context** — Provides company information so agents understand customer tier, industry, and relationship when prioritizing issues |
+| `crm.objects.companies.write` | **Company updates** — Allows agents to update company records with technical findings when relevant to account management |
+
+### Deal & Custom Object Access
+
+| Scope | Why It's Needed |
+|-------|-----------------|
+| `crm.objects.deals.read` | **Business context** — Enables agents to understand deal stage and value when investigating issues affecting sales-critical customers |
+| `crm.objects.deals.write` | **Deal updates** — Allows agents to flag deals or add notes when technical issues may impact opportunities |
+| `crm.objects.custom.read` | **Extended data** — Provides access to custom objects your team has created, enabling agents to understand your full data model |
+| `crm.objects.custom.write` | **Custom updates** — Enables agents to update custom objects when you've extended HubSpot with technical tracking fields |
+
+### Schema & Administration
+
+| Scope | Why It's Needed |
+|-------|-----------------|
+| `crm.objects.owners.read` | **Team awareness** — Allows agents to identify record owners and suggest appropriate assignees for escalations |
+| `crm.schemas.contacts.read` | **Field discovery** — Enables agents to understand your contact field structure for accurate data mapping |
+| `crm.schemas.companies.read` | **Field discovery** — Provides company schema so agents can work with your custom company properties |
+| `crm.schemas.deals.read` | **Field discovery** — Allows agents to understand deal fields and stages in your sales process |
+| `crm.schemas.custom.read` | **Field discovery** — Enables agents to work correctly with your custom object schemas |
+| `tickets` | **Support workflow** — Full ticket access allows agents to create, read, and update support tickets from debug sessions |
+| `oauth` | **Authentication** — Required for the OAuth connection flow that securely links PlayerZero to your HubSpot account |
 
 ## Setup
 

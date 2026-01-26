@@ -22,13 +22,20 @@ Once connected, PlayerZero AI agents can:
 
 ## Scopes & Permissions
 
+<Info>
+PlayerZero requests only the permissions needed for AI agents to assist with IT service management. We follow the principle of least privilege—each permission directly enables a specific capability.
+</Info>
+
 PlayerZero requests access to ServiceNow via OAuth. The specific permissions depend on your ServiceNow instance configuration and the tables/applications you grant access to.
 
-Typical access includes:
-- **Incident table** - Read and write incidents
-- **Change request table** - Read change records
-- **CMDB** - Read configuration items
-- **User table** - Read user and group information
+### Why We Need Each Access Level
+
+| Access | Why It's Needed |
+|--------|-----------------|
+| **Incident table (read/write)** | **Issue management** — Allows agents to read incident details for context during debugging, and create or update incidents when you ask them to document findings or escalate issues |
+| **Change request table (read)** | **Change correlation** — Enables agents to identify recent changes that may have caused an issue, providing crucial context during root cause analysis |
+| **CMDB (read)** | **Infrastructure context** — Provides access to configuration items and service relationships, helping agents understand how components connect when debugging |
+| **User table (read)** | **Team awareness** — Allows agents to identify incident owners, assignment groups, and suggest appropriate escalation paths |
 
 ## Setup
 

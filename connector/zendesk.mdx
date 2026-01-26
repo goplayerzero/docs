@@ -22,10 +22,14 @@ Once connected, PlayerZero AI agents can:
 
 ## Scopes & Permissions
 
-| Scope | Description |
-|-------|-------------|
-| `read` | Read access to tickets, users, organizations, and comments |
-| `write` | Create and update tickets, comments, and user data |
+<Info>
+PlayerZero requests only the permissions needed for AI agents to assist with support workflows. We follow the principle of least privilege—each permission directly enables a specific capability.
+</Info>
+
+| Scope | Why It's Needed |
+|-------|-----------------|
+| `read` | **Context gathering** — Allows AI agents to read ticket history, customer messages, and organization data when investigating issues or searching for related past tickets |
+| `write` | **Ticket management** — Enables agents to create tickets from debug sessions, post internal notes with findings, and update ticket status when you ask them to document or escalate issues |
 
 ## Setup
 

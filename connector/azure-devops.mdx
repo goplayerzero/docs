@@ -22,11 +22,15 @@ Once connected, PlayerZero AI agents can:
 
 ## Scopes & Permissions
 
-| Scope | Description |
-|-------|-------------|
-| `vso.work_full` | Full access to work items, queries, backlogs, and boards |
-| `vso.project` | Read access to projects and teams |
-| `vso.identity` | Read user and group identities |
+<Info>
+PlayerZero requests only the permissions needed for AI agents to assist with work item management. We follow the principle of least privilege—each permission directly enables a specific capability.
+</Info>
+
+| Scope | Why It's Needed |
+|-------|-----------------|
+| `vso.work_full` | **Work item management** — Allows agents to read work items for context during debugging, create new items from debug sessions, post comments with findings, and update fields when you ask them to triage or document work |
+| `vso.project` | **Project navigation** — Enables agents to understand your project structure, area paths, and iterations so they can create work items in the right location and suggest appropriate sprint placement |
+| `vso.identity` | **Team awareness** — Provides access to user and group identities so agents can suggest appropriate assignees and understand team membership when routing issues |
 
 ## Setup
 
@@ -34,8 +38,41 @@ Once connected, PlayerZero AI agents can:
 Setup starts in PlayerZero—no pre-configuration in Azure DevOps is required.
 </Note>
 
+### Step 1: Start the Connection
+
 1. In PlayerZero, navigate to **Organization Settings → Integrations**
-2. Find **Azure DevOps** and click **Connect**
-3. You'll be redirected to Azure DevOps to log in and authorize PlayerZero
-4. After authorization, select which PlayerZero projects should have access to this integration
+2. Find **Azure DevOps** in the available integrations list
+3. Click the **+** button to open the connection dialog
+
+### Step 2: Select PlayerZero Projects
+
+Before connecting to Azure DevOps, you'll choose which PlayerZero projects can use this integration:
+
+- **All Projects** — Every project in your organization will have access to this Azure DevOps connection. New projects added later will automatically have access.
+- **Custom Selection** — Only the specific projects you check will have access. Use this if you have multiple teams or want to limit which projects can create or read Azure DevOps work items.
+
+<Tip>
+You can change this selection at any time after setup from the integration detail page.
+</Tip>
+
+### Step 3: Authorize with Azure DevOps
+
+1. Click **Connect Azure DevOps** to start the OAuth flow
+2. You'll be redirected to Microsoft to sign in (if not already signed in)
+3. Review the permissions PlayerZero is requesting and click **Accept**
+4. After authorization, you'll be redirected back to PlayerZero
+
+### Step 4: Configure Workflows (Optional)
+
+Once connected, you can configure automated workflows for each enabled project:
+
+- **Ticket routing** — Automatically create work items from Player sessions
+- **Filters** — Specify which issues should trigger the integration based on title, description, or tags
+
+### Managing the Integration
+
+After setup, you can:
+- **Edit project access** — Add or remove projects that can use this integration
+- **Disable/enable** — Temporarily pause the integration without disconnecting
+- **Disconnect** — Remove the integration entirely (requires re-authorization to reconnect)
 
