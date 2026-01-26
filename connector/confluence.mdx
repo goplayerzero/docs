@@ -22,18 +22,34 @@ Once connected, PlayerZero AI agents can:
 
 ## Scopes & Permissions
 
-| Scope | Description |
-|-------|-------------|
-| `read:page:confluence` | Read page content and metadata |
-| `write:page:confluence` | Create and update pages |
-| `delete:page:confluence` | Delete pages |
-| `read:space:confluence` | Read space information and hierarchy |
-| `read:content:confluence` | Read all content types |
-| `write:content:confluence` | Create and update content |
-| `write:content.property:confluence` | Manage content properties |
-| `read:confluence-user` | Read user profiles |
-| `read:group:confluence` | Read group memberships |
-| `offline_access` | Maintain connection without re-authentication |
+<Info>
+PlayerZero requests only the permissions needed for AI agents to access and reference your documentation. We follow the principle of least privilege—each permission directly enables a specific capability.
+</Info>
+
+### Read Access
+
+| Scope | Why It's Needed |
+|-------|-----------------|
+| `read:page:confluence` | **Documentation search** — Allows agents to find and read relevant docs, runbooks, and architecture decisions when investigating issues |
+| `read:space:confluence` | **Navigation** — Enables agents to understand your documentation structure and locate content within the right spaces |
+| `read:content:confluence` | **Full content access** — Provides access to all content types (pages, blog posts, attachments) so agents can reference complete documentation |
+| `read:confluence-user` | **Author context** — Allows agents to identify document authors when you need to know who wrote specific documentation |
+| `read:group:confluence` | **Access awareness** — Helps agents understand team structure and content ownership within your Confluence workspace |
+
+### Write Access
+
+| Scope | Why It's Needed |
+|-------|-----------------|
+| `write:page:confluence` | **Documentation creation** — Enables agents to create new pages when you ask them to document findings or generate runbooks from debug sessions |
+| `delete:page:confluence` | **Content management** — Allows agents to remove outdated documentation when you explicitly request cleanup |
+| `write:content:confluence` | **Content updates** — Enables agents to update existing documentation with new information when you ask them to maintain docs |
+| `write:content.property:confluence` | **Metadata management** — Allows agents to set content properties like labels or status when organizing documentation |
+
+### Connection
+
+| Scope | Why It's Needed |
+|-------|-----------------|
+| `offline_access` | **Persistent connection** — Maintains the integration without requiring you to re-authenticate, ensuring agents can access Confluence whenever needed |
 
 ## Setup
 

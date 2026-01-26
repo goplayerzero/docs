@@ -22,13 +22,17 @@ Once connected, PlayerZero AI agents can:
 
 ## Scopes & Permissions
 
-| Scope | Description |
-|-------|-------------|
-| `read` | Read access to issues, projects, teams, and comments |
-| `write` | Create and update issues, projects, and labels |
-| `issues:create` | Create new issues |
-| `comments:create` | Add comments to issues |
-| `admin` | Administrative access for workspace configuration |
+<Info>
+PlayerZero requests only the permissions needed for AI agents to assist with debugging and issue management. We follow the principle of least privilege—each permission directly enables a specific capability.
+</Info>
+
+| Scope | Why It's Needed |
+|-------|-----------------|
+| `read` | **Context gathering** — Allows AI agents to read issue details, comments, and project structure when investigating bugs or answering questions about your work |
+| `write` | **Issue management** — Enables agents to update issue status, add labels, or modify descriptions when you ask them to triage or update tickets |
+| `issues:create` | **Ticket creation** — Lets agents create new Linear issues directly from debug sessions, converting findings into actionable work items |
+| `comments:create` | **Investigation notes** — Allows agents to post root cause analysis, reproduction steps, or code references as comments on existing issues |
+| `admin` | **Workspace awareness** — Provides access to team structure and workflow configuration so agents can suggest appropriate assignees and labels |
 
 ## Setup
 

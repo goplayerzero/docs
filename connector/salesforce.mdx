@@ -22,15 +22,19 @@ Once connected, PlayerZero AI agents can:
 
 ## Scopes & Permissions
 
-| Scope | Description |
-|-------|-------------|
-| `api` | Access to Salesforce APIs |
-| `id` | Access user identity information |
-| `profile` | Read user profile data |
-| `email` | Access user email address |
-| `address` | Access user address information |
-| `phone` | Access user phone number |
-| `refresh_token` | Maintain connection without re-authentication |
+<Info>
+PlayerZero requests only the permissions needed for AI agents to assist with customer context and case management. We follow the principle of least privilege—each permission directly enables a specific capability.
+</Info>
+
+| Scope | Why It's Needed |
+|-------|-----------------|
+| `api` | **Core access** — Required for all Salesforce API calls, enabling agents to read cases, accounts, and contacts when investigating customer-reported issues |
+| `id` | **User identification** — Allows agents to identify the connected user and properly attribute actions taken on your behalf |
+| `profile` | **User context** — Provides access to your user profile so agents understand your role and permissions within Salesforce |
+| `email` | **Contact matching** — Enables agents to correlate Salesforce contacts with users in your application when investigating issues |
+| `address` | **Account context** — Allows agents to understand customer location context when relevant to support cases |
+| `phone` | **Contact details** — Provides complete contact information when agents need to reference customer data during debugging |
+| `refresh_token` | **Persistent connection** — Maintains the integration without requiring you to re-authenticate, ensuring agents can access Salesforce context whenever needed |
 
 ## Setup
 
