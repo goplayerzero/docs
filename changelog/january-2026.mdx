@@ -3,11 +3,11 @@ title: "January 2026"
 sidebarTitle: "January 2026"
 ---
 
-## Introducing Simulations
+## Playlists -> Simulations redesign
 
-We renamed Playlists to Simulations across the entire application and redesigned the interface with a two-panel layout. You can now view your scenario collection on the left while reviewing individual scenario details or simulation results on the right. The new design includes inline scenario management, real-time execution updates, and direct access to simulation results without leaving the page.
+We renamed the top-level Playlists page to "Simulations" and redesigned the interface with a two-panel layout. You can now view your scenario collection on the left while reviewing individual code sim results on the right. The new design includes inline scenario management, real-time execution updates, and direct access to review code sim results or edit scenarios directly, without leaving the page.
 
-QA teams manage comprehensive test suites faster with side-by-side scenario and result views. Engineering leads track test coverage and quality metrics with terminology that aligns naturally with testing workflows.
+What this means for your teams: QA teams create, edit, and manage comprehensive test suites faster with side-by-side scenario and result views.
 
 <img
   className="block dark:hidden"
@@ -25,9 +25,9 @@ QA teams manage comprehensive test suites faster with side-by-side scenario and 
 
 ## Fork Player Conversations
 
-You can now fork any Player conversation at any assistant message, creating a branched copy that preserves all history up to that point. Fork directly into a specific workflow stage by selecting the stage and adding context notes for the AI. The forked conversation opens in a new tab so you can explore alternative approaches without losing your original investigation.
+You can now fork any Player conversation at any message, creating a branched copy that preserves all history up to that point. Fork directly into a specific workflow stage by selecting the stage and adding context notes for the AI. The forked conversation opens in a new tab so you can explore alternative approaches without losing your original investigation.
 
-Support engineers test multiple resolution paths simultaneously without losing context. Engineering teams hand off partial investigations to specialists by forking directly into the appropriate workflow stage with relevant guidance.
+What this means for your teams: Support engineers test multiple resolution paths simultaneously without losing context. Engineering teams hand off partial investigations to specialists by forking directly into the appropriate workflow stage with relevant guidance.
 
 <img
   className="block dark:hidden"
@@ -43,11 +43,11 @@ Support engineers test multiple resolution paths simultaneously without losing c
 
 ---
 
-## Understand Team AI Usage with Question Intent Analytics
+## Understand PlayerZero Usage with Question Analytics
 
-We added intent classification to the Usage Analytics page, categorizing every question into 10 types: Debug, Change, Execute, Triage, Code, Report, Explain, Write, Configure, Validate, and Other. The Categories tab shows how your team's questions break down by intent over time with stacked bar charts and time-series trends.
+We added intent classification to the Usage Analytics page, categorizing every question into types such as Debug, Triage, Explain, Configure, Validate, and more. The Categories tab shows how your team's questions break down by intent over time to reveal trends in PlayerZero usage.
 
-Engineering leaders measure how teams actually use the AI assistant to justify ROI and identify training opportunities. Product managers track whether teams are reactive (mostly Debug and Triage) or proactive (Code and Change), informing process improvements.
+What this means for your teams: Engineering leaders measure how teams actually use PlayerZero to better understand ROI and identify training opportunities. Track trends in whether questions are reactive (mostly Debug and Triage) or proactive (Code and Change) to inform process improvements.
 
 <img
   className="block dark:hidden"
@@ -63,11 +63,11 @@ Engineering leaders measure how teams actually use the AI assistant to justify R
 
 ---
 
-## Track Context Usage with Analytics Dashboard
+## Added Context Usage to Usage Analytics 
 
-We added a Context section to Usage Analytics showing three new metrics: Artifacts Created and Shared, Memories Created and Used, and Lines of Code Processed. Each metric includes time-series visualization across your selected date range, letting you track how teams leverage AI-powered context features.
+We added a Context section to Usage Analytics showing how Artifacts, Memories, and Code are created and used within PlayerZero. Each metric includes time-series visualization across your selected date range, letting you track how teams create and leverage AI-powered context.
 
-Engineering leaders identify high-performing teams building institutional knowledge through memory usage. Executive sponsors measure ROI on AI context capabilities with concrete adoption metrics tied to collaboration patterns.
+What this means for your teams: Engineering leaders identify high-performing teams building and leveraging institutional knowledge. 
 
 <img
   className="block dark:hidden"
@@ -85,9 +85,9 @@ Engineering leaders identify high-performing teams building institutional knowle
 
 ## Export and Import Workflow Configurations
 
-Workflow configurations can now be exported as JSON files containing all stages, agent settings, approver rules, and visual layouts. Import these configurations into other projects with automatic ID remapping. You can also bulk delete all stages when resetting a workflow.
+Workflow configurations can now be exported as JSON files. Import these configurations into other projects to set up new workflows in a single step. 
 
-Workflow admins deploy template workflows across multiple projects without manual recreation. MSPs onboard new customers faster by importing proven workflow configurations, and teams back up critical workflow setups for disaster recovery.
+What this means for your teams: Project administrators can onboard new teams faster by importing proven workflow configurations, and teams can back up critical workflow setups for documentation and recovery.
 
 <img
   className="block dark:hidden"
@@ -105,9 +105,9 @@ Workflow admins deploy template workflows across multiple projects without manua
 
 ## Assign Specific Stage Approvers
 
-Workflow stages now support two approval methods: let PlayerZero suggest approvers based on code ownership, or assign specific team members who will always receive approval requests. The new configuration panel includes a radio toggle and team member selector with validation ensuring selected approvers are active project members.
+Workflow stages now support two approval methods: let PlayerZero suggest approvers based on code ownership, or assign specific team members who will always receive approval requests. 
 
-Workflow admins route approvals to subject matter experts for compliance-sensitive stages. Engineering managers ensure critical review stages reach the right specialists regardless of code ownership patterns.
+What this means for your teams: Workflow admins and Engineering managers ensure critical review stages reach the right specialists regardless of code ownership patterns.
 
 <img
   className="block dark:hidden"
@@ -125,15 +125,11 @@ Workflow admins route approvals to subject matter experts for compliance-sensiti
 
 ## Branch Reference Resilience
 
-We improved how the system handles repository lifecycle events. The code indexing pipeline now gracefully manages empty repositories, reconciles missing default branches by querying the actual repository HEAD, and validates release branches. When branch references become stale, the system records detailed errors instead of silently failing.
-
-DevOps teams working with new repositories or managing branch renames experience reliable code context for the AI assistant. Engineering teams migrating Git workflows see fewer missing code context errors that previously blocked investigations.
+The code indexing pipeline now gracefully manages empty repositories, reconciles missing default branches by querying the actual repository HEAD, and validates release branches. When branch references become stale, the system records detailed errors instead of silently failing.
 
 
 ---
 
 ## Trace Explorer Stability
 
-We fixed an issue where the session replay trace explorer could enter an infinite retry loop when loading historical traces failed. The system now treats failed loads as exhausted data and displays a clear error message instead of endless loading states.
-
-Support teams reviewing session replays see immediate error feedback when traces cannot be retrieved. QA teams investigating test failures move to alternative debugging methods quickly instead of waiting indefinitely for unresponsive trace loads.
+We fixed an issue where the session replay trace explorer could enter an infinite retry loop when loading historical traces failed. The system now treats failed loads as exhausted data and displays a clear error message. Support teams reviewing session replays see immediate error feedback when traces cannot be retrieved.
