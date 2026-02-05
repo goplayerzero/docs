@@ -1,0 +1,135 @@
+---
+title: "January 2026"
+sidebarTitle: "January 2026"
+---
+
+## Playlists -> Simulations redesign
+
+We renamed the top-level Playlists page to "Simulations" and redesigned the interface with a two-panel layout. You can now view your scenario collection on the left while reviewing individual code sim results on the right. The new design includes inline scenario management, real-time execution updates, and direct access to review code sim results or edit scenarios directly, without leaving the page.
+
+What this means for your teams: QA teams create, edit, and manage comprehensive test suites faster with side-by-side scenario and result views.
+
+<img
+  className="block dark:hidden"
+  src="/images/changelog/january-2026/simulations-light.png"
+  alt="Simulations page showing two-panel layout with scenario table on left and detail panel on right"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/changelog/january-2026/simulations-dark.png"
+  alt="Simulations page showing two-panel layout with scenario table on left and detail panel on right"
+/>
+
+
+---
+
+## Fork Player Conversations
+
+You can now fork any Player conversation at any message, creating a branched copy that preserves all history up to that point. Fork directly into a specific workflow stage by selecting the stage and adding context notes for the AI. The forked conversation opens in a new tab so you can explore alternative approaches without losing your original investigation.
+
+What this means for your teams: Support engineers test multiple resolution paths simultaneously without losing context. Engineering teams hand off partial investigations to specialists by forking directly into the appropriate workflow stage with relevant guidance.
+
+<img
+  className="block dark:hidden"
+  src="/images/changelog/january-2026/fork-player-light.png"
+  alt="Fork Player dialog showing stage selection dropdown and notes field"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/changelog/january-2026/fork-player-dark.png"
+  alt="Fork Player dialog showing stage selection dropdown and notes field"
+/>
+
+
+---
+
+## Understand PlayerZero Usage with Question Analytics
+
+We added intent classification to the Usage Analytics page, categorizing every question into types such as Debug, Triage, Explain, Configure, Validate, and more. The Categories tab shows how your team's questions break down by intent over time to reveal trends in PlayerZero usage.
+
+What this means for your teams: Engineering leaders measure how teams actually use PlayerZero to better understand ROI and identify training opportunities. Track trends in whether questions are reactive (mostly Debug and Triage) or proactive (Code and Change) to inform process improvements.
+
+<img
+  className="block dark:hidden"
+  src="/images/changelog/january-2026/intent-analytics-light.png"
+  alt="Analytics page showing Categories tab with stacked bar chart of question volume by intent type"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/changelog/january-2026/intent-analytics-dark.png"
+  alt="Analytics page showing Categories tab with stacked bar chart of question volume by intent type"
+/>
+
+
+---
+
+## Added Context Usage to Usage Analytics 
+
+We added a Context section to Usage Analytics showing how Artifacts, Memories, and Code are created and used within PlayerZero. Each metric includes time-series visualization across your selected date range, letting you track how teams create and leverage AI-powered context.
+
+What this means for your teams: Engineering leaders identify high-performing teams building and leveraging institutional knowledge. 
+
+<img
+  className="block dark:hidden"
+  src="/images/changelog/january-2026/context-analytics-light.png"
+  alt="Context analytics section showing Artifacts, Memories, and Lines of Code metric views"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/changelog/january-2026/context-analytics-dark.png"
+  alt="Context analytics section showing Artifacts, Memories, and Lines of Code metric views"
+/>
+
+
+---
+
+## Export and Import Workflow Configurations
+
+Workflow configurations can now be exported as JSON files. Import these configurations into other projects to set up new workflows in a single step. 
+
+What this means for your teams: Project administrators can onboard new teams faster by importing proven workflow configurations, and teams can back up critical workflow setups for documentation and recovery.
+
+<img
+  className="block dark:hidden"
+  src="/images/changelog/january-2026/workflow-export-light.png"
+  alt="Stages page showing Export Workflow button and Import dialog"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/changelog/january-2026/workflow-export-dark.png"
+  alt="Stages page showing Export Workflow button and Import dialog"
+/>
+
+
+---
+
+## Assign Specific Stage Approvers
+
+Workflow stages now support two approval methods: let PlayerZero suggest approvers based on code ownership, or assign specific team members who will always receive approval requests. 
+
+What this means for your teams: Workflow admins and Engineering managers ensure critical review stages reach the right specialists regardless of code ownership patterns.
+
+<img
+  className="block dark:hidden"
+  src="/images/changelog/january-2026/stage-approvers-light.png"
+  alt="Stage configuration panel showing Approval Configuration with radio buttons and team member selector"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/changelog/january-2026/stage-approvers-dark.png"
+  alt="Stage configuration panel showing Approval Configuration with radio buttons and team member selector"
+/>
+
+
+---
+
+## Branch Reference Resilience
+
+The code indexing pipeline now gracefully manages empty repositories, reconciles missing default branches by querying the actual repository HEAD, and validates release branches. When branch references become stale, the system records detailed errors instead of silently failing.
+
+
+---
+
+## Trace Explorer Stability
+
+We fixed an issue where the session replay trace explorer could enter an infinite retry loop when loading historical traces failed. The system now treats failed loads as exhausted data and displays a clear error message. Support teams reviewing session replays see immediate error feedback when traces cannot be retrieved.
