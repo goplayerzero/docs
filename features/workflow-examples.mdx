@@ -1,0 +1,95 @@
+---
+title: "Workflow Examples"
+sidebarTitle: "Examples"
+description: "Recipes and best practices for designing effective workflows."
+---
+
+## Example: Defect Resolution (Default)
+
+The built-in workflow handles customer issue resolution end to end.
+
+**Why it works:**
+- **Triage and RCA auto-approve** — the agent gathers context and investigates autonomously without blocking on human input
+- **Fix requires approval** — a human reviews the proposed code changes before they're applied
+- **Test requires approval** — QA sign-off ensures the fix is validated before closing
+- **Document & Close requires approval** — ensures proper documentation before the issue is marked resolved
+
+**Key design choice:** The agent can suggest an approver based on who last modified the affected code. This means the right person gets notified at the right time without manual routing.
+
+---
+
+## Example: Fully Autonomous Pipeline
+
+Set `auto-approve` on every stage to create a pipeline where the agent progresses through the entire workflow without human intervention.
+
+**When to use:**
+- Low-severity issues where human gates aren't required
+- Internal automation tasks
+- High-confidence, well-scoped work
+
+**When to avoid:**
+- Production code changes
+- Customer-facing fixes
+- Any workflow where mistakes are costly
+
+---
+
+## Example: Approval-Heavy Compliance Flow
+
+Gate every stage with manual approval and assign specific individuals as approvers.
+
+**When to use:**
+- Regulated environments requiring audit trails
+- Workflows where multiple stakeholders must sign off
+- High-stakes changes requiring explicit human review at every step
+
+**Configuration:**
+- Set `auto-approve` to off on all stages
+- Use **Individuals** approver config on each stage with the relevant reviewers
+- Use **exit semantics** so approvals read as "I accept the completed work"
+
+---
+
+## Example: Adding a Custom Stage
+
+Extend the default workflow with a new stage — for example, "Security Review" between Fix and Test.
+
+1. Open the workflow builder
+2. Add a new **Work** stage named "Security Review"
+3. Write instructions telling the agent to review the fix for security implications, check for input validation, and flag potential vulnerabilities
+4. Draw a transition from **Fix** to **Security Review**
+5. Draw a transition from **Security Review** to **Test**
+6. Remove the direct **Fix → Test** transition
+7. Set `auto-approve` to off and configure an approver from your security team
+
+---
+
+## Best Practices
+
+### Write specific stage instructions
+
+The instruction field is the primary driver of agent behavior. Be explicit about objectives, expected outputs, constraints, and when to escalate.
+
+### Write specific transition conditions
+
+Vague rules like "when ready" lead to premature transitions. Describe what must be true before the agent moves on.
+
+### Use auto-approve for information gathering
+
+Stages focused on assessment, triage, or research work well with auto-approve. Gate transitions where the agent is making or proposing changes.
+
+### Configure approvers by stage
+
+Use **Individuals** when you know who should review (e.g., a QA lead for the Test stage). Use **Player** when the right reviewer depends on context — the agent will suggest someone based on code ownership.
+
+### Use the "Ask a Human" field
+
+Tell the agent when it should stop and ask for help instead of guessing. This is your safety valve for ambiguous situations.
+
+### Export and share workflows
+
+Once a workflow is dialed in, export it and import into other projects. This ensures consistent processes across your organization.
+
+### Monitor the inbox for bottlenecks
+
+If Players pile up in a specific stage, that's a signal to adjust auto-approve settings, add more approvers, or refine stage instructions.

@@ -1,0 +1,148 @@
+---
+title: "Configuring Workflows"
+sidebarTitle: "Configuration"
+description: "Set up stages, transitions, approvals, archival, and manage workflows through the visual builder and inbox."
+---
+
+## Stages
+
+Each stage defines what the agent does during that phase of work.
+
+### Stage Properties
+
+| Property | Description |
+|---|---|
+| **Name** | Short identifier (e.g., "Triage", "RCA", "Fix"). Must be unique within a project. |
+| **Instructions** | Detailed prompt for the agent — what to do, what to look for, what outputs to produce. |
+| **Type** | **Entry** (starting point), **Work** (intermediate), or **Terminal** (end point). |
+| **Auto-approve** | If enabled, transitions out of this stage happen without human approval. |
+| **Approver config** | Who can approve: **Player** (agent suggests based on code ownership) or **Individuals** (specific team members). |
+| **Archive config** | How completed Players are archived: **Never**, **Manual**, or **Automatic** (after N days). |
+| **Ask a human** | Optional guidance on when the agent should stop and escalate to a person. |
+
+### Stage Types
+
+- **Entry**: Work can start here. A workflow can have multiple entry stages.
+- **Work**: Intermediate stages where processing happens. Requires incoming and outgoing transitions.
+- **Terminal**: Final stage. No outgoing transitions. Work concludes here.
+
+---
+
+## Transitions
+
+Transitions define the allowed paths between stages.
+
+### Creating a Transition
+
+In the workflow builder, draw a connection from one stage to another. A dialog will prompt you to describe the transition conditions — the rules that tell the agent when to take this path.
+
+### Transition Conditions
+
+Each transition includes an instruction field. Write specific conditions, not vague ones:
+
+- **Good**: "Promote to Fix when root cause has been clearly identified, the issue requires code changes, and failing scenarios demonstrate the bug."
+- **Avoid**: "Move to the next stage when ready."
+
+The agent uses these conditions to decide which transition to request.
+
+---
+
+## Approvals
+
+### Auto-approve vs. Manual
+
+- **Auto-approve on**: The agent transitions immediately when it determines the stage work is complete.
+- **Auto-approve off** (default): The agent requests the transition and waits for a human to approve.
+
+### Approval Semantics
+
+Two modes are available, configurable at the organization or project level:
+
+- **Entry approval**: "Do you approve the agent entering the next stage?"
+- **Exit approval**: "Do you accept the work the agent completed in this stage?"
+
+With exit semantics, both the current and target stage must have auto-approve enabled for automatic transitions.
+
+### Approver Configuration
+
+- **Player**: The agent suggests an approver based on context (e.g., who last modified the affected code). Any project member can approve.
+- **Individuals**: Specific team members are designated as approvers for that stage. Only they can approve.
+
+---
+
+## Archival
+
+### Archive Modes
+
+| Mode | Behavior |
+|---|---|
+| **Never** | Player is never auto-archived from this stage |
+| **Manual** | Users can archive Players manually |
+| **Automatic** | Players are archived after a configurable number of days (1, 7, 14, or 30) |
+
+Archived Players move to a special terminal stage and can be **restored** back to their previous stage at any time.
+
+---
+
+## The Workflow Builder
+
+The visual editor for designing workflows. Access it from **Settings > Stages** in your project.
+
+### Canvas
+
+- **Drag and drop** stage nodes to arrange the layout
+- **Draw connections** between stages to create transitions
+- **Click a stage** to view or edit its properties in a side panel
+- **Click an edge** to view or edit the transition rule
+
+### Sidebar
+
+Lists all stages grouped by type (Entry, Work, Terminal) with buttons to add new stages.
+
+### Validation
+
+The builder displays warning indicators on stages that are missing:
+- Incoming connections (no way to reach this stage)
+- Outgoing transitions (non-terminal stage with no next steps)
+
+### Toolbar
+
+- **Zoom** in/out and fit view
+- **Reorganize** — auto-arrange stages in a hierarchical layout
+- **Delete all** — reset the workflow
+
+### Export & Import
+
+Export your workflow as JSON (stages, transitions, agent rules, layout positions). Import into other projects to replicate workflows across your organization.
+
+---
+
+## The Workflow Inbox
+
+The operational view for managing active work. Access it from **Inbox** in your project.
+
+### Filters
+
+| Filter | Shows |
+|---|---|
+| **Active** | All non-archived Players |
+| **My Issues** | Players where you contributed or need to approve |
+| **Engineering** | Players in engineering-focused stages |
+| **Archived** | Completed or archived Players (with sub-filters for manual vs. automatic) |
+
+### Time Range
+
+Filter by: All-time, Today, Last 7 days, Last 14 days, or Last 30 days.
+
+### Player Categories
+
+Within a stage, Players are grouped by status:
+
+- **Needs Approval** — Waiting for a human to approve a stage transition
+- **Needs Input** — Agent is waiting for information or human guidance
+- **In Progress** — Agent is actively working
+- **Done** — Stage work is complete
+
+### Inline Review
+
+Click any Player in the inbox to open its full conversation and context in a side panel. Approve transitions, add notes, or redirect — all without leaving the inbox.
