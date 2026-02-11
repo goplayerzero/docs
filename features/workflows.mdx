@@ -1,6 +1,6 @@
 ---
-title: "Workflows"
-sidebarTitle: "Workflows"
+title: "Workflows Overview"
+sidebarTitle: "Overview"
 description: "Define multi-stage pipelines that govern how PlayerZero agents process work — with structured stages, transition rules, and human approval gates."
 ---
 
@@ -47,19 +47,6 @@ Completed Players can be archived manually or automatically after a configurable
 
 Every project starts with a five-stage defect resolution workflow:
 
-```mermaid
-graph LR
-    T[Intake and Triage] -->|Issue confirmed| I[RCA]
-    T -->|Resolved or not actionable| C[Document and Close]
-    I -->|Root cause found| F[Fix]
-    I -->|Not reproducible| C
-    F -->|Fix complete| Te[Test]
-    F -->|Root cause wrong| I
-    F -->|Cannot fix| C
-    Te -->|All tests pass| C
-    Te -->|Tests reveal issues| F
-```
-
 | Stage | Type | Auto-approve | What Happens |
 |---|---|---|---|
 | **Intake & Triage** | Entry | Yes | Assess the issue, classify severity, gather context, check for known issues |
@@ -87,4 +74,3 @@ Manage active work across your team. Filter by stage, approval status, ownership
 ## Get Started
 
 - [Configuring Workflows](/features/configuring-workflows) — Set up stages, transitions, approvals, and archival
-- [Workflow Examples](/features/workflow-examples) — Recipes and best practices for common patterns

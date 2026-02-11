@@ -168,8 +168,7 @@
                 "group": "Workflows",
                 "pages": [
                   "features/workflows",
-                  "features/configuring-workflows",
-                  "features/workflow-examples"
+                  "features/configuring-workflows"
                 ]
               },
               "features/code-sim",
