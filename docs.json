@@ -161,13 +161,16 @@
         "tab": "User Guides",
         "groups": [
           {
-            "group": "Workflows",
-            "pages": ["user-guides/workflows", "user-guides/sdlc"]
-          },
-          {
             "group": "Features",
             "pages": [
               "features/ai-player",
+              {
+                "group": "Workflows",
+                "pages": [
+                  "features/workflows",
+                  "features/configuring-workflows"
+                ]
+              },
               "features/code-sim",
               "features/code-reviews",
               "features/debug-reports",
