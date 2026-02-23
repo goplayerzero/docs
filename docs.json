@@ -134,7 +134,8 @@
                   "developer-guide/configuration-guides/single-sign-on/okta"
                 ]
               },
-              "developer-guide/configuration-guides/mcp-setup"
+              "developer-guide/configuration-guides/mcp-setup",
+              "developer-guide/configuration-guides/extensions/chrome"
             ]
           },
 
@@ -176,7 +177,7 @@
               "features/debug-reports",
               {
                 "group": "Additional Features",
-                "pages": ["features/mcp-server"]
+                "pages": ["features/mcp-server", "features/additional-features/chrome-extension"]
               }
             ]
           },

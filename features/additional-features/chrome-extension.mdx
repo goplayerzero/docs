@@ -1,0 +1,139 @@
+---
+title: "Chrome Extension"
+sidebarTitle: "Chrome Extension"
+description: "Bring PlayerZero's AI Player directly into your browser. Capture any webpage, ask questions with full codebase context, and manage your workflow — all without leaving the page you're on."
+---
+
+## What Is the Chrome Extension?
+
+The PlayerZero Chrome Extension puts the **AI Player** right inside your browser. Instead of switching tabs to start an investigation, you can capture the page you're looking at, ask a question, or kick off a workflow stage — all from a lightweight side panel that lives alongside the page you're working on.
+
+It's designed for anyone who triages issues, reviews customer-facing pages, or investigates bugs and wants to get AI-powered answers without breaking their flow.
+
+---
+
+## Capturing Page Context
+
+The extension includes a **floating toolbar** that appears on any webpage when the side panel is open. It lets you capture page content to give the AI Player rich context about what you're looking at.
+
+<AccordionGroup>
+
+<Accordion title="Full Page Capture">
+- **What it does:** Captures the entire webpage and sends it to the AI Player as context.
+- **How to use:** Click the **full page icon** (page with a plus) on the floating toolbar.
+- **Best for:** Giving the AI a complete picture of the page — layout, content, error messages, and all.
+</Accordion>
+
+<Accordion title="Partial Page Capture">
+- **What it does:** Lets you select a specific element on the page to capture, rather than the whole thing.
+- **How to use:** Click the **element selector icon** (dashed box with cursor) on the toolbar. An orange border appears around the page and your cursor changes to a selector. Hover over the element you want and click to select it.
+- **Best for:** Focusing the AI on a specific component, error message, form, or section of the page.
+- **To exit:** Press **Escape** at any time to leave selection mode.
+</Accordion>
+
+<Accordion title="Multiple Contexts">
+- You can capture **multiple elements or pages** before submitting your question.
+- Each captured context appears as a tag in the side panel — click the **X** to remove any you don't need.
+- All attached contexts are converted to a readable format and included when you start the AI Player.
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+## Asking the AI Player
+
+Once you've optionally captured page context, you can start an AI Player session directly from the side panel.
+
+<AccordionGroup>
+
+<Accordion title="Ask Mode">
+- **What it does:** Submit a free-form question to the AI Player, optionally with page context attached.
+- **How to use:** Type your question in the text box and press **Submit**. The AI creates a new Player session using your question and any attached page context.
+- **Best for:** Quick investigations, understanding what a page does, or asking why a specific error is showing.
+</Accordion>
+
+<Accordion title="Workflow Mode">
+- **What it does:** Start a structured workflow stage instead of a free-form question.
+- **How to use:** Select an **Entry stage** from the dropdown above the text box, then submit. You can optionally include a question or page context.
+- **Best for:** Repeatable processes like bug triage, code review prep, or customer issue investigation.
+</Accordion>
+
+<Accordion title="Quick Start">
+- **What it does:** One-click workflow launch that automatically captures the current page as context.
+- **How to use:** Click any **Quick Start button** below the input area. The extension captures the current page and immediately starts the selected workflow stage.
+- **Best for:** When you want to jump straight into a workflow with the current page as context — no typing required.
+</Accordion>
+
+<Accordion title="Deep Research Mode">
+- **What it does:** Enables a more thorough, multi-step investigation by the AI Player.
+- **How to use:** Toggle the **Deep Research** switch before submitting your question.
+- **Best for:** Complex questions that require the AI to explore multiple files, dependencies, or historical changes.
+</Accordion>
+
+<Accordion title="Prompt Templates">
+- **What it does:** Insert saved prompt templates to reuse common questions or instructions.
+- **How to use:** Type **@** in the question box to open the template menu. Select an existing template or create a new one.
+- **Best for:** Standardizing how your team asks recurring questions — for example, always including specific analysis instructions for customer bug triage.
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+## Managing Your Backlog
+
+The side panel includes a **backlog view** so you can track all your active AI Player sessions without leaving the browser.
+
+<AccordionGroup>
+
+<Accordion title="Asked Tab">
+- Shows your most recent **Ask mode** Player sessions.
+- Click any item to open the full Player conversation in the PlayerZero web app.
+</Accordion>
+
+<Accordion title="Workflow Tab">
+- Shows **Workflow Players** grouped into three categories:
+  - **Needs Input** — Players waiting for your response or action
+  - **In Progress** — Players currently running
+  - **Done** — Completed Players
+- Use the **"Started on this page"** filter to see only Players you launched from the current webpage.
+</Accordion>
+
+<Accordion title="Badge Notifications">
+- The extension icon shows an **orange badge** with the number of Players that need your input.
+- The badge updates automatically every 30 seconds so you always know when something needs attention.
+- Open the side panel and check the **Needs Input** section to see what's waiting for you.
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+## Example Use Cases
+
+<AccordionGroup>
+
+<Accordion title="Customer Support Triage">
+A support engineer is looking at a customer-reported page. They open the side panel, capture the page, and ask: "What could cause this error for a user on this page?" The AI Player searches the codebase and returns relevant code paths, recent changes, and potential root causes.
+</Accordion>
+
+<Accordion title="QA Bug Investigation">
+A QA engineer finds a broken form during testing. They use partial capture to select just the form element, then start a Quick Start workflow. The AI Player analyzes the form's implementation and flags validation logic that may be causing the issue.
+</Accordion>
+
+<Accordion title="Code Review Prep">
+A developer reviews a staging deployment by browsing the updated pages. They capture pages that look off and ask the AI Player to explain what changed recently in the related code. The response includes recent PRs and diffs that affected those pages.
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+## Get Started
+
+👉 [Setup guide](/developer-guide/configuration-guides/extensions/chrome)
+
+👉 [AI Player overview](/features/ai-player)
+
+👉 [Jump to the app](https://playerzero.ai)

@@ -1,123 +1,156 @@
 ---
-title: "Setup Google Chrome Extension"
-description: "Capture and analyze any webpage instantly using PlayerZero's AI-powered insights and your codebase context."
+title: "Setup Chrome Extension"
+sidebarTitle: "Chrome Extension"
+description: "Install and configure the PlayerZero Chrome Extension to capture webpages, ask questions, and run workflows directly from your browser."
 ---
 
 ## Prerequisites
 
-- Active PlayerZero account with project access  
-- *Editor* or *Owner* permissions in that project  
+- Active PlayerZero account with project access
+- *Editor* or *Owner* permissions in that project
 - Google Chrome browser (version 88 or later)
 
 ---
 
-## Step 1: Install the Chrome Extension
+## Step 1: Install the Extension
 
-**Chrome Web Store Installation** 
-   - Open Google Chrome
-   - Go to the Chrome Web Store
-   - Search for "PlayerZero"
-   - Click **Add to Chrome**
-   - Click **Add Extension** when prompted
-
----
-
-## Step 2: Create an API Token
-
-1. **Open Project Settings**  
-   - Log in at https://playerzero.ai 
-   - Choose your organization & project  
-   - Navigate to **Settings → API Tokens**
-
-2. **Generate Token**  
-   - Click **New Token**  
-   - Give it a descriptive name, e.g. `Chrome Extension - [Your Name]`  
-   - Click **Create Token**  
-   - **Copy & store the token immediately** – it won't be shown again.
-
-3. **Token details**  
-   - Expires in **90 days**  
-   - Scoped to **one** project  
-   - Required for extension authentication
+1. Open **Google Chrome**
+2. Visit the [Chrome Web Store](https://chromewebstore.google.com) and search for **PlayerZero**
+3. Click **Add to Chrome**
+4. Click **Add Extension** when prompted
+5. The PlayerZero icon will appear in your Chrome toolbar
 
 ---
 
-## Step 3: Configure the Extension
+## Step 2: Create a Personal Access Token
 
-1. **Access Extension Settings**
-   - Click the PlayerZero extension icon in your Chrome toolbar
-   - Click **Settings** or **Configure**
+1. **Open Token Settings**
+   - Log in at [playerzero.ai](https://playerzero.ai)
+   - Choose your organization and project
+   - Navigate to **Settings → Personal Access Tokens**
 
-2. **Enter Authentication Details**
-   - Paste your API token in the authentication field
-   - Enter your PlayerZero portal URL (e.g., `https://your-org.playerzero.app`)
-   - Click **Save** or **Connect**
+2. **Generate Token**
+   - Click **New Token**
+   - Give it a descriptive name, e.g. `Chrome Extension - [Your Name]`
+   - Click **Create Token**
+   - **Copy and store the token immediately** — it won't be shown again
 
-3. **Verify Connection**
+3. **Token details**
+   - Tokens start with `pz_pat`
+   - Expires in **90 days**
+   - Scoped to **one** project
+   - Each team member should create their own token
+
+---
+
+## Step 3: Connect the Extension
+
+1. **Open the side panel**
+   - Click the PlayerZero icon in your Chrome toolbar to open the side panel
+
+2. **Enter your token**
+   - You'll land on the **Settings** screen
+   - Paste your Personal Access Token into the token field
+   - Click **Save**
+
+3. **Select a project**
+   - After saving your token, the extension loads your available projects
+   - Use the **project dropdown** at the top to select which project you're working in
+   - Your selection is saved and persists across browser sessions
+
+4. **Verify connection**
    - Navigate to any webpage
-   - Click the PlayerZero extension icon
-   - Look for "Connected" status or similar confirmation
+   - The **floating toolbar** should appear near the bottom of the page when the side panel is open
+   - The extension badge may show a number if you have active Players needing input
 
 ---
 
-## Step 4: Use the Extension
+## Step 4: Verify It's Working
 
-1. **Capture & Analyze**
-   - Browse to any webpage you want to analyze
-   - Click the PlayerZero extension icon
-   - Click **Analyze This Page** or **Ask Question**
+Try a quick test to confirm everything is connected:
 
-2. **AI-Powered Analysis**
-   - The extension captures the page content
-   - A new PlayerZero session opens in your browser
-   - Ask questions about the captured content
-   - Get insights powered by your project's codebase context
+1. Open any webpage you'd like to analyze
+2. Open the side panel (click the PlayerZero icon)
+3. Click the **full page capture** button on the floating toolbar (page icon with a plus)
+4. Type a question like "What does this page do?" in the side panel
+5. Click **Submit** — a new AI Player session will be created
+
+If the Player starts successfully, you're all set.
 
 ---
 
-## Step 5: Best Practices
+## Best Practices
 
 <AccordionGroup>
-<Accordion title="Usage Tips">
-- **Custom Questions**: Enter specific questions before capturing for targeted analysis
-- **Additional Instructions**: Provide context or specific analysis requirements
-- **Complete Loading**: Ensure webpages finish loading before capturing
-- **Multiple Sessions**: Each capture creates a new analysis session
-</Accordion>
-
-<Accordion title="Troubleshooting">
-- **Connection Issues**: Verify your MCP token hasn't expired (90 days)
-- **Capture Failures**: Some websites block content capture due to security policies
-- **Permission Errors**: Ensure you have editor access to your PlayerZero project
-- **Token Expired**: Create a new token and update extension configuration
-</Accordion>
 
 <Accordion title="Token Management">
-- **Regular Rotation**: Update tokens every 60-90 days before expiration
-- **Secure Storage**: Never share MCP tokens with others
-- **Extension Console**: Right-click extension icon → "Inspect popup" for debugging
-- **Multiple Tokens**: Create separate tokens for different team members
+- Rotate tokens regularly — they expire after **90 days**
+- Use descriptive names to track which token is used where
+- Each team member should have their own token
+- Delete unused tokens from **Settings → Personal Access Tokens**
 </Accordion>
+
+<Accordion title="Usage Tips">
+- **Capture before asking:** Attach page context to give the AI Player more to work with
+- **Use partial capture** to focus on a specific error message, component, or section rather than the full page
+- **Use prompt templates** (type `@` in the question box) to standardize recurring analysis questions across your team
+- **Check the badge** — the orange badge count tells you how many Players need your input
+</Accordion>
+
+<Accordion title="Browser Permissions">
+- The extension needs access to all URLs to render the floating toolbar and capture page content
+- It communicates only with `playerzero.ai` — no data is sent to third parties
+- Page content is converted to a readable format locally in the browser before being sent to the API
+</Accordion>
+
 </AccordionGroup>
 
 ---
 
-## Extension Features
+## Troubleshooting
 
-### **Web Page Capture**
-Instantly captures any webpage's content for analysis, including:
-- HTML content and structure
-- Text content and metadata
-- Page context and styling information
+<AccordionGroup>
 
-### **AI-Powered Analysis**
-- Ask questions about captured page content
-- Get intelligent insights using your codebase context
-- Access PlayerZero's full analysis capabilities
-- Create reproducible analysis sessions
+<Accordion title="I don't see the floating toolbar">
+The toolbar only appears when the **side panel is open**. Click the PlayerZero icon in your Chrome toolbar to open it. If the side panel is already open and you still don't see the toolbar, try refreshing the page.
+</Accordion>
 
-### **Project Integration**
-- Direct connection to your PlayerZero projects
-- Access to repository context and code insights
-- Secure authentication with project-scoped tokens
+<Accordion title="My token isn't accepted">
+- Ensure the token starts with `pz_pat` — tokens without this prefix will be rejected
+- Check that the token hasn't expired (90-day lifetime)
+- Verify you have **Editor** or **Owner** permissions on the project
+- Generate a new token if needed from **Settings → Personal Access Tokens** in the web app
+</Accordion>
 
+<Accordion title="The page seems frozen or my cursor looks different">
+You're in **partial capture mode**. Press **Escape** to exit and return to normal browsing.
+</Accordion>
+
+<Accordion title="Capture doesn't work on certain sites">
+Some websites have strict Content Security Policies that may interfere with the extension's ability to read page content. This is a browser-level restriction. Try using full page capture instead of partial capture, or manually describe the page content in your question.
+</Accordion>
+
+<Accordion title="Badge count isn't updating">
+The badge updates every 30 seconds and requires a valid token. If your token has expired or been removed, the badge will clear. Re-enter a valid token in the extension settings.
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+## Security
+
+- **Token security:** Store your Personal Access Token securely and never share it
+- **Project scope:** Tokens only provide access to the specific project they were created for
+- **Data handling:** Captured page content is processed locally in the browser and sent to PlayerZero over HTTPS
+- **Expiration:** Tokens automatically expire after 90 days
+
+---
+
+## Learn More
+
+👉 [Chrome Extension features](/features/additional-features/chrome-extension)
+
+👉 [AI Player overview](/features/ai-player)
+
+👉 [Jump to the app](https://playerzero.ai)
