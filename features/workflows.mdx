@@ -28,14 +28,12 @@ Transitions are the allowed paths between stages. Each transition includes a tar
 
 ### Approvals
 
-When the agent completes a stage, it requests a transition. Depending on configuration:
+When the agent completes work in a stage, it requests to move on. Depending on configuration:
 
-- **Auto-approve**: The agent moves immediately without human intervention
-- **Manual approval**: A human reviews the work and approves the transition, optionally leaving notes for the agent
+- **Auto-approve**: The agent transitions immediately without human intervention
+- **Manual approval**: A human reviews the completed work and approves the transition, optionally leaving notes for the agent
 
-PlayerZero supports two approval modes:
-- **Entry approval** (default): Approve the agent entering the next stage
-- **Exit approval**: Approve the agent leaving the current stage — reframing the action as "I accept the work done here"
+Approval means accepting the work done in the current stage — confirming that the agent's output meets your expectations before it moves to the next step.
 
 ### Archival
 
@@ -67,10 +65,11 @@ Design workflows using a visual drag-and-drop graph editor. Add stages, draw con
 
 ### The Workflow Inbox
 
-Manage active work across your team. Filter by stage, approval status, ownership, and time range. Review Players inline and approve transitions without leaving the inbox.
+Manage active work across your team. Filter by stage, approval status, ownership, and time range. Review Players inline and approve transitions without leaving the inbox. [Learn more →](/features/workflow-inbox)
 
 ---
 
 ## Get Started
 
 - [Configuring Workflows](/features/configuring-workflows) — Set up stages, transitions, approvals, and archival
+- [Workflow Inbox](/features/workflow-inbox) — Manage active Players, approve transitions, and review work

@@ -1,0 +1,133 @@
+---
+title: "Hive Mode"
+sidebarTitle: "Hive Mode"
+description: "Deploy teams of specialist AI agents to tackle complex investigations, debugging, and research — with real-time coordination and cross-checking."
+---
+
+## What Is Hive Mode?
+
+Hive Mode changes how PlayerZero's AI Player approaches your problem. Instead of a single agent working through the task alone, Hive Mode turns the AI into an **orchestrator** that designs and deploys a team of specialist agents — each focused on a specific angle — and then synthesizes their findings into a unified answer.
+
+This is the right choice when accuracy matters more than speed: complex debugging, root cause analysis, deep research across multiple subsystems, or any investigation where you want multiple independent perspectives cross-checked against each other.
+
+---
+
+## Agent Mode vs Hive Mode
+
+| | Agent Mode | Hive Mode |
+|---|---|---|
+| **How it works** | A single focused agent tackles your task directly using its tools | Multiple specialist agents coordinate to solve the problem in parallel |
+| **Speed** | Faster — one agent, one thread of work | Slower — multiple agents, but running in parallel |
+| **Accuracy** | Good for straightforward tasks | Higher accuracy for complex problems — cross-checking reduces blind spots |
+| **Best for** | Quick lookups, simple code questions, lightweight investigations | Debugging, root cause analysis, deep research, multi-system investigations |
+
+---
+
+## Switching Modes
+
+Toggle between Agent and Hive using the **mode slider** next to the chat input.
+
+- The slider appears on the **homepage** when creating a new Player and in the **chat input** of an existing Player
+- Your preference is remembered across sessions
+- Workflow stages can set a **preferred mode** — when you enter a stage, the mode adjusts automatically
+
+---
+
+## How Hive Mode Works
+
+When you send a message in Hive Mode, the AI follows a structured approach:
+
+1. **Reconnaissance** — The orchestrator does a few quick tool calls to understand the landscape of the problem
+2. **Team design** — It designs a team of specialists, wiring them into a dependency graph (DAG) so agents that depend on each other's output run in the right order
+3. **Parallel execution** — All independent agents run simultaneously, each focused on their specific objective
+4. **Cross-checking** — A cross-checker agent interrogates the other agents' findings, flags contradictions, and asks targeted follow-up questions
+5. **Synthesis** — The orchestrator combines the validated findings into a final answer
+
+---
+
+## Specialist Agents
+
+Hive Mode can deploy several types of specialist agents depending on the task:
+
+<AccordionGroup>
+
+<Accordion title="Code Explorer">
+- Deeply analyzes code structure, architecture, and data flows
+- Reads and searches across your repositories
+- Traces dependencies and identifies patterns
+</Accordion>
+
+<Accordion title="Code Editor">
+- Makes precise, well-tested code changes
+- Follows existing patterns and conventions in your codebase
+- Produces minimal, surgical edits with rationale for each change
+</Accordion>
+
+<Accordion title="Code Tracer">
+- Steps through execution paths methodically
+- Flags implicit assumptions, missing checks, race conditions, or silent failures
+- Produces step-by-step traces with severity and confidence for each finding
+</Accordion>
+
+<Accordion title="Cross-Checker">
+- Reviews the combined output of other agents
+- Identifies contradictions, gaps, and unsupported claims
+- Goes back to upstream agents with targeted follow-up questions to reconcile discrepancies
+</Accordion>
+
+<Accordion title="Scenario Builder">
+- Creates and manages test scenarios and playlists
+- Builds implementation-agnostic scenarios focused on user behavior and expected outcomes
+- Searches the existing scenario library for relevant coverage
+</Accordion>
+
+<Accordion title="Integration Agents">
+- Specialist agents for each connected tool — Datadog, Linear, Jira, Salesforce, and others
+- Query logs, metrics, traces, tickets, and other external data relevant to the investigation
+- Only available when the corresponding integration is connected
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+## The Hive Panel
+
+While agents are working, the **Hive tab** in the side panel shows real-time status:
+
+- Each agent appears as a node with a **status indicator** — pending, running, completed, or failed
+- **Live breadcrumbs** show what each agent is currently doing (e.g., "Reading auth-service/login.ts", "Searching for rate limit errors")
+- Animated indicators show when agents are **communicating with each other** — exchanging findings, asking follow-up questions, or sharing context
+- Click any agent to see its objective and dependencies
+
+In the chat stream, you'll see:
+
+- A **"Spawning hive..."** animation when agents are being deployed
+- A **status list** showing each agent's title, progress, and current activity
+- Completed agents appear with a checkmark; failed agents show an error indicator
+
+---
+
+## When to Use Each Mode
+
+| Scenario | Recommended Mode |
+|---|---|
+| "What does this function do?" | Agent |
+| "How does authentication work across all services?" | Hive |
+| "Find the file that handles payment processing" | Agent |
+| "Why are users getting 500 errors on the checkout page?" | Hive |
+| "Add a log statement to this handler" | Agent |
+| "Investigate this production incident — check code, telemetry, and recent changes" | Hive |
+| "Create test scenarios for the new billing feature" | Hive |
+| "What changed in this PR?" | Agent |
+| "Is this bug a regression from a recent change?" | Hive |
+
+**Rule of thumb:** If the question has one clear answer in one place, use Agent. If it requires investigating multiple angles, comparing evidence, or cross-referencing systems, use Hive.
+
+---
+
+## Get Started
+
+👉 [AI Player overview](/features/ai-player)
+
+👉 [Setup guide](/developer-guide/quickstart-guide)

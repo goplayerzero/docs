@@ -164,11 +164,19 @@
           {
             "group": "Features",
             "pages": [
-              "features/ai-player",
+              {
+                "group": "AI Players",
+                "pages": [
+                  "features/ai-player",
+                  "features/hive-mode",
+                  "features/playbooks"
+                ]
+              },
               {
                 "group": "Workflows",
                 "pages": [
                   "features/workflows",
+                  "features/workflow-inbox",
                   "features/configuring-workflows"
                 ]
               },
