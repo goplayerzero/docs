@@ -1,12 +1,12 @@
 ---
 title: "AI Players"
-sidebarTitle: "AI Players"
-description: "PlayerZero’s AI Player serves as your knowledge partner, helping you navigate complex codebases, debug issues, and analyze code changes through natural conversation."
+sidebarTitle: "Overview"
+description: "PlayerZero's AI Player serves as your knowledge partner, helping you navigate complex codebases, debug issues, and analyze code changes through natural conversation."
 ---
 
 ## What Is an AI Player?
 
-PlayerZero’s **AI Players** acts as your **knowledge-rich agents**, designed to help you understand, investigate, and solve problems across your codebase and systems. Whether you’re debugging a tricky issue, exploring architecture, or researching historical changes, the AI Player provides fast, context-aware insights.
+PlayerZero's **AI Players** acts as your **knowledge-rich agents**, designed to help you understand, investigate, and solve problems across your codebase and systems. Whether you're debugging a tricky issue, exploring architecture, or researching historical changes, the AI Player provides fast, context-aware insights.
 
 To use it, navigate to any project in PlayerZero and start a conversation through the free‑form prompt interface.
 
@@ -25,7 +25,7 @@ To use it, navigate to any project in PlayerZero and start a conversation throug
 <Accordion title="Debug Report">
 - **Access Point:** From any session replay or Debug Report timeline.  
 - **Use Case:** Perfect when you need to investigate user-reported issues with full session, DOM, and trace context.  
-- **Behavior:** Clicking “Find in My Code” or “Debug” launches a chat that’s pre-loaded with session data, related logs, and linked code paths for faster root-cause analysis.  
+- **Behavior:** Clicking "Find in My Code" or "Debug" launches a chat that's pre-loaded with session data, related logs, and linked code paths for faster root-cause analysis.  
 </Accordion>
 
 <Accordion title="Log Error">
@@ -47,22 +47,17 @@ To use it, navigate to any project in PlayerZero and start a conversation throug
 
 <AccordionGroup>
 
-<Accordion title="Fast Mode">
-- **Purpose:** Instant responses for straightforward questions.  
-- **Best For:** Simple code lookups, lightweight explanations, or quick verifications.  
-- **Ideal When:** You need an answer *now* and don’t need detailed reasoning.  
+<Accordion title="Agent Mode">
+- **Purpose:** A single focused agent tackles your task directly.
+- **Best For:** Quick code lookups, straightforward questions, lightweight investigations, and simple edits.
+- **Behavior:** The AI works the problem itself using code search, file reading, PR history, and other tools. Fast and direct.
 </Accordion>
 
-<Accordion title="Normal Mode">
-- **Purpose:** Balanced speed and detail, with transparent reasoning.  
-- **Best For:** Most investigation and debugging work.  
-- **Special Feature:** Toggle **“View Thought Process”** to see how the AI connects files, context, and logic.  
-</Accordion>
-
-<Accordion title="DeepThink / Deep Research Mode">
-- **Purpose:** Comprehensive exploration of your codebase and systems.  
-- **Best For:** Complex investigations (e.g., *“How does authentication work across all services?”*).  
-- **Behavior:** The AI systematically analyzes files, dependencies, and historical changes to produce a detailed, end‑to‑end understanding.  
+<Accordion title="Hive Mode">
+- **Purpose:** Multiple specialist agents coordinate to solve complex problems.
+- **Best For:** Debugging, root cause analysis, deep research, multi-system investigations, and test coverage generation.
+- **Behavior:** The AI designs and deploys a team of specialists — code explorers, tracers, cross-checkers, and integration agents — that work in parallel and cross-check each other's findings. You can watch their progress in real time via the **Hive panel** in the side panel.
+- **Learn more:** [Hive Mode](/features/hive-mode)
 </Accordion>
 
 </AccordionGroup>
@@ -90,7 +85,7 @@ To use it, navigate to any project in PlayerZero and start a conversation throug
 
 <Accordion title="Context Workspace">
 - A **persistent workspace** tracks:  
-  - Files you’ve viewed  
+  - Files you've viewed  
   - Code patterns analyzed  
   - Problems under investigation  
 - The AI uses this workspace to **maintain continuity across your session**.  
@@ -172,5 +167,8 @@ Generate structured content to support issue tracking:
 </AccordionGroup>
 
 ## Get Started
+
+- [Hive Mode](/features/hive-mode) — Deploy teams of specialist agents for complex investigations
+- [Playbooks](/features/playbooks) — Create and reuse prompt templates across your team
 
 👉 [Setup guide](/developer-guide/quickstart-guide)

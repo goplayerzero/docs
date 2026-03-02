@@ -54,14 +54,7 @@ The agent uses these conditions to decide which transition to request.
 - **Auto-approve on**: The agent transitions immediately when it determines the stage work is complete.
 - **Auto-approve off** (default): The agent requests the transition and waits for a human to approve.
 
-### Approval Semantics
-
-Two modes are available, configurable at the organization or project level:
-
-- **Entry approval**: "Do you approve the agent entering the next stage?"
-- **Exit approval**: "Do you accept the work the agent completed in this stage?"
-
-With exit semantics, both the current and target stage must have auto-approve enabled for automatic transitions.
+When a human reviews a transition request, they are approving the work completed in the current stage — confirming the agent's output meets expectations before it moves on.
 
 ### Approver Configuration
 
@@ -80,7 +73,7 @@ With exit semantics, both the current and target stage must have auto-approve en
 | **Manual** | Users can archive Players manually |
 | **Automatic** | Players are archived after a configurable number of days (1, 7, 14, or 30) |
 
-Archived Players move to a special terminal stage and can be **restored** back to their previous stage at any time.
+Archived Players move to a special terminal stage where the AI generates a summary of the conversation and work performed. Archived Players can be **restored** back to their previous stage at any time.
 
 ---
 
@@ -111,38 +104,21 @@ The builder displays warning indicators on stages that are missing:
 - **Reorganize** — auto-arrange stages in a hierarchical layout
 - **Delete all** — reset the workflow
 
+### Deleting a Stage
+
+When you delete a stage that has active Players, you'll be prompted to choose a destination stage. All Players currently in the deleted stage are moved to the destination, and any pending transition requests targeting the deleted stage are automatically redirected.
+
 ### Export & Import
 
 Export your workflow as JSON (stages, transitions, agent rules, layout positions). Import into other projects to replicate workflows across your organization.
+
+When importing into a project that already has stages, you'll be prompted to choose an import mode:
+
+- **Replace Existing** — Removes all current stages and replaces them with the imported workflow
+- **Add to Existing** — Adds the imported stages alongside your current workflow without removing anything
 
 ---
 
 ## The Workflow Inbox
 
-The operational view for managing active work. Access it from **Inbox** in your project.
-
-### Filters
-
-| Filter | Shows |
-|---|---|
-| **Active** | All non-archived Players |
-| **My Issues** | Players where you contributed or need to approve |
-| **Engineering** | Players in engineering-focused stages |
-| **Archived** | Completed or archived Players (with sub-filters for manual vs. automatic) |
-
-### Time Range
-
-Filter by: All-time, Today, Last 7 days, Last 14 days, or Last 30 days.
-
-### Player Categories
-
-Within a stage, Players are grouped by status:
-
-- **Needs Approval** — Waiting for a human to approve a stage transition
-- **Needs Input** — Agent is waiting for information or human guidance
-- **In Progress** — Agent is actively working
-- **Done** — Stage work is complete
-
-### Inline Review
-
-Click any Player in the inbox to open its full conversation and context in a side panel. Approve transitions, add notes, or redirect — all without leaving the inbox.
+The inbox is the operational view for managing active Players across your workflow. For full documentation, see [Workflow Inbox](/features/workflow-inbox).
