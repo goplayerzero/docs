@@ -72,7 +72,7 @@
                   "connector/salesforce",
                   "connector/servicenow",
                   "connector/zendesk",
-                  "connector/ticketing/intercom"
+                  "connector/intercom"
                 ]
               },
               {
