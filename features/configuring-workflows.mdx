@@ -13,7 +13,7 @@ Each stage defines what the agent does during that phase of work.
 | Property | Description |
 |---|---|
 | **Name** | Short identifier (e.g., "Triage", "RCA", "Fix"). Must be unique within a project. |
-| **Instructions** | Detailed prompt for the agent — what to do, what to look for, what outputs to produce. |
+| **Instructions** | Detailed prompt for the agent — what to do, what to look for, what outputs to produce. Supports the `/` slash command to insert [playbook](/features/playbooks) prompts. |
 | **Type** | **Entry** (starting point), **Work** (intermediate), or **Terminal** (end point). |
 | **Auto-approve** | If enabled, transitions out of this stage happen without human approval. |
 | **Approver config** | Who can approve: **Player** (agent suggests based on code ownership) or **Individuals** (specific team members). |
@@ -112,10 +112,14 @@ When you delete a stage that has active Players, you'll be prompted to choose a 
 
 Export your workflow as JSON (stages, transitions, agent rules, layout positions). Import into other projects to replicate workflows across your organization.
 
-When importing into a project that already has stages, you'll be prompted to choose an import mode:
+When importing into a project that already has stages, the import dialog detects conflicting stage names and lets you resolve each one individually:
 
-- **Replace Existing** — Removes all current stages and replaces them with the imported workflow
-- **Add to Existing** — Adds the imported stages alongside your current workflow without removing anything
+- **Merge** — Overwrites the existing stage with the imported definition
+- **Create Copy** — Imports the stage as a new stage with an auto-generated unique name (e.g., "Triage (1)")
+
+When conflicts are found, all are initially set to Merge. You can change individual stages to Copy, or use the bulk action buttons to set all conflicts to the same resolution at once.
+
+Stages that don't conflict with existing names are imported automatically without prompting.
 
 ---
 

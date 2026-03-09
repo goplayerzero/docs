@@ -12,6 +12,10 @@ Playbooks are reusable prompt templates that standardize common investigation pa
 
 ## Creating a Playbook
 
+There are two ways to create a playbook:
+
+### From Organization Settings
+
 Navigate to **Organization Settings → Playbooks** to manage your playbook library.
 
 Each playbook includes:
@@ -23,6 +27,15 @@ Each playbook includes:
 | **Prompt** | The full prompt template that will be sent to the AI Player |
 | **Category** | Organize by type: Documentation, Engineering, Investigation, Quality Assurance (QA), Support, or Triage |
 | **Tags** | Custom labels for filtering and search |
+
+### From an AI Player Conversation
+
+You can also create a playbook from an AI Player conversation:
+
+1. Hover over any assistant message to reveal the **playbook icon** (library icon)
+2. Choose **From this message** to base the playbook on that specific response, or **From full chat** to capture the overall conversation pattern
+3. The AI Player generates a playbook definition and displays it as a card in the chat
+4. Review the generated title, description, prompt, and category, then click **Save** to open the playbook creation form pre-filled with the generated content
 
 ---
 
@@ -44,6 +57,13 @@ There are two ways to use a playbook when starting or continuing a Player conver
 - Browse playbooks by category or search by title, description, or tag
 - Select a playbook to attach it to your message
 - The selected playbook appears as a tile below the input
+</Accordion>
+
+<Accordion title="Workflow Stage Instructions">
+- Type `/` in the stage **Instructions** field when creating or editing a workflow stage
+- Browse or search for the playbook you want
+- Select a playbook to insert its prompt into the stage instructions
+- This is useful for standardizing agent behavior across stages using proven prompt templates — see [Configuring Workflows](/features/configuring-workflows)
 </Accordion>
 
 </AccordionGroup>
