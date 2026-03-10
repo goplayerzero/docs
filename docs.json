@@ -35,8 +35,7 @@
               "connect-data-to-playerzero/source-control-management",
               "connect-data-to-playerzero/product-ticketing",
               "connect-data-to-playerzero/customer-ticketing",
-              "connect-data-to-playerzero/user-session-data",
-              "connect-data-to-playerzero/backend-telemetry"
+              "connect-data-to-playerzero/user-session-data"
             ]
           }
         ]
@@ -99,29 +98,6 @@
                 ]
               },
               {
-                "group": "Integrating with OpenTelemetry",
-                "pages": [
-                  "developer-guide/configuration-guides/integrating-with-opentelemetry/the-opentelemetry-standard",
-                  "developer-guide/configuration-guides/integrating-with-opentelemetry/use-playerzeros-endpoint",
-                  {
-                    "group": "OpenTelemetry Recipes",
-                    "pages": [
-                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/java",
-                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/node",
-                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/python",
-                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/go",
-                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/dotnet",
-                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/ruby",
-                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/rust",
-                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/php",
-                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/swift",
-                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/erlang-elixir",
-                      "developer-guide/configuration-guides/integrating-with-opentelemetry/recipes/other-languages"
-                    ]
-                  }
-                ]
-              },
-              {
                 "group": "Receive Notifications and Alerts",
                 "pages": [
                   "developer-guide/configuration-guides/notification-integrations/slack",
@@ -143,9 +119,7 @@
           {
             "group": "Observability API",
             "pages": [
-              "developer-guide/api/tracks",
-              "developer-guide/api/logs",
-              "developer-guide/api/spans"
+              "developer-guide/api/tracks"
             ]
           },
           {
