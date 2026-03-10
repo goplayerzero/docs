@@ -87,8 +87,9 @@ paths:
                     description: A key, value pairing of arbitrary event metadata that is useful to tag to your event.
   /v2/logs:
     post:
-      summary: Send a list of logs to PlayerZero
-      description: Track logs from your data source in PlayerZero.
+      deprecated: true
+      summary: "[Deprecated] Send a list of logs to PlayerZero"
+      description: This endpoint is deprecated. Use an observability integration (e.g., Datadog) instead.
       responses:
         '204': # status code
           description: Success, no content is expected in response
@@ -151,8 +152,9 @@ paths:
                     description: A key, value pairing of arbitrary event metadata that is useful to tag to your event.
   /v2/spans:
     post:
-      summary: Send a list of spans to PlayerZero
-      description: Spans are tasks that your code runs over a period of time (ie. a network / API call)
+      deprecated: true
+      summary: "[Deprecated] Send a list of spans to PlayerZero"
+      description: This endpoint is deprecated. Use an observability integration (e.g., Datadog) instead.
       responses:
         '204': # status code
           description: Success, no content is expected in response
