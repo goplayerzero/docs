@@ -70,6 +70,7 @@
                   "connector/linear",
                   "connector/salesforce",
                   "connector/servicenow",
+                  "connector/slack",
                   "connector/zendesk",
                   "connector/intercom"
                 ]
