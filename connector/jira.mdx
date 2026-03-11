@@ -45,3 +45,30 @@ Setup starts in PlayerZero—no pre-configuration in Jira is required.
 3. You'll be redirected to Jira to log in and authorize PlayerZero
 4. After authorization, select which PlayerZero projects should have access to this integration
 
+## Using Jira from a Player Session
+
+Once Jira is connected via **Organization Settings → Integrations** and enabled for your project, AI Players can interact with Jira during any conversation or workflow stage. The Jira tools are automatically available — no additional configuration is needed.
+
+### Creating Tickets
+
+Ask the agent to create a Jira ticket at any point during a conversation:
+
+- *"Create a Jira ticket for this bug in the PROJ project"*
+- *"Write up a Jira issue summarizing what we found"*
+
+The agent will use the Jira connector to create the ticket with the available fields based on the conversation context.
+
+### Automated Ticket Creation in Workflows
+
+You can also instruct agents to create Jira tickets as part of a workflow stage. Add instructions like *"Create a Jira ticket summarizing the issue and your findings"* to any stage's instruction field. The agent will create the ticket when it reaches that stage.
+
+### Adding Comments to Existing Tickets
+
+If a Player session was triggered from an existing Jira ticket (or you reference one during the conversation), the agent can add comments with investigation findings, root cause analysis, or code references directly to the ticket.
+
+## Get Started
+
+👉 [AI Player overview](/features/ai-player)
+
+👉 [Setup guide](/developer-guide/quickstart-guide)
+

@@ -26,6 +26,22 @@ Each stage defines what the agent does during that phase of work.
 - **Work**: Intermediate stages where processing happens. Requires incoming and outgoing transitions.
 - **Terminal**: Final stage. No outgoing transitions. Work concludes here.
 
+### Using Stages to Trigger Integration Actions
+
+If your project has connectors enabled (e.g., Jira, Linear, Slack), the AI agent can use those integrations as part of any stage. Write stage instructions that tell the agent when and how to use them.
+
+**Examples:**
+
+- **Create a Jira ticket after triage:** *"After completing your analysis, create a Jira ticket in the PROJ project summarizing the issue, severity, and recommended fix. Include code references."*
+- **Post to Slack:** *"Notify the #engineering channel in Slack with a summary of your findings."*
+- **Update a Linear issue:** *"Update the linked Linear issue with your root cause analysis and change the status to In Progress."*
+
+The agent automatically has access to all connected integrations — you don't need to configure anything beyond writing clear instructions in the stage's instruction field. The agent decides how to use the tools based on your instructions and the conversation context.
+
+<Note>
+Integration actions require the relevant connector to be set up at the project or organization level. See [Connectors](/connector/introduction) for setup guides.
+</Note>
+
 ---
 
 ## Transitions
