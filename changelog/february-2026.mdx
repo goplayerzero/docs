@@ -1,0 +1,67 @@
+---
+title: "February 2026"
+sidebarTitle: "February 2026"
+---
+
+## Introducing Playbooks
+
+We shipped Playbooks, a full prompt template system built into the Player. Create reusable templates with variable placeholders, organize them with tags, and search across your library. A set of built-in starter playbooks covers common tasks like explaining errors, summarizing PRs, and generating test cases.
+
+Engineering leads can curate playbooks that encode team best practices. New team members get up to speed faster by using proven prompts instead of starting from scratch. Every team converges on consistent, high-quality interactions with the Player.
+
+---
+
+## Investigate deeploy with Hive Mode
+
+When a problem spans multiple systems or codebases, the Player can now spawn a hive of specialized teammate agents that research different angles at the same time, then synthesize their findings into a single answer.
+
+Hive Mode replaces Deep Research mode with an architecture designed for cross-cutting investigations, where taking extra care to understand the interactions between services, data layers, and infrastructure is the right tradeoff to make in exchange for higher accuracy in the Player's responses.
+
+Unlike a single agent that delegates to sub-agents, Hive Mode teammates are fully independent agents with their own context, tools, and reasoning. The coordinator designs the investigation plan, each teammate goes deep on its piece of the problem, and a cross-checker interrogates the teammates to produce validated findings. Engineers get the benefits of more detailed investigation work, without needing to supervise or correct as context windows grow.
+
+{/* 📸 Screenshot: A Player conversation showing teammate agents working in parallel with their individual findings being synthesized */}
+
+
+---
+
+## Filter Stage Transitions to Valid Next Steps
+
+The Workflow stage transition picker now shows only the stages that are valid next steps based on your workflow configuration, instead of listing every stage in the workflow.
+
+Teams with complex, multi-stage workflows no longer need to remember which transitions are allowed. The interface guides users to the right next step, reducing mistakes and eliminating invalid transitions.
+
+---
+
+## Safely Delete Workflow Stages
+
+When you delete a workflow stage that has active Players assigned to it, the system now prompts you to move those Players to another stage first. Previously, deleting a populated stage could leave Players in a broken state.
+
+Engineering and support team managers configuring workflows can now reorganize stages with confidence. Active work is redirected rather than orphaned.
+
+
+---
+
+## Remember Artifacts/Code Panel Preferences
+
+The code panel now remembers whether you left it open or closed, and restores your preference automatically when you return. We also redesigned the toggle for better visibility.
+
+Support teams that prefer to work with the code panel closed to focus on qualitative responses to customer help requests no longer need to re-toggle it on every visit. A small change that removes a repeated friction point.
+
+
+---
+
+## Fix: Player Freezing on Long Conversations
+
+We resolved a performance issue that caused Player conversations with 2,000+ messages to freeze or become unresponsive. The root cause was inefficient rendering in the frontend, which has been optimized.
+
+Power users running long investigations can now work through extensive conversation histories without interruption. No more starting fresh conversations as a workaround.
+
+
+---
+
+## Fix: Simulation Branch Selector Search
+
+The branch selector in the Simulations UI now correctly searches by both repository name and branch name. Previously, search only matched on branch names, making it difficult to find the right branch in organizations with many repositories.
+
+QA and engineering teams running simulations against specific branches can now locate them quickly, even across large repository sets.
+
