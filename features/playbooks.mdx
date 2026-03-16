@@ -25,7 +25,7 @@ Each playbook includes:
 | **Title** | A short name for the playbook (unique within your organization) |
 | **Description** | A brief explanation of when and why to use this playbook |
 | **Prompt** | The full prompt template that will be sent to the AI Player |
-| **Category** | Organize by type: Documentation, Engineering, Investigation, Quality Assurance (QA), Support, or Triage |
+| **Category** | Organize by type. Your organization's category list is customizable — defaults include Documentation, Engineering, Go To Market/Sales, Investigation, Product, Quality Assurance (QA), SRE, Support, and Triage. Admins can add or remove categories from **Organization Settings → Playbooks**. |
 | **Tags** | Custom labels for filtering and search |
 
 ### From an AI Player Conversation
@@ -81,6 +81,29 @@ From **Organization Settings → Playbooks**, you can:
 - **Fork** a playbook to create a variant without modifying the original
 - **Delete** playbooks you created (or any playbook if you have owner permissions)
 - **Search** across titles, descriptions, tags, and creator names
+
+### Sorting
+
+Use the sort dropdown to change the order of your playbook list:
+
+- **Recently updated** (default) — Playbooks with the most recent edits appear first
+- **Most used** — Playbooks with the highest usage count appear first
+- **Least used** — Playbooks with the lowest usage count appear first
+
+Usage is tracked automatically each time a playbook is selected in a chat input, branch investigation, or new Player creation. The detail panel shows each playbook's total usage count.
+
+### Version History
+
+Every edit to a playbook creates an immutable version snapshot. To view a playbook's history, open the playbook detail panel and click the **Version** badge to expand the version history.
+
+Each version shows:
+- The user who made the change
+- When the change was made
+- The version number
+
+To restore a previous version, select it and confirm the restore. Restoring creates a new version with the restored content — it does not roll back or delete any history.
+
+Viewing version history requires the **viewer** role. Restoring a version requires the **editor** role.
 
 ---
 
