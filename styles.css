@@ -98,23 +98,6 @@
 
 /* styles.css */
 
-/* styles.css */
-
-.visible-link-container {
-    margin: 8px 0;
-}
-
-.visible-link {
-    font-weight: 600;
-    color: inherit;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    transition: color 0.2s;
-}
-
-.visible-link:hover {
-    color: #553c9a;
-}
 
 /* =========================================
    Use-Case tiles (inside the wrapper)
