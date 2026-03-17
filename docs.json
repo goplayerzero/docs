@@ -63,16 +63,17 @@
               {
                 "group": "Ticketing Integrations",
                 "pages": [
+                  "connector/introduction",
                   "connector/azure-devops",
                   "connector/confluence",
                   "connector/hubspot",
+                  "connector/intercom",
                   "connector/jira",
                   "connector/linear",
                   "connector/salesforce",
                   "connector/servicenow",
                   "connector/slack",
-                  "connector/zendesk",
-                  "connector/intercom"
+                  "connector/zendesk"
                 ]
               },
               {
@@ -84,7 +85,6 @@
                       "developer-guide/configuration-guides/capturing-user-sessions/web-sdk-instrumentation",
                       "developer-guide/configuration-guides/capturing-user-sessions/npm",
                       "developer-guide/configuration-guides/capturing-user-sessions/script-tag",
-                      "developer-guide/configuration-guides/capturing-user-sessions/segment",
                       "developer-guide/configuration-guides/capturing-user-sessions/advanced-usage"
                     ]
                   },
@@ -117,12 +117,6 @@
             ]
           },
 
-          {
-            "group": "Observability API",
-            "pages": [
-              "developer-guide/api/tracks"
-            ]
-          },
           {
             "group": "Security and Data Privacy",
             "pages": [
@@ -193,15 +187,6 @@
   "logo": {
     "light": "/logo/light-logo.svg",
     "dark": "/logo/dark-logo.svg"
-  },
-  "api": {
-    "openapi": ["openapi.yml"],
-    "mdx": {
-      "server": "https://sdk.playerzero.app",
-      "auth": {
-        "method": "bearer"
-      }
-    }
   },
   "background": {
     "color": {
