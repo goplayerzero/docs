@@ -77,6 +77,13 @@
                 ]
               },
               {
+                "group": "Remote MCP Servers",
+                "pages": [
+                  "connector/remote-mcp-servers",
+                  "connector/datadog"
+                ]
+              },
+              {
                 "group": "Capturing User Sessions",
                 "pages": [
                   {
@@ -96,13 +103,6 @@
                     ]
                   },
                   "developer-guide/configuration-guides/capturing-user-sessions/performance"
-                ]
-              },
-              {
-                "group": "Receive Notifications and Alerts",
-                "pages": [
-                  "developer-guide/configuration-guides/notification-integrations/slack",
-                  "developer-guide/configuration-guides/notification-integrations/manage-alert-muting"
                 ]
               },
               {
