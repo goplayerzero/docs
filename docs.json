@@ -99,13 +99,6 @@
                 ]
               },
               {
-                "group": "Receive Notifications and Alerts",
-                "pages": [
-                  "developer-guide/configuration-guides/notification-integrations/slack",
-                  "developer-guide/configuration-guides/notification-integrations/manage-alert-muting"
-                ]
-              },
-              {
                 "group": "Setup Single Sign-On",
                 "pages": [
                   "developer-guide/configuration-guides/single-sign-on/microsoft-entra",
