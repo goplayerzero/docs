@@ -1,0 +1,93 @@
+---
+title: "Datadog"
+description: "Connect the Datadog MCP server to PlayerZero so AI agents can query monitors, dashboards, logs, and more directly from Player sessions."
+---
+
+Datadog is a monitoring and observability platform. PlayerZero connects to Datadog's remote MCP server, giving AI agents direct access to your Datadog data during investigations.
+
+## What You Can Do
+
+Once connected, PlayerZero AI agents can:
+
+- **Query monitors** — Check monitor status, search for triggered alerts, and investigate monitoring gaps
+- **Search logs** — Find relevant log entries across your Datadog environment when debugging issues
+- **Retrieve dashboards** — Pull dashboard data and metrics to understand system behavior during incidents
+- **Investigate traces** — Access APM trace data for end-to-end request analysis
+- **Cross-reference with code** — Combine Datadog observability data with codebase context for faster root cause analysis
+
+<Info>
+The specific tools available depend on the permissions granted to the Datadog service account you use for authentication. See the Datadog prerequisites below for details.
+</Info>
+
+## Prerequisites
+
+Before connecting Datadog to PlayerZero, you need an API key and Application key from your Datadog organization.
+
+1. **Create an API key** in Datadog
+   - Go to **Organization Settings → API Keys**
+   - Click **New Key**, give it a name (e.g. `PlayerZero`), and save it
+   - Copy the key value — you'll need it during setup
+
+2. **Create an Application key** in Datadog
+   - Go to **Organization Settings → Application Keys**
+   - Click **New Key**, give it a name (e.g. `PlayerZero`), and save it
+   - Copy the key value — you'll need it during setup
+
+3. **Assign permissions** to the service account
+   - Ensure the account has the appropriate read permissions (e.g. `mcp_read`) for the data you want AI agents to access
+   - If you want agents to create or modify resources (such as muting a monitor), grant write permissions (e.g. `mcp_write`) as well
+
+For full details on creating a Datadog service account with the correct keys and permissions, see [Datadog's MCP Server setup guide](https://docs.datadoghq.com/bits_ai/mcp_server/setup/?tab=other#authentication).
+
+## Setup
+
+<Note>
+This connection uses PlayerZero's Remote MCP Servers feature. Datadog authenticates via custom headers (API key + Application key), not OAuth.
+</Note>
+
+1. In PlayerZero, navigate to **Organization Settings → Integrations**
+2. Navigate to the **Remote MCP Servers** page and click **New Connector**
+3. Fill in the connection details:
+   - **Name** — `Datadog` (or any descriptive name). Connection names must be unique within your organization.
+   - **Description** — Optional. For example: `Production Datadog environment`
+   - **MCP Server URL** — Enter the Datadog MCP server endpoint for your region. Check [Datadog's documentation](https://docs.datadoghq.com/bits_ai/mcp_server/setup/?tab=other#authentication) for the correct regional URL.
+4. Under **Project Access**, choose which PlayerZero projects should have access:
+   - **All projects** — Every project in your organization can use this connection
+   - **Specific projects** — Select individual projects
+5. Under **Authentication**, select **Custom**
+6. Add two custom headers:
+   - **Key:** `DD-API-KEY` → **Value:** your Datadog API key
+   - **Key:** `DD-APPLICATION-KEY` → **Value:** your Datadog Application key
+7. Click **Add**
+
+PlayerZero validates the connection by reaching out to the Datadog MCP server. If the connection is successful, tools from Datadog are automatically available in Player sessions for the selected projects.
+
+If the connection fails, PlayerZero will display an error message. Common issues include:
+
+- **Authentication failed** — Verify your API key and Application key are correct
+- **Connection timed out** — Verify the MCP Server URL is correct and the server is reachable
+- **Could not resolve host** — Verify the MCP Server URL is correct
+
+## Using Datadog in Player Sessions
+
+After setup, AI agents in Player sessions can access Datadog data alongside your codebase. You don't need to do anything special — agents automatically use Datadog tools when relevant to the investigation.
+
+For example, you can ask a Player:
+
+```
+Check if there are any triggered monitors related to the payment service.
+```
+
+```
+Search Datadog logs for errors in the checkout API from the last hour.
+```
+
+The agent will use the Datadog MCP connection to pull the relevant data and incorporate it into its analysis.
+
+## Get Started
+
+👉 [AI Player overview](/features/ai-player)
+
+👉 [Remote MCP Servers overview](/connector/remote-mcp-servers)
+
+👉 [Setup guide](/developer-guide/quickstart-guide)
