@@ -79,8 +79,7 @@
               {
                 "group": "Remote MCP Servers",
                 "pages": [
-                  "connector/remote-mcp-servers",
-                  "connector/datadog"
+                  "connector/remote-mcp-servers"
                 ]
               },
               {
