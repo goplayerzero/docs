@@ -77,9 +77,10 @@
                 ]
               },
               {
-                "group": "Remote MCP Servers",
+                "group": "MCP Servers",
                 "pages": [
-                  "connector/remote-mcp-servers"
+                  "connector/remote-mcp-servers",
+                  "developer-guide/configuration-guides/mcp-setup"
                 ]
               },
               {
@@ -111,7 +112,6 @@
                   "developer-guide/configuration-guides/single-sign-on/okta"
                 ]
               },
-              "developer-guide/configuration-guides/mcp-setup",
               "developer-guide/configuration-guides/extensions/chrome"
             ]
           },
@@ -154,7 +154,7 @@
               "features/debug-reports",
               {
                 "group": "Additional Features",
-                "pages": ["features/mcp-server", "features/additional-features/chrome-extension"]
+                "pages": ["features/additional-features/chrome-extension"]
               }
             ]
           },
