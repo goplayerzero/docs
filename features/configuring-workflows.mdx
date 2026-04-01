@@ -86,10 +86,10 @@ When a human reviews a transition request, they are approving the work completed
 | Mode | Behavior |
 |---|---|
 | **Never** | Player is never auto-archived from this stage |
-| **Manual** | Users can archive Players manually |
+| **Manual** | Users can archive Players manually from the Player title bar or the inbox |
 | **Automatic** | Players are archived after a configurable number of days (1, 7, 14, or 30) |
 
-Archived Players move to a special terminal stage where the AI generates a summary of the conversation and work performed. Archived Players can be **restored** back to their previous stage at any time.
+Archiving marks a Player with an archived flag — it does not move the Player to a different stage. Archived Players can be viewed using the **Archived** filter in the inbox, with sub-filters for **Manually Archived** and **Automatically Archived**. Archived Players can be restored at any time.
 
 ---
 
@@ -123,6 +123,8 @@ The builder displays warning indicators on stages that are missing:
 ### Deleting a Stage
 
 When you delete a stage that has active Players, you'll be prompted to choose a destination stage. All Players currently in the deleted stage are moved to the destination, and any pending transition requests targeting the deleted stage are automatically redirected.
+
+If some Players fail to transition (for example, due to a network issue or a stuck session), the dialog shows which Players failed and why. You can retry the operation, or click **Delete Anyway** to remove the stage regardless — Players that couldn't be moved will remain in their current state and can be reassigned manually.
 
 ### Export & Import
 

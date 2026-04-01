@@ -1,0 +1,110 @@
+---
+title: "Usage Analytics"
+sidebarTitle: "Usage Analytics"
+description: "Track how your team uses PlayerZero — monitor questions, simulations, workflow activity, and export usage data."
+---
+
+## What Is Usage Analytics?
+
+The Usage Analytics dashboard gives you visibility into how your organization uses PlayerZero. Track question volume, simulation activity, workflow throughput, and context creation — all in one place.
+
+Access it from **Settings → Analytics** in the sidebar.
+
+---
+
+## Filtering
+
+Use the controls at the top of the dashboard to narrow the data:
+
+- **Project** — View data for all projects or select a specific project
+- **Date range** — Choose a custom date range using the date picker
+
+The dashboard updates automatically when you change filters.
+
+---
+
+## Dashboard Sections
+
+### Questions
+
+Tracks AI Player questions asked across your organization.
+
+- **Total questions** — Count for the selected period with trend comparison to the previous period
+- **Breakdown by category** — Questions grouped by intent (debugging, code exploration, etc.)
+- **Breakdown by origin** — Where questions came from (web app, IDE via MCP, Slack, etc.)
+- **Top users** — Most active team members ranked by question count
+- **Breakdown by role** — Questions grouped by team member job role
+
+### Simulations
+
+Tracks code simulation activity.
+
+- **Total simulations** — Count with pass rate and defects prevented
+- **Breakdown by scenario type** — Simulations grouped by the type of scenario tested
+- **Breakdown by system layer** — Simulations grouped by the system layer being tested
+
+### Workflows
+
+Tracks workflow stage activity for the selected project.
+
+<Note>
+Workflow data is only available when viewing a specific project — it does not aggregate across projects.
+</Note>
+
+- **Stage metrics table** — Per-stage breakdown of issues processed, issues transitioned, questions asked, and simulations run
+- **Workflow graph** — Visual representation of workflow activity overlaid on your stage graph
+
+Toggle between **table** and **graph** views using the tabs.
+
+### Context
+
+Tracks context created and used by AI agents.
+
+- **Artifacts** — Documents and diagrams created and shared
+- **Memories** — Knowledge entries created and recalled
+- **Lines of code** — Code analyzed during investigations
+
+### Overall Stats
+
+Summary cards showing key metrics at a glance:
+
+- **Active users** — Unique users in the selected period (with role breakdown on hover)
+- **Player sessions** — Total sessions created
+- **Repositories** — Connected repositories
+- **Integrations** — Connected ticketing and tool integrations
+- **Code processed** — Total lines of code analyzed
+
+---
+
+## CSV Export
+
+Export usage data as a CSV file for external reporting, audits, or analysis.
+
+1. Click the **Export CSV** button in the top-right corner of the dashboard
+2. Select the data sections you want to include:
+
+| Section | What It Contains |
+|---------|-----------------|
+| Total Active Sessions | Session count with breakdown by role |
+| Total Questions Asked | Question count with breakdown by origin and role |
+| Active Unique Users (Ranked) | Users ranked by question count |
+| Active Users by Role | Estimated unique users per job role |
+| Total Codesims Run | Simulation count with breakdown by scenario type and system layer |
+| Workflow Stages | Per-stage metrics: issues processed, transitioned, questions asked, simulations run |
+| Artifacts Created / Shared | Artifact creation and sharing counts |
+| Lines of Code Used | Lines of code analyzed and total processed |
+
+3. Use **Select All** to include everything, or check individual sections
+4. Click **Export**
+
+The CSV file downloads with the naming format `playerzero-usage-YYYY-MM-DD.csv` and includes metadata headers with the date range, scope, and export timestamp.
+
+---
+
+## Get Started
+
+👉 [AI Player overview](/features/ai-player)
+
+👉 [Code Simulations](/features/code-sim)
+
+👉 [Workflows overview](/features/workflows)

@@ -84,17 +84,33 @@ PlayerZero requests only the permissions needed for AI agents to assist with deb
 ## Setup
 
 <Note>
-Setup starts in PlayerZero — no pre-configuration in Slack is required. The Slack connection is managed under **Notifications**, not the Integrations page (which is used for tools like Jira and Linear).
+Setup starts in PlayerZero — no pre-configuration in Slack is required. The Slack connection is managed under **Collaboration**, not the Ticketing page (which is used for tools like Jira and Linear).
 </Note>
 
-1. In PlayerZero, navigate to **Organization Settings → Notifications**
-2. Find the **Slack** card and toggle it on
-3. You'll be redirected to Slack to sign in and authorize PlayerZero in your workspace
-4. After authorization, configure alert delivery:
-   - At the **organization level**, choose a default channel for notifications
-   - At the **project level**, go to **Project Settings → Alerts**, enable Slack, and select a channel and event types
+1. In PlayerZero, navigate to **Settings → Collaboration**
+2. Click the **Slack** card to open its detail page
+3. Click **Enable** — a popup window will open for Slack authorization
+4. Sign in to Slack and authorize PlayerZero in your workspace
+5. After authorization, the popup closes and you'll see the Slack detail page with configuration options
 
-Once connected, all Slack capabilities are immediately available — message shortcuts ("Add to Backlog", "Ask PlayerZero", and "New Backlog"), DMs with the bot, and @mention responses. No additional configuration is needed beyond the initial toggle.
+### Notification Configuration
+
+Once Slack is connected, you can configure where notifications are delivered at the organization and project level.
+
+**Organization-level defaults:**
+- Set a default Slack channel for notifications from the Collaboration settings page
+- Control which projects are authorized to use the Slack connection — either all projects or a specific set
+
+**Per-project, per-stage channels:**
+- Each project can configure notification channels independently
+- Assign different Slack channels to different workflow stages — for example, route triage notifications to `#support-triage` and engineering escalations to `#eng-alerts`
+- Enable or disable workflow notifications (approval requests, stage transitions) per project
+
+**Business hours:**
+- Optionally restrict notifications to business hours based on your team's timezone
+- Notifications generated outside business hours are held and delivered when business hours resume
+
+Once connected, all Slack capabilities are immediately available — message shortcuts ("Add to Backlog", "Ask PlayerZero", and "New Backlog"), DMs with the bot, and @mention responses. No additional configuration is needed beyond the initial connection.
 
 ## Get Started
 

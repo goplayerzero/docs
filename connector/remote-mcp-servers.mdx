@@ -27,6 +27,53 @@ The external MCP server must be **remote and hosted** — PlayerZero connects vi
 | Log analysis | Coralogix | Search and analyze application logs during debugging |
 | Internal tools | Custom MCP server | Access internal APIs, runbooks, or proprietary data sources |
 
+## Setup
+
+1. In PlayerZero, navigate to **Settings → Ticketing**
+2. Go to the **Remote MCP Servers** section and click **New Connector**
+3. Fill in the connection details:
+   - **Name** — A descriptive name for this connection (must be unique within your organization)
+   - **Description** — Optional context about what this server provides
+   - **MCP Server URL** — The remote MCP server endpoint (e.g., `https://mcp.example.com/sse`)
+4. Under **Project Access**, choose which PlayerZero projects can use this connection:
+   - **All projects** — Every project in your organization
+   - **Specific projects** — Select individual projects
+5. Under **Authentication**, choose the method that matches your MCP server:
+
+### Authentication Methods
+
+| Method | When to Use | What You Provide |
+|--------|------------|-----------------|
+| **Auth Token** | Server requires a Bearer token | A single access token, sent as `Authorization: Bearer <token>` |
+| **OAuth** | Server supports OAuth 2.0 with dynamic client registration | Nothing — PlayerZero handles the OAuth flow automatically |
+| **Custom** | Server requires API keys or custom headers (e.g., Datadog) | One or more key-value header pairs |
+| **No authentication** | Server is publicly accessible | Nothing |
+
+<Tip>
+For Datadog, use **Custom** authentication with two headers: `DD-API-KEY` and `DD-APPLICATION-KEY`. See the [Datadog setup guide](/connector/datadog) for step-by-step instructions.
+</Tip>
+
+6. Click **Add**
+
+PlayerZero validates the connection by reaching out to the MCP server. If successful, tools from the server are automatically available in Player sessions for the selected projects.
+
+If the connection fails, you'll see an error message. Common issues:
+
+- **Authentication failed (401/403)** — Verify your credentials are correct
+- **Connection timed out** — Check that the MCP Server URL is correct and the server is reachable
+- **Could not resolve host** — Verify the URL
+
+### Managing Connections
+
+After setup, you can:
+- **Edit project access** — Add or remove projects that can use this connection
+- **Update credentials** — Change the authentication token or headers
+- **Delete** — Remove the connection entirely
+
 ## Get Started
 
-👉 [Contact support](mailto:help@playerzero.ai)
+👉 [AI Player overview](/features/ai-player)
+
+👉 [Datadog setup guide](/connector/datadog)
+
+👉 [Setup guide](/developer-guide/quickstart-guide)
