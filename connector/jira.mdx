@@ -12,6 +12,7 @@ Once connected, PlayerZero AI agents can:
 - **Read issues and comments** - Access ticket details, descriptions, attachments, and comment threads for debugging context
 - **Create and update issues** - Generate Jira tickets from debug sessions with proper formatting and fields
 - **Add comments** - Post structured comments with code references, stack traces, and root cause analysis
+- **Post private comments** - Add internal notes visible only to agents with a specific Jira Service Desk role, keeping investigation details hidden from external customers
 - **Navigate projects** - Understand your Jira project structure, issue types, and custom fields
 
 ## Use Cases
@@ -40,14 +41,14 @@ PlayerZero requests only the permissions needed for AI agents to assist with deb
 Setup starts in PlayerZero—no pre-configuration in Jira is required.
 </Note>
 
-1. In PlayerZero, navigate to **Organization Settings → Integrations**
+1. In PlayerZero, navigate to **Settings → Ticketing**
 2. Find **Jira** and click **Connect**
 3. You'll be redirected to Jira to log in and authorize PlayerZero
 4. After authorization, select which PlayerZero projects should have access to this integration
 
 ## Using Jira from a Player Session
 
-Once Jira is connected via **Organization Settings → Integrations** and enabled for your project, AI Players can interact with Jira during any conversation or workflow stage. The Jira tools are automatically available — no additional configuration is needed.
+Once Jira is connected via **Settings → Ticketing** and enabled for your project, AI Players can interact with Jira during any conversation or workflow stage. The Jira tools are automatically available — no additional configuration is needed.
 
 ### Creating Tickets
 
@@ -65,6 +66,20 @@ You can also instruct agents to create Jira tickets as part of a workflow stage.
 ### Adding Comments to Existing Tickets
 
 If a Player session was triggered from an existing Jira ticket (or you reference one during the conversation), the agent can add comments with investigation findings, root cause analysis, or code references directly to the ticket.
+
+### Private Comments (Jira Service Desk)
+
+If your Jira project uses Service Desk, AI agents can post **private comments** that are only visible to internal team members — not to external customers who submitted the ticket.
+
+To enable private comments:
+
+1. Navigate to the Jira integration detail page in **Settings → Ticketing**
+2. Toggle on **Private comments**
+3. Optionally specify a **visibility role** (defaults to "Service Desk Team")
+
+The visibility role controls which Jira users can see the comment. It must match an existing project role in your Jira instance. If the specified role doesn't exist on the target project, the comment will not be posted to avoid accidental exposure to customers.
+
+When private comments are enabled, you can instruct the agent to use them in your workflow stage instructions — for example: *"Post your findings as a private comment on the Jira ticket so the support team can review before responding to the customer."*
 
 ## Get Started
 

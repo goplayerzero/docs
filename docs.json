@@ -154,7 +154,10 @@
               "features/debug-reports",
               {
                 "group": "Additional Features",
-                "pages": ["features/additional-features/chrome-extension"]
+                "pages": [
+                  "features/additional-features/chrome-extension",
+                  "features/additional-features/usage-analytics"
+                ]
               }
             ]
           },
