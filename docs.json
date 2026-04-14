@@ -78,7 +78,7 @@
                 ]
               },
               {
-                "group": "MCP Servers",
+                "group": "MCP",
                 "pages": [
                   "connector/remote-mcp-servers",
                   "developer-guide/configuration-guides/mcp-setup"

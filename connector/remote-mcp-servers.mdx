@@ -15,22 +15,34 @@ PlayerZero can connect to any remote MCP-compatible server, extending what AI ag
 - **Scoped access** — Control which PlayerZero projects can use each connection
 - **Multiple connections** — Connect as many MCP servers as you need, each with its own authentication and project scope
 
+## Public vs. Private MCP
+
+There are two types of external MCP connections:
+
+- **Public MCP** — The MCP server is managed and hosted by a third party (e.g., Datadog, Coralogix, Pylon). You connect to the provider's endpoint directly; no infrastructure setup is required on your side.
+- **Private MCP** — The MCP server is hosted by you (or within your infrastructure) and exposed externally so PlayerZero can reach it. This is common for internal tools, proprietary APIs, or custom-built MCP servers.
+
+<Tip>
+For private MCP servers, you may need to allowlist PlayerZero's IP address. Contact [support](mailto:support@playerzero.ai) to request our IP address.
+</Tip>
+
 ## Requirements
 
 The external MCP server must be **remote and hosted** — PlayerZero connects via **SSE** (Server-Sent Events) or **Streamable HTTP** transport. Local stdio-based MCP servers (like those used by desktop AI assistants) are not supported.
 
 ## Example Use Cases
 
-| Use Case | MCP Server | What It Enables |
-|----------|-----------|-----------------|
-| Observability | Datadog | Query monitors, search logs, retrieve dashboards and traces |
-| Log analysis | Coralogix | Search and analyze application logs during debugging |
-| Internal tools | Custom MCP server | Access internal APIs, runbooks, or proprietary data sources |
+| Use Case | MCP Server | Connection Type | What It Enables |
+|----------|-----------|-----------------|-----------------|
+| Observability | Datadog | Public MCP | Query monitors, search logs, retrieve dashboards and traces |
+| Log analysis | Coralogix | Public MCP | Search and analyze application logs during debugging |
+| Support | Pylon | Public MCP | Access support conversations, tickets, and customer context |
+| Internal tools | Custom MCP server | Private MCP | Access internal APIs, runbooks, or proprietary data sources |
 
 ## Setup
 
-1. In PlayerZero, navigate to **Settings → Ticketing**
-2. Go to the **Remote MCP Servers** section and click **New Connector**
+1. In PlayerZero, navigate to **Settings → Context → MCP**
+2. Click **New Connector**
 3. Fill in the connection details:
    - **Name** — A descriptive name for this connection (must be unique within your organization)
    - **Description** — Optional context about what this server provides
@@ -48,11 +60,11 @@ The external MCP server must be **remote and hosted** — PlayerZero connects vi
 | **OAuth** | Server supports OAuth 2.0 | Nothing for auto-registration — PlayerZero handles the OAuth flow automatically. For pre-configured OAuth, provide a client ID, client secret, and auth method. |
 | **No authentication** | Server is publicly accessible or uses header-based auth only | Nothing |
 
-### Custom Headers (Optional)
+### Custom Headers
 
-Custom headers can be added to **any** connection type. Use them when the MCP server requires API keys, custom authentication headers, or other per-request headers alongside (or instead of) the primary auth method.
+Custom headers are a modifier that can be combined with **any** of the three authentication methods above. Use them when the MCP server requires API keys or custom headers — one or more key-value pairs sent with every request.
 
-After selecting your authentication method, expand the **Custom Headers** section and add one or more key-value pairs. These headers are sent with every request to the MCP server.
+After selecting your authentication method, expand the **Custom Headers** section and add your key-value pairs. These headers are included in every request to the MCP server.
 
 <Tip>
 For Datadog, select **No authentication** and add two custom headers: `DD-API-KEY` and `DD-APPLICATION-KEY`. See the [Datadog setup guide](/connector/datadog) for step-by-step instructions.
@@ -74,28 +86,31 @@ After setup, you can:
 - **Edit connection details** — Update the connection name and description
 - **Edit project access** — Add or remove projects that can use this connection
 - **Update credentials** — Change the authentication token or headers
-- **Manage tools** — Enable or disable individual tools from the connection (see below)
+- **Manage tools** — Enable or disable individual tools from the connection
 - **Delete** — Remove the connection entirely
 
-### Managing Tools
+### Recommended Providers
+
+When creating a new connection, the MCP settings page shows a curated catalog of popular providers (including Datadog, Coralogix, Slack, and others). Selecting a recommended provider pre-fills connection settings like the MCP server URL and authentication hints, making setup faster.
+
+## Manage Available Tools
 
 By default, all tools discovered from an MCP server are enabled. Editors and owners can disable specific tools to control what agents have access to.
 
 1. Open the connection detail page
 2. Click **Manage** in the Tools section
-3. Search or browse available tools
+3. Use the search bar to filter tools by name or description
 4. Uncheck tools you want to disable — disabled tools will not be available to agents
-5. Click **Save**
+5. Use **Select all** or **Deselect all** for bulk changes
+6. Click **Save**
+
+Each tool shows its name and description. Tools that can modify data on the remote server are marked with a **WRITE** badge. Disabled tools display a **DISABLED** badge.
 
 <Note>
 Tool changes apply to newly-created Player sessions only. Existing sessions continue to use the tool set that was active when they were created.
 </Note>
 
 Viewers can see the list of enabled and disabled tools but cannot make changes.
-
-### Recommended Providers
-
-When creating a new connection, the MCP settings page shows a curated catalog of popular providers (including Datadog, Coralogix, Slack, and others). Selecting a recommended provider pre-fills connection settings like the MCP server URL and authentication hints, making setup faster.
 
 ## Get Started
 
