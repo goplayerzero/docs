@@ -29,16 +29,20 @@ If your organization uses one of these systems, you can connect it directly duri
     - Grant read/write access to manage pull requests
 
 ### 1. Connect Your Code
-The primary step is to grant PlayerZero access to your Source Control Management system. You may have already connected an SCM system during the signup process. If so, you can skip directly to enabling specific repositories. To get started, go to the [Settings page](https://go.playerzero.app/setting/repos).
+The primary step is to grant PlayerZero access to your Source Control Management system. You may have already connected an SCM system during the signup process. If so, you can skip directly to enabling specific repositories.
 
-1. Navigate to the **Settings** tab in PlayerZero and select the **Code** anchor.
-2. Select your SCM system (GitHub, GitLab, or Bitbucket, etc.) when prompted.
+1. Navigate to **Settings → Context → Code** in PlayerZero.
+2. Select your SCM system (GitHub, GitLab, Bitbucket, or Azure Repos) when prompted.
+
+Git providers are managed at the **organization level**. Each provider appears as a collapsible card showing its connected repositories and health status.
 
 ### 2. Enable Specific Repositories
 After connecting your SCM, select which repositories PlayerZero should monitor.
 
-1. On the **Settings** tab inside the **Code** anchor, toggle on the repositories you want to ingest.
+1. On the **Code** settings page, expand your provider card and toggle on the repositories you want to ingest.
 2. Choose the primary reference branch (e.g., Main or Master).
+
+To assign repositories to specific **projects**, navigate to **Settings → Context → Code → Projects**. This page shows all projects with their assigned repositories, letting you manage cross-project repository access from one place.
 
 ### 3. Allow for Ingestion
 Once you’ve enabled your repositories, PlayerZero will begin analyzing the code to surface relevant insights. This process can take anywhere from a few minutes to several hours, depending on the size and complexity of your repositories.

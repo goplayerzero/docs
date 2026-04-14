@@ -1,0 +1,97 @@
+---
+title: "Knowledge Bases"
+sidebarTitle: "Knowledge Bases"
+description: "Upload organizational documents so AI agents can search and reference them during investigations."
+---
+
+## What Are Knowledge Bases?
+
+Knowledge Bases let you upload organizational documents — runbooks, API docs, style guides, internal references — and make them available to AI agents during Player sessions. When a knowledge base exists, agents automatically get access to a specialist teammate that can search and read your documents.
+
+Access Knowledge Bases from **Settings → Context → Knowledge Bases** in the sidebar.
+
+---
+
+## Creating a Knowledge Group
+
+Knowledge is organized into **groups**. Each group is a collection of related documents with shared metadata.
+
+<Note>
+Managing Knowledge Bases requires **editor** or **owner** permissions in the organization.
+</Note>
+
+1. Navigate to **Settings → Context → Knowledge Bases**
+2. Click **Create Group**
+3. Fill in the group details:
+
+| Field | Description |
+|---|---|
+| **Name** | A descriptive name for the group (e.g., "API Reference", "Runbooks") |
+| **Description** | Optional context about what this group contains |
+| **Category** | Organize by type — your organization's category list is customizable |
+| **Project scope** | **All projects** or select specific projects that should have access |
+
+4. Click **Create**
+
+---
+
+## Uploading Documents
+
+Once a group exists, upload documents to it:
+
+1. Open the knowledge group detail page
+2. Click **Upload Document**
+3. Select a file from your computer
+
+**Supported formats:** `.txt`, `.md`, `.csv`
+**Maximum file size:** 10 MB per document
+
+Documents are normalized to UTF-8 with LF line endings on upload. If you upload a file with the same name as an existing document in the group, the upload will be rejected — rename the file first.
+
+---
+
+## Managing Documents
+
+From the knowledge group detail page, you can:
+
+- **Download** — Retrieve the original document
+- **Delete** — Remove a document from the group (requires confirmation)
+
+To delete an entire group, use the **Delete Group** button on the group detail page.
+
+---
+
+## How Agents Use Knowledge Bases
+
+When at least one knowledge group exists in your organization, AI agents in Player sessions automatically gain access to a **Knowledge Base Agent** teammate. This specialist agent can:
+
+- **List available groups** — See which knowledge bases are available
+- **List group documents** — Enumerate documents within a specific group
+- **Search documents** — Grep-style search across all documents in accessible groups, with context lines around matches
+- **Read documents** — Retrieve full document content with line-number references for targeted analysis
+
+The Knowledge Base Agent is available in both Agent Mode and Hive Mode. In Hive Mode, the orchestrator can deploy it alongside other specialist agents (code explorers, integration agents, etc.) to cross-reference your organizational knowledge with codebase analysis.
+
+<Note>
+Agents only have access to knowledge groups scoped to their project. If a group is restricted to specific projects, agents in other projects will not see it.
+</Note>
+
+---
+
+## Filtering and Sorting
+
+The knowledge groups list page supports:
+
+- **Search** — Filter by group name or description
+- **Category filter** — Show only groups in a specific category
+- **Sort** — By name or most recently updated
+
+---
+
+## Get Started
+
+👉 [AI Player overview](/features/ai-player)
+
+👉 [Hive Mode](/features/hive-mode)
+
+👉 [Setup guide](/developer-guide/quickstart-guide)
