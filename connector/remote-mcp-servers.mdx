@@ -45,12 +45,17 @@ The external MCP server must be **remote and hosted** — PlayerZero connects vi
 | Method | When to Use | What You Provide |
 |--------|------------|-----------------|
 | **Auth Token** | Server requires a Bearer token | A single access token, sent as `Authorization: Bearer <token>` |
-| **OAuth** | Server supports OAuth 2.0 with dynamic client registration | Nothing — PlayerZero handles the OAuth flow automatically |
-| **Custom** | Server requires API keys or custom headers (e.g., Datadog) | One or more key-value header pairs |
-| **No authentication** | Server is publicly accessible | Nothing |
+| **OAuth** | Server supports OAuth 2.0 | Nothing for auto-registration — PlayerZero handles the OAuth flow automatically. For pre-configured OAuth, provide a client ID, client secret, and auth method. |
+| **No authentication** | Server is publicly accessible or uses header-based auth only | Nothing |
+
+### Custom Headers (Optional)
+
+Custom headers can be added to **any** connection type. Use them when the MCP server requires API keys, custom authentication headers, or other per-request headers alongside (or instead of) the primary auth method.
+
+After selecting your authentication method, expand the **Custom Headers** section and add one or more key-value pairs. These headers are sent with every request to the MCP server.
 
 <Tip>
-For Datadog, use **Custom** authentication with two headers: `DD-API-KEY` and `DD-APPLICATION-KEY`. See the [Datadog setup guide](/connector/datadog) for step-by-step instructions.
+For Datadog, select **No authentication** and add two custom headers: `DD-API-KEY` and `DD-APPLICATION-KEY`. See the [Datadog setup guide](/connector/datadog) for step-by-step instructions.
 </Tip>
 
 6. Click **Add**
@@ -66,9 +71,31 @@ If the connection fails, you'll see an error message. Common issues:
 ### Managing Connections
 
 After setup, you can:
+- **Edit connection details** — Update the connection name and description
 - **Edit project access** — Add or remove projects that can use this connection
 - **Update credentials** — Change the authentication token or headers
+- **Manage tools** — Enable or disable individual tools from the connection (see below)
 - **Delete** — Remove the connection entirely
+
+### Managing Tools
+
+By default, all tools discovered from an MCP server are enabled. Editors and owners can disable specific tools to control what agents have access to.
+
+1. Open the connection detail page
+2. Click **Manage** in the Tools section
+3. Search or browse available tools
+4. Uncheck tools you want to disable — disabled tools will not be available to agents
+5. Click **Save**
+
+<Note>
+Tool changes apply to newly-created Player sessions only. Existing sessions continue to use the tool set that was active when they were created.
+</Note>
+
+Viewers can see the list of enabled and disabled tools but cannot make changes.
+
+### Recommended Providers
+
+When creating a new connection, the MCP settings page shows a curated catalog of popular providers (including Datadog, Coralogix, Slack, and others). Selecting a recommended provider pre-fills connection settings like the MCP server URL and authentication hints, making setup faster.
 
 ## Get Started
 

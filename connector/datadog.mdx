@@ -47,8 +47,8 @@ For full details on creating a Datadog service account with the correct keys and
 This connection uses PlayerZero's Remote MCP Servers feature. Datadog authenticates via custom headers (API key + Application key), not OAuth.
 </Note>
 
-1. In PlayerZero, navigate to **Settings → Ticketing**
-2. Navigate to the **Remote MCP Servers** page and click **New Connector**
+1. In PlayerZero, navigate to **Settings → Context → MCP**
+2. Click **New Connector**
 3. Fill in the connection details:
    - **Name** — `Datadog` (or any descriptive name). Connection names must be unique within your organization.
    - **Description** — Optional. For example: `Production Datadog environment`
@@ -56,8 +56,8 @@ This connection uses PlayerZero's Remote MCP Servers feature. Datadog authentica
 4. Under **Project Access**, choose which PlayerZero projects should have access:
    - **All projects** — Every project in your organization can use this connection
    - **Specific projects** — Select individual projects
-5. Under **Authentication**, select **Custom**
-6. Add two custom headers:
+5. Under **Authentication**, select **No authentication**
+6. Expand the **Custom Headers** section and add two headers:
    - **Key:** `DD-API-KEY` → **Value:** your Datadog API key
    - **Key:** `DD-APPLICATION-KEY` → **Value:** your Datadog Application key
 7. Click **Add**

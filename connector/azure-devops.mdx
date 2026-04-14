@@ -76,3 +76,15 @@ After setup, you can:
 - **Disable/enable** — Temporarily pause the integration without disconnecting
 - **Disconnect** — Remove the integration entirely (requires re-authorization to reconnect)
 
+### Organization URL for PAT Connections
+
+If your Azure DevOps integration uses a Personal Access Token (PAT) instead of OAuth, PlayerZero needs your organization URL to construct API calls correctly.
+
+PlayerZero attempts to detect the organization URL automatically from your credentials. If auto-detection fails, you'll see a prompt on the integration detail page to enter it manually.
+
+Accepted formats:
+- Organization name: `myorg`
+- Full URL: `https://dev.azure.com/myorg`
+- Legacy URL: `myorg.visualstudio.com`
+
+All formats are normalized automatically.

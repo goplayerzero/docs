@@ -1,0 +1,55 @@
+---
+title: "Freshdesk"
+description: "Connect Freshdesk to PlayerZero for AI-assisted customer support and ticket management."
+---
+
+Freshdesk is a customer support platform that helps teams manage, prioritize, and resolve customer issues.
+
+## What You Can Do
+
+Once connected, PlayerZero AI agents can:
+
+- **Search tickets** — Find tickets using keyword search across your Freshdesk environment
+- **Read tickets and conversations** — Access full ticket details, customer messages, and agent responses for context
+- **Create tickets** — Generate support tickets from debug sessions with subject, description, requester, priority, and tags
+- **Update tickets** — Modify existing ticket fields including status, priority, assignee, type, tags, and group
+- **Delete tickets** — Remove tickets that are no longer needed
+- **Add notes** — Post internal notes with investigation findings and technical details
+- **Reply to tickets** — Send replies visible to the customer with investigation results
+- **Search contacts** — Find customers by name or email
+- **Discover metadata** — List available agents, groups, and ticket fields for routing and categorization
+
+## Use Cases
+
+- **Support triage** — AI agents analyze incoming tickets and suggest priority, tags, or assignment based on code analysis
+- **Debug-to-ticket workflow** — Convert investigation findings into detailed Freshdesk tickets for customer communication
+- **Known issue detection** — When investigating, agents search for similar past tickets to identify patterns
+- **Customer context** — Pull in related tickets and contact history when debugging customer-reported issues
+
+## Scopes & Permissions
+
+<Info>
+PlayerZero requests only the permissions needed for AI agents to assist with support workflows. We follow the principle of least privilege — each permission directly enables a specific capability.
+</Info>
+
+| Scope | Why It's Needed |
+|-------|-----------------|
+| `read` | **Context gathering** — Allows AI agents to read ticket details, conversations, contact information, and metadata when investigating issues or searching for related past tickets |
+| `write` | **Ticket management** — Enables agents to create tickets from debug sessions, post notes and replies, update ticket fields, and manage ticket lifecycle when you ask them to document or escalate issues |
+
+## Setup
+
+<Note>
+Setup starts in PlayerZero — no pre-configuration in Freshdesk is required.
+</Note>
+
+1. In PlayerZero, navigate to **Settings → Ticketing**
+2. Find **Freshdesk** and click **Connect**
+3. You'll be redirected to Freshdesk to log in and authorize PlayerZero
+4. After authorization, select which PlayerZero projects should have access to this integration
+
+## Get Started
+
+👉 [AI Player overview](/features/ai-player)
+
+👉 [Setup guide](/developer-guide/quickstart-guide)

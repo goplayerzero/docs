@@ -73,7 +73,8 @@
                   "connector/salesforce",
                   "connector/servicenow",
                   "connector/slack",
-                  "connector/zendesk"
+                  "connector/zendesk",
+                  "connector/freshdesk"
                 ]
               },
               {
@@ -157,6 +158,12 @@
                 "pages": [
                   "features/additional-features/chrome-extension",
                   "features/additional-features/usage-analytics"
+                ]
+              },
+              {
+                "group": "Knowledge",
+                "pages": [
+                  "features/knowledge-bases"
                 ]
               }
             ]
