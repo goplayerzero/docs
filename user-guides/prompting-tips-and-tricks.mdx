@@ -1,0 +1,206 @@
+---
+title: "Prompting Tips & Tricks"
+description: "Role-specific prompting strategies for getting the most out of PlayerZero AI Chat."
+---
+
+Select your role below for targeted strategies on how to ask better questions and get more useful answers from PlayerZero.
+
+## Frontend Developer
+
+- **Semantic Code Understanding:** Find React components, styling patterns, and UI logic based on natural‑language descriptions rather than exact keyword matches.
+- **Cross‑Repository Intelligence:** Navigate complex frontend architectures spanning multiple repositories, packages, and micro‑services.
+- **Component Discovery:** Locate reusable UI components, design‑system elements, and styling patterns across your entire codebase.
+- **Integration Insights:** Understand how frontend components interact with APIs, state management, and backend services.
+
+<AccordionGroup>
+
+<Accordion title="Use Natural‑Language Descriptions">
+- *GOOD:* "Find the component that handles user authentication and shows loading states."
+- *BETTER:* "Show me how the login form manages loading states and error messages during authentication."
+</Accordion>
+
+<Accordion title="Provide Context About Your Goal">
+- *GOOD:* "Find the responsive navigation component."
+- *BETTER:* "I need to add a mobile‑menu toggle to the main navigation. Show me the current responsive navigation implementation and recent changes."
+</Accordion>
+
+<Accordion title="Combine Code Structure with User Experience">
+- *GOOD:* "Find components that handle form validation."
+- *BETTER:* "Show me how we handle form‑validation errors in the user‑registration flow, including error‑messaging and accessibility features."
+</Accordion>
+
+<Accordion title="Ask for Specific Implementation Details">
+- *GOOD:* "How does the dashboard component work?"
+- *BETTER:* "Walk me through the dashboard component's state management, API calls, and how it handles loading and error states."
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+## Backend Engineer
+
+- **System Architecture Intelligence:** Understand service dependencies, API contracts, and data flow across microservices and databases.
+- **Database and Query Insights:** Find database schemas, query patterns, and optimization opportunities across your data layer.
+- **API Discovery and Tracing:** Locate endpoints, understand request/response flows, and trace business logic through multiple services.
+- **Production Issue Correlation:** Connect error logs, user sessions, and performance traces to identify root causes in distributed systems.
+
+<AccordionGroup>
+
+<Accordion title="Think in System Flows, Not Individual Files">
+- *GOOD:* "Find the user authentication service."
+- *BETTER:* "Show me the complete user‑authentication flow from API request through JWT validation, database lookup, and response generation."
+</Accordion>
+
+<Accordion title="Combine Code with Production Behavior">
+- *GOOD:* "Find the payment processing code."
+- *BETTER:* "Show me the payment‑processing implementation related to errors or performance issues users have experienced during checkout."
+</Accordion>
+
+<Accordion title="Focus on Business Logic and Data Flow">
+- *GOOD:* "Find database queries for orders."
+- *BETTER:* "Trace how order data flows from creation through payment processing, inventory updates, and fulfillment, including all database interactions."
+</Accordion>
+
+<Accordion title="Consider Service Boundaries and Integration">
+- *GOOD:* "Show me the notification service."
+- *BETTER:* "How does the notification service integrate with the user service and email provider? Show me the API contracts, error handling, and retry logic."
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+## Support
+
+- **Instant Issue Diagnosis:** Quickly correlate user descriptions with real system behavior.
+- **Cross‑System Problem Solving:** Connect user reports to code implementations, recent changes, and related historical issues.
+- **Accurate Technical Translation:** Bridge the gap between user language ("the button doesn't work") and technical reality (API errors, validation failures).
+- **Intelligent Escalation:** Provide engineering with precise context, relevant code sections, and reproduction steps.
+
+<AccordionGroup>
+
+<Accordion title="Start with User Language, Not Technical Terms">
+- *GOOD:* "Find issues with login problems."
+- *BETTER:* "A user says they can't log in and keep getting an error message. Show me what might be causing login failures and similar recent reports."
+</Accordion>
+
+<Accordion title="Focus on User Impact and Business Context">
+- *GOOD:* "Show me payment processing code."
+- *BETTER:* "Multiple users report their credit‑card payments are being declined. What could cause this and how do we fix it?"
+</Accordion>
+
+<Accordion title="Ask for Solutions, Not Just Explanations">
+- *GOOD:* "Why is the checkout page slow?"
+- *BETTER:* "Users complain about slow checkout. Show me causes of delay and any temporary work‑arounds I can offer."
+</Accordion>
+
+<Accordion title="Include Timeline and Pattern Context">
+- *GOOD:* "Find email‑delivery issues."
+- *BETTER:* "Since yesterday, users haven't received password‑reset emails. Show me the email system, recent changes, and similar past issues."
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+## Data Analyst
+
+- **Data Schema Discovery:** Understand database structures, relationships, and data models across your entire system.
+- **Business Logic Analysis:** Trace how business rules are implemented in code and how they affect data quality and meaning.
+- **Data Pipeline Understanding:** Map data flows from collection through transformation to storage and reporting.
+- **Data Quality Insights:** Identify validation rules, constraints, and data processing logic that impact data integrity.
+
+<AccordionGroup>
+
+<Accordion title="Focus on Data Flows, Not Individual Tables">
+- *GOOD:* "Show me the user table schema."
+- *BETTER:* "Trace how user data flows from registration through profile updates to account deletion, including all transformations and validations."
+</Accordion>
+
+<Accordion title="Connect Business Logic to Data Implementation">
+- *GOOD:* "Find revenue calculation code."
+- *BETTER:* "Show me how revenue metrics are calculated in the code, including any business rules, discounts, refunds, and how this data is stored and aggregated."
+</Accordion>
+
+<Accordion title="Understand Data Quality Through Code">
+- *GOOD:* "Show me data validation."
+- *BETTER:* "What validation rules and data‑quality checks are implemented for customer data, and how do they ensure data consistency across the system?"
+</Accordion>
+
+<Accordion title="Map Data Sources and Destinations">
+- *GOOD:* "Find database connections."
+- *BETTER:* "Show me all the places where user‑behavior data is collected, how it's processed, and where it's ultimately stored or exported."
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+## QA Engineer
+
+- **Comprehensive Test‑Coverage Analysis:** Identify critical code paths, branches, and integration points that demand testing.
+- **Edge‑Case Discovery:** Surface boundary conditions, unusual workflows, and error‑handling scenarios often missed by manual reviews.
+- **Integration‑Testing Insights:** Map service dependencies, API contracts, and data flows to craft effective integration tests.
+- **Business‑Logic Understanding:** Reveal complex validation rules so you can create meaningful, real‑world test cases.
+
+<AccordionGroup>
+
+<Accordion title="Focus on User Workflows, Not Single Functions">
+- *GOOD:* "Show me the login function."
+- *BETTER:* "Show me the complete user‑authentication workflow—including login, session management, password reset, and account‑lockout scenarios."
+</Accordion>
+
+<Accordion title="Think in Test Scenarios, Not Just Code Coverage">
+- *GOOD:* "Find form‑validation code."
+- *BETTER:* "Show me user‑registration validation covering all rules, error conditions, and edge cases I should test."
+</Accordion>
+
+<Accordion title="Highlight Integration & Dependency Needs">
+- *GOOD:* "Show me API endpoints."
+- *BETTER:* "Map the payment‑processing flow, including all service interactions, external API calls, and failure scenarios to test."
+</Accordion>
+
+<Accordion title="Understand Business Logic for Meaningful Tests">
+- *GOOD:* "Find calculation functions."
+- *BETTER:* "Show me how shipping costs are calculated, including discounts and international‑shipping edge cases."
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+## Business Analyst
+
+- **Access Living Documentation & Architecture Maps:** Generate current-state maps of services, data models, APIs, and dependencies from the code and runtime behavior.
+- **Connect Business Rules to Code:** Trace policies, pricing rules, SLAs, and workflows directly to the functions, services, and jobs that implement them.
+- **Shorten Learning Curves:** Bootstrap domain knowledge, uncover hidden edge cases, and surface decision context so you can onboard quickly and design solutions with confidence.
+
+<AccordionGroup>
+
+<Accordion title="Ask for End-to-End Flows, Not Isolated Components">
+- *GOOD:* "Show me the checkout service."
+- *BETTER:* "Map the end-to-end checkout flow—from cart submission to payment capture, fulfillment, and post-purchase notifications—including external services and failure paths."
+</Accordion>
+
+<Accordion title="Tie Business Concepts to Concrete Implementations">
+- *GOOD:* "Where is discounting handled?"
+- *BETTER:* "Show all discount business rules (codes, stacking limits, eligibility) and trace each rule to the exact modules, jobs, and API endpoints that implement them."
+</Accordion>
+
+<Accordion title="Request Artifacts You Can Share">
+- *GOOD:* "Explain the subscription lifecycle."
+- *BETTER:* "Produce a sequence diagram of the subscription lifecycle (create, upgrade/downgrade, proration, renewal, cancel). Include the services, events, and data stores involved, and list the key business rules referenced."
+</Accordion>
+
+<Accordion title="Include Non-Functional Requirements and Constraints">
+- *GOOD:* "Where is rate limiting implemented?"
+- *BETTER:* "Show how we enforce SLAs (rate limits, timeouts, retries) for the public API, the configuration points, and where SLOs are monitored and alerted."
+</Accordion>
+
+<Accordion title="Add Timeline and Change Context">
+- *GOOD:* "How did billing change?"
+- *BETTER:* "List billing-rule changes in the last 90 days, the PRs involved, impacted services, and any migrations or feature flags tied to the rollout."
+</Accordion>
+
+</AccordionGroup>
