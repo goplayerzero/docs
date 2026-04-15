@@ -165,12 +165,7 @@
             "group": "Prompting Best Practices",
             "pages": [
               "user-guides/prompting-basics",
-              "user-guides/frontend-developer",
-              "user-guides/backend-engineer",
-              "user-guides/support",
-              "user-guides/data-analyst",
-              "user-guides/qa-engineer",
-              "user-guides/business-analyst"
+              "user-guides/prompting-tips-and-tricks"
             ]
           }
         ]
