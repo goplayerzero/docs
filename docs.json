@@ -78,7 +78,7 @@
                 ]
               },
               {
-                "group": "MCP",
+                "group": "MCP (Model Context Protocol)",
                 "pages": [
                   "connector/remote-mcp-servers",
                   "developer-guide/configuration-guides/mcp-setup"
