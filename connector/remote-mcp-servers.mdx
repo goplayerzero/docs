@@ -4,8 +4,6 @@ sidebarTitle: "External MCP Servers"
 description: "Connect external MCP servers to PlayerZero so AI agents can access third-party tools and data sources during investigations."
 ---
 
-<Note>**Beta Feature** — MCP Server is currently in beta. Core functionality is stable, but some behaviors and interfaces may change as we continue development. Contact [support](mailto:support@playerzero.ai) if you run into any issues.</Note>
-
 PlayerZero can connect to any remote MCP-compatible server, extending what AI agents can access during Player sessions. This lets you bring in data from observability platforms, log providers, internal tools, and any other service that exposes an MCP server.
 
 ## What Remote MCP Servers Enable
@@ -57,8 +55,12 @@ The external MCP server must be **remote and hosted** — PlayerZero connects vi
 | Method | When to Use | What You Provide |
 |--------|------------|-----------------|
 | **Auth Token** | Server requires a Bearer token | A single access token, sent as `Authorization: Bearer <token>` |
-| **OAuth** | Server supports OAuth 2.0 | Nothing for auto-registration — PlayerZero handles the OAuth flow automatically. For pre-configured OAuth, provide a client ID, client secret, and auth method. |
+| **OAuth** | Server supports OAuth 2.0 | Nothing for auto-registration — PlayerZero handles the OAuth flow automatically. For pre-configured OAuth, provide a client ID, client secret, and auth method. Optionally specify **OAuth scopes** — if left blank, PlayerZero uses the scopes advertised by the server. |
 | **No authentication** | Server is publicly accessible or uses header-based auth only | Nothing |
+
+<Tip>
+If the MCP server doesn't support `offline_access` or requires specific scopes, use the **OAuth Scopes** field to provide them explicitly as a space-separated list (e.g., `openid offline_access`).
+</Tip>
 
 ### Custom Headers
 
@@ -82,16 +84,23 @@ If the connection fails, you'll see an error message. Common issues:
 
 ### Managing Connections
 
-After setup, you can:
-- **Edit connection details** — Update the connection name and description
+After setup, you can manage connections from the connection detail page:
+
+- **Edit name and description** — Update the connection's display name and description
 - **Edit project access** — Add or remove projects that can use this connection
-- **Update credentials** — Change the authentication token or headers
+- **Update server URL** — Change the MCP server endpoint
+- **Change authentication** — Switch authentication type or update credentials (token, OAuth, custom headers)
+- **Re-authorize OAuth** — Re-run the OAuth flow with new credentials without recreating the connection
 - **Manage tools** — Enable or disable individual tools from the connection
 - **Delete** — Remove the connection entirely
 
+<Tip>
+Connection editing is split into two dialogs: one for metadata (name, description, project access) and one for authorization settings (server URL, authentication, credentials). This lets you update metadata without re-authenticating.
+</Tip>
+
 ### Recommended Providers
 
-When creating a new connection, the MCP settings page shows a curated catalog of popular providers (including Datadog, Coralogix, Slack, and others). Selecting a recommended provider pre-fills connection settings like the MCP server URL and authentication hints, making setup faster.
+When creating a new connection, the MCP settings page shows a curated catalog of popular providers (including Datadog, Coralogix, and others). Selecting a recommended provider pre-fills connection settings like the MCP server URL and authentication hints, making setup faster.
 
 ## Manage Available Tools
 
