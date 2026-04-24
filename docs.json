@@ -153,6 +153,7 @@
               "features/code-sim",
               "features/code-reviews",
               "features/debug-reports",
+              "features/monitors",
               {
                 "group": "Additional Features",
                 "pages": [
