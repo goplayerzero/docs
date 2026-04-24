@@ -1,0 +1,146 @@
+---
+title: "Monitors"
+sidebarTitle: "Monitors"
+description: "Set up automated monitors that periodically check conditions across your systems and alert you when something fails."
+---
+
+## What Are Monitors?
+
+Monitors are automated checks that run on a schedule and verify that a condition you define holds true. When a check fails, you will see it immediately, and you can configure a workflow stage to begin automatically to investigate the failure.
+
+Monitors configuration is managed at the **organization level**, but a monitor can only begin a workflow in the project you select. Navigate to **Settings → Monitors** to view and manage them.
+
+---
+
+## Creating a Monitor
+
+1. Navigate to **Settings → Monitors**
+2. Click **Create monitor**
+3. Fill in the monitor details:
+
+| Field | Description |
+|---|---|
+| **Name** | A short, descriptive name for the monitor (e.g., "API Latency Check") |
+| **What should be checked?** | The condition that should always hold true. Describe what you expect in plain language — the system evaluates this automatically. |
+| **Schedule** | How often to run the check. Use the visual schedule builder (presets for minutes, hourly, daily, weekly, monthly) or enter a cron expression manually. Minimum interval is 5 minutes. |
+| **Stop after** | *(Optional)* Automatically disable the monitor after a specific date and time. If not set, the monitor runs indefinitely. |
+| **When this fails, run** | *(Optional)* Select a project and workflow stage to trigger automatically when the check fails. |
+
+4. Click **Create Monitor**
+
+New monitors start running on their schedule immediately after creation.
+
+<Note>
+Creating and editing monitors requires **editor** or **owner** permissions. Viewers can see monitors and their results but cannot make changes.
+</Note>
+
+---
+
+## Managing Monitors
+
+### Monitor List
+
+The monitors page shows all monitors in your organization in a split-panel view:
+
+- **Left panel** — A paginated list of all monitors, each showing the monitor name, condition summary, schedule, workflow stage (if configured), recent result history, and last run verdict
+- **Right panel** — Detailed view of the selected monitor, including full condition text, schedule, expiration, result timeline, and management actions
+
+### Filtering
+
+Use the filter bar to narrow the list:
+
+- **Status** — Filter by Active, Inactive, or Expired monitors
+- **Verdict** — Filter by Passing, Failing, or Incomplete results
+
+### Monitor Detail
+
+Click any monitor in the list to open its detail panel. The detail view shows:
+
+- **What's being checked** — The full condition text
+- **Schedule** — Human-readable description of the polling schedule
+- **Stop after** — Expiration date, or "Runs indefinitely"
+- **Workflow stage** — The project and stage that triggers on failure, or "No workflow configured"
+- **Result history** — A timeline of past evaluation results with verdict, reasoning, and workflow status
+- **Version history** — Each monitor tracks versions. Changing the monitored condition creates a new version.
+
+---
+
+## Editing a Monitor
+
+1. Select a monitor from the list
+2. Click **Edit** in the detail panel footer
+3. Update any fields — name, condition, schedule, expiration, or workflow stage
+4. Click **Save**
+
+<Note>
+Changing the monitored condition (the "What should be checked?" field) creates a new version of the monitor. Other changes (name, schedule, expiration, workflow stage) update the current version in place.
+</Note>
+
+---
+
+## Activating and Deactivating
+
+Monitors can be in one of three states:
+
+- **Active** — Running on schedule
+- **Inactive** — Paused. The monitor exists but does not run until reactivated.
+- **Expired** — The monitor's expiration date has passed. It no longer runs. You can edit the expiration to resume it.
+
+To deactivate an active monitor, click **Deactivate** in the detail panel footer. To reactivate, click **Activate**. For expired monitors, click **Change expiry** to set a new date.
+
+---
+
+## Test Runs
+
+You can run a monitor immediately to verify it works without waiting for the next scheduled evaluation.
+
+1. Select a monitor from the list
+2. Click **Test run** in the detail panel footer
+3. Confirm the run
+
+The result appears in the result timeline once the evaluation completes. Results update in real time — you don't need to refresh the page.
+
+<Note>
+If a workflow stage is configured, a test run that fails will trigger the workflow — the same as a scheduled failure.
+</Note>
+
+---
+
+## Workflow Integration
+
+Monitors can automatically trigger a workflow stage when a check fails. This lets you connect monitoring to your existing investigation workflows — for example, automatically starting a triage workflow when an SLA check fails.
+
+To configure a workflow trigger:
+
+1. When creating or editing a monitor, use the **When this fails, run** field
+2. Select a **project** from the dropdown
+3. Select a **workflow stage** from that project
+
+When the monitor fails:
+
+- **Workflow started** — A new workflow Player is created and starts processing from the configured stage
+- **Workflow skipped** — A workflow was already started in the last hour for this monitor, so the run is skipped to avoid duplicates
+- **No workflow** — No workflow stage is configured
+- **Workflow failed** — Something went wrong when trying to start the workflow
+
+Each result in the timeline shows the workflow status so you can track what happened after each failure.
+
+---
+
+## Deleting a Monitor
+
+1. Select a monitor from the list
+2. Click the **delete** button in the detail panel footer
+3. Confirm the deletion
+
+Deleting a monitor removes it and all its result history permanently.
+
+---
+
+## Get Started
+
+👉 [Workflows overview](/features/workflows)
+
+👉 [Configuring Workflows](/features/configuring-workflows)
+
+👉 [AI Player overview](/features/ai-player)
