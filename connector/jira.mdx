@@ -9,11 +9,13 @@ Jira is a tool used by agile teams to plan, track, and release software.
 
 Once connected, PlayerZero AI agents can:
 
-- **Read issues and comments** - Access ticket details, descriptions, attachments, and comment threads for debugging context
-- **Create and update issues** - Generate Jira tickets from debug sessions with proper formatting and fields
-- **Add comments** - Post structured comments with code references, stack traces, and root cause analysis
-- **Post private comments** - Add internal notes visible only to agents with a specific Jira Service Desk role, keeping investigation details hidden from external customers
-- **Navigate projects** - Understand your Jira project structure, issue types, and custom fields
+- **Read issues and comments** — Access ticket details, descriptions, attachments, and comment threads for debugging context
+- **Create issues** — Generate Jira tickets from debug sessions with rich formatting, including tables and structured descriptions
+- **Update issues** — Modify existing issue fields like summary, description, priority, assignee, and labels
+- **Search issues** — Find issues using JQL or keyword search across your Jira projects
+- **Add comments** — Post structured comments with code references, stack traces, and root cause analysis
+- **Post private comments** — Add internal notes visible only to team members with a specific Jira Service Desk role, keeping investigation details hidden from external customers
+- **Navigate projects** — Understand your Jira project structure, issue types, roles, and custom fields
 
 ## Use Cases
 
@@ -67,19 +69,29 @@ You can also instruct agents to create Jira tickets as part of a workflow stage.
 
 If a Player session was triggered from an existing Jira ticket (or you reference one during the conversation), the agent can add comments with investigation findings, root cause analysis, or code references directly to the ticket.
 
-### Private Comments (Jira Service Desk)
+### Comment Visibility
 
-If your Jira project uses Service Desk, AI agents can post **private comments** that are only visible to internal team members — not to external customers who submitted the ticket.
+Control whether AI agents post public or private comments on Jira issues. This is configured per integration from the Jira detail page in **Settings → Ticketing**.
 
-To enable private comments:
+| Mode | Behavior |
+|---|---|
+| **Public comments only** | Agents can only post public comments. All comments are visible to everyone with access to the issue, including external customers on Service Desk portals. |
+| **Private comments only** | Agents can only post private (internal) comments. Comments are visible only to team members with the specified visibility role. |
+| **Let the agent decide** | Both public and private comment tools are available. The agent chooses which to use based on context and your instructions. |
+
+To configure comment visibility:
 
 1. Navigate to the Jira integration detail page in **Settings → Ticketing**
-2. Toggle on **Private comments**
-3. Optionally specify a **visibility role** (defaults to "Service Desk Team")
+2. Under **Comment visibility**, select a mode
+3. If you selected **Private comments only** or **Let the agent decide**, specify a **visibility role** (defaults to "Service Desk Team")
 
-The visibility role controls which Jira users can see the comment. It must match an existing project role in your Jira instance. If the specified role doesn't exist on the target project, the comment will not be posted to avoid accidental exposure to customers.
+New Jira integrations default to **Let the agent decide**. Existing integrations that previously had private comments toggled on are automatically migrated to **Private comments only**.
 
-When private comments are enabled, you can instruct the agent to use them in your workflow stage instructions — for example: *"Post your findings as a private comment on the Jira ticket so the support team can review before responding to the customer."*
+The visibility role controls which Jira users can see private comments. It must match an existing project role in your Jira instance. If the specified role doesn't exist on the target project, the private comment will not be posted to avoid accidental exposure to customers.
+
+<Tip>
+Use **Let the agent decide** when your workflows handle both internal investigation and customer-facing communication. You can guide the agent's choice by adding instructions to your workflow stage — for example: *"Post your findings as a private comment on the Jira ticket so the support team can review before responding to the customer."*
+</Tip>
 
 ## Get Started
 
