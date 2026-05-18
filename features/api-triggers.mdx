@@ -1,0 +1,128 @@
+---
+title: "API Triggers"
+sidebarTitle: "API Triggers"
+description: "Allow external systems to start PlayerZero workflows via HTTP endpoints with optional HMAC signature validation and IP restrictions."
+---
+
+API Triggers let external systems start PlayerZero workflows by sending HTTP requests to a dedicated endpoint. Use them to connect CI/CD pipelines, monitoring tools, alerting systems, or any HTTP-capable application to your PlayerZero workflow stages.
+
+## What Are API Triggers?
+
+An API trigger is a configured HTTP endpoint that, when called, creates a new Player session in a specific workflow stage. Each trigger has its own URL, optional security controls, and a target stage where work begins.
+
+When an external system sends a POST request to the trigger URL with a JSON payload, PlayerZero:
+
+1. Validates the request (security checks, payload size)
+2. Creates a new Player in the configured workflow stage
+3. Passes the payload content as context to the Player
+
+---
+
+## Creating a Trigger
+
+1. Navigate to **Settings → API Triggers**
+2. Click **Create Trigger**
+3. Fill in the trigger details:
+
+| Field | Description |
+|---|---|
+| **Name** | A descriptive name for the trigger (e.g., "PagerDuty Alert Ingestion") |
+| **Description** | Optional context about what this trigger is for |
+| **Workflow stage** | Select a project and entry stage where new Players will be created when this trigger fires |
+| **Active** | Whether the trigger accepts incoming requests. New triggers are active by default. |
+
+4. Click **Create Trigger**
+
+After creation, the trigger detail panel displays the full endpoint URL (including the auto-generated trigger token) for sending requests.
+
+<Note>
+Creating and editing triggers requires **editor** or **owner** permissions.
+</Note>
+
+---
+
+## Security
+
+API triggers support two layers of security that can be used independently or together.
+
+### HMAC Signature Validation
+
+Verify that incoming requests are authentic by validating an HMAC signature sent in a request header.
+
+| Field | Description |
+|---|---|
+| **Signature header** | The HTTP header containing the signature (e.g., `X-Hub-Signature-256` for GitHub) |
+| **HMAC secret** | The shared secret used to compute the HMAC hash |
+| **Algorithm** | `SHA-256` (default) or `SHA-512` |
+| **Encoding** | How the signature is encoded: `Hex` (default), `Base64`, or `Base64URL` |
+| **Signature prefix** | *(Optional)* A prefix to strip from the header value before validation (e.g., `sha256=` for GitHub webhooks) |
+
+The default header name is `X-PZ-Signature`. The default prefix is `sha256=` for SHA-256 and `sha512=` for SHA-512.
+
+When configured, PlayerZero computes the HMAC hash of the request body using the shared secret and compares it to the value in the specified header. Requests with missing or invalid signatures are rejected.
+
+<Tip>
+For GitHub webhooks, set the header to `X-Hub-Signature-256`, the algorithm to `SHA-256`, the encoding to `Hex`, and the prefix to `sha256=`.
+</Tip>
+
+### CIDR IP Allowlists
+
+Restrict which IP addresses can invoke the trigger by specifying one or more CIDR blocks. Requests from IP addresses outside the allowed ranges are rejected.
+
+Both IPv4 and IPv6 CIDR blocks are supported.
+
+---
+
+## Using a Trigger
+
+Send a POST request to the trigger URL with a JSON body:
+
+```
+POST https://sdk.playerzero.app/workflow/start/{triggerToken}
+Content-Type: application/json
+
+{
+  "summary": "High CPU usage on production API servers",
+  "severity": "critical",
+  "source": "PagerDuty",
+  "details": "CPU usage exceeded 95% for 10 minutes on api-prod-1 and api-prod-2"
+}
+```
+
+The JSON payload is passed as context to the Player session. The maximum payload size is 10 MB.
+
+If the trigger has HMAC validation configured, include the signature in the appropriate header:
+
+```
+X-Hub-Signature-256: sha256=abc123...
+```
+
+### Response Codes
+
+| Code | Meaning |
+|---|---|
+| **202** | Trigger accepted and Player creation initiated |
+| **404** | Trigger not found, inactive, IP not allowed, or signature invalid |
+
+---
+
+## Managing Triggers
+
+From **Settings → API Triggers**, select a trigger to open its detail panel. The detail panel shows:
+
+- **Trigger URL** — The full endpoint URL for sending requests
+- **Configuration** — Name, description, target stage, and security settings
+- **Usage** — Number of invocations in the last 24 hours
+- **Errors** — Recent error details if invocations have failed
+
+You can edit, deactivate, or delete triggers from the detail panel.
+
+---
+
+## Get Started
+
+👉 [Workflows overview](/features/workflows)
+
+👉 [Configuring Workflows](/features/configuring-workflows)
+
+👉 [Monitors](/features/monitors)
