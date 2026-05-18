@@ -1,0 +1,99 @@
+---
+title: "April 2026"
+sidebarTitle: "April 2026"
+---
+
+## Create Dynamic Monitors to Trigger Automated Investigation (Early Access)
+
+Monitors let engineering teams define conditions they care about — PlayerZero writes and runs the underlying queries automatically. Under the hood, it connects directly to your observability platform to evaluate each condition. When a monitor fires, it triggers a workflow and Slack notification, so the right people know immediately. They're built for targeted, time-bound checks, not to replace your existing SLOs. You can now create monitors that continuously verify runtime invariants across any system connected via MCP. Write a plain-language rule like "API responses should never exceed 500ms" and PlayerZero does the work to discover which APIs to check, adapting with each run to track the full breadth of your system even as the code and telemetry change over time. When a monitor detects a violation, it can trigger a workflow Player that automatically investigates the failure with full context.
+
+Monitors turn passive observability into proactive investigation. Engineering and SRE teams define what "healthy" looks like in plain language, and PlayerZero handles discovery, evaluation, and escalation. There's no query language to learn and no dashboards to configure. Set up a monitor in under a minute and let it evolve alongside your system.
+
+{/* 📸 Screenshot: The monitor creation dialog with a plain-language invariant, and a monitor result detail view showing the "Investigate with Player" button */}
+
+
+---
+
+## Generate Commit Messages with AI
+
+You can now generate commit messages directly from the player commit panel. Click the sparkle button next to the commit message field and the AI drafts a message based on your pending changes. Generation is powered by the playbook system, so you can customize the prompt by creating a playbook tagged with `commits`.
+
+Engineers committing code through PlayerZero save time on the repetitive task of writing commit messages. Teams that want consistent commit formatting can standardize it through a shared playbook.
+
+{/* 📸 Screenshot: The commit panel with the sparkle button visible next to the commit message textarea, and a generated message populated in the field */}
+
+
+---
+
+## MCP Connections Updates and GA
+
+MCP connections can now be updated without deleting and recreating them. The editing experience is split into two focused dialogs: one for metadata like name, description, and project access, and one for authorization settings including server URL, auth method, and credentials. You can also configure custom OAuth scopes.
+
+The MCP feature flag has been removed and MCP is now generally available for all organizations.
+
+{/* 📸 Screenshot: The MCP connection detail page showing the "Edit Details" and "Edit Authorization" action buttons */}
+
+
+---
+
+## Manage Project Membership from Organization Settings
+
+Organization owners can now assign members to projects directly from the org-level members page. A new dialog supports bulk project assignment with per-project role selection, so you can onboard a new team member to multiple projects in one step.
+
+Administrators managing larger organizations with multiple projects can now handle access in one place instead of navigating to each project individually. This is especially useful during onboarding or team restructuring.
+
+{/* 📸 Screenshot: The org members table showing the "Projects" column and the "Add Projects" dialog with role selection per project */}
+
+
+---
+
+## Discover Azure DevOps Custom Fields
+
+AI agents can now discover available work item fields in your Azure DevOps organization, including custom fields, before attempting to set values. The agent queries your ADO instance for field metadata like name, reference name, type, and read-only status.
+
+Teams using Azure DevOps with custom field configurations will see fewer errors when agents create or update work items. The discovery step means agents can adapt to your specific ADO setup without manual configuration.
+
+
+---
+
+## Simplify Playbook Display in Chat
+
+Playbook-powered messages now display a clean "Ran [Playbook Name]" label instead of rendering the full prompt text inline, which could be difficult to read in longer conversations. You can hover the label for a quick preview or click to open the full playbook content in a dialog. The copy button strips internal formatting so you always get clean, readable text.
+
+Chat threads stay focused on the conversation instead of being interrupted by long prompt blocks. Teams iterating on playbooks can still inspect exactly what the AI received with one click, without the prompt dominating the message history.
+
+{/* 📸 Screenshot: A user message in the player chat showing the compact "Ran [Playbook Name]" label, with the tooltip preview visible on hover */}
+
+
+---
+
+## Capture Large Pages Safely in the Chrome Extension
+
+The Chrome extension now enforces a cumulative context size limit when capturing webpages. Each captured page displays as a card with its URL, type, and character count. A preview modal lets you inspect rendered markdown or raw content before submitting. If the cumulative size approaches the limit, you'll see a warning, and the extension trims the newest context automatically to stay within bounds.
+
+Users capturing context from complex or content-heavy applications no longer risk hitting silent errors. The card-based display and preview modal give you confidence in exactly what context the AI will receive.
+
+{/* 📸 Screenshot: The Chrome extension side panel showing multiple context cards with character counts, and the amber warning indicator when approaching the size limit */}
+
+
+---
+
+## Bug Fixes
+
+### Resolve MCP Timeout and Retry Failures
+
+We fixed several issues causing 504 errors and broken retries in the MCP transport layer. The system now sends keepalive notifications during player initialization, returns continuation tokens when responses are slow, and signals retry-ability explicitly. A wall-clock timeout ensures every MCP query returns a response before the serverless function limit, with a continuation token so the client can pick up where it left off.
+
+Teams using PlayerZero through MCP in VS Code, Cursor, or other IDEs should see significantly fewer disconnections and timeout errors, especially on complex multi-step queries.
+
+### Surface Errors When Renaming or Deleting Stages
+
+Fixed a bug where renaming or deleting workflow stages would fail silently after workflow import operations. The system now catches duplicate name conflicts and returns a clear error message instead of swallowing the failure.
+
+Teams configuring multi-stage workflows will now see actionable feedback when a stage operation doesn't go through, instead of wondering why nothing happened.
+
+### Fix Repository Selection for Duplicate Names
+
+Fixed a bug where selecting repositories during project setup could associate the wrong repo when multiple repositories shared the same name across different Git providers or organizations. Repository selection now tracks unique identifiers instead of names.
+
+Organizations using multiple Git providers or with similarly named repositories across different orgs will no longer risk importing the wrong codebase during project setup.
