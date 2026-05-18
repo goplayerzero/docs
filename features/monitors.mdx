@@ -32,6 +32,22 @@ Monitors configuration is managed at the **organization level**, but a monitor c
 
 4. Click **Create Monitor**
 
+### Referencing MCP Connections in Conditions
+
+When writing the condition (the "What should be checked?" field), you can reference connected MCP integrations using `@mention` syntax. Type `@` followed by the connection name to insert a reference.
+
+For example, a condition that references a Datadog connection:
+
+```
+The error rate for the checkout service reported by @Datadog should remain below the baseline established last week.
+```
+
+Referenced connections appear as chips in the condition editor. During evaluation, the monitoring agent automatically has access to tools from the mentioned connections — such as querying Datadog monitors, searching logs, or checking metrics.
+
+<Tip>
+Reference MCP connections when your condition depends on data from external systems. The agent can then pull live data during each evaluation rather than relying on static thresholds.
+</Tip>
+
 New monitors start running on their schedule immediately after creation.
 
 <Note>
@@ -110,6 +126,21 @@ If a workflow stage is configured, a test run that fails will trigger the workfl
 
 ---
 
+## Investigating Failures
+
+When a monitor fails, you can start an interactive debugging session to investigate the cause.
+
+1. Open the monitor detail panel and find the failed result in the result timeline
+2. Click **Investigate with Player** next to the verdict
+3. Select a **project** to run the investigation in
+4. A new Player session opens with the monitor's context pre-loaded — including the monitor title, condition, and the evaluation's reasoning
+
+If an investigation already exists for that result, clicking the button opens the existing session instead of creating a duplicate.
+
+Investigation sessions show the monitor origin in the Player thread, with a link back to the monitor result. Monitor-triggered Players also appear with an activity indicator in the workflow inbox.
+
+---
+
 ## Workflow Integration
 
 Monitors can automatically trigger a workflow stage when a check fails. This lets you connect monitoring to your existing investigation workflows — for example, automatically starting a triage workflow when an SLA check fails.
@@ -128,6 +159,35 @@ When the monitor fails:
 - **Workflow failed** — Something went wrong when trying to start the workflow
 
 Each result in the timeline shows the workflow status so you can track what happened after each failure.
+
+---
+
+## Proactive Monitors
+
+PlayerZero can automatically generate monitors when a pull request is merged. These **proactive monitors** target existing telemetry to catch regressions introduced by the merged changes.
+
+### How It Works
+
+When a PR is merged in a connected repository:
+
+1. PlayerZero analyzes the merged changes and PR context
+2. An AI agent generates up to 5 monitors targeting relevant telemetry signals
+3. If the changes are purely structural (renames, import changes, refactors with no runtime impact), monitor generation is skipped — zero monitors is the correct result for those cases.
+4. The generated monitors are created as **disabled** drafts
+5. Once generation completes, the monitors are automatically enabled
+6. A comment is posted to the merged PR listing the created monitors
+
+Generated monitors have a default expiration of 3 weeks. They appear in **Settings → Monitors** alongside manually created monitors and are marked with a **Proactive** source label.
+
+### Viewing Proactive Monitors on a PR
+
+Navigate to any PR review page in PlayerZero and select the **Monitors** tab. This tab shows:
+
+- Generated monitors associated with the PR
+- Generation status (building, complete, or failed)
+- Links to monitor detail pages
+
+You can also create additional monitors directly from the PR review page.
 
 ---
 

@@ -12,16 +12,23 @@ Once connected, PlayerZero AI agents can:
 - **Read issues and comments** — Access ticket details, descriptions, attachments, and comment threads for debugging context
 - **Create issues** — Generate Jira tickets from debug sessions with rich formatting, including tables and structured descriptions
 - **Update issues** — Modify existing issue fields like summary, description, priority, assignee, and labels
+- **Transition issues** — Move issues through workflow states (e.g., To Do → In Progress → Done) by specifying the target status
 - **Search issues** — Find issues using JQL or keyword search across your Jira projects
 - **Add comments** — Post structured comments with code references, stack traces, and root cause analysis
+- **Edit and delete comments** — Modify or remove existing comments on issues
 - **Post private comments** — Add internal notes visible only to team members with a specific Jira Service Desk role, keeping investigation details hidden from external customers
+- **Link issues** — Create relationships between issues (blocks, is blocked by, duplicates, relates to, clones)
+- **Set custom fields** — Populate custom fields on issue creation or update, including project-specific fields discovered through field inspection
+- **Create sub-tasks** — Create child issues or sub-tasks within epic hierarchies by specifying a parent issue key
 - **Navigate projects** — Understand your Jira project structure, issue types, roles, and custom fields
 
 ## Use Cases
 
-- **Automated triage** - AI agents analyze incoming bugs and suggest components, priority, or sprint placement
-- **Debug-to-ticket workflow** - Convert investigation findings into properly formatted Jira issues
-- **Cross-reference analysis** - When debugging, agents search related Jira tickets for historical context and known issues
+- **Automated triage** — AI agents analyze incoming bugs and suggest components, priority, or sprint placement
+- **Debug-to-ticket workflow** — Convert investigation findings into properly formatted Jira issues with custom fields
+- **Cross-reference analysis** — When debugging, agents search related Jira tickets for historical context and known issues
+- **Workflow automation** — Automatically transition issues through workflow states as part of a multi-stage workflow (e.g., move to In Progress after triage, close after resolution)
+- **Issue linking** — Connect related issues discovered during investigation (e.g., link a new bug to a known parent epic)
 
 ## Scopes & Permissions
 
