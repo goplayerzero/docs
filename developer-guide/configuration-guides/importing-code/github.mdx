@@ -73,6 +73,34 @@ Once enabled, PlayerZero will begin importing and analyzing your repository data
     2. PlayerZero will sync new commits and pull requests automatically
     3. Monitor progress in the Settings → Code section
 
+## Adding Repositories to an Existing Connection
+
+The "Import Repository" dialog in PlayerZero only shows repositories that the GitHub App installation has been granted access to. If you selected specific repositories during the initial GitHub App installation (instead of granting access to all repositories), any new repositories you want to add must first be authorized in GitHub before they will appear in PlayerZero.
+
+### Update Repository Access in GitHub
+
+    1. Go to your GitHub organization's page (e.g., `github.com/your-org`)
+    2. Navigate to **Settings → GitHub Apps** (under "Third-party Access" or "Integrations & services")
+    3. Click **Configure** next to the PlayerZero app
+    4. Under **Repository access**, either:
+        - Switch to **All repositories** to grant PlayerZero access to all current and future repositories, or
+        - Keep **Only select repositories** and add the specific repositories you want to import
+    5. Click **Save** to apply the changes
+
+<Note>A GitHub organization admin is required to update the App installation's repository access settings.</Note>
+
+### Import the New Repositories in PlayerZero
+
+After updating the GitHub App's repository access:
+
+    1. Go to your project **Settings → Repositories** in PlayerZero
+    2. Click **Import Repository**
+    3. Select your GitHub connection from the provider dropdown
+    4. The newly authorized repositories will now appear in the list
+    5. Click **Import** next to each repository you want to add
+
+<Warning>If the repositories still do not appear after updating access, wait a moment and refresh the page. GitHub may take a short time to propagate permission changes.</Warning>
+
 ## GitHub Enterprise Setup
 
 For GitHub Enterprise Server installations, additional configuration is required:
