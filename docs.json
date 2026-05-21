@@ -70,6 +70,7 @@
                   "connector/intercom",
                   "connector/jira",
                   "connector/linear",
+                  "connector/microsoft-teams",
                   "connector/salesforce",
                   "connector/servicenow",
                   "connector/slack",
