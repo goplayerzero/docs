@@ -1,0 +1,185 @@
+---
+title: "API Triggers"
+sidebarTitle: "API Triggers"
+description: "Allow external systems to start PlayerZero workflows by calling an HTTP endpoint."
+tag: "beta"
+---
+
+<Note>
+API Triggers is currently in **beta**. Features and behavior may change as we refine the experience.
+</Note>
+
+## What Are API Triggers?
+
+API Triggers let external systems — such as CI/CD pipelines, monitoring tools, or internal scripts — start PlayerZero workflows by sending an HTTP POST request to a unique endpoint. Each trigger is mapped to a specific workflow stage, so when the endpoint is called, a new Player session is created and begins processing from that stage.
+
+Trigger configuration is managed at the **organization level**. Navigate to **Settings → API Triggers** to view and manage them.
+
+---
+
+## Creating a Trigger
+
+1. Navigate to **Settings → API Triggers**
+2. Click **Create trigger**
+3. Fill in the trigger details:
+
+| Field | Description |
+|---|---|
+| **Name** | A short, descriptive name (e.g., "Deploy Pipeline Trigger"). Must be at least 3 characters. |
+| **Description** | *(Optional)* Explain what this trigger does or when it fires. |
+| **Workflow stage** | The project and entry stage to run when this trigger fires. |
+| **HMAC validation** | *(Optional)* Enable HMAC signature verification to authenticate incoming requests. See [Security](#security) below. |
+| **CIDR blocks** | *(Optional)* Restrict which IP addresses can call the trigger. See [Security](#security) below. |
+| **Active** | Enable or disable the trigger. Inactive triggers reject all incoming requests. |
+
+4. Click **Create Trigger**
+
+After creation, PlayerZero generates a unique **endpoint URL** and **trigger token**. The URL is displayed in the trigger detail panel and can be copied directly.
+
+<Note>
+Creating and editing triggers requires **editor** or **owner** permissions. Viewers can see triggers and their configuration but cannot make changes.
+</Note>
+
+---
+
+## Calling a Trigger
+
+To invoke a trigger, send an HTTP `POST` request to its endpoint URL:
+
+```bash
+curl -X POST https://sdk.playerzero.app/workflow/start/YOUR_TRIGGER_TOKEN \
+  -H "Content-Type: application/json" \
+  -d '{"message": "Deploy completed for service checkout-api, build #1042"}'
+```
+
+The request body is passed as context to the workflow Player session. You can include any JSON payload — incident details, deployment metadata, alert information, or any other context that helps the workflow investigate or act.
+
+### Response
+
+On success, the endpoint returns HTTP `202 Accepted`:
+
+```json
+{
+  "accepted": true,
+  "triggerName": "Deploy Pipeline Trigger"
+}
+```
+
+Requests are rejected silently (HTTP `404`) if the trigger token is invalid, the trigger is inactive, or a security check fails.
+
+### Payload Limits
+
+Request bodies are limited to **10 MB**. Requests exceeding this limit are rejected.
+
+---
+
+## Security
+
+API Triggers support two layers of security that can be used independently or together.
+
+### HMAC Signature Verification
+
+HMAC validation ensures that incoming requests are authentic and haven't been tampered with. When enabled, each request must include a signature header computed from the request body and a shared secret.
+
+To enable HMAC validation when creating or editing a trigger:
+
+1. Toggle **HMAC validation** on
+2. Configure the following fields:
+
+| Field | Description |
+|---|---|
+| **Signature header** | The HTTP header that carries the signature (default: `X-PZ-Signature`). |
+| **HMAC secret** | The shared secret used to compute the signature. This value is masked after creation. |
+| **Algorithm** | Hash algorithm — **SHA-256** or **SHA-512**. |
+| **Encoding** | How the signature is encoded — **Hex**, **Base64**, or **Base64URL**. |
+| **Signature prefix** | *(Optional)* A prefix on the header value to strip before validation (e.g., `sha256=`). |
+
+When a request arrives, PlayerZero computes the expected HMAC signature from the request body and the stored secret, then compares it to the value in the signature header using a constant-time comparison. Requests with missing or invalid signatures are rejected.
+
+<Tip>
+If you're integrating with a system that uses a standard webhook signature format (like GitHub's `X-Hub-Signature-256` with a `sha256=` prefix), configure the header name and prefix to match.
+</Tip>
+
+### IP Allowlisting (CIDR Blocks)
+
+Restrict which IP addresses can call the trigger by adding CIDR blocks. Only requests from IP addresses that fall within at least one of the configured CIDR ranges will be accepted.
+
+Each CIDR entry supports an optional **comment** to help you identify the source (e.g., "GitHub Actions" or "Production VPN").
+
+When no CIDR blocks are configured, requests are accepted from any IP address.
+
+---
+
+## Managing Triggers
+
+### Trigger List
+
+The triggers page shows all triggers in your organization in a split-panel view:
+
+- **Left panel** — A list of all triggers, each showing the name, description, mapped workflow stage, endpoint URL, and run count (last 24 hours)
+- **Right panel** — Detailed view of the selected trigger, including full configuration, security settings, and error status
+
+### Trigger Detail
+
+Click any trigger in the list to open its detail panel. The detail view shows:
+
+- **Endpoint URL** — The full URL to call, with a copy button
+- **Workflow stage** — The project and stage that runs when the trigger fires
+- **HMAC validation** — Signature header, algorithm, encoding, prefix, and masked secret (if configured)
+- **Runs (24h)** — Number of successful invocations in the last 24 hours
+- **CIDR blocks** — Configured IP ranges (if any)
+
+### Editing a Trigger
+
+1. Select a trigger from the list
+2. Click **Edit** in the detail panel footer
+3. Update any fields — name, description, workflow stage, security settings, or active status
+4. Click **Save**
+
+### Activating and Deactivating
+
+Each trigger has an **Active** toggle. Inactive triggers still exist and retain their configuration, but reject all incoming requests. Toggle the active state when editing a trigger.
+
+### Deleting a Trigger
+
+1. Select a trigger from the list
+2. Click the **delete** button in the detail panel footer
+3. Confirm the deletion
+
+Deleting a trigger removes it permanently. Any external systems still calling the endpoint will receive `404` responses.
+
+---
+
+## Error Tracking
+
+When an invocation fails — due to a CIDR denial, HMAC validation failure, or payload size limit — the trigger records the error. The most recent error is displayed in both the trigger list (as a warning icon) and the detail panel, showing:
+
+- The error message
+- When the error was first seen
+- The total number of occurrences
+
+Errors are automatically cleared when the next invocation succeeds.
+
+---
+
+## How It Works
+
+When a trigger endpoint is called:
+
+1. **Authentication** — The trigger token is validated and the trigger must be active
+2. **Security checks** — CIDR and HMAC validation are applied (if configured)
+3. **Payload storage** — The request body is stored securely
+4. **Workflow creation** — A new Player session is created and starts processing from the configured workflow stage, with the request body as context
+5. **Cleanup** — The stored payload is deleted after the Player session is created
+
+Players created by API Triggers are labeled with an **API Trigger** origin in the workflow inbox, making them easy to identify and track.
+
+---
+
+## Get Started
+
+👉 [Workflows overview](/features/workflows)
+
+👉 [Configuring Workflows](/features/configuring-workflows)
+
+👉 [AI Player overview](/features/ai-player)
