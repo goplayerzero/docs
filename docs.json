@@ -158,6 +158,7 @@
               {
                 "group": "Additional Features",
                 "pages": [
+                  "features/additional-features/api-triggers",
                   "features/additional-features/chrome-extension",
                   "features/additional-features/usage-analytics"
                 ]
