@@ -4,6 +4,10 @@ sidebarTitle: "API Triggers"
 description: "Allow external systems to start PlayerZero workflows by calling an HTTP endpoint."
 ---
 
+<Info>
+This feature is currently in **beta**. Functionality and behavior may change as we continue to refine the experience.
+</Info>
+
 ## What Are API Triggers?
 
 API Triggers let external systems — such as CI/CD pipelines, monitoring tools, or internal scripts — start PlayerZero workflows by sending an HTTP POST request to a unique endpoint. Each trigger is mapped to a specific workflow stage, so when the endpoint is called, a new Player session is created and begins processing from that stage.
