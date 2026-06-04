@@ -10,7 +10,7 @@ Monitors is currently in **beta**. Features and behavior may change as we refine
 
 ## What Are Monitors?
 
-Monitors are automated checks that run on a schedule and verify that a condition you define holds true. When a check fails, you will see it immediately, and you can configure a workflow stage to begin automatically to investigate the failure.
+Monitors are automated checks that run on a schedule and verify that a condition you define holds true. When a check fails, you will see it immediately, and you can configure a workflow to begin automatically to investigate the failure.
 
 Monitors configuration is managed at the **organization level**, but a monitor can only begin a workflow in the project you select. Navigate to **Settings → Monitors** to view and manage them.
 
@@ -28,7 +28,7 @@ Monitors configuration is managed at the **organization level**, but a monitor c
 | **What should be checked?** | The condition that should always hold true. Describe what you expect in plain language — the system evaluates this automatically. |
 | **Schedule** | How often to run the check. Use the visual schedule builder (presets for minutes, hourly, daily, weekly, monthly) or enter a cron expression manually. Minimum interval is 5 minutes. |
 | **Stop after** | *(Optional)* Automatically disable the monitor after a specific date and time. If not set, the monitor runs indefinitely. |
-| **When this fails, run** | *(Optional)* Select a project and workflow stage to trigger automatically when the check fails. |
+| **When this fails, run** | *(Optional)* Select a project and workflow to start automatically when the check fails. The workflow begins at its entry point. |
 
 4. Click **Create Monitor**
 
@@ -62,7 +62,7 @@ Creating and editing monitors requires **editor** or **owner** permissions. View
 
 The monitors page shows all monitors in your organization in a split-panel view:
 
-- **Left panel** — A paginated list of all monitors, each showing the monitor name, condition summary, schedule, workflow stage (if configured), recent result history, and last run verdict
+- **Left panel** — A paginated list of all monitors, each showing the monitor name, condition summary, schedule, workflow (if configured), recent result history, and last run verdict
 - **Right panel** — Detailed view of the selected monitor, including full condition text, schedule, expiration, result timeline, and management actions
 
 ### Filtering
@@ -79,7 +79,7 @@ Click any monitor in the list to open its detail panel. The detail view shows:
 - **What's being checked** — The full condition text
 - **Schedule** — Human-readable description of the polling schedule
 - **Stop after** — Expiration date, or "Runs indefinitely"
-- **Workflow stage** — The project and stage that triggers on failure, or "No workflow configured"
+- **Workflow** — The project and workflow that triggers on failure, or "No workflow configured"
 - **Result history** — A timeline of past evaluation results with verdict, reasoning, and workflow status
 - **Version history** — Each monitor tracks versions. Changing the monitored condition creates a new version.
 
@@ -89,11 +89,11 @@ Click any monitor in the list to open its detail panel. The detail view shows:
 
 1. Select a monitor from the list
 2. Click **Edit** in the detail panel footer
-3. Update any fields — name, condition, schedule, expiration, or workflow stage
+3. Update any fields — name, condition, schedule, expiration, or workflow
 4. Click **Save**
 
 <Note>
-Changing the monitored condition (the "What should be checked?" field) creates a new version of the monitor. Other changes (name, schedule, expiration, workflow stage) update the current version in place.
+Changing the monitored condition (the "What should be checked?" field) creates a new version of the monitor. Other changes (name, schedule, expiration, workflow) update the current version in place.
 </Note>
 
 ---
@@ -121,7 +121,7 @@ You can run a monitor immediately to verify it works without waiting for the nex
 The result appears in the result timeline once the evaluation completes. Results update in real time — you don't need to refresh the page.
 
 <Note>
-If a workflow stage is configured, a test run that fails will trigger the workflow — the same as a scheduled failure.
+If a workflow is configured, a test run that fails will trigger it — the same as a scheduled failure.
 </Note>
 
 ---
@@ -143,19 +143,19 @@ Investigation sessions show the monitor origin in the Player thread, with a link
 
 ## Workflow Integration
 
-Monitors can automatically trigger a workflow stage when a check fails. This lets you connect monitoring to your existing investigation workflows — for example, automatically starting a triage workflow when an SLA check fails.
+Monitors can automatically trigger a workflow when a check fails. This lets you connect monitoring to your existing investigation workflows — for example, automatically starting a triage workflow when an SLA check fails.
 
 To configure a workflow trigger:
 
 1. When creating or editing a monitor, use the **When this fails, run** field
 2. Select a **project** from the dropdown
-3. Select a **workflow stage** from that project
+3. Select a **workflow** from that project
 
 When the monitor fails:
 
-- **Workflow started** — A new workflow Player is created and starts processing from the configured stage
+- **Workflow started** — A new workflow Player is created and starts processing from the configured workflow's entry point
 - **Workflow skipped** — A workflow was already started in the last hour for this monitor, so the run is skipped to avoid duplicates
-- **No workflow** — No workflow stage is configured
+- **No workflow** — No workflow is configured
 - **Workflow failed** — Something went wrong when trying to start the workflow
 
 Each result in the timeline shows the workflow status so you can track what happened after each failure.
@@ -164,11 +164,11 @@ Each result in the timeline shows the workflow status so you can track what happ
 
 ## Proactive Monitors
 
-PlayerZero can automatically generate monitors when a pull request is merged. These **proactive monitors** target existing telemetry to catch regressions introduced by the merged changes.
+PlayerZero can automatically generate monitors when a pull request is merged. These **proactive monitors** target existing telemetry to catch regressions introduced by the merged changes. Proactive monitors are generated only for merges into the repository's configured release branch — merges into other branches do not trigger generation. PR-merge monitor generation is also surfaced on the PR review page — see [Automatic Monitors on Merge](/features/code-reviews#automatic-monitors-on-merge).
 
 ### How It Works
 
-When a PR is merged in a connected repository:
+When a PR is merged into a connected repository's **release branch**:
 
 1. PlayerZero analyzes the merged changes and PR context
 2. An AI agent generates up to 5 monitors targeting relevant telemetry signals

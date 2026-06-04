@@ -140,6 +140,7 @@
                 "pages": [
                   "features/ai-player",
                   "features/hive-mode",
+                  "features/channels",
                   "features/playbooks"
                 ]
               },

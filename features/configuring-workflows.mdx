@@ -52,6 +52,8 @@ Transitions define the allowed paths between stages.
 
 In the workflow builder, draw a connection from one stage to another. A dialog will prompt you to describe the transition conditions — the rules that tell the agent when to take this path.
 
+On an existing stage, adding, updating, or removing a transition saves automatically — there's no separate save step. (Creating a brand-new stage still uses an explicit **Save**.)
+
 ### Transition Conditions
 
 Each transition includes an instruction field. Write specific conditions, not vague ones:
@@ -60,6 +62,15 @@ Each transition includes an instruction field. Write specific conditions, not va
 - **Avoid**: "Move to the next stage when ready."
 
 The agent uses these conditions to decide which transition to request.
+
+### Transition Targets
+
+A transition can point to either:
+
+- **A stage in the same workflow** — the default. Work continues within the current workflow.
+- **Another workflow's entry** — work hands off to a different workflow in the same project, which begins at its entry point. Use this to chain workflows together — for example, routing a completed triage into a separate remediation workflow.
+
+Cross-workflow transitions use the same instruction-based conditions and approval behavior as in-workflow transitions: the agent evaluates the condition and requests the transition when it's met.
 
 ---
 
@@ -139,6 +150,35 @@ When conflicts are found, all are initially set to Merge. You can change individ
 
 Stages that don't conflict with existing names are imported automatically without prompting.
 
+#### Importing Stages from Another Workflow
+
+In addition to importing from a JSON file, you can import stages directly from **another workflow** — in the current project **or a different project in your organization**. PlayerZero lists that workflow's stages so you can select exactly the ones you want to bring in. The selected stages are added to your workflow.
+
+#### Importing into an Existing Workflow
+
+You can import stages into an existing workflow rather than only creating a new one. Select the specific stages you want to bring in (from another workflow or from a JSON file). How the import lands depends on the target:
+
+- **Published workflow** — the import creates a new **draft** of the workflow with the imported stages added to the existing ones. Publishing the draft makes the change live.
+- **Draft workflow** — the imported stages are added to the existing draft.
+
+---
+
+## Versions & Drafts
+
+A workflow has a **published version** — the live definition that Players run against — and can have an editable **draft**. Drafts let you change stages, transitions, and rules without affecting work that's already in flight.
+
+### Editing as a Draft
+
+You can create a **draft** of a published workflow to change stages, transitions, and rules without affecting Players already running against the published version. Publishing the draft makes it the new published version.
+
+### Starting a Player Against a Draft
+
+You can start — or fork — a Player against a specific draft version so you can test changes before publishing. Players running on a draft are shown with a **draft** label so it's clear they aren't using the published definition.
+
+<Note>
+Access to start or fork Players against a draft is limited to the draft's creator, users on its visibility list, or users whose organization job role is on that list — and always requires editor or owner permissions.
+</Note>
+
 ---
 
 ## The Workflow Inbox
@@ -149,4 +189,4 @@ The inbox is the operational view for managing active Players across your workfl
 
 ## Related
 
-- [Monitors](/features/monitors) — Set up automated checks that can trigger workflow stages on failure
+- [Monitors](/features/monitors) — Set up automated checks that can trigger a workflow on failure

@@ -83,7 +83,8 @@ Run scenarios through AI-powered simulation — no actual code execution require
   - Your codebase
   - Historical failure patterns
   - Known dependencies and system behavior
-- Simulations run against your organization's configured **release branch** by default. You can select a different branch when launching a simulation.
+- Simulations run against your organization's configured **release branch** by default, and you can select a different branch when launching a simulation.
+- When you launch a simulation from within a Player session, it inherits that Player's **current repo and branch selection** and any **uncommitted edits in the Player's sandbox** — so the simulation runs against the code context you're actively working in, not a snapshot from when the Player was created.
 </Accordion>
 
 <Accordion title="Status Tracking">
@@ -174,3 +175,5 @@ Code Simulations transform testing by providing **intelligent pre-analysis**, al
 ## Get Started
 
 👉 [Setup guide](/developer-guide/quickstart-guide)
+
+👉 [AI Player overview](/features/ai-player)

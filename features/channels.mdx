@@ -1,0 +1,91 @@
+---
+title: "Channels & Multiplayer"
+sidebarTitle: "Channels"
+description: "Work with multiple AI Players side by side in a shared, channel-first workspace — with a Player roster, live sandbox output, file citations, and workflow entry."
+---
+
+## What Is a Channel?
+
+A **channel** is PlayerZero's full-screen workspace for working with one or more AI Players in a shared context. Every Player conversation — a **thread** — lives inside a channel, and a single channel can hold many threads that share context with one another.
+
+PlayerZero is channel-first: you start a channel, and your threads live inside it. If you try to start a new thread while you're not in a channel, PlayerZero reminds you that **threads live in channels now** and points you back to your home page to start one.
+
+The channel workspace has four main areas:
+
+- A **title bar** showing the active thread's title and the channel name
+- A **Player roster** on the left listing every thread in the channel
+- The **active thread** in the center, where you converse with the Player and watch its work
+- A **status panel** on the right with details about the active Player
+
+---
+
+## The Player Roster
+
+The left column lists every Player (thread) in the channel so multiple people — and multiple Players — can work in parallel without losing the shared context.
+
+- **Start a new thread** — Click **New Thread** at the top of the roster, or press **⌘K** / **Ctrl+K** while you're in a channel. New threads can share context from the channel.
+- **Switch threads** — Click any row to open that Player in the center pane.
+- Each row shows the thread's **title**, **avatars** of the people involved, and an **activity indicator** — a spinner while the Player is running, or how long ago it was last active.
+- Threads that belong to a workflow are **grouped under the workflow's name**.
+- When a Player has produced **artifacts** (documents, diagrams, reports), expand its row to see and open them directly.
+
+<Note>
+Starting a new thread from inside a channel doesn't prompt you to pick a workflow — in-channel threads are free-form and inherit the channel's context. To run a workflow in the channel, use **Enter a workflow** (below).
+</Note>
+
+---
+
+## Entering a Workflow
+
+A channel can run a [workflow](/features/workflows). Users with **editor** access use **Enter a workflow** in the roster to start one; the Player begins at the workflow's entry point.
+
+When a Player is ready to advance, the request appears in the roster as a **Workflow approval** that an editor can **Approve**. Reviewers aren't limited to the agent's suggested step — see [two-way approvals](/features/workflow-inbox#inline-approval) for how a reviewer can redirect to another stage or workflow.
+
+If an approval waits without action, PlayerZero can notify your team through a connected **Slack** or **Microsoft Teams** integration with a **Stage Approval Required** message and buttons to **Approve**, **Approve with message**, or **View in PlayerZero**.
+
+---
+
+## Watching a Player Work
+
+Threads stream the Player's work as it happens.
+
+### Live Sandbox Output
+
+When a Player runs a command in its sandbox, the message shows the **Code** it ran and the **Output**, streaming in as the command executes. You'll see a **running...** status while a command is in flight and an **exit** code when it finishes — with **Waiting for output...** before the first output arrives, or **No output** if the command produced none.
+
+### File Citations
+
+When a Player references a file, it appears as a clickable **citation**. Click an inline citation to open the file in an in-app viewer tab, jumping to the cited line when one is given. Larger, block-style citations can also be **downloaded** directly.
+
+---
+
+## Human-in-the-Loop Questions
+
+A Player can pause and ask a person for input rather than guessing. When it does, the question appears in the thread for you to answer:
+
+- Provide your responses and click **Submit Answers** to let the Player continue. Every question needs a response first.
+- Use **Skip** or **Continue** to move through individual questions.
+- Reassign a question to a teammate — each question shows **"Assigned to {name}. Click to reassign."** with a teammate search.
+
+---
+
+## Renaming a Channel
+
+New channels start as **Untitled Channel**. Click the channel name in the title bar (**Rename channel**) to edit it inline. Channel names are limited to **70 characters**. Any member with access to the channel — including viewers — can rename it.
+
+---
+
+## Relationship to Hive Mode and Workflows
+
+- **[Hive Mode](/features/hive-mode)** is chosen per thread when you create it, using the **Agent** / **Hive** toggle. It controls whether a single agent or a coordinated team of specialists works that thread — it's independent of the channel itself.
+- **[Workflows](/features/workflows)** run inside a channel. Enter one from the roster, then manage and approve transitions there or in the [Workflow Inbox](/features/workflow-inbox).
+
+---
+
+## Get Started
+
+👉 [AI Player overview](/features/ai-player)
+
+👉 [Hive Mode](/features/hive-mode)
+
+👉 [Workflows overview](/features/workflows)

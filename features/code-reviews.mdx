@@ -102,9 +102,24 @@ Any team member with **viewer** access or higher can start a PR review session. 
 
 ## Automatic Monitors on Merge
 
-When a PR is merged, PlayerZero can automatically generate regression monitors that watch for issues introduced by the merged changes. These monitors target existing telemetry signals and are posted as a comment on the merged PR.
+When a PR is merged into your repository's **release branch**, PlayerZero can automatically generate regression monitors that watch for issues introduced by the merged changes. These monitors target existing telemetry signals and are posted as a comment on the merged PR.
 
 For details on how proactive monitors work and how to manage them, see [Monitors → Proactive Monitors](/features/monitors#proactive-monitors).
+
+## Branches
+
+The **Branches** list gives you a project-wide view of active branches and their review status. Open it from **Branches** in the project sidebar; each row links to that branch's review page.
+
+Each row shows:
+
+- The **repository and branch name** — and, when the branch has an associated pull request, the **PR status** (Active, Merged, or Abandoned) and the **PR title**.
+- A **Last Commit** column summarizing review state: a simulation-status dot with a passed ratio (for example, "3/4 passed") when simulations have run, avatars of the contributors involved, and how long ago the branch was last updated.
+
+You can:
+
+- **Sort** by **Recently Updated** or **Least Recently Updated**.
+- **Search** branches — a branch matches if **either** its branch name **or** its associated PR title matches your query.
+- **Filter** by repository, by PR status (**Any PR Status**, **Active**, **Merged**, **Abandoned**), and by scope (**Everyone's Branches** or **My Branches**).
 
 ## Get Started
 

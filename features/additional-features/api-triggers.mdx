@@ -6,7 +6,7 @@ description: "Allow external systems to start PlayerZero workflows by calling an
 
 ## What Are API Triggers?
 
-API Triggers let external systems — such as CI/CD pipelines, monitoring tools, or internal scripts — start PlayerZero workflows by sending an HTTP POST request to a unique endpoint. Each trigger is mapped to a specific workflow stage, so when the endpoint is called, a new Player session is created and begins processing from that stage.
+API Triggers let external systems — such as CI/CD pipelines, monitoring tools, or internal scripts — start PlayerZero workflows by sending an HTTP POST request to a unique endpoint. Each trigger is mapped to a specific **workflow**, so when the endpoint is called, a new Player session is created and begins processing from that workflow's entry point.
 
 Trigger configuration is managed at the **organization level**. Navigate to **Settings → API Triggers** to view and manage them.
 
@@ -22,7 +22,7 @@ Trigger configuration is managed at the **organization level**. Navigate to **Se
 |---|---|
 | **Name** | A short, descriptive name (e.g., "Deploy Pipeline Trigger"). Must be at least 3 characters. |
 | **Description** | *(Optional)* Explain what this trigger does or when it fires. |
-| **Workflow stage** | The project and entry stage to run when this trigger fires. |
+| **Workflow** | The project and workflow to run when this trigger fires. The Player starts at the workflow's entry point. |
 | **HMAC validation** | *(Optional)* Enable HMAC signature verification to authenticate incoming requests. See [Security](#security) below. |
 | **CIDR blocks** | *(Optional)* Restrict which IP addresses can call the trigger. See [Security](#security) below. |
 | **Active** | Enable or disable the trigger. Inactive triggers reject all incoming requests. |
@@ -111,7 +111,7 @@ When no CIDR blocks are configured, requests are accepted from any IP address.
 
 The triggers page shows all triggers in your organization in a split-panel view:
 
-- **Left panel** — A list of all triggers, each showing the name, description, mapped workflow stage, endpoint URL, and run count (last 24 hours)
+- **Left panel** — A list of all triggers, each showing the name, description, mapped **workflow**, endpoint URL, and run count (last 24 hours)
 - **Right panel** — Detailed view of the selected trigger, including full configuration, security settings, and error status
 
 ### Trigger Detail
@@ -119,7 +119,7 @@ The triggers page shows all triggers in your organization in a split-panel view:
 Click any trigger in the list to open its detail panel. The detail view shows:
 
 - **Endpoint URL** — The full URL to call, with a copy button
-- **Workflow stage** — The project and stage that runs when the trigger fires
+- **Workflow** — The project and workflow that runs when the trigger fires
 - **HMAC validation** — Signature header, algorithm, encoding, prefix, and masked secret (if configured)
 - **Runs (24h)** — Number of successful invocations in the last 24 hours
 - **CIDR blocks** — Configured IP ranges (if any)
@@ -128,7 +128,7 @@ Click any trigger in the list to open its detail panel. The detail view shows:
 
 1. Select a trigger from the list
 2. Click **Edit** in the detail panel footer
-3. Update any fields — name, description, workflow stage, security settings, or active status
+3. Update any fields — name, description, **workflow**, security settings, or active status
 4. Click **Save**
 
 ### Activating and Deactivating
@@ -164,7 +164,7 @@ When a trigger endpoint is called:
 1. **Authentication** — The trigger token is validated and the trigger must be active
 2. **Security checks** — CIDR and HMAC validation are applied (if configured)
 3. **Payload storage** — The request body is stored securely
-4. **Workflow creation** — A new Player session is created and starts processing from the configured workflow stage, with the request body as context
+4. **Workflow creation** — A new Player session is created and starts processing from the configured **workflow's entry point**, with the request body as context
 5. **Cleanup** — The stored payload is deleted after the Player session is created
 
 Players created by API Triggers are labeled with an **API Trigger** origin in the workflow inbox, making them easy to identify and track.

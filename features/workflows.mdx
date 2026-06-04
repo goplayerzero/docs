@@ -24,7 +24,7 @@ A stage is a node in the workflow graph. Each stage has a **name**, **instructio
 
 ### Transitions
 
-Transitions are the allowed paths between stages. Each transition includes a target stage and conditions describing when the agent should take that path. Transitions are validated at runtime — the agent can only move to stages explicitly defined as valid next steps.
+Transitions are the allowed paths between stages. Each transition includes a target stage and conditions describing when the agent should take that path. Transitions are validated at runtime — the agent can only move to stages explicitly defined as valid next steps. A transition can also target [another workflow's entry](/features/configuring-workflows#transition-targets), handing work off to a different workflow.
 
 ### Approvals
 
@@ -34,6 +34,8 @@ When the agent completes work in a stage, it requests to move on. Depending on c
 - **Manual approval**: A human reviews the completed work and approves the transition, optionally leaving notes for the agent
 
 Approval means accepting the work done in the current stage — confirming that the agent's output meets your expectations before it moves to the next step.
+
+Approval is a two-way decision: a reviewer can approve the agent's suggested next step, or redirect the Player to any next step they have access to — another stage, or another workflow — including skipping ahead. The approving user is recorded with the transition.
 
 ### Archival
 
@@ -57,6 +59,17 @@ Triage and RCA auto-approve so the agent moves through them autonomously. Fix, T
 
 ---
 
+## Creating a Workflow
+
+When you add a workflow to a project, you can start from any of the following:
+
+- **Start from scratch** — Build an empty workflow and add stages and transitions yourself in the [workflow builder](/features/configuring-workflows).
+- **Use a template** — Pick a pre-built workflow from the template catalog and customize it. Templates include **Engineering Scoping**, **L1 Support**, **SRE Alert Response**, **PR Review**, **QA Testing**, **Documentation**, and **Product Scoping (BMAD)**.
+- **Import from another project** — Copy a workflow from a different project in your organization into the current one.
+- **Import from JSON** — Import a workflow definition exported from another project. See [Export & Import](/features/configuring-workflows#export--import).
+
+---
+
 ## Two Surfaces
 
 ### The Workflow Builder
@@ -74,3 +87,5 @@ Manage active work across your team. Filter by stage, approval status, ownership
 - [Configuring Workflows](/features/configuring-workflows) — Set up stages, transitions, approvals, and archival
 - [Workflow Inbox](/features/workflow-inbox) — Manage active Players, approve transitions, and review work
 - [Usage Analytics](/features/additional-features/usage-analytics) — Track workflow activity and export usage data
+- [Versions & Drafts](/features/configuring-workflows#versions--drafts) — Edit workflows safely with drafts and test against draft versions
+- [API Triggers](/features/additional-features/api-triggers) — Start a workflow from an external system via an HTTP endpoint
