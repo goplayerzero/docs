@@ -37,7 +37,7 @@ PlayerZero exposes an MCP server that any compatible AI assistant can connect to
 
 ## Step 2: Configure Your MCP Client
 
-Use Server-Sent Events (SSE) transport for most MCP clients: 
+Use Server-Sent Events (SSE) transport for most MCP clients. This endpoint is called by your MCP client with the token header; it is not a page that will load if opened directly in a browser.
 
 ```
 {
