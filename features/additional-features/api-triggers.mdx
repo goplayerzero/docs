@@ -6,7 +6,7 @@ description: "Allow external systems to start PlayerZero workflows by calling an
 
 ## What Are API Triggers?
 
-API Triggers let external systems — such as CI/CD pipelines, monitoring tools, or internal scripts — start PlayerZero workflows by sending an HTTP POST request to a unique endpoint. Each trigger is mapped to a specific workflow stage, so when the endpoint is called, a new Player session is created and begins processing from that stage.
+API Triggers let external systems — such as CI/CD pipelines, monitoring tools, or internal scripts — start PlayerZero workflows by sending an HTTP POST request to a unique endpoint. Each trigger is mapped to a specific workflow stage, so when the endpoint is called, a new Channel is created and begins processing from that stage.
 
 Trigger configuration is managed at the **organization level**. Navigate to **Settings → API Triggers** to view and manage them.
 
@@ -47,7 +47,7 @@ curl -X POST https://sdk.playerzero.app/workflow/start/YOUR_TRIGGER_TOKEN \
   -d '{"message": "Deploy completed for service checkout-api, build #1042"}'
 ```
 
-The request body is passed as context to the workflow Player session. You can include any JSON payload — incident details, deployment metadata, alert information, or any other context that helps the workflow investigate or act.
+The request body is passed as context to the workflow Channel. You can include any JSON payload — incident details, deployment metadata, alert information, or any other context that helps the workflow investigate or act.
 
 ### Response
 
@@ -164,10 +164,10 @@ When a trigger endpoint is called:
 1. **Authentication** — The trigger token is validated and the trigger must be active
 2. **Security checks** — CIDR and HMAC validation are applied (if configured)
 3. **Payload storage** — The request body is stored securely
-4. **Workflow creation** — A new Player session is created and starts processing from the configured workflow stage, with the request body as context
-5. **Cleanup** — The stored payload is deleted after the Player session is created
+4. **Workflow creation** — A new Channel is created and starts processing from the configured workflow stage, with the request body as context
+5. **Cleanup** — The stored payload is deleted after the Channel is created
 
-Players created by API Triggers are labeled with an **API Trigger** origin in the workflow inbox, making them easy to identify and track.
+Channels created by API Triggers are labeled with an **API Trigger** origin in the workflow inbox, making them easy to identify and track.
 
 ---
 
