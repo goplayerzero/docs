@@ -27,7 +27,7 @@ This is the right choice when accuracy matters more than speed: complex debuggin
 
 Toggle between Agent and Hive using the **mode slider** next to the chat input.
 
-- The slider appears on the **homepage** when creating a new Player and in the **chat input** of an existing Player
+- The slider appears on the **homepage** when creating a new thread and in the **chat input** of an existing thread
 - Your preference is remembered across sessions
 - Workflow stages can set a **preferred mode** — when you enter a stage, the mode adjusts automatically
 
@@ -114,6 +114,8 @@ While agents are working, the **Hive tab** in the side panel shows real-time sta
 - **Live breadcrumbs** show what each agent is currently doing (e.g., "Reading auth-service/login.ts", "Searching for rate limit errors")
 - Animated indicators show when agents are **communicating with each other** — exchanging findings, asking follow-up questions, or sharing context
 - Click any agent to see its objective and dependencies
+
+Each specialist agent runs as its own **thread** in the channel. Beyond the Hive tab, these teammate threads appear in the channel's thread roster grouped by workflow, so you can open any one of them directly and follow its full history. The **coordinator** keeps the team aligned with the channel objective and relays context between threads as the work proceeds.
 
 In the chat stream, you'll see:
 

@@ -10,7 +10,7 @@ PlayerZero exposes an MCP server that any compatible AI assistant can connect to
 
 - Active PlayerZero account with project access  
 - *Editor* or *Owner* permissions in that project  
-- An MCP-compatible AI assistant (VS Code, Copilot, Cursor, etc.)
+- An MCP-compatible AI assistant (VS Code, Copilot, Cursor, Claude Code, etc.)
 
 ---
 
@@ -37,7 +37,7 @@ PlayerZero exposes an MCP server that any compatible AI assistant can connect to
 
 ## Step 2: Configure Your MCP Client
 
-Use Server-Sent Events (SSE) transport for most MCP clients. This endpoint is called by your MCP client with the token header; it is not a page that will load if opened directly in a browser.
+The PlayerZero MCP endpoint speaks the standard **Streamable HTTP** transport with server-sent events (SSE), so mainstream MCP clients such as Claude Code and Cursor connect directly. Point your client at the endpoint and pass your token in the `Authorization` header, as shown below. This endpoint is called by your MCP client with the token header; it is not a page that will load if opened directly in a browser.
 
 ```
 {

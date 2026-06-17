@@ -8,7 +8,43 @@ description: "PlayerZero's AI Player serves as your knowledge partner, helping y
 
 PlayerZero's **AI Players** acts as your **knowledge-rich agents**, designed to help you understand, investigate, and solve problems across your codebase and systems. Whether you're debugging a tricky issue, exploring architecture, or researching historical changes, the AI Player provides fast, context-aware insights.
 
+Each AI Player conversation runs as a **thread** inside a **channel** — a shared workspace built around a single objective. A channel can hold several threads working in parallel, so an investigation that starts as one question can grow into a coordinated effort without losing context.
+
 To use it, navigate to any project in PlayerZero and start a conversation through the free‑form prompt interface.
+
+---
+
+## Channels and Threads
+
+A PlayerZero **channel** is a shared workspace built around a single objective, such as debugging a single support ticket or scoping a change to a specific product feature. Inside a channel, work happens in **threads** — each thread is its own AI Player conversation with a focus on a single topic, such as understanding steps to reproduce or debating the pros and cons of a technical approach, but threads within a channel all share context with each other to ensure collaborative work happens without context getting lost along the way.
+
+- **Channel** — the shared workspace and objective that threads collaborate within. Context, branches, and referenced files are shared across the channel.
+- **Thread** — an individual agent conversation. A thread can run in Agent Mode or Hive Mode and keeps its own history, context, and sandbox.
+- **Coordinator** — keeps threads aligned with the channel's objective, relays context between them, and tracks overall progress.
+
+The side panel lists every thread in the channel, **grouped by workflow**, so you can see all the work in progress at a glance. Teammate threads created in [Hive Mode](/features/hive-mode) appear here as first-class entries alongside the threads you start yourself.
+
+---
+
+## Working Across Threads
+
+Threads in a channel are not isolated. When you start a new thread, it inherits context from the channel so it can pick up where other threads left off.
+
+- **Inherited context** — A new thread carries the channel's objective and plan, a record of the threads that came before it, and the files those threads referenced.
+- **Inherited branches** — Starting a new thread from an existing one (using ⌘K or **New Thread**) carries over the repositories and branches the source thread was working on.
+- **Thread-to-thread messaging** — Threads can send context and findings to one another, and the coordinator relays updates so work flows across the channel.
+
+A handoff from one thread to another keeps the history it depends on, whether the work moves from investigation to fix or from one team to another.
+
+---
+
+## Add Your Attachments to a Thread
+
+You can attach files directly in the prompt window — images, screenshots, PDFs, spreadsheets, source code, and more. Each file uploads to the thread immediately and becomes part of the channel's shared sandbox, so the agent can read and work from it.
+
+PlayerZero supports a broad range of types, including plain text and markdown, data and configuration files, source code, PDF, Microsoft Office, and OpenDocument formats. You can attach up to 10 files per message, and a large block of pasted text converts into a file automatically.
+
+Bring your own design specs, logs, spreadsheets, and code into a thread instead of pasting fragments into the conversation. The agent works from the actual documents your team already maintains, and references them as file citations in its responses.
 
 ---
 
@@ -97,6 +133,16 @@ Ask about **functionality in plain English** and the AI will:
   - Search your entire repository with **semantic understanding** (not just keywords).  
   - **Map relationships** across files.  
   - Suggest **related areas of code** you may not have considered.  
+</Accordion>
+
+<Accordion title="File Citations">
+- The agent links to the specific **files and lines** it read or changed, across your repositories and the thread's sandbox.
+- Click a citation to open the referenced file, so you can verify findings against the actual source.
+</Accordion>
+
+<Accordion title="Work Activity Grouping">
+- Related steps the agent takes — searches, file reads, edits, and tool calls — are **grouped together** in the conversation.
+- This keeps long investigations readable, so you can follow what the agent did without scrolling through every individual action.
 </Accordion>
 
 </AccordionGroup>

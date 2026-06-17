@@ -10,11 +10,11 @@ Microsoft Teams is a collaboration platform from Microsoft. PlayerZero's Teams i
 Once connected, you can:
 
 - **@mention or message the bot** — Mention the PlayerZero bot in any channel or send it a direct message to start a conversation. The bot responds with an interactive card to configure your investigation.
-- **Start investigations with Ask PlayerZero** — Select a project, choose a workflow or playbook, and provide your question. PlayerZero creates a Player session and responds in the thread.
-- **Approve workflow stage transitions** — When a Player needs approval to move to the next workflow stage, an interactive approval card appears in Teams with options to approve immediately or approve with a message and playbook.
-- **Receive notifications in channels** — Get workflow stage approval requests, Player summaries, and other notifications delivered to your team's channels.
-- **Open in Chat** — Link an existing PlayerZero session to a Teams channel from the PlayerZero UI, so you can continue a conversation in Teams.
-- **Reply in threads** — Continue a conversation with a Player by replying in the Teams thread. Messages in the thread are forwarded to the Player, and the Player's responses appear in the thread.
+- **Start investigations with Ask PlayerZero** — Select a project, choose a workflow or playbook, and provide your question. PlayerZero creates a Player thread and responds in the Teams thread.
+- **Approve workflow stage transitions** — When a Player thread needs approval to move to the next workflow stage, an interactive approval card appears in Teams with options to approve immediately or approve with a message and playbook.
+- **Receive notifications in channels** — Get workflow stage approval requests, Player thread summaries, and other notifications delivered to your team's channels.
+- **Open in Chat** — Link an existing Player thread to a Teams channel from the PlayerZero UI, so you can continue a conversation in Teams.
+- **Reply in threads** — Continue a conversation with a Player thread by replying in the Teams thread. Messages in the Teams thread are forwarded to the Player thread, and its responses appear in the Teams thread.
 
 ## Ask PlayerZero
 
@@ -26,42 +26,42 @@ When you @mention or message the PlayerZero bot in a channel, the bot responds w
 
 The compose form includes:
 
-- **Workflow** — Optionally select a workflow to start the Player in a specific workflow stage
-- **Playbook** — Optionally select a playbook to guide the Player's approach
+- **Workflow** — Optionally select a workflow to start the Player thread in a specific workflow stage
+- **Playbook** — Optionally select a playbook to guide the Player thread's approach
 - **Message** — Describe your question or task
 
-Click **Ask** to create the Player session. PlayerZero responds in the thread with the Player's findings and a **Full Chat** link to the complete session in PlayerZero.
+Click **Ask** to create the Player thread. PlayerZero responds in the Teams thread with the Player thread's findings and a **Full Chat** link to the complete conversation in PlayerZero.
 
-If you @mention the bot in an existing thread, the initial message from that thread is automatically included as context for the Player.
+If you @mention the bot in an existing Teams thread, the initial message from that thread is automatically included as context for the Player thread.
 
 ## Workflow Stage Approvals
 
-When an AI Player needs approval to move to the next workflow stage, PlayerZero delivers an approval card to Teams. These cards appear in the thread where the Player was started (if it originated from Teams) and in any channels configured for that workflow stage.
+When a Player thread needs approval to move to the next workflow stage, PlayerZero delivers an approval card to Teams. These cards appear in the Teams thread where the Player thread was started (if it originated from Teams) and in any channels configured for that workflow stage.
 
 The approval card includes:
 
 - An **Approve** button to approve the transition immediately
 - A **Playbook** picker to optionally select a playbook before approving
 - An **Approval message** field to add context or instructions
-- A **View in PlayerZero** link to open the full Player session
+- A **View in PlayerZero** link to open the full Player thread
 
 After approval, a confirmation message is posted to the thread so the team can see who approved and any notes they included.
 
 ## Open in Chat
 
-You can link any PlayerZero session to a Teams channel directly from the PlayerZero UI.
+You can link any Player thread to a Teams channel directly from the PlayerZero UI.
 
-From a Player session in PlayerZero, click **Open in Chat** and select a Teams channel. PlayerZero creates a new thread in that channel linked to the Player — messages in the thread are forwarded to the Player, and the Player's responses appear in the thread.
+From a Player thread in PlayerZero, click **Open in Chat** and select a Teams channel. PlayerZero creates a new Teams thread in that channel linked to the Player thread — messages in the Teams thread are forwarded to the Player thread, and its responses appear in the Teams thread.
 
-If the Player is already connected to a Teams thread, clicking **Open in Chat** takes you directly to that thread instead.
+If the Player thread is already connected to a Teams thread, clicking **Open in Chat** takes you directly to that Teams thread instead.
 
 ## Receive Notifications
 
 PlayerZero delivers notifications to Teams channels based on your project and workflow configuration. Notifications include:
 
-- **Workflow stage approval requests** when a Player needs human approval to continue
-- **Player response summaries** posted to threads where investigations were started
-- **Notifications from monitor-initiated Players** when a monitor triggers a new investigation and delivers results to a configured channel
+- **Workflow stage approval requests** when a Player thread needs human approval to continue
+- **Player thread response summaries** posted to Teams threads where investigations were started
+- **Notifications from monitor-initiated Player threads** when a monitor triggers a new investigation and delivers results to a configured channel
 
 Notification routing is configured per project and per workflow stage in **Settings**. See [Notification Configuration](#notification-configuration) for details.
 
