@@ -6,9 +6,17 @@ description: "Define multi-stage pipelines that govern how PlayerZero agents pro
 
 ## What Is a Workflow?
 
-A Workflow is a customizable, multi-stage pipeline that controls how a PlayerZero agent (a **Player**) processes work from start to finish. You define the stages, the allowed paths between them, and the rules that control progression.
+A Workflow is a customizable, multi-stage pipeline that controls how a PlayerZero agent processes work from start to finish. You define the stages, the allowed paths between them, and the rules that control progression.
 
-When a Player enters a workflow, it moves through stages like **Intake & Triage → RCA → Fix → Test → Document & Close**. At each stage, the agent receives specific instructions, performs its work, and then requests permission to advance. Transitions can be auto-approved or gated behind human review.
+When a channel enters a workflow, it moves through stages like **Intake & Triage → RCA → Fix → Test → Document & Close**. Each stage will operate across one or more agent threads. Each thread receives workflow-specific instructions, performs its work, and then requests permission to advance. Transitions can be auto-approved or gated behind human review.
+
+---
+
+## Multiple Workflows per Project
+
+A project can define **multiple workflows**, each modeling a distinct process — for example, support triage, engineering scoping, QA testing, or SRE response. Manage them from **Project Settings → Workflows**.
+
+Each workflow is **versioned**. You edit a draft, publish it when ready, and PlayerZero keeps the full version history so you can **roll back** to a previous published version at any time. The inbox, monitors, and ticketing all resolve against the published version of a workflow.
 
 ---
 
@@ -37,7 +45,7 @@ Approval means accepting the work done in the current stage — confirming that 
 
 ### Archival
 
-Completed Players can be archived manually or automatically after a configurable number of days. Archived Players can be restored at any time.
+Completed threads can be archived manually or automatically after a configurable number of days. Archived threads can be restored at any time.
 
 ---
 
@@ -55,6 +63,8 @@ Every project starts with a five-stage defect resolution workflow:
 
 Triage and RCA auto-approve so the agent moves through them autonomously. Fix, Test, and Close require human approval — putting humans in the loop where high-stakes decisions happen.
 
+Beyond the default, you can start a new workflow from a built-in template or build your own. See [Configuring Workflows](/features/configuring-workflows).
+
 ---
 
 ## Two Surfaces
@@ -65,12 +75,12 @@ Design workflows using a visual drag-and-drop graph editor. Add stages, draw con
 
 ### The Workflow Inbox
 
-Manage active work across your team. Filter by stage, approval status, ownership, and time range. Review Players inline and approve transitions without leaving the inbox. [Learn more →](/features/workflow-inbox)
+Manage active work across your team. Filter by workflow, stage, approval status, ownership, and time range. Review threads inline and approve transitions without leaving the inbox. [Learn more →](/features/workflow-inbox)
 
 ---
 
 ## Get Started
 
 - [Configuring Workflows](/features/configuring-workflows) — Set up stages, transitions, approvals, and archival
-- [Workflow Inbox](/features/workflow-inbox) — Manage active Players, approve transitions, and review work
+- [Workflow Inbox](/features/workflow-inbox) — Manage active threads, approve transitions, and review work
 - [Usage Analytics](/features/additional-features/usage-analytics) — Track workflow activity and export usage data

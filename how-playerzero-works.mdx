@@ -11,6 +11,24 @@ This guide starts by covering PlayerZero’s architecture, then dives into how e
 
 ---
 
+## Channels, Threads, and Workflows
+
+PlayerZero organizes work into channels and threads, with workflows defining the process each thread follows.
+
+- **Channel** — a shared workspace built around a single objective. Threads collaborate inside a channel and share its context, branches, and referenced files.
+- **Thread** — an individual agent conversation, with its own context and sandbox. A thread is what older material may call a "Player."
+- **Coordinator** — keeps the threads in a channel aligned with the objective, relays context between them, and tracks overall progress.
+- **Workflow** — a multi-stage process a thread moves through, such as triage, investigation, fix, and review. A project can run several workflows. See [Workflows](/features/workflows).
+
+Two capabilities make this work as a team:
+
+- **Multiplayer** is coordination **within** a team on a single initiative — multiple threads collaborating in one channel so several investigations run at once without losing the thread.
+- **Multiworkflow** is coordination **across** teams, even in the same channel — support, product, engineering, and QA can hand work off without losing the intent of the change or what was deliberately added to or removed from scope.
+
+Together they close the context gap that slows handoffs between teams.
+
+---
+
 ## Code as a Foundation
 
 PlayerZero starts with a guiding principle: **every technical defect, performance bottleneck, or user issue ties back to your codebase.** By grounding all insights in the code itself, we ensure that data from observability, customer support, and other platforms augments—rather than distracts from—the lines of code that drive your product.

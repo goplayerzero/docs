@@ -3,32 +3,32 @@ title: "Slack"
 description: "Connect Slack to PlayerZero to interact with AI Players directly from Slack — start investigations from messages, run workflows, and receive notifications in channels."
 ---
 
-Slack is a messaging platform for teams. PlayerZero's Slack integration lets you interact with AI Players directly from Slack — starting investigations from message threads, chatting with Players in DMs, and running workflows with optional playbook guidance.
+Slack is a messaging platform for teams. PlayerZero's Slack integration lets you interact with AI Players directly from Slack — starting investigations from message threads, chatting with Player threads in DMs, and running workflows with optional playbook guidance.
 
 ## What You Can Do
 
 Once connected, you can:
 
-- **Chat with Players in DMs** — Send messages directly to the PlayerZero bot to ask questions about your codebase, debug issues, or investigate problems
-- **@mention in channels** — Mention the PlayerZero bot in any channel to start a conversation. The bot creates a Player session and responds in a thread.
-- **Start investigations from messages** — Use the **Ask PlayerZero** message shortcut to send any message thread to a Player, with full thread context automatically captured and optional workflow or playbook selection
+- **Chat with Player threads in DMs** — Send messages directly to the PlayerZero bot to ask questions about your codebase, debug issues, or investigate problems
+- **@mention in channels** — Mention the PlayerZero bot in any channel to start a conversation. The bot creates a Player thread and responds in a Slack thread.
+- **Start investigations from messages** — Use the **Ask PlayerZero** message shortcut to send any message thread to a Player thread, with full thread context automatically captured and optional workflow or playbook selection
 - **Use the `/ask_playerzero` command** — Type `/ask_playerzero` in any channel to open the Ask PlayerZero modal without needing to right-click a message
 - **Open in Chat** — Link an existing PlayerZero session to a Slack channel from the PlayerZero UI, so you can continue a conversation in Slack
-- **Receive notifications in channels** — Get workflow stage approval requests, Player summaries, and other notifications delivered to your team's channels
+- **Receive notifications in channels** — Get workflow stage approval requests, Player thread summaries, and other notifications delivered to your team's channels
 
 ## Ask PlayerZero
 
 ### Message Shortcut
 
-Right-click any message (or use the ⋯ menu) and select **Ask PlayerZero** to send it to a PlayerZero AI Player.
+Right-click any message (or use the ⋯ menu) and select **Ask PlayerZero** to send it to a Player thread.
 
 1. Select **Ask PlayerZero** from the message shortcut menu
 2. Choose a **project** (if you have more than one)
-3. Optionally select a **workflow** to start the Player in a specific workflow stage, or a **playbook** to guide the Player's approach
+3. Optionally select a **workflow** to start the Player thread in a specific workflow stage, or a **playbook** to guide the Player thread's approach
 4. Add any **additional context** to supplement the thread content
 5. Click **Create**
 
-PlayerZero automatically reads the original thread and includes it as context for the AI Player. The Player session is linked back to the Slack thread — a summary of the agent's response appears in the thread with a **Full Chat** link to the complete session in PlayerZero. Messages you send in the thread are forwarded to the Player.
+PlayerZero automatically reads the original thread and includes it as context for the agent. The Player thread is linked back to the Slack message thread — a summary of the agent's response appears in the Slack thread with a **Full Chat** link to the complete conversation in PlayerZero. Messages you send in the Slack thread are forwarded to the Player thread.
 
 You can preview the instructions for a selected workflow or playbook using the **Preview** button before submitting.
 
@@ -36,11 +36,11 @@ You can preview the instructions for a selected workflow or playbook using the *
 
 Type `/ask_playerzero` in any channel to open the same Ask PlayerZero modal directly. Any text you include after the command is pre-filled into the message field.
 
-The command creates a new thread in the current channel and links it to the Player session. This is useful when you want to start an investigation without a specific message to reference.
+The command creates a new Slack thread in the current channel and links it to the Player thread. This is useful when you want to start an investigation without a specific message to reference.
 
 ### Global Shortcut
 
-Open Slack's global shortcuts menu and select **Ask PlayerZero** to start a new Player session without message context.
+Open Slack's global shortcuts menu and select **Ask PlayerZero** to start a new Player thread without message context.
 
 1. Open the global shortcuts menu
 2. Select **Ask PlayerZero**
@@ -48,39 +48,39 @@ Open Slack's global shortcuts menu and select **Ask PlayerZero** to start a new 
 4. Provide a **message** describing your question or task
 5. Click **Create**
 
-Unlike the message shortcut, this does not capture thread context — use it when you want to start a new investigation from scratch. The Player session opens in a DM with the PlayerZero bot.
+Unlike the message shortcut, this does not capture thread context — use it when you want to start a new investigation from scratch. The Player thread opens in a DM with the PlayerZero bot.
 
 ### How Thread Context Works
 
-When you trigger the message shortcut from a message that's part of a thread, PlayerZero reads the parent message of that thread and includes its content alongside your additional context. This means the AI Player understands the full conversation without you needing to copy and paste.
+When you trigger the message shortcut from a message that's part of a thread, PlayerZero reads the parent message of that thread and includes its content alongside your additional context. This means the agent understands the full conversation without you needing to copy and paste.
 
 ## Workflow Stage Approvals
 
-When an AI Player needs approval to move to the next workflow stage, PlayerZero delivers an approval notification to Slack. These notifications appear in the thread where the Player was started (if it originated from Slack) and in any channels configured for that workflow stage.
+When a Player thread needs approval to move to the next workflow stage, PlayerZero delivers an approval notification to Slack. These notifications appear in the Slack thread where the Player thread was started (if it originated from Slack) and in any channels configured for that workflow stage.
 
 The notification includes:
 
 - An **Approve** button to approve the transition immediately
 - An **Approve with message** button to add context, select a playbook, or provide instructions before approving
-- A **View in PlayerZero** link to open the full Player session
+- A **View in PlayerZero** link to open the full Player thread
 
 After approval, a confirmation message is posted to the thread so the team can see who approved and any notes they included.
 
 ## Open in Chat
 
-You can link any PlayerZero session to a Slack channel directly from the PlayerZero UI.
+You can link any Player thread to a Slack channel directly from the PlayerZero UI.
 
-From a Player session in PlayerZero, click **Open in Chat** and select a Slack channel. PlayerZero creates a new thread in that channel linked to the Player — messages in the thread are forwarded to the Player, and the Player's responses appear in the thread.
+From a Player thread in PlayerZero, click **Open in Chat** and select a Slack channel. PlayerZero creates a new Slack thread in that channel linked to the Player thread — messages in the Slack thread are forwarded to the Player thread, and its responses appear in the Slack thread.
 
-If the Player is already connected to a Slack thread, clicking **Open in Chat** takes you directly to that thread instead.
+If the Player thread is already connected to a Slack thread, clicking **Open in Chat** takes you directly to that Slack thread instead.
 
 ## Receive Notifications
 
 PlayerZero delivers notifications to Slack channels based on your project and workflow configuration. Notifications include:
 
-- **Workflow stage approval requests** when a Player needs human approval to continue
-- **Player response summaries** posted to threads where investigations were started
-- **Notifications from monitor-initiated Players** when a monitor triggers a new investigation and delivers results to a configured channel
+- **Workflow stage approval requests** when a Player thread needs human approval to continue
+- **Player thread response summaries** posted to Slack threads where investigations were started
+- **Notifications from monitor-initiated Player threads** when a monitor triggers a new investigation and delivers results to a configured channel
 
 Notification routing is configured per project and per workflow stage in **Settings**. See [Notification Configuration](#notification-configuration) for details.
 

@@ -17,7 +17,7 @@ Each stage defines what the agent does during that phase of work.
 | **Type** | **Entry** (starting point), **Work** (intermediate), or **Terminal** (end point). |
 | **Auto-approve** | If enabled, transitions out of this stage happen without human approval. |
 | **Approver config** | Who can approve: **Player** (agent suggests based on code ownership) or **Individuals** (specific team members). |
-| **Archive config** | How completed Players are archived: **Never**, **Manual**, or **Automatic** (after N days). |
+| **Archive config** | How completed threads are archived: **Never**, **Manual**, or **Automatic** (after N days). |
 | **Ask a human** | Optional guidance on when the agent should stop and escalate to a person. |
 
 ### Stage Types
@@ -85,17 +85,33 @@ When a human reviews a transition request, they are approving the work completed
 
 | Mode | Behavior |
 |---|---|
-| **Never** | Player is never auto-archived from this stage |
-| **Manual** | Users can archive Players manually from the Player title bar or the inbox |
-| **Automatic** | Players are archived after a configurable number of days (1, 7, 14, or 30) |
+| **Never** | Thread is never auto-archived from this stage |
+| **Manual** | Users can archive threads manually from the thread title bar or the inbox |
+| **Automatic** | Threads are archived after a configurable number of days (1, 7, 14, or 30) |
 
-Archiving marks a Player with an archived flag — it does not move the Player to a different stage. Archived Players can be viewed using the **Archived** filter in the inbox, with sub-filters for **Manually Archived** and **Automatically Archived**. Archived Players can be restored at any time.
+Archiving marks a thread with an archived flag — it does not move the thread to a different stage. Archived threads can be viewed using the **Archived** filter in the inbox, with sub-filters for **Manually Archived** and **Automatically Archived**. Archived threads can be restored at any time.
 
 ---
 
+## Workflow Versioning
+
+Workflows use a draft and publish lifecycle:
+
+- **Draft** — Edit stages, transitions, and rules without affecting running work. Changes are saved to the draft.
+- **Publish** — When the draft is ready, publish it to make it the active version. New work uses the published version.
+- **Version history** — PlayerZero keeps every published version. Review past versions and **roll back** to a previous one when needed.
+
+The inbox, monitors, and ticketing resolve against the published version of each workflow.
+
+## Starting from a Template
+
+PlayerZero ships with built-in workflow templates you can use as starting points: Documentation, Engineering Scoping, L1 Support, PR Review, Product Scoping, QA Testing, and SRE Alert Response. Create a new workflow from a template, then adjust the stages to fit how your team works.
+
+You can also create a workflow by **importing** one — from a JSON export or from another project's published workflow.
+
 ## The Workflow Builder
 
-The visual editor for designing workflows. Access it from **Settings > Stages** in your project.
+The visual editor for designing workflows. Access it from **Project Settings → Workflows** in your project, then open a workflow to edit its stages and transitions on the canvas.
 
 ### Canvas
 
@@ -122,13 +138,15 @@ The builder displays warning indicators on stages that are missing:
 
 ### Deleting a Stage
 
-When you delete a stage that has active Players, you'll be prompted to choose a destination stage. All Players currently in the deleted stage are moved to the destination, and any pending transition requests targeting the deleted stage are automatically redirected.
+When you delete a stage that has active threads, you'll be prompted to choose a destination stage. All threads currently in the deleted stage are moved to the destination, and any pending transition requests targeting the deleted stage are automatically redirected.
 
-If some Players fail to transition (for example, due to a network issue or a stuck session), the dialog shows which Players failed and why. You can retry the operation, or click **Delete Anyway** to remove the stage regardless — Players that couldn't be moved will remain in their current state and can be reassigned manually.
+If some threads fail to transition (for example, due to a network issue or a stuck session), the dialog shows which threads failed and why. You can retry the operation, or click **Delete Anyway** to remove the stage regardless — threads that couldn't be moved will remain in their current state and can be reassigned manually.
 
 ### Export & Import
 
 Export your workflow as JSON (stages, transitions, agent rules, layout positions). Import into other projects to replicate workflows across your organization.
+
+You can also import directly from another project's published workflow, so a process proven in one project can be reused in another without exporting a file first.
 
 When importing into a project that already has stages, the import dialog detects conflicting stage names and lets you resolve each one individually:
 
@@ -143,7 +161,7 @@ Stages that don't conflict with existing names are imported automatically withou
 
 ## The Workflow Inbox
 
-The inbox is the operational view for managing active Players across your workflow. For full documentation, see [Workflow Inbox](/features/workflow-inbox).
+The inbox is the operational view for managing active threads across your workflow. For full documentation, see [Workflow Inbox](/features/workflow-inbox).
 
 ---
 
