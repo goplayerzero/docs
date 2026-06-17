@@ -133,11 +133,11 @@ When a monitor fails, you can start an interactive debugging session to investig
 1. Open the monitor detail panel and find the failed result in the result timeline
 2. Click **Investigate with Player** next to the verdict
 3. Select a **project** to run the investigation in
-4. A new Player session opens with the monitor's context pre-loaded — including the monitor title, condition, and the evaluation's reasoning
+4. A new Channel opens with the monitor's context pre-loaded — including the monitor title, condition, and the evaluation's reasoning
 
 If an investigation already exists for that result, clicking the button opens the existing session instead of creating a duplicate.
 
-Investigation sessions show the monitor origin in the Player thread, with a link back to the monitor result. Monitor-triggered Players also appear with an activity indicator in the workflow inbox.
+Investigation sessions show the monitor origin in the Player thread, with a link back to the monitor result. Monitor-triggered Channels also appear with an activity indicator in the workflow inbox.
 
 ---
 
@@ -153,7 +153,7 @@ To configure a workflow trigger:
 
 When the monitor fails:
 
-- **Workflow started** — A new workflow Player is created and starts processing from the configured stage
+- **Workflow started** — A new workflow Channel is created and starts processing from the configured stage
 - **Workflow skipped** — A workflow was already started in the last hour for this monitor, so the run is skipped to avoid duplicates
 - **No workflow** — No workflow stage is configured
 - **Workflow failed** — Something went wrong when trying to start the workflow
