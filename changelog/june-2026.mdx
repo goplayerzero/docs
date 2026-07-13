@@ -40,3 +40,59 @@ Teams begin with a structured process instead of a blank canvas. Pick the templa
 PlayerZero's MCP endpoint now speaks the standard Streamable HTTP transport with server-sent events, so you can connect mainstream MCP clients such as Claude Code and Cursor directly. Connector tokens are passed in a standard Authorization header.
 
 Developers connect PlayerZero to the MCP client they already use without custom setup, using the transport and authentication those clients expect.
+
+---
+
+## Spin Humans In with Collaborations
+
+PlayerZero now pauses when it reaches a decision that requires more context, asks the right person a direct clarifying question, and resumes automatically once you answer. The task is held safely while it waits, and each question is directed to the person most likely to have the answer, starting with those closest to the work based on existing code and ticketing context. Users can always reassign a question to someone else if needed, at which point PlayerZero will remember their response and adaptively learn who answers what over time. Answering takes seconds: reply with a yes or no, pick from a list, or type your own answer, and reply again in the thread anytime to update it. You can even directly @mention a teammate to loop them in when it touches a product or engineering area outside your usual expertise.
+
+You get the judgment of a human in the loop without slowing the work down, along with a clear record of who answered what. Workflow authors decide where this belongs, turning direct questions on or off for each stage, and you can filter your threads to show only the questions waiting on you.
+
+---
+
+## Stay Current with Template Workflow Updates
+
+You can now get new best-practice workflows published directly to you from the PlayerZero Support team. When our Support team sees new patterns of use emerging, whether that’s a new way to do a code review workflow for an AI-native world, or a new workflow domain entirely like Design New UX or Write Marketing Brief, they can quickly encode that pattern into a template and share it. When a new template is released, you see a notification in settings and can review exactly what changed before deciding what to do, from applying the update, to applying and publishing it, to skipping the version or muting future updates.
+
+Teams stay on current, proven workflow templates instead of being stuck with what existed when they first onboarded.
+
+---
+
+## Archive Channel Threads in Bulk
+
+You can now archive every thread in a channel with a single action, and unarchive them all just as easily. Busy channels that span many workflow stages no longer need to be cleared out one thread at a time.
+
+Before anything happens, a confirmation tells you how many threads will be affected, and any threads set never to archive are left untouched. The action is fully reversible, so you can keep a channel tidy without worrying about losing work.
+
+---
+
+## See Where Each Thread Came From
+
+Threads now show a linked icon next to their name that indicates where they originated. A thread started by a monitor links back to that monitor, one from an API trigger links to the trigger, and one from a ticketing integration shows that integration's icon and links to its settings.
+
+You can tell at a glance how a piece of work began and jump straight to its source. An Archived badge in the title bar also makes a thread's state obvious without opening a menu.
+
+---
+
+## A Smoother Experience on Mobile
+
+On a phone, PlayerZero now presents chat, the artifact list, and an individual artifact as distinct full-screen views with clear back navigation, instead of forcing a split pane onto a narrow screen. Tapping an artifact reliably opens it.
+
+Reviewing and steering work from your phone is now practical, with a header that keeps its controls clear and a layout that stays readable on small screens.
+
+---
+
+## Control Zendesk Comment Visibility
+
+You can now choose whether PlayerZero leaves public replies or private internal notes on Zendesk tickets, with public-only, private-only, and agent-decides modes, matching the controls already available for Jira. After each comment, PlayerZero reports the visibility Zendesk actually stored.
+
+Support teams keep control over what reaches the customer and what stays internal, so automated updates always land at the right level of visibility.
+
+---
+
+## Connect ClickHouse Cloud over MCP
+
+ClickHouse Cloud is now a recommended MCP connection. You can add it from settings with a guided, pre-filled setup instead of configuring the connection by hand.
+
+Teams that rely on ClickHouse can bring that data into PlayerZero's context quickly, using the same standard MCP transport as the rest of your connections.
