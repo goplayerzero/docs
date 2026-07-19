@@ -13,6 +13,7 @@ Once connected, you can:
 - **Start investigations with Ask PlayerZero** — Select a project, choose a workflow or playbook, and provide your question. PlayerZero creates a Player thread and responds in the Teams thread.
 - **Approve workflow stage transitions** — When a Player thread needs approval to move to the next workflow stage, an interactive approval card appears in Teams with options to approve immediately or approve with a message and playbook.
 - **Receive notifications in channels** — Get workflow stage approval requests, Player thread summaries, and other notifications delivered to your team's channels.
+- **Get direct questions as messages** — When a Player thread has a collaboration question for a specific person, PlayerZero can deliver it as a direct message so the right teammate can answer without leaving Teams.
 - **Open in Chat** — Link an existing Player thread to a Teams channel from the PlayerZero UI, so you can continue a conversation in Teams.
 - **Reply in threads** — Continue a conversation with a Player thread by replying in the Teams thread. Messages in the Teams thread are forwarded to the Player thread, and its responses appear in the Teams thread.
 
@@ -47,6 +48,8 @@ The approval card includes:
 
 After approval, a confirmation message is posted to the thread so the team can see who approved and any notes they included.
 
+If the request has already been handled — for example, approved from another channel or from PlayerZero — the card updates in place to show that the request is no longer pending, so no one approves the same transition twice.
+
 ## Open in Chat
 
 You can link any Player thread to a Teams channel directly from the PlayerZero UI.
@@ -62,6 +65,7 @@ PlayerZero delivers notifications to Teams channels based on your project and wo
 - **Workflow stage approval requests** when a Player thread needs human approval to continue
 - **Player thread response summaries** posted to Teams threads where investigations were started
 - **Notifications from monitor-initiated Player threads** when a monitor triggers a new investigation and delivers results to a configured channel
+- **Direct questions delivered as messages** when a Player thread has a collaboration question for a specific person and direct messages are enabled for the project
 
 Notification routing is configured per project and per workflow stage in **Settings**. See [Notification Configuration](#notification-configuration) for details.
 
@@ -97,6 +101,11 @@ Once Teams is connected, you can configure where notifications are delivered at 
 **Business hours:**
 - Optionally restrict notifications to business hours based on your team's timezone
 - Notifications generated outside business hours are held and delivered when business hours resume
+
+**Direct messages:**
+- Turn on **Send direct messages** for a project to deliver direct questions to individual teammates as Teams messages, alongside the channel notifications above
+- Choose what is sent as a direct message with the scope setting: **All questions**, **Direct questions only**, or **Workflow approval questions only**
+- Configure it at **Organization settings → Collaboration → Teams**, then select the project, turn on **Send direct messages**, and click **Save**
 
 ## Get Started
 
