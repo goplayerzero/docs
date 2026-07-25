@@ -20,7 +20,7 @@ A PlayerZero **channel** is a shared workspace built around a single objective, 
 
 - **Channel** — the shared workspace and objective that threads collaborate within. Context, branches, and referenced files are shared across the channel.
 - **Thread** — an individual agent conversation. A thread can run in Agent Mode or Hive Mode and keeps its own history, context, and sandbox.
-- **Coordinator** — keeps threads aligned with the channel's objective, relays context between them, and tracks overall progress.
+- **Controlling thread** — the most recent thread in the channel manages transitions to new stages and tracks overall progress toward the channel's objective.
 
 The side panel lists every thread in the channel, **grouped by workflow**, so you can see all the work in progress at a glance. Teammate threads created in [Hive Mode](/features/hive-mode) appear here as first-class entries alongside the threads you start yourself.
 
@@ -32,7 +32,7 @@ Threads in a channel are not isolated. When you start a new thread, it inherits 
 
 - **Inherited context** — A new thread carries the channel's objective and plan, a record of the threads that came before it, and the files those threads referenced.
 - **Inherited branches** — Starting a new thread from an existing one (using ⌘K or **New Thread**) carries over the repositories and branches the source thread was working on.
-- **Thread-to-thread messaging** — Threads can send context and findings to one another, and the coordinator relays updates so work flows across the channel.
+- **Thread-to-thread messaging** — Threads can send context and findings to one another, so updates flow across the channel as the work proceeds.
 
 A handoff from one thread to another keeps the history it depends on, whether the work moves from investigation to fix or from one team to another.
 

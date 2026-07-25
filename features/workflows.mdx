@@ -8,7 +8,7 @@ description: "Define multi-stage pipelines that govern how PlayerZero agents pro
 
 A Workflow is a customizable, multi-stage pipeline that controls how a PlayerZero agent processes work from start to finish. You define the stages, the allowed paths between them, and the rules that control progression.
 
-When a channel enters a workflow, it moves through stages like **Intake & Triage → RCA → Fix → Test → Document & Close**. Each stage will operate across one or more agent threads. Each thread receives workflow-specific instructions, performs its work, and then requests permission to advance. Transitions can be auto-approved or gated behind human review.
+When a channel enters a workflow, it moves through stages like **Intake & Triage → RCA → Fix → Test → Document & Close**. Each stage will operate across one or more agent threads. Each thread receives workflow-specific instructions, performs its work, and then requests permission to advance. The most recent thread in the channel acts as the controlling thread that manages transitions to the next stage. Transitions can be auto-approved or gated behind human review.
 
 ---
 
@@ -32,7 +32,7 @@ A stage is a node in the workflow graph. Each stage has a **name**, **instructio
 
 ### Transitions
 
-Transitions are the allowed paths between stages. Each transition includes a target stage and conditions describing when the agent should take that path. Transitions are validated at runtime — the agent can only move to stages explicitly defined as valid next steps.
+Transitions are the allowed paths between stages. Each transition includes a target stage and conditions describing when the agent should take that path. Transitions are validated at runtime — the agent can only move to stages explicitly defined as valid next steps. The channel sidebar surfaces these as the **Possible next stages** for the current thread.
 
 ### Approvals
 

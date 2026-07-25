@@ -17,7 +17,7 @@ PlayerZero organizes work into channels and threads, with workflows defining the
 
 - **Channel** — a shared workspace built around a single objective. Threads collaborate inside a channel and share its context, branches, and referenced files.
 - **Thread** — an individual agent conversation, with its own context and sandbox. A thread is what older material may call a "Player."
-- **Coordinator** — keeps the threads in a channel aligned with the objective, relays context between them, and tracks overall progress.
+- **Controlling thread** — the most recent thread in a channel manages transitions to new stages and tracks overall progress toward the objective.
 - **Workflow** — a multi-stage process a thread moves through, such as triage, investigation, fix, and review. A project can run several workflows. See [Workflows](/features/workflows).
 
 Two capabilities make this work as a team:

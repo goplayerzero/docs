@@ -15,6 +15,7 @@ Once connected, you can:
 - **Use the `/ask_playerzero` command** — Type `/ask_playerzero` in any channel to open the Ask PlayerZero modal without needing to right-click a message
 - **Open in Chat** — Link an existing PlayerZero session to a Slack channel from the PlayerZero UI, so you can continue a conversation in Slack
 - **Receive notifications in channels** — Get workflow stage approval requests, Player thread summaries, and other notifications delivered to your team's channels
+- **Get direct questions as DMs** — When a Player thread has a collaboration question for a specific person, PlayerZero can deliver it as a direct message so the right teammate can answer without leaving Slack
 
 ## Ask PlayerZero
 
@@ -65,6 +66,8 @@ The notification includes:
 - A **View in PlayerZero** link to open the full Player thread
 
 After approval, a confirmation message is posted to the thread so the team can see who approved and any notes they included.
+
+If the request has already been handled — for example, approved from another channel or from PlayerZero — the card updates in place to show that the request is no longer pending, so no one approves the same transition twice.
 
 ## Open in Chat
 
@@ -144,6 +147,11 @@ Once Slack is connected, you can configure where notifications are delivered at 
 **Business hours:**
 - Optionally restrict notifications to business hours based on your team's timezone
 - Notifications generated outside business hours are held and delivered when business hours resume
+
+**Direct messages:**
+- Turn on **Send direct messages** for a project to deliver direct questions to individual teammates as Slack DMs, alongside the channel notifications above
+- Choose what is sent as a direct message with the scope setting: **All questions**, **Direct questions only**, or **Workflow approval questions only**
+- Configure it at **Organization settings → Collaboration → Slack**, then select the project, turn on **Send direct messages**, and click **Save**
 
 ## Get Started
 
