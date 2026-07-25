@@ -4,6 +4,8 @@ sidebarTitle: "Chrome Extension"
 description: "Bring PlayerZero's AI Player directly into your browser. Capture any webpage, ask questions with full codebase context, and manage your workflow — all without leaving the page you're on."
 ---
 
+import PersonalAccessToken from '/snippets/create-personal-access-token.mdx';
+
 ## Prerequisites
 
 - Active PlayerZero account with project access
@@ -24,22 +26,11 @@ description: "Bring PlayerZero's AI Player directly into your browser. Capture a
 
 ## Step 2: Create a Personal Access Token
 
-1. **Open Token Settings**
-   - Log in at [playerzero.ai](https://playerzero.ai)
-   - Choose your organization and project
-   - Navigate to **Settings → User Settings → Personal Access Tokens**
+The Chrome extension authenticates with a Personal Access Token. When you create it, select the **Chrome Extension** permission. The same token type also authenticates the [PlayerZero MCP server](/developer-guide/configuration-guides/mcp-setup), so you can select **MCP** instead when you set up that access.
 
-2. **Generate Token**
-   - Click **New Token**
-   - Give it a descriptive name, e.g. `Chrome Extension - [Your Name]`
-   - Click **Create Token**
-   - **Copy and store the token immediately** — it won't be shown again
+<PersonalAccessToken />
 
-3. **Token details**
-   - Tokens start with `pz_pat`
-   - Expires in **90 days**
-   - Scoped to **one** project
-   - Each team member should create their own token
+Each team member should create their own token.
 
 ---
 
@@ -84,7 +75,7 @@ If the Channel starts successfully, you're all set.
 <AccordionGroup>
 
 <Accordion title="Token Management">
-- Rotate tokens regularly — they expire after **90 days**
+- If you lose your token, you can regenerate it from the kebab menu in the PAT table
 - Use descriptive names to track which token is used where
 - Each team member should have their own token
 - Delete unused tokens from **Settings → User Settings → Personal Access Tokens**
@@ -116,7 +107,7 @@ The toolbar only appears when the **side panel is open**. Click the PlayerZero i
 
 <Accordion title="My token isn't accepted">
 - Ensure the token starts with `pz_pat` — tokens without this prefix will be rejected
-- Check that the token hasn't expired (90-day lifetime)
+- Check that the token hasn't expired
 - Verify you have **Editor** or **Owner** permissions on the project
 - Generate a new token if needed from **Settings → User Settings → Personal Access Tokens** in the web app
 </Accordion>

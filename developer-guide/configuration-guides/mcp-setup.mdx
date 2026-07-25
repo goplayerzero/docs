@@ -4,6 +4,8 @@ sidebarTitle: "PlayerZero MCP Server"
 description: "PlayerZero exposes an MCP server that any compatible AI assistant can connect to, bringing codebase intelligence, live telemetry, and issue context directly into your editor."
 ---
 
+import PersonalAccessToken from '/snippets/create-personal-access-token.mdx';
+
 PlayerZero exposes an MCP server that any compatible AI assistant can connect to, bringing codebase intelligence, live telemetry, and issue context directly into your editor. This lets you ask questions, debug issues, and investigate production behavior from tools like VS Code, Cursor, and GitHub Copilot without switching to the PlayerZero UI.
 
 ## Prerequisites
@@ -14,24 +16,13 @@ PlayerZero exposes an MCP server that any compatible AI assistant can connect to
 
 ---
 
-## Step 1: Create an MCP Token
+## Step 1: Create a Personal Access Token
 
+The MCP server authenticates with a Personal Access Token. When you create it, select the **MCP** permission and scope the token to the single project you want it to reach.
 
-1. **Open Project Settings**  
-   - Log in at https://playerzero.ai 
-   - Choose your organization & project  
-   - Navigate to **Settings → MCP Tokens**
+<PersonalAccessToken />
 
-2. **Generate Token**  
-   - Click **New Token**  
-   - Give it a descriptive name, e.g. `Cursor MCP` or `Claude Desktop`  
-   - Click **Create Token**  
-   - **Copy & store the token immediately** – it won’t be shown again.
-
-3. **Token details**  
-   - Expires in **90 days**  
-   - Scoped to **one** project  
-   - Create multiple tokens for different tools or teammates
+Create separate tokens for different tools or teammates.
 
 ---
 
@@ -135,10 +126,10 @@ Use stop_player with the playerId from a previous ask_playerzero response to end
 
 
 ## Security Considerations
-- **Token Security:** Store MCP tokens securely and never commit them to version control
-- **Project Scope:** Tokens only provide access to the specific project they were created for
+- **Token Security:** Store your Personal Access Token securely and never commit it to version control
+- **Project Scope:** An MCP token only provides access to the single project it was scoped to
 - **Audit Trail:** All MCP interactions are logged in your PlayerZero project
-- **Expiration:** Tokens automatically expire after 90 days for security
+- **Expiration:** Personal Access Tokens used for MCP access automatically expire when project or organization membership is lost for security
 
 ---
 
