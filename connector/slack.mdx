@@ -3,7 +3,7 @@ title: "Slack"
 description: "Connect Slack to PlayerZero to interact with AI Players directly from Slack — start investigations from messages, run workflows, and receive notifications in channels."
 ---
 
-Slack is a messaging platform for teams. PlayerZero's Slack integration lets you interact with AI Players directly from Slack — starting investigations from message threads, chatting with Player threads in DMs, and running workflows with optional playbook guidance.
+Slack is a messaging platform for teams. PlayerZero's Slack integration lets you interact with AI Players directly from Slack — starting investigations from message threads, chatting with Player threads in DMs, and running workflows.
 
 ## What You Can Do
 
@@ -11,7 +11,7 @@ Once connected, you can:
 
 - **Chat with Player threads in DMs** — Send messages directly to the PlayerZero bot to ask questions about your codebase, debug issues, or investigate problems
 - **@mention in channels** — Mention the PlayerZero bot in any channel to start a conversation. The bot creates a Player thread and responds in a Slack thread.
-- **Start investigations from messages** — Use the **Ask PlayerZero** message shortcut to send any message thread to a Player thread, with full thread context automatically captured and optional workflow or playbook selection
+- **Start investigations from messages** — Use the **Ask PlayerZero** message shortcut to send any message thread to a Player thread, with full thread context automatically captured and optional workflow selection
 - **Use the `/ask_playerzero` command** — Type `/ask_playerzero` in any channel to open the Ask PlayerZero modal without needing to right-click a message
 - **Open in Chat** — Link an existing PlayerZero session to a Slack channel from the PlayerZero UI, so you can continue a conversation in Slack
 - **Receive notifications in channels** — Get workflow stage approval requests, Player thread summaries, and other notifications delivered to your team's channels
@@ -25,13 +25,13 @@ Right-click any message (or use the ⋯ menu) and select **Ask PlayerZero** to s
 
 1. Select **Ask PlayerZero** from the message shortcut menu
 2. Choose a **project** (if you have more than one)
-3. Optionally select a **workflow** to start the Player thread in a specific workflow stage, or a **playbook** to guide the Player thread's approach
+3. Optionally select a **workflow** to start the Player thread in a specific workflow stage
 4. Add any **additional context** to supplement the thread content
 5. Click **Create**
 
 PlayerZero automatically reads the original thread and includes it as context for the agent. The Player thread is linked back to the Slack message thread — a summary of the agent's response appears in the Slack thread with a **Full Chat** link to the complete conversation in PlayerZero. Messages you send in the Slack thread are forwarded to the Player thread.
 
-You can preview the instructions for a selected workflow or playbook using the **Preview** button before submitting.
+You can preview the instructions for a selected workflow using the **Preview** button before submitting.
 
 ### Slash Command
 
@@ -45,7 +45,7 @@ Open Slack's global shortcuts menu and select **Ask PlayerZero** to start a new 
 
 1. Open the global shortcuts menu
 2. Select **Ask PlayerZero**
-3. Choose a **project** and optionally a **workflow** or **playbook**
+3. Choose a **project** and optionally a **workflow**
 4. Provide a **message** describing your question or task
 5. Click **Create**
 
@@ -62,7 +62,7 @@ When a Player thread needs approval to move to the next workflow stage, PlayerZe
 The notification includes:
 
 - An **Approve** button to approve the transition immediately
-- An **Approve with message** button to add context, select a playbook, or provide instructions before approving
+- An **Approve with message** button to add context or provide instructions before approving
 - A **View in PlayerZero** link to open the full Player thread
 
 After approval, a confirmation message is posted to the thread so the team can see who approved and any notes they included.

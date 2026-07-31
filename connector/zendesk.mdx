@@ -3,6 +3,8 @@ title: "Zendesk"
 description: "Connect Zendesk to PlayerZero for AI-assisted customer support."
 ---
 
+import TicketAttachmentImport from '/snippets/ticket-attachment-import.mdx';
+
 Zendesk is a customer service platform designed to improve customer relationships.
 
 ## What You Can Do
@@ -18,12 +20,19 @@ Once connected, PlayerZero AI agents can:
 - **Search and retrieve users** — Find users by name or email and access user details
 - **Browse organizations** — Retrieve organization details and list all organizations
 - **Discover metadata** — List available ticket fields and support groups for routing decisions
+- **Import ticket attachments** — Bring the images and documents attached to a ticket into the thread, when enabled for the project
 
 ## Use Cases
 
 - **Support triage** - AI agents analyze incoming tickets and suggest priority, tags, or assignment based on code analysis
 - **Debug-to-ticket workflow** - Convert investigation findings into detailed Zendesk tickets for customer communication
 - **Known issue detection** - When investigating, agents search for similar past tickets to identify patterns
+
+## Ticket Attachments
+
+<TicketAttachmentImport />
+
+---
 
 ## Scopes & Permissions
 

@@ -8,7 +8,7 @@ description: "Define multi-stage pipelines that govern how PlayerZero agents pro
 
 A Workflow is a customizable, multi-stage pipeline that controls how a PlayerZero agent processes work from start to finish. You define the stages, the allowed paths between them, and the rules that control progression.
 
-When a channel enters a workflow, it moves through stages like **Intake & Triage → RCA → Fix → Test → Document & Close**. Each stage will operate across one or more agent threads. Each thread receives workflow-specific instructions, performs its work, and then requests permission to advance. The most recent thread in the channel acts as the controlling thread that manages transitions to the next stage. Transitions can be auto-approved or gated behind human review.
+When a channel enters a workflow, it moves through the stages you have defined — for example intake, investigation, resolution, and close. Each stage will operate across one or more agent threads. Each thread receives workflow-specific instructions, performs its work, and then requests permission to advance. The most recent thread in the channel acts as the controlling thread that manages transitions to the next stage. Transitions can be auto-approved or gated behind human review.
 
 ---
 
@@ -49,21 +49,21 @@ Completed threads can be archived manually or automatically after a configurable
 
 ---
 
-## The Default Workflow
+## Workflow Templates
 
-Every project starts with a five-stage defect resolution workflow:
+Every organization gets workflow templates out of the box, so you can start from a structured process instead of a blank canvas. The templates available today are Documentation, Engineering Scoping, L1 Support, PR Review, Product Scoping, QA Testing, and SRE Alert Response.
 
-| Stage | Type | Auto-approve | What Happens |
-|---|---|---|---|
-| **Intake & Triage** | Entry | Yes | Assess the issue, classify severity, gather context, check for known issues |
-| **RCA** | Entry | Yes | Deep investigation — study codebase, generate hypotheses, run diagnostic simulations |
-| **Fix** | Work | No | Implement a surgical fix, verify with simulations |
-| **Test** | Work | No | Comprehensive QA — happy path, edge cases, regression, security |
-| **Document & Close** | Terminal | No | Summarize the issue, document root cause and fix, capture learnings |
+Pick the template closest to the work, then adjust its stages to fit how your team operates. PlayerZero's Support team also publishes new and updated templates over time, and you choose whether to take an update when one is released.
 
-Triage and RCA auto-approve so the agent moves through them autonomously. Fix, Test, and Close require human approval — putting humans in the loop where high-stakes decisions happen.
+For how to create a workflow from a template, and the rest of the builder, see [Configuring Workflows](/features/configuring-workflows).
 
-Beyond the default, you can start a new workflow from a built-in template or build your own. See [Configuring Workflows](/features/configuring-workflows).
+---
+
+## Default Workflows
+
+Project owners can mark one workflow as the **default** for each team role — Engineering, Support, Product, and so on. When someone starts work, the default for their role is already selected, so the intended process runs without anyone hunting for it.
+
+Your own choice is remembered per project and per role. If you take on a new role, that role's default applies until you pick something else, and **Reset to Default** clears your choice whenever you want to go back.
 
 ---
 
@@ -75,7 +75,7 @@ Design workflows using a visual drag-and-drop graph editor. Add stages, draw con
 
 ### The Workflow Inbox
 
-Manage active work across your team. Filter by workflow, stage, approval status, ownership, and time range. Review threads inline and approve transitions without leaving the inbox. [Learn more →](/features/workflow-inbox)
+Manage active work across your team. Curate a sidebar of the workflow inboxes you care about, review work grouped by channel, and approve stage advances without leaving the inbox. [Learn more →](/features/workflow-inbox)
 
 ---
 

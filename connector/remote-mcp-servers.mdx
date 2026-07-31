@@ -33,8 +33,10 @@ The external MCP server must be **remote and hosted** — PlayerZero connects vi
 | Use Case | MCP Server | Connection Type | What It Enables |
 |----------|-----------|-----------------|-----------------|
 | Observability | Datadog | Public MCP | Query monitors, search logs, retrieve dashboards and traces |
+| Observability | New Relic | Public MCP | Query telemetry and dashboards during investigations |
 | Log analysis | Coralogix | Public MCP | Search and analyze application logs during debugging |
 | Support | Pylon | Public MCP | Access support conversations, tickets, and customer context |
+| Product management | Aha! | Public MCP | Access product plans and roadmap context |
 | Internal tools | Custom MCP server | Private MCP | Access internal APIs, runbooks, or proprietary data sources |
 
 ## Setup
@@ -100,7 +102,7 @@ Connection editing is split into two dialogs: one for metadata (name, descriptio
 
 ### Recommended Providers
 
-When creating a new connection, the MCP settings page shows a curated catalog of popular providers (including Datadog, Coralogix, and others). Selecting a recommended provider pre-fills connection settings like the MCP server URL and authentication hints, making setup faster.
+When creating a new connection, the MCP settings page shows a curated catalog of popular providers (including Datadog, New Relic, Coralogix, Pylon, and Aha!). Selecting a recommended provider pre-fills connection settings like the MCP server URL and authentication hints, making setup faster.
 
 ## Manage Available Tools
 
