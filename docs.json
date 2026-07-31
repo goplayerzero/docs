@@ -50,6 +50,7 @@
           {
             "group": "Configuration Guides",
             "pages": [
+              "developer-guide/configuration-guides/general-settings-and-membership",
               {
                 "group": "Import Git Setup Guides",
                 "pages": [
