@@ -1,0 +1,137 @@
+---
+title: "General Settings and Membership"
+sidebarTitle: "General & Membership"
+description: "Configure your organization's identity, join rules, feature controls, and who has access."
+---
+
+Organization-level settings live under **Organization Settings**. The **General** page holds your organization's identity, how people join, and which features are enabled; **Members** is where you invite people and set their roles.
+
+The General page has two tabs: **General Information** and **Feature Enablement**.
+
+---
+
+## General Information
+
+### Organization Name
+
+Your organization's visible name within the platform. Changing it updates how the organization appears everywhere in the product; it does not change any URLs.
+
+### Organization Slug
+
+Your organization's URL namespace, used in URLs and API endpoints. Changing the slug changes those URLs, so any bookmarks or saved links using the old slug will need updating.
+
+### Project Auto-Join
+
+Controls whether organization members automatically join all projects. When **Allow users to auto-join projects** is enabled, every member joins every project automatically, except projects marked **Restrict joining** in Project Settings.
+
+Turn this off when projects should be opt-in, and use the per-project restriction when most projects are open but a few need to stay closed.
+
+### Allowed Email Domains
+
+Controls which email domains can join your organization automatically, and the role they receive when they do. Someone signing up with a listed domain joins without an individual invitation.
+
+<Note>
+Allowed domains grant access to anyone with a matching email address. Use them for domains you control.
+</Note>
+
+### Single Sign-On (SSO) Configuration
+
+Manage SSO providers and authentication settings for your organization. See the setup guides for [Okta](/developer-guide/configuration-guides/single-sign-on/okta) and [Microsoft Entra](/developer-guide/configuration-guides/single-sign-on/microsoft-entra).
+
+Only organization owners can manage SSO configuration.
+
+### Organization Deletion
+
+Deleting an organization is handled by PlayerZero support rather than self-serve. Contact support to request deletion.
+
+---
+
+## Feature Enablement
+
+### Pull Request and Code Simulations
+
+Manage your code simulation settings and budget. This one can run in either of two modes, which you switch between on the section itself:
+
+- **Org-wide** — one configuration applies to every project
+- **Per-project** — each project carries its own configuration
+
+Switching modes asks you to confirm, since it changes which configuration is in effect.
+
+### Privileged Action Approval
+
+Privileged actions are writes and destructive operations, such as writing files or committing code. Turn on **Require approval for privileged actions** and an agent must get a person's approval before taking one of those actions.
+
+This setting is org-wide and **takes precedence over the per-workflow setting**. Individual workflows have their own **Require approval for privileged actions** toggle in Project Settings under Workflows, but when the organization-level setting is on:
+
+- Every workflow requires approval, whatever its own toggle says
+- The workflow toggle is switched on and locked, with a note explaining that the organization-level setting is in control
+
+Leave the organization setting off if you want each team to decide for itself. Each workflow's own toggle then applies, so one workflow can require approval while another runs unattended.
+
+<Note>
+Approval requests appear in the thread, and can also arrive as direct messages in Slack or Teams when direct messages are enabled for the project.
+</Note>
+
+Editors and owners can change this setting.
+
+### Public Artifact Sharing
+
+Controls whether artifacts can be shared publicly outside your organization. This applies to every project in the organization.
+
+Only organization owners can change public sharing.
+
+---
+
+## Membership
+
+Invite people and manage their access from **Organization Settings → Members**. You can invite one or more people at once, assigning each an **Org Permission** and a **User Type**, and choose which projects they join. Up to ten people can be invited in a single batch.
+
+The two settings do different jobs: Org Permission controls what someone is allowed to change, while User Type describes the kind of work they do.
+
+### Org Permissions
+
+| Org Permission | What they can do |
+|---|---|
+| **Viewer** | View the organization and projects, but cannot make any changes |
+| **Editor** | Make changes to the organization, and invite new members |
+| **Owner** | Make changes, invite members, and delete the organization |
+
+### User Types
+
+User Type does not grant or restrict access. It tailors the experience to the work someone does, including which default workflow is preselected for them when they start something new.
+
+| User Type |
+|---|
+| Engineering |
+| Product |
+| Design |
+| QA |
+| SRE |
+| Data Science |
+| Sales |
+| Marketing |
+| Support |
+| Documentation |
+| Other |
+
+---
+
+## Who Can Change What
+
+Access to each setting is determined by Org Permission.
+
+| Setting | Viewer | Editor | Owner |
+|---|---|---|---|
+| Organization name, slug, auto-join, allowed domains | View only | Yes | Yes |
+| Code simulations, privileged action approval | View only | Yes | Yes |
+| SSO configuration | No | No | Yes |
+| Public artifact sharing | No | No | Yes |
+| Organization deletion | Contact PlayerZero support | Contact PlayerZero support | Contact PlayerZero support |
+
+---
+
+## Get Started
+
+👉 [Configuring Workflows](/features/configuring-workflows)
+
+👉 [Setup guide](/developer-guide/quickstart-guide)
