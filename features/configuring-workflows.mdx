@@ -13,12 +13,18 @@ Each stage defines what the agent does during that phase of work.
 | Property | Description |
 |---|---|
 | **Name** | Short identifier (e.g., "Triage", "RCA", "Fix"). Must be unique within a project. |
-| **Instructions** | Detailed prompt for the agent — what to do, what to look for, what outputs to produce. Supports the `/` slash command to insert [playbook](/features/playbooks) prompts. |
+| **Instructions** | Detailed prompt for the agent — what to do, what to look for, what outputs to produce. Supports the `/` slash command to insert [Skill](/features/playbooks) instructions. |
 | **Type** | **Entry** (starting point), **Work** (intermediate), or **Terminal** (end point). |
 | **Auto-approve** | If enabled, transitions out of this stage happen without human approval. |
 | **Approver config** | Who can approve: **Player** (agent suggests based on code ownership) or **Individuals** (specific team members). |
 | **Archive config** | How completed threads are archived: **Never**, **Manual**, or **Automatic** (after N days). |
 | **Ask a human** | Optional guidance on when the agent should stop and escalate to a person. |
+
+### Referencing a Skill in Stage Instructions
+
+Type `/` in a stage's **Instructions** field to browse your organization's Skills, then press **Enter** on the one you want. The Skill appears in the prompt in bold and underlined, and the workflow references it at the point that stage runs.
+
+This is a good way to combine organization-wide best practices with project-specific process. Encode the standards that should hold everywhere — document brand and style guidelines, or branch naming and commit rules — as Skills, then reference them from whichever team's workflow needs them. Each team keeps its own stages while drawing on the same shared conventions.
 
 ### Stage Types
 

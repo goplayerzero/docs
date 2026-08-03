@@ -1,112 +1,82 @@
 ---
 title: "Workflow Inbox"
 sidebarTitle: "Inbox"
-description: "Manage active work across your team — filter by stage, approve transitions, archive completed threads, and review work inline."
+description: "Curate a sidebar of the workflow inboxes you care about, review work grouped by channel, and approve stage advances in place."
 ---
 
 ## What Is the Inbox?
 
-The Workflow Inbox is the operational hub for managing active threads across your workflow channels. It gives you a real-time view of all work in progress, organized by stage and status. Access it from **Inbox** in your project navigation.
+The Workflow Inbox is the operational hub for managing active work across your project. Rather than a single view you switch between workflows in, you curate a sidebar of the workflow inboxes that matter to you and see them together. Access it from **Inbox** in your project navigation.
 
 ---
 
-## Layout
+## Your Inbox Sidebar
 
-The inbox uses a two-panel layout:
+Each person builds their own sidebar of pinned workflow inboxes. Click **Manage inboxes** to add or remove workflows from your sidebar with **Add workflow**.
 
-- **Left panel** — Stage list, filters, and thread list grouped by status
-- **Right panel** — Full thread conversation and context for the selected thread
+Every pinned inbox shows a live count of the work waiting in it, and expands to reveal what is inside. Counts update as work moves, so you can leave the sidebar open and watch the queue change.
 
-The stage list can be collapsed to give more space to the thread list.
+Your pinned inboxes, which ones are expanded, and each inbox's view preference are saved per project and per person — your sidebar looks the same the next time you return, and does not affect anyone else's.
+
+### Stage View and Issues View
+
+Each pinned inbox can be viewed one of two ways, set per workflow:
+
+- **Stages** — the inbox expands into the workflow's full stage ladder, each stage with its own count. Use this when you care where in the process work is sitting.
+- **Issues** — the inbox collapses to **My Issues** and **Active Issues** rows, and you pick stages from the toolbar instead. Use this when you care what is assigned to you rather than which stage it is in.
+
+By default, stages with no work are hidden. Turn on **Include empty stages** for an inbox from **Manage inboxes** to always show the full ladder.
+
+---
+
+## Reviewing Work
+
+### Grouped by Channel
+
+Within a stage, threads are grouped by the channel they belong to, each with a status icon showing where it stands. Because a channel can hold several threads working toward one objective, grouping keeps related work together instead of scattering it down a flat list.
+
+A channel shows how many threads it contains, and you can open the full channel from the group.
+
+### Master-Detail Review
+
+Select a thread to open its full conversation beside the list, without losing your place in the inbox. From there you can read the conversation history and the agent's reasoning, approve a transition to the next stage, add notes or redirect the agent, and fork the conversation.
+
+### Approving a Stage Advance
+
+When a channel has proposed moving to the next stage, an **Approve** action appears on that channel so you can advance it in place. The action only appears when an advance is actually proposed, so anything showing an approve control genuinely needs a decision from you.
+
+Each proposal shows the current stage, the target stage, the agent's explanation for why it is ready, and a suggested approver.
 
 ---
 
 ## Filtering
 
-### Workflow
-
-When a project has more than one workflow, the inbox is scoped to a single workflow at a time. Select the workflow you want to review; the stage list, counts, and all other filters apply within that workflow.
-
 ### View Filters
 
 | Filter | Shows |
 |---|---|
-| **Active** | All non-archived threads |
-| **My Issues** | Threads where you contributed or need to approve |
-| **Engineering** | Threads in engineering-focused stages |
-| **Archived** | Completed or archived threads (with sub-filters for Manually Archived vs. Automatically Archived) |
+| **Active** | All non-archived work |
+| **My Issues** | Work where you contributed or need to approve |
+| **Archived** | Completed or archived work |
 
 ### Time Range
 
 Narrow results by time: **All Time**, **Today**, **Last 7 days**, **Last 14 days**, or **Last 30 days**.
 
-### Stage Selection
-
-Click any stage in the left panel to filter threads to that stage only. Click **All Stages** to see threads across every stage. Each stage shows a count of active threads.
-
-By default, stages with zero active threads are hidden from the list. Use the **Include empty stages** checkbox to show them. This preference is saved across sessions.
-
 ### Search
 
-Use the search bar at the top of the thread list to find threads by name or ticket key across all stages. If a thread was created from a ticket (e.g., a Jira or Linear issue), you can search by the ticket identifier (e.g., "PROJ-456") in addition to the thread's title.
-
----
-
-## Thread Categories
-
-Within the selected stage(s), threads are grouped by status:
-
-- **Needs Approval** — The agent has completed work and is requesting to transition. Shows the current stage, target stage, the agent's explanation, and a suggested approver. An **Approve** button is available inline.
-- **Needs Input** — The agent is waiting for information or human guidance before continuing.
-- **In Progress** — The agent is actively working. A live breadcrumb shows what it's currently doing.
-- **Done** — Stage work is complete. Shows when the thread finished.
-
-Each section can be expanded or collapsed independently.
-
----
-
-## Reviewing and Approving
-
-### Inline Review
-
-Click any thread to open its full conversation in the right panel. You can:
-
-- Read the full conversation history and agent reasoning
-- Approve transitions to the next stage
-- Add notes or redirect the agent
-- Fork the conversation
-
-All without leaving the inbox.
-
-### Inline Approval
-
-For threads in the **Needs Approval** category, you can approve the transition directly from the thread row without opening the full conversation. The row shows the current stage, the proposed target stage, and the agent's explanation for why it's ready to move on.
+Use the search bar to find threads by name or ticket key. If a thread was created from a ticket, you can search by the ticket identifier (for example, `PROJ-456`) as well as the thread's title.
 
 ---
 
 ## Bulk Actions
 
-Click **Bulk Actions** to approve or archive multiple threads at once.
+Click **Bulk Actions** to approve or archive multiple items at once.
 
-- **Bulk Approve** — Select threads that need approval, review or change the target stage for each, and approve them all in one action
-- **Bulk Archive** — Select archivable threads and archive them together
+- **Bulk Approve** — select work that needs approval, review or change the target stage for each, and approve it all in one action
+- **Bulk Archive** — select archivable work and archive it together
 
-Each thread in the bulk dialog shows its current stage, the agent's suggested next stage, and any explanation or suggested approver.
-
----
-
-## Sort Order
-
-Toggle between **newest first** and **oldest first** to control how threads are ordered within each category.
-
----
-
-## Keyboard Navigation
-
-Navigate the thread list using the keyboard:
-
-- **↑ / ↓** — Move between threads
-- **Enter** — Open the focused thread in the review panel
+Each entry in the bulk dialog shows its current stage, the suggested next stage, and any explanation or suggested approver.
 
 ---
 

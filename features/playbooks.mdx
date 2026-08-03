@@ -1,100 +1,121 @@
 ---
-title: "Playbooks"
-sidebarTitle: "Playbooks"
-description: "Create and reuse prompt templates to standardize how your team interacts with PlayerZero's AI Player."
+title: "Skills"
+sidebarTitle: "Skills"
+description: "Package reusable expertise as Skills your team can discover, share, and apply to any piece of work."
 ---
 
-## What Are Playbooks?
+## What Are Skills?
 
-Playbooks are reusable prompt templates that standardize common investigation patterns across your team. Instead of writing the same instructions every time, create a playbook once and invoke it with a single action — ensuring consistent, high-quality interactions with the AI Player.
+Skills are reusable packages of expertise that standardize how your team works with PlayerZero. A Skill is more than a single prompt: it can be a folder of files, with a main set of instructions alongside any supporting material such as references, templates, and scripts.
 
----
+Skills were previously called Playbooks. Everything you built as a Playbook carries over, and the library, categories, and version history work the same way.
 
-## Creating a Playbook
-
-There are two ways to create a playbook:
-
-### From Organization Settings
-
-Navigate to **Organization Settings → Playbooks** to manage your playbook library.
-
-Each playbook includes:
-
-| Field | Description |
-|---|---|
-| **Title** | A short name for the playbook (unique within your organization) |
-| **Description** | A brief explanation of when and why to use this playbook |
-| **Prompt** | The full prompt template that will be sent to the AI Player |
-| **Category** | Organize by type. Your organization's category list is customizable — defaults include Documentation, Engineering, Go To Market/Sales, Investigation, Product, Quality Assurance (QA), SRE, Support, and Triage. Admins can add or remove categories from **Organization Settings → Playbooks**. |
-| **Tags** | Custom labels for filtering and search |
-
-### From a PlayerZero Thread
-
-You can also create a playbook from a PlayerZero thread:
-
-1. Hover over any assistant message to reveal the **playbook icon** (library icon)
-2. Choose **From this message** to base the playbook on that specific response, or **From full chat** to capture the overall conversation pattern
-3. The AI Player generates a playbook definition and displays it as a card in the chat
-4. Review the generated title, description, prompt, and category, then click **Save** to open the playbook creation form pre-filled with the generated content
+<Note>
+A Skill can be applied three ways: referenced from a workflow stage, invoked directly with a slash command, or selected by PlayerZero when it judges the Skill relevant to the task at hand.
+</Note>
 
 ---
 
-## Using Playbooks
+## Creating a Skill
 
-There are two ways to use a playbook when starting or continuing a thread:
+Navigate to **Organization Settings → Playbooks & Skills** to manage your library, then choose how to start:
 
 <AccordionGroup>
 
-<Accordion title="Slash Command">
-- Type `/` in the chat input to open the playbook overlay
-- Browse or search for the playbook you want
-- Use **↑↓** to navigate and **Enter** to select
-- The playbook prompt is inserted into your message — add your own context on top
+<Accordion title="From Scratch">
+Create a new Skill with a blank editor and write the instructions yourself.
 </Accordion>
 
-<Accordion title="Playbook Library Button">
-- Click the **playbook icon** next to the chat input
-- Browse playbooks by category or search by title, description, or tag
-- Select a playbook to attach it to your message
-- The selected playbook appears as a tile below the input
+<Accordion title="From a .zip File">
+Import a Skill from a `.zip` archive. This is how you bring in agent skills authored in other tools, or move a Skill between organizations. Skills you export are packaged the same way, so an exported archive can be re-imported anywhere.
 </Accordion>
 
-<Accordion title="Workflow Stage Instructions">
-- Type `/` in the stage **Instructions** field when creating or editing a workflow stage
-- Browse or search for the playbook you want
-- Select a playbook to insert its prompt into the stage instructions
-- This is useful for standardizing agent behavior across stages using proven prompt templates — see [Configuring Workflows](/features/configuring-workflows)
+<Accordion title="From a Thread">
+If you like how PlayerZero handled something, turn that work into a Skill directly:
+
+1. Hover over an assistant response to reveal the **Create skill** action
+2. PlayerZero drafts a Skill definition from the response and shows it as a card in the chat
+3. Review the generated title, description, instructions, and category
+4. Save to open the creation form pre-filled with the generated content
 </Accordion>
 
 </AccordionGroup>
 
-When you submit a message with a playbook attached, the playbook's prompt is combined with your message and sent to the AI Player together. The chat displays a **"Ran [Playbook Name]"** label so you can see exactly which playbook was applied. You can preview the prompt inline or open it in a full dialog.
+### Skill Fields
+
+| Field | Description |
+|---|---|
+| **Title** | A short name for the Skill (unique within your organization) |
+| **Description** | A brief explanation of when and why to use this Skill |
+| **Instructions** | The guidance applied when someone uses the Skill |
+| **Category** | Organize by type. See the category list below. |
+| **Tags** | Custom labels for filtering and search |
+
+### Categories
+
+Categories come from a fixed set shared across job roles, workflows, knowledge groups, and Skills:
+
+Documentation, Engineering, Product, Design, SRE, Quality Assurance (QA/QE), Data Science, Go To Market/Sales, Marketing, Support, and Other.
 
 ---
 
-## Managing Playbooks
+## Using a Skill
 
-From **Organization Settings → Playbooks**, you can:
+<AccordionGroup>
 
-- **Create** new playbooks with the create panel
-- **Edit** existing playbooks — update the title, description, prompt, category, or tags
-- **Fork** a playbook to create a variant without modifying the original
-- **Delete** playbooks you created (or any playbook if you have owner permissions)
+<Accordion title="Slash Command">
+- Type `/` in the chat input to open the Skills overlay
+- Browse or search for the Skill you want
+- Use **↑↓** to navigate and **Enter** to select
+- The Skill is applied to your message — add your own context on top
+</Accordion>
+
+<Accordion title="Skills Library Button">
+- Click the library icon next to the chat input
+- Browse by category or search by title, description, or tag
+- Select a Skill to attach it to your message
+- The selected Skill appears as a tile below the input
+</Accordion>
+
+<Accordion title="Workflow Stage Instructions">
+- Type `/` in the stage **Instructions** field when creating or editing a workflow stage
+- Browse or search for the Skill you want
+- Select it to insert its instructions into the stage
+- This standardizes agent behavior across stages — see [Configuring Workflows](/features/configuring-workflows)
+</Accordion>
+
+<Accordion title="Selected by PlayerZero">
+PlayerZero can reach for a Skill on its own when it judges one relevant to the task, so shared expertise gets applied even when nobody remembers to invoke it.
+</Accordion>
+
+</AccordionGroup>
+
+When you submit a message with a Skill attached, the Skill is combined with your message and sent together. The chat shows a label naming the Skill that was applied, and you can preview it inline or open it in a full dialog.
+
+---
+
+## Managing Skills
+
+From **Organization Settings → Playbooks & Skills**, you can:
+
+- **Create** new Skills
+- **Edit** existing Skills — update the title, description, instructions, category, or tags
+- **Fork** a Skill to create a variant without modifying the original
+- **Delete** Skills you created (or any Skill if you have owner permissions)
 - **Search** across titles, descriptions, and tags
+
+Because the library is shared at the organization level, a Skill one person writes becomes something the whole team can discover and apply to shared work.
 
 ### Sorting
 
-Use the sort dropdown to change the order of your playbook list:
+Use the sort dropdown to change the order of your list:
 
-- **Recently updated** (default) — Playbooks with the most recent edits appear first
-- **Most used** — Playbooks with the highest usage count appear first
-- **Least used** — Playbooks with the lowest usage count appear first
-
-Usage is tracked automatically each time a playbook is selected in a chat input, branch investigation, or new thread creation. The detail panel shows each playbook's total usage count.
+- **Recently updated** (default) — Skills with the most recent edits appear first
+- **Alphabetical** — Skills are sorted from A to Z
 
 ### Version History
 
-Every edit to a playbook creates an immutable version snapshot. To view a playbook's history, open the playbook detail panel and click the **Version** badge to expand the version history.
+Every edit creates an immutable version snapshot. To view a Skill's history, open its detail panel and click the **Version** badge to expand the version history.
 
 Each version shows:
 - The user who made the change
