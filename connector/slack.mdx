@@ -1,6 +1,6 @@
 ---
 title: "Slack"
-description: "Connect Slack to PlayerZero to interact with AI Players directly from Slack — start investigations, run workflows, get notified in channels."
+description: "Connect Slack to PlayerZero to interact with AI Players directly from Slack — start investigations from messages, run workflows, receive notifications in channels, and let PlayerZero work in your workspace."
 ---
 
 Slack is a messaging platform for teams. PlayerZero's Slack integration lets you interact with AI Players directly from Slack — starting investigations from message threads, chatting with Player threads in DMs, and running workflows.
@@ -16,6 +16,7 @@ Once connected, you can:
 - **Open in Chat** — Link an existing PlayerZero session to a Slack channel from the PlayerZero UI, so you can continue a conversation in Slack
 - **Receive notifications in channels** — Get workflow stage approval requests, Player thread summaries, and other notifications delivered to your team's channels
 - **Get direct questions as DMs** — When a Player thread has a collaboration question for a specific person, PlayerZero can deliver it as a direct message so the right teammate can answer without leaving Slack
+- **Let PlayerZero work in your workspace** — During an investigation or workflow run, PlayerZero can read channel history, search earlier messages, post an update, reply in a Slack thread, and look up teammates. Organization owners choose which of these tools it may use. See [Slack MCP Tools](/connector/slack-mcp)
 
 ## Ask PlayerZero
 
@@ -87,6 +88,22 @@ PlayerZero delivers notifications to Slack channels based on your project and wo
 
 Notification routing is configured per project and per workflow stage in **Settings**. See [Notification Configuration](#notification-configuration) for details.
 
+## Slack Tools for PlayerZero
+
+Connecting Slack also gives PlayerZero a set of Slack tools it can use during Player threads and workflow runs. Beyond sending notifications, PlayerZero can find the right channel, read its recent history, search earlier messages, post an update, reply inside a Slack thread, and look up who is who in your workspace. A workflow that finishes an investigation can post the result into the channel that cares about it and answer the follow-up in the same Slack thread.
+
+Three limits apply:
+
+- **Channel access** — PlayerZero works only in channels the PlayerZero bot can reach. The bot joins public channels automatically when it needs to act in one; private channels require an invitation first
+- **Its own messages** — PlayerZero can edit or delete only the messages it posted itself
+- **Project access** — The tools follow the project access set on the Slack connection, so a Player thread or workflow run in a project outside that list does not see them
+
+Organization owners choose which of these tools PlayerZero may use, and that choice applies across the organization. See [Slack MCP Tools](/connector/slack-mcp) for the full tool list, project scoping, and how approval requirements apply to messages PlayerZero sends.
+
+<Note>
+Slack tools come with the Slack connection. There is no separate connection to create and no credential to manage. If your organization connected Slack before Slack tools were introduced, an organization owner needs to reconnect it so the workspace permissions the tools need are granted. See [Reconnecting an Existing Connection](#reconnecting-an-existing-connection).
+</Note>
+
 ## Scopes & Permissions
 
 <Info>
@@ -123,7 +140,21 @@ Setup starts in PlayerZero — no pre-configuration in Slack is required. The Sl
 4. Sign in to Slack and authorize PlayerZero in your workspace
 5. After authorization, the popup closes and you'll see the Slack detail page with configuration options
 
-Once connected, all Slack capabilities are immediately available — the `/ask_playerzero` command, message shortcuts, DMs with the bot, and @mention responses. No additional configuration is needed beyond the initial connection.
+Once connected, all Slack capabilities are immediately available — the `/ask_playerzero` command, message shortcuts, DMs with the bot, @mention responses, and the Slack tools PlayerZero uses during investigations. No additional configuration is needed beyond the initial connection.
+
+### Reconnecting an Existing Connection
+
+Slack tools need workspace permissions that connections made before their release did not request. If the Slack MCP row on the Slack detail page asks you to reconnect, an organization owner can grant them by disconnecting and reconnecting:
+
+1. Navigate to **Settings → Collaboration** and click the **Slack** card
+2. Click **Disable** in the page header and confirm
+3. Click **Enable** and complete Slack authorization again
+
+Disabling stops PlayerZero from sending messages to Slack and clears the stored Slack credentials. Your organization and project notification settings are kept, so you do not need to configure them again after reconnecting.
+
+<Note>
+Only organization owners can enable or disable the Slack connection.
+</Note>
 
 ### Channel Access
 
@@ -154,6 +185,8 @@ Once Slack is connected, you can configure where notifications are delivered at 
 - Configure it at **Organization settings → Collaboration → Slack**, then select the project, turn on **Send direct messages**, and click **Save**
 
 ## Get Started
+
+👉 [Slack MCP Tools](/connector/slack-mcp)
 
 👉 [AI Player overview](/features/ai-player)
 

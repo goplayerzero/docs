@@ -59,7 +59,7 @@ Switching modes asks you to confirm, since it changes which configuration is in 
 
 ### Privileged Action Approval
 
-Privileged actions are writes and destructive operations, such as writing files or committing code. Turn on **Require approval for privileged actions** and an agent must get a person's approval before taking one of those actions.
+Privileged actions are writes and destructive operations, such as writing files, committing code, posting a message to Slack, or revising or deleting a message PlayerZero posted earlier. Turn on **Require approval for privileged actions** and an agent must get a person's approval before taking one of those actions.
 
 This setting is org-wide and **takes precedence over the per-workflow setting**. Individual workflows have their own **Require approval for privileged actions** toggle in Project Settings under Workflows, but when the organization-level setting is on:
 
@@ -124,6 +124,7 @@ Access to each setting is determined by Org Permission.
 |---|---|---|---|
 | Organization name, slug, auto-join, allowed domains | View only | Yes | Yes |
 | Code simulations, privileged action approval | View only | Yes | Yes |
+| [Slack MCP tool policy](/connector/slack-mcp) | View only | View only | Yes |
 | SSO configuration | No | No | Yes |
 | Public artifact sharing | No | No | Yes |
 | Organization deletion | Contact PlayerZero support | Contact PlayerZero support | Contact PlayerZero support |

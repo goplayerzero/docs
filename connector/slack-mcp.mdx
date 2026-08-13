@@ -1,0 +1,98 @@
+---
+title: "Slack MCP Tools"
+sidebarTitle: "Slack MCP Tools"
+description: "Choose which Slack tools PlayerZero may use in your workspace, and see how project access and approvals apply to them."
+---
+
+When you connect Slack, PlayerZero gains a set of Slack tools it can use during Player threads and workflow runs. PlayerZero manages this connection for you, so there is nothing to create and no credential to enter. Organization owners decide which of the tools PlayerZero is allowed to call, and the connection's project access decides which work can reach them.
+
+## How It Differs From an External MCP Server
+
+| | Slack MCP | [External MCP Servers](/connector/remote-mcp-servers) |
+|---|---|---|
+| Where you set it up | Comes with the Slack connection under **Settings → Collaboration** | Created by you under **Settings → Context → MCP** |
+| Credentials | Managed by PlayerZero; you do not enter or edit them | You provide a token, OAuth credentials, or headers |
+| Connection details | Read-only | Editable |
+| Tool policy | Organization owners only | Editors and owners |
+| Project access | Inherited from the Slack connection | Set per connection |
+
+## Available Tools
+
+Every tool is enabled by default. Each one appears on the Slack MCP page with a description, and tools that change something in your workspace carry a **WRITE** badge. The badge is a label, not a control: it tells you what a tool does, while [approvals](#approvals-for-messages-playerzero-sends) decide whether a person signs off before PlayerZero acts.
+
+| Tool | What It Does |
+|---|---|
+| `slack_list_channels` | Lists public and private channels the bot can see |
+| `slack_get_channel_info` | Reads a channel's name, topic, and purpose |
+| `slack_list_channel_members` | Lists the members of a channel |
+| `slack_get_channel_history` | Reads recent messages in a channel |
+| `slack_search_messages` | Searches messages across channels the bot belongs to |
+| `slack_get_thread_replies` | Reads a full Slack thread, parent message and replies |
+| `slack_post_message` | Posts a new message to a channel |
+| `slack_reply_in_thread` | Replies inside an existing Slack thread |
+| `slack_update_message` | Edits a message PlayerZero posted |
+| `slack_delete_message` | Deletes a message PlayerZero posted |
+| `slack_get_user_info` | Reads a user profile by user ID |
+| `slack_lookup_user_by_email` | Finds a user by email address |
+| `slack_list_users` | Lists users in the connected workspace |
+
+<Note>
+The tool list covers channels, messages, threads, and users. Direct messages to individual teammates are delivered through your notification settings instead, which is a separate path configured per project. See [Notification Configuration](/connector/slack#notification-configuration).
+</Note>
+
+## Choose Which Tools PlayerZero May Use
+
+<Steps>
+<Step title="Open the Slack MCP page">
+Navigate to **Settings → Collaboration**, click the **Slack** card, and click **Manage** on the **Slack MCP** row in the Connection Details card.
+</Step>
+<Step title="Open the tool list">
+Click **Manage** in the Tools section. The page shows how many of the available tools are currently enabled.
+</Step>
+<Step title="Select the tools to keep">
+Search by name or description, then uncheck any tool PlayerZero should never call in your workspace. **Select all** and **Deselect all** handle bulk changes.
+</Step>
+<Step title="Save">
+Click **Save**. A disabled tool is withheld from PlayerZero, and refused if it is called anyway.
+</Step>
+</Steps>
+
+Common choices: turn off posting, replying, editing, and deleting if PlayerZero should read but never write; turn off search if it should read only the channels it is pointed at; turn off the user lookup tools if your workspace treats the member directory as sensitive.
+
+<Note>
+Only organization owners can change the tool policy. Other organization members can open this page and read the tool list, so anyone on the team can check what is permitted without being able to alter it.
+</Note>
+
+## Project Access
+
+Slack tools follow the project access already set on the Slack connection. When the connection is limited to specific projects, a Player thread or workflow run in a project outside that list does not see the Slack tools.
+
+To change it, navigate to **Settings → Collaboration**, click the **Slack** card, and click **Edit** on the Connection Details card. Choose all projects or select individual projects.
+
+## Approvals For Messages PlayerZero Sends
+
+Posting a message changes something outside PlayerZero, so it falls under the same approval gate as writing files or committing code. When **Require approval for privileged actions** is on for your organization or for the workflow, PlayerZero must get a person's approval before it posts a new message, or revises or deletes a message it posted earlier. Reading a channel for context is not held.
+
+See [Privileged Action Approval](/developer-guide/configuration-guides/general-settings-and-membership#privileged-action-approval) for how the organization-level and workflow-level settings interact.
+
+<Tip>
+A Player thread is a conversation, so you can also ask to see the exact text before it goes out, or ask for a draft rather than a direct post. This is something you request in the thread, not a setting.
+</Tip>
+
+## Setup
+
+Slack tools require no setup beyond connecting Slack. If your organization connected Slack before Slack tools were introduced, the Slack MCP row asks you to reconnect and the tools stay unavailable until an organization owner does. See [Reconnecting an Existing Connection](/connector/slack#reconnecting-an-existing-connection).
+
+Disconnecting Slack removes the tools along with the rest of the integration.
+
+<Note>
+Slack MCP tools are available for Slack only. Microsoft Teams connections do not expose tools.
+</Note>
+
+## Get Started
+
+👉 [Slack integration](/connector/slack)
+
+👉 [External MCP Servers](/connector/remote-mcp-servers)
+
+👉 [General settings](/developer-guide/configuration-guides/general-settings-and-membership)
