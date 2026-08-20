@@ -3,8 +3,68 @@ title: "August 2026"
 sidebarTitle: "August 2026"
 ---
 
+## Choose How Much Horsepower Each Stage Gets
+
+Every stage of a workflow now carries its own model router control in the stage editor. Economy runs an ordered set of faster, less expensive models best suited for routine tasks like searching for related Zendesk tickets. Standard runs an ordered set of stronger models and is the default for everyday work, like analyzing whether a reported issue is a defect, configuration issue, or feature request. Pro unlocks the ability to deploy a team of agents as well, and is built for complex or high-stakes work such as developing larger features. PlayerZero refines and updates model sets for each execution mode continuously, so a stage keeps benefiting from newer models without you editing it.
+
+Until now, a stage that filed a ticket ran in the same thinking mode as a stage that analyzed a defect in code. Reasoning depth and cost can now match the work each step actually does, maximizing the ROI of work done in PlayerZero workflows.
+
+---
+
+## Specify Role-Based Approvals and Strict Enforcement
+
+Workflow stages can now be approved by anyone with a given role (Support, Product, Engineering, etc.) in PlayerZero so that teams can share approval responsibility. Individual and role-based approvals also now come with strict enforcement gating to prevent run-time reassignment to someone outside of the approved list.
+
+Binding strict sign-off to a role or to a set of individuals ensures that workflow approval gates survive someone changing teams or leaving without over-widening the trusted approver set.
+
+---
+
+## Understand the ROI of Your Workflows
+
+Usage analytics has been rebuilt around the workflows you customize. The Overview page still carries a top-level analysis of total spend as well as a breakdown per-project, and then follows with a section for each project with snapshot cards for each workflow showing the average spend per workflow in the time range selected. You can quickly see how many times you triaged a ticket, reviewed a PR, or completed a QA testing pass, and how much it cost to do so. Within each workflow details chart, workflow spend is further analyzed by the workflow source (automations versus manual) and presented alongside workflow context created and used (memories) to see how context helps make more efficient workflows over time. You can export either the organization view or a single workflow to CSV for deeper reporting. PlayerZero spend from before late July is reported as one combined legacy measure rather than split into workflow versus non-workflow usage, and should be considered separately.
+
+Questions like "how many times did PlayerZero triage a ticket" and "how much on average does it cost to do so," alongside questions like "how does the context graph help inform my workflows over time," are now much easier to answer.
+
+---
+
+## Knowledge That Accumulates Across Runs
+
+PlayerZero can now read, edit, and write knowledge bases directly from any thread. When you finish answering a support question or debugging a defect, ask the thread to add what it produced to a knowledge base and it becomes searchable for everyone else. Knowledge Bases holding security or control documents can also be reverted to be read-only to keep edits and updates under strict control.
+
+Every PlayerZero workflow also gets a knowledge base of its own, created with the workflow, that only runs of that workflow can write to. With this update, a workflow stops starting from zero. What one run establishes about your systems and your conventions is present at the beginning of the next, and the knowledge your team builds while doing the work lives at the workflow or organization level, instead of in one person's thread history.
+
+---
+
+## Organize a Knowledge Base and Search It by Meaning
+
+A knowledge base is no longer a flat list. Create folders as you upload, choose where each file lands, and browse them in a collapsible tree. The upload dialog takes several files at once, or a folder from your machine with the documents inside it, and anything it skips is listed with the reason, so a batch that is partly too large tells you exactly what did not make it. Two documents cannot share a path, so an accidental re-upload is refused rather than quietly duplicating what is already there.
+
+PlayerZero also matches these documents on meaning rather than wording, reaching inside PDFs, spreadsheets, and slide decks as well as plain documents, and returns the passage a match came from. A knowledge base keeps paying off as it grows past the point where anyone remembers what a document was called.
+
+---
+
+## Ask for Simulations at the Stage That Needs Them
+
+A workflow stage can now ask PlayerZero to validate its work with scenario simulations before the stage completes, along with guidance on what to simulate and how to use the results. The setting is off by default, including on stages you already have, so nothing begins simulating because of this release. It travels with the stage through the editor, through export and import, and through template sync, so a workflow you share carries the same verification step wherever it lands.
+
+Verification belongs at particular steps rather than everywhere or nowhere. A stage that changes code can be asked to prove its work, while the stage that files the ticket afterward stays quick.
+
+---
+
 ## Let PlayerZero Work in Your Slack Workspace
 
 Connecting Slack now gives PlayerZero a set of Slack tools it can use during Player threads and workflow runs, so Slack is somewhere PlayerZero works rather than only somewhere it sends notices. It can find a channel and read its recent history, search earlier messages, read a full Slack thread, post an update, reply in the thread where your team is already talking, revise or delete a message it posted itself, and look up teammates by profile, email address, or channel membership. The tools come with the Slack connection: there is nothing to create, and no credential to manage. Organization owners choose which tools PlayerZero may call from Organization Settings under Collaboration, on the Slack MCP row, and other organization members can read that list without being able to change it. The tools follow the project access already set on the Slack connection, and posting, revising, or deleting a message falls under the privileged action approval setting when you have it turned on. If your organization connected Slack before this release, an organization owner needs to reconnect it to grant the workspace permissions the tools need.
 
 A workflow that finishes an investigation can post the result into the channel that cares about it and answer the follow-up question in the same Slack thread, so the work and the conversation about it stay in one place instead of being copied across by hand.
+
+---
+
+## Smoother Workflow Authoring
+
+The PlayerZero workflow stage editor's prompt window now carries an 'expand' capability that allows you to open a longer prompt editor for easier reading and review. Workflow prompts and workflow descriptions wrap and hold to their limit, with a live character count as a description approaches its cap, so a description that is too long (over 500 characters) or a prompt that is too long (over 64,000 characters) will say so.
+
+---
+
+## Thread Display Fixes
+
+A thread's inline file citation now opens the file it names, where in the past it sometimes did not open the file at all. A browser tab now automatically refreshes the live title of the thread it holds, so a new thread is findable among many open tabs without a manual refresh. Where several people are on a thread, the overflow tooltip now correctly resolves their names instead of showing internal identifiers.
