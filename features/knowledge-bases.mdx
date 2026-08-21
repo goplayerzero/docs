@@ -6,7 +6,7 @@ description: "Upload runbooks, PRDs, and other organizational documents so AI ag
 
 ## What Are Knowledge Bases?
 
-Knowledge Bases let you upload organizational documents — runbooks, API docs, style guides, internal references — and make them available to Channels and Threads. When a knowledge base exists, agents automatically get access to a specialist teammate that can search and read your documents.
+Knowledge Bases let you upload organizational documents — runbooks, API docs, style guides, internal references — and make them available to Channels and Threads. When a knowledge base exists, its documents are mounted for every agent working in a project it is scoped to, so they can read and search them during any investigation.
 
 Access Knowledge Bases from **Settings → Context → Knowledge Bases** in the sidebar.
 
@@ -30,6 +30,7 @@ Managing Knowledge Bases requires **editor** or **owner** permissions in the org
 | **Description** | Optional context about what this group contains |
 | **Category** | Organize by type — your organization's category list is customizable |
 | **Project scope** | **All projects** or select specific projects that should have access |
+| **Allow agents to write** | Whether agents may add, edit, and delete documents in this group. On by default |
 
 4. Click **Create**
 
@@ -41,16 +42,20 @@ Once a group exists, upload documents to it:
 
 1. Open the knowledge group detail page
 2. Click **Upload Document**
-3. Select a file from your computer
+3. Choose the destination folder, or create one with **Add folder**
+4. Click **Choose files** to stage several files at once, or **Choose folder** to bring a folder in from your computer with its structure intact
+5. Click **Upload**
 
-**Supported formats:** `.txt`, `.md`, `.csv`
-**Maximum file size:** 4 MB per document
+**Supported formats:** any file type. Text of PDFs, Word documents, spreadsheets, and slide decks is extracted on upload so agents can search it; plain text formats such as `.txt`, `.md`, and `.csv` are indexed as they are. Other file types (such as `.gif`) will be stored and available for search by title only (not by content).
+**Maximum file size:** 10 MB per document, up to 10 files per batch
 
-Documents are normalized to UTF-8 with LF line endings on upload. If you upload a file with the same name as an existing document in the group, the upload will be rejected — rename the file first.
+Plain text documents are normalized to UTF-8 with LF line endings on upload. Each staged file shows whether it is ready or why it was skipped.
 
 ---
 
 ## Managing Documents
+
+Documents are listed by folder. Each folder expands to show what it holds, and the structure you uploaded is preserved.
 
 From the knowledge group detail page, you can:
 
@@ -63,18 +68,21 @@ To delete an entire group, use the **Delete Group** button on the group detail p
 
 ## How Agents Use Knowledge Bases
 
-When at least one knowledge group exists in your organization, AI agents in Channels and Threads automatically gain access to a **Knowledge Base Agent** teammate. This specialist agent can:
+Every knowledge base can be scoped to all or to only specific projects. Agents treat them as first-class context, so a task that touches a base's documents is answered with them and with the relevant code, memories, etc. in mind.
 
-- **List available groups** — See which knowledge bases are available
-- **List group documents** — Enumerate documents within a specific group
-- **Search documents** — Grep-style search across all documents in accessible groups, with context lines around matches
-- **Read documents** — Retrieve full document content with line-number references for targeted analysis
-
-The Knowledge Base Agent is available in both Agent Mode and Hive Mode. In Hive Mode, the orchestrator can deploy it alongside other specialist agents (code explorers, integration agents, etc.) to cross-reference your organizational knowledge with codebase analysis.
+Agents also search knowledge bases by meaning. A natural-language query returns the passages that answer it, each with the document it came from.
 
 <Note>
 Agents only have access to knowledge groups scoped to their project. If a group is restricted to specific projects, agents in other projects will not see it.
 </Note>
+
+---
+
+## Letting Agents Write Back
+
+Agents can write to a knowledge base as well as read it. The **Allow agents to write** switch on a group controls this, and it is on when you create one: agents can add, edit, and delete documents in that group, which is how what one investigation learns becomes context for the next one instead of ending in a chat log.
+
+Every workflow also has a knowledge base of its own, named after the workflow. Only runs of that workflow can write to it or read it, and what they leave there outlives the run, so each run starts with what earlier runs worked out. It is managed by PlayerZero rather than listed alongside the groups you create.
 
 ---
 
