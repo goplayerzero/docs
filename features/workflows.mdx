@@ -24,11 +24,12 @@ Each workflow is **versioned**. You edit a draft, publish it when ready, and Pla
 
 ### Stages
 
-A stage is a node in the workflow graph. Each stage has a **name**, **instructions** that tell the agent what to do, a **type** (Entry, Work, or Terminal), and configuration for approvals and archival.
+A stage is a node in the workflow graph. Each stage has a **name**, **instructions** that tell the agent what to do, a **model** setting that decides how much horsepower its work gets, and configuration for approvals, simulations, and archival.
 
-- **Entry** stages are where work begins
-- **Work** stages are intermediate processing steps
-- **Terminal** stages are where work concludes
+- **Entry** stages are where work begins, and a workflow keeps exactly one
+- **Work** stages transition to another stage in the same workflow
+- **Terminal** stages are where work concludes, including stages that hand work to a different workflow
+- **Unassigned** stages are not connected
 
 ### Transitions
 
@@ -43,9 +44,15 @@ When the agent completes work in a stage, it requests to move on. Depending on c
 
 Approval means accepting the work done in the current stage — confirming that the agent's output meets your expectations before it moves to the next step.
 
+You also decide who may approve: anyone in the project, specific individuals, or anyone holding a particular job role. See [Configuring Workflows](/features/configuring-workflows) for the full set of stage settings.
+
 ### Archival
 
 Completed threads can be archived manually or automatically after a configurable number of days. Archived threads can be restored at any time.
+
+### Combining Duplicate Channels
+
+If two people start triaging the same Jira ticket in the same workflow but in different channels, it's easy to recombine them. Open one channel's thread actions menu and choose **Move this thread**. Select the channel you want to combine into, and optionally archive the duplicate thread as you move it. You can also use this option to move existing threads into new channels if you find you accidentally over-combined and need to split work out again.
 
 ---
 

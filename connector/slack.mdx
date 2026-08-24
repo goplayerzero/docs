@@ -16,7 +16,7 @@ Once connected, you can:
 - **Open in Chat** — Link an existing PlayerZero session to a Slack channel from the PlayerZero UI, so you can continue a conversation in Slack
 - **Receive notifications in channels** — Get workflow stage approval requests, Player thread summaries, and other notifications delivered to your team's channels
 - **Get direct questions as DMs** — When a Player thread has a collaboration question for a specific person, PlayerZero can deliver it as a direct message so the right teammate can answer without leaving Slack
-- **Let PlayerZero work in your workspace** — During an investigation or workflow run, PlayerZero can read channel history, search earlier messages, post an update, reply in a Slack thread, and look up teammates. Organization owners choose which of these tools it may use. See [Slack MCP Tools](/connector/slack-mcp)
+- **Let PlayerZero work in your workspace** — During an investigation or workflow run, PlayerZero can read channel history, search earlier messages, post an update, reply in a Slack thread, and look up teammates. Replying in a Slack thread PlayerZero posted into continues that same Player thread. Organization owners choose which of these tools it may use. See [Slack MCP Tools](/connector/slack-mcp)
 
 ## Ask PlayerZero
 
@@ -76,7 +76,7 @@ You can link any Player thread to a Slack channel directly from the PlayerZero U
 
 From a Player thread in PlayerZero, click **Open in Chat** and select a Slack channel. PlayerZero creates a new Slack thread in that channel linked to the Player thread — messages in the Slack thread are forwarded to the Player thread, and its responses appear in the Slack thread.
 
-If the Player thread is already connected to a Slack thread, clicking **Open in Chat** takes you directly to that Slack thread instead.
+If the Player thread is already connected to a Slack thread, clicking **Open in Chat** takes you directly to that Slack thread instead. That includes a Slack thread PlayerZero posted into itself during the work, so you land on the conversation your team has already been reading.
 
 ## Receive Notifications
 
@@ -91,6 +91,8 @@ Notification routing is configured per project and per workflow stage in **Setti
 ## Slack Tools for PlayerZero
 
 Connecting Slack also gives PlayerZero a set of Slack tools it can use during Player threads and workflow runs. Beyond sending notifications, PlayerZero can find the right channel, read its recent history, search earlier messages, post an update, reply inside a Slack thread, and look up who is who in your workspace. A workflow that finishes an investigation can post the result into the channel that cares about it and answer the follow-up in the same Slack thread.
+
+When PlayerZero posts a message or replies in a Slack thread itself, that Slack thread is linked to the Player thread behind it. A reply in Slack continues that same conversation. Each message it posts carries a **View in PlayerZero** button pointing at the Player thread that wrote it.
 
 Three limits apply:
 

@@ -14,9 +14,11 @@ Each stage defines what the agent does during that phase of work.
 |---|---|
 | **Name** | Short identifier (e.g., "Triage", "RCA", "Fix"). Must be unique within a project. |
 | **Instructions** | Detailed prompt for the agent — what to do, what to look for, what outputs to produce. Supports the `/` slash command to insert [Skill](/features/playbooks) instructions. |
-| **Type** | **Entry** (starting point), **Work** (intermediate), or **Terminal** (end point). |
+| **Type** | Derived from the transitions you draw: **Entry** (starting point, each workflow may only have one entry stage), **Work** (intermediate), or **Terminal** (end point, may have multiple). Stage types are listed as **Unassigned** if they have no connections to any other stages. |
+| **Model** | How much horsepower the stage's work gets: **Economy**, **Standard** (the default), or **Pro** (unlocks a team of agents). |
 | **Auto-approve** | If enabled, transitions out of this stage happen without human approval. |
-| **Approver config** | Who can approve: **Player** (agent suggests based on code ownership) or **Individuals** (specific team members). |
+| **Approver config** | Who can approve: **Let PlayerZero decide** (based on available context), **Specific individuals**, or **Someone from a specific role**. |
+| **Run simulations** | Whether the agent validates its work at this stage with scenario simulations. Off by default, with optional guidance on what to simulate. |
 | **Archive config** | How completed threads are archived: **Never**, **Manual**, or **Automatic** (after N days). |
 | **Ask a human** | Optional guidance on when the agent should stop and escalate to a person. |
 
@@ -28,9 +30,26 @@ This is a good way to combine organization-wide best practices with project-spec
 
 ### Stage Types
 
-- **Entry**: Work can start here. A workflow can have multiple entry stages.
-- **Work**: Intermediate stages where processing happens. Requires incoming and outgoing transitions.
-- **Terminal**: Final stage. No outgoing transitions. Work concludes here.
+A stage's type is read from the transition graph. Every workflow keeps exactly one **Entry** stage, and the rest follows from how you connect things.
+
+- **Entry**: Where work can start. One stage per workflow holds this designation, and it keeps it even when other stages transition back into it.
+- **Work**: Transitions to another stage in the same workflow. This is where intermediate processing happens.
+- **Terminal**: Reachable from the graph but never routes to another stage, including a stage whose only next step hands work to a different workflow. Work concludes here.
+- **Unassigned**: Connected in neither direction. A stage you have just created reads as unassigned until you draw a transition.
+
+### Execution Mode
+
+The **Model** setting decides how much horsepower a stage's work gets. Each mode runs an ordered set of models that PlayerZero refines and updates over time, so a stage keeps its intent as the underlying models change.
+
+- **Economy**: Its own set of faster, less expensive models, for routine, low-risk work.
+- **Standard**: The default. A balance of quality, speed, and cost for everyday work.
+- **Pro**: For complex or high-stakes work. Pro is the only mode where the agent can put a team of agents on the task instead of working alone, using [Hive Mode](/features/hive-mode), and it is billed at a higher rate than Standard.
+
+Set it per stage, so a triage stage can run Economy while the stage that investigates or writes a fix runs Pro.
+
+### Running Simulations at a Stage
+
+Turn on **Run simulations at this stage** and the agent validates its work there with [Code Simulations](/features/code-sim) before asking to move on. When it is on, you can add guidance describing what to simulate at that stage and how the agent should use the results.
 
 ### Using Stages to Trigger Integration Actions
 
@@ -80,8 +99,15 @@ When a human reviews a transition request, they are approving the work completed
 
 ### Approver Configuration
 
-- **Player**: The agent suggests an approver based on context (e.g., who last modified the affected code). Any project member can approve.
-- **Individuals**: Specific team members are designated as approvers for that stage. Only they can approve.
+- **Let PlayerZero decide**: The agent suggests an approver based on available context (e.g., who last modified the affected code). Any project member can approve.
+- **Specific individuals**: Specific team members are designated as approvers for that stage. Only they can approve.
+- **Someone from a specific role**: Anyone whose job role is on the list can approve, so the gate survives a person changing teams or leaving.
+
+When a stage names individuals or roles, that restriction holds. The request can only be passed to someone else on the list.
+
+<Note>
+If the configured approvers match no current member of the organization, PlayerZero routes the request to whoever it can rather than leaving it unanswerable.
+</Note>
 
 ---
 
@@ -128,13 +154,15 @@ The visual editor for designing workflows. Access it from **Project Settings →
 
 ### Sidebar
 
-Lists all stages grouped by type (Entry, Work, Terminal) with buttons to add new stages.
+Lists all stages grouped by type (Entry, Work, Terminal, Unassigned) with buttons to add new stages.
 
 ### Validation
 
 The builder displays warning indicators on stages that are missing:
 - Incoming connections (no way to reach this stage)
 - Outgoing transitions (non-terminal stage with no next steps)
+
+A stage missing both reads as **Unassigned** rather than passing validation as though it were finished.
 
 ### Toolbar
 
@@ -152,7 +180,11 @@ If some threads fail to transition (for example, due to a network issue or a stu
 
 Export your workflow as JSON (stages, transitions, agent rules, layout positions). Import into other projects to replicate workflows across your organization.
 
+Each stage carries its own settings, including its model and whether it runs simulations, so an imported stage behaves the way it behaved in the project it came from. The same is true when a template you started from publishes an update: those settings are part of what the update offers you.
+
 You can also import directly from another project's published workflow, so a process proven in one project can be reused in another without exporting a file first.
+
+When you export or import a workflow, note that any configured cross-workflow transitions do not convey, and neither do specific approver configurations, whether named individuals or a named role. Only the choice of approver method carries over. This prevents broken configuration in other projects where the specified workflows or people are not available.
 
 When importing into a project that already has stages, the import dialog detects conflicting stage names and lets you resolve each one individually:
 

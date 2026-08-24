@@ -1,7 +1,7 @@
 ---
 title: "Usage Analytics"
 sidebarTitle: "Usage Analytics"
-description: "Track how your team uses PlayerZero — monitor questions, simulations, workflow activity, and export usage data."
+description: "Track how your team uses PlayerZero — monitor credit consumption, workflow activity and ROI, overall usage stats, and export usage data."
 ---
 
 ## What Is Usage Analytics?
@@ -27,69 +27,59 @@ The dashboard updates automatically when you change filters.
 
 ### Credits
 
-Tracks credit consumption across your organization, broken down by category.
+Tracks credit consumption across your organization, broken down by what the spend was for or by which project it came from.
 
 <Note>
 The Credits section is visible when your organization has a credit-based contract configured. If you don't see it, contact your account representative.
 </Note>
 
-- **Credit consumption chart** — Per-category breakdown (Player, Simulation, Monitor, WorldModel) displayed as a bar chart with daily, weekly, or monthly granularity
-- **Category table** — Detailed credit usage per category with totals
+- **Credit consumption chart** — Displayed as a bar chart with daily, weekly, or monthly granularity. Switch between the **Category** and **Projects** views with the tabs above it
+- **Category table** — Credit totals per category or per project, each row carrying a description of what it covers
 - **Contract card** — Displays your current contract term, total credit allocation, and usage percentage
   - Usage below 90% displays in the default color
   - Usage at 90%+ displays in orange as a warning
   - Usage above 100% displays in red with an overflow indicator
 
+Categories: **Workflow** for Player sessions running inside a workflow, **Non-Workflow (Just Ask)** for ad-hoc sessions not attributed to a workflow, **World Model** for the background work such as code processing, and **Simulations (automatic)** for Automated Code Simulations.
+
+Projects: Attributes the same spend on a PlayerZero project basis instead, capturing total spend across all workflow and non-workflow sessions for that project. World Model costs are not included as part of any one project's spend, as they are accounted for once at the organizational level.
+
+<Note>
+Workflow and non-workflow spend has only been reported separately since late July 2026. Player credits from before that date appear in a single **Players (legacy metric)** row rather than being split.
+</Note>
+
 Credit data supports the same project filter and date range controls as other dashboard sections. Credits can also be included in the CSV export.
-
-### Questions
-
-Tracks AI Player questions asked across your organization.
-
-- **Total questions** — Count for the selected period with trend comparison to the previous period
-- **Breakdown by category** — Questions grouped by intent (debugging, code exploration, etc.)
-- **Breakdown by origin** — Where questions came from (web app, IDE via MCP, Slack, etc.)
-- **Top users** — Most active team members ranked by question count
-- **Breakdown by role** — Questions grouped by team member job role
-
-### Simulations
-
-Tracks code simulation activity.
-
-- **Total simulations** — Count with pass rate and defects prevented
-- **Breakdown by scenario type** — Simulations grouped by the type of scenario tested
-- **Breakdown by system layer** — Simulations grouped by the system layer being tested
 
 ### Workflows
 
-Tracks workflow stage activity for the selected project.
+Every workflow gets a card for the selected period, alongside one for ad-hoc Just Ask threads. Selecting a single project narrows the cards to that project's workflows.
 
-<Note>
-Workflow data is only available when viewing a specific project — it does not aggregate across projects.
-</Note>
+- **Workflow card** — Workflows started and average credits per workflow started, and whether that workflow runs simulations
+- **Just Ask card** — Threads started and credits used, for work that ran outside any workflow
 
-- **Stage metrics table** — Per-stage breakdown of issues processed, issues transitioned, questions asked, and simulations run
-- **Workflow graph** — Visual representation of workflow activity overlaid on your stage graph
+Click a card to open that workflow's detail view.
 
-Toggle between **table** and **graph** views using the tabs.
+#### Workflow Detail View
 
-### Context
+The detail view reports one workflow's spend in depth for the selected time range.
 
-Tracks context created and used by AI agents.
+- **Workflow snapshot** — Number of workflows started, workflows completed, completion rate, and average credits per completed workflow in the selected time range
+- **Workflow details** — Trend charts showing the number of active channels, completed channels, channel origin, channel context, and channel simulations run over time
 
-- **Artifacts** — Documents and diagrams created and shared
-- **Memories** — Knowledge entries created and recalled
-- **Lines of code** — Code analyzed during investigations
+A run counts as completed when it reaches a terminal stage or hands work to another workflow.
 
 ### Overall Stats
 
 Summary cards showing key metrics at a glance:
 
 - **Active users** — Unique users in the selected period (with role breakdown on hover)
-- **Player sessions** — Total sessions created
+- **Active roles** — How many job roles had activity, with the most active leading on hover
+- **Unique channels** — Distinct channels active in the period
 - **Repositories** — Connected repositories
 - **Integrations** — Connected ticketing and tool integrations
 - **Code processed** — Total lines of code analyzed
+
+Below the cards, **Top users** ranks team members by **Questions** asked or by **Credits** used, at daily, weekly, or monthly granularity.
 
 ---
 
@@ -102,19 +92,20 @@ Export usage data as a CSV file for external reporting, audits, or analysis.
 
 | Section | What It Contains |
 |---------|-----------------|
-| Total Active Sessions | Session count with breakdown by role |
-| Total Questions Asked | Question count with breakdown by origin and role |
-| Active Unique Users (Ranked) | Users ranked by question count |
-| Active Users by Role | Estimated unique users per job role |
-| Total Codesims Run | Simulation count with breakdown by scenario type and system layer |
-| Workflow Stages | Per-stage metrics: issues processed, transitioned, questions asked, simulations run |
-| Artifacts Created / Shared | Artifact creation and sharing counts |
-| Lines of Code Used | Lines of code analyzed and total processed |
+| Contract credit burn | Plan term, credits consumed against capacity, and percent used |
+| Credits by category | Credit totals per category |
+| Credits by project | Credit totals per project, for an organization-wide export |
+| Usage by Project & Workflow | Started, completed, total and average credits per workflow |
+| All Users (by credits) | Credits, questions asked, and the projects each user touched |
+| Workflows by Origin | Started count per origin |
 
 3. Use **Select All** to include everything, or check individual sections
-4. Click **Export**
+4. Exclude any projects you do not want in an organization-wide export
+5. Click **Export**
 
-The CSV file downloads with the naming format `playerzero-usage-YYYY-MM-DD.csv` and includes metadata headers with the date range, scope, and export timestamp.
+The file downloads as `playerzero-org-usage-YYYY-MM-DD.csv`, or `playerzero-project-usage-YYYY-MM-DD.csv` when the dashboard is filtered to one project, and includes metadata headers with the date range, scope, and export timestamp.
+
+A single workflow can be exported on its own from its detail view, with its summary metrics, its period-by-period history, and its origin and context breakdowns at the granularity shown on screen.
 
 ---
 
