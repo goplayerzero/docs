@@ -3,6 +3,8 @@ title: "Azure DevOps"
 description: "Connect Azure DevOps to PlayerZero so AI agents can triage work items and link them directly to the code changes that caused them."
 ---
 
+import TicketAttachmentImport from '/snippets/ticket-attachment-import.mdx';
+
 Azure DevOps provides development services for teams to plan work, collaborate on code, and build applications.
 
 ## What You Can Do
@@ -13,12 +15,19 @@ Once connected, PlayerZero AI agents can:
 - **Create and update work items** - Generate work items from debug sessions with proper fields and relationships
 - **Add comments** - Post discussion comments with investigation findings and code references
 - **Navigate boards** - Understand your team's area paths, iterations, and work item types
+- **Import work item attachments** - Bring the images and documents attached to a work item into the thread, when enabled for the project
 
 ## Use Cases
 
 - **Automated triage** - AI agents analyze incoming bugs and suggest area paths, priority, or iteration placement
 - **Debug-to-work-item workflow** - Convert investigation findings into properly structured Azure DevOps work items
 - **Sprint context** - When debugging, agents understand current sprint work and related items
+
+## Work Item Attachments
+
+<TicketAttachmentImport />
+
+On Azure DevOps, the files come from the attachments the work item itself declares.
 
 ## Scopes & Permissions
 
