@@ -34,15 +34,19 @@ The primary step is to grant PlayerZero access to your Source Control Management
 1. Navigate to **Settings → Context → Code** in PlayerZero.
 2. Select your SCM system (GitHub, GitLab, Bitbucket, or Azure Repos) when prompted.
 
+The **Code** settings page has two tabs. **Manage Git Providers** is where you connect providers and enable repositories. **Manage Project Repositories** is where you review which projects use which repositories.
+
 Git providers are managed at the **organization level**. Each provider appears as a collapsible card showing its connected repositories and health status.
 
 ### 2. Enable Specific Repositories
 After connecting your SCM, select which repositories PlayerZero should monitor.
 
-1. On the **Code** settings page, expand your provider card and toggle on the repositories you want to ingest.
+1. On the **Manage Git Providers** tab, expand your provider card and toggle on the repositories you want to ingest.
 2. Choose the primary reference branch (e.g., Main or Master).
 
-To assign repositories to specific **projects**, navigate to **Settings → Context → Code → Projects**. This page shows all projects with their assigned repositories, letting you manage cross-project repository access from one place.
+Each repository row lists the projects that use it. To assign a repository to specific **projects**, use **Add to projects** on the row. To find repositories that are syncing but not yet assigned anywhere, filter the list by **Enabled, but not used by any project**.
+
+The **Manage Project Repositories** tab shows all projects with their assigned repositories, letting you manage cross-project repository access from one place. Searching there matches repositories across every project at once.
 
 ### 3. Allow for Ingestion
 Once you’ve enabled your repositories, PlayerZero will begin analyzing the code to surface relevant insights. This process can take anywhere from a few minutes to several hours, depending on the size and complexity of your repositories.

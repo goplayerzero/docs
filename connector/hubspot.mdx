@@ -3,6 +3,8 @@ title: "HubSpot"
 description: "Connect HubSpot to PlayerZero so AI agents can surface CRM and marketing insights alongside your codebase and telemetry data."
 ---
 
+import TicketAttachmentImport from '/snippets/ticket-attachment-import.mdx';
+
 HubSpot is a leading platform for marketing, sales, and customer service.
 
 ## What You Can Do
@@ -13,12 +15,19 @@ Once connected, PlayerZero AI agents can:
 - **Create and update tickets** - Generate support tickets from debug sessions or update existing ones
 - **Add notes and comments** - Post investigation findings to contact records or tickets
 - **Search records** - Find related contacts, companies, or deals when investigating issues
+- **Import ticket attachments** - Bring the images and documents attached to a ticket into the thread, when enabled for the project
 
 ## Use Cases
 
 - **Customer context** - When debugging a user-reported issue, agents pull in relevant HubSpot contact and company history
 - **Support workflow** - Convert technical findings into well-documented HubSpot tickets
 - **Account intelligence** - Understand customer lifecycle stage and engagement when prioritizing issues
+
+## Ticket Attachments
+
+<TicketAttachmentImport />
+
+On HubSpot, the files are found through the notes and emails on the ticket rather than on the ticket record itself. A ticket carrying an unusually large number of files may list only the first of them.
 
 ## Scopes & Permissions
 

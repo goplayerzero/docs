@@ -153,6 +153,13 @@
                   "features/configuring-workflows"
                 ]
               },
+              {
+                "group": "Knowledge",
+                "pages": [
+                  "features/knowledge-bases",
+                  "features/memories"
+                ]
+              },
               "features/code-sim",
               "features/code-reviews",
               "features/debug-reports",
@@ -163,12 +170,6 @@
                   "features/additional-features/api-triggers",
                   "features/additional-features/chrome-extension",
                   "features/additional-features/usage-analytics"
-                ]
-              },
-              {
-                "group": "Knowledge",
-                "pages": [
-                  "features/knowledge-bases"
                 ]
               }
             ]
