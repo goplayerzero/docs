@@ -1,0 +1,62 @@
+---
+title: "Using a Base"
+sidebarTitle: "Using a Base"
+description: "Run work on your own machine from a conversation, move uncommitted changes in either direction, and bring the result back for review."
+---
+
+Once a machine is connected, use it by naming the machine or the Fleet in a conversation and PlayerZero dispatches the work there.
+
+## Ideas for Using a Base
+
+<AccordionGroup>
+<Accordion title="Plan with PlayerZero, Code in Your Preferred IDE">
+Ask PlayerZero to plan the change using the context it has across your codebases, tickets and past work. Then have it start a coding session in your preferred IDE on your machine and hand that session the plan and acceptance criteria it needs to start building.
+</Accordion>
+
+<Accordion title="Tell PlayerZero to Use Your Locally Stored Skills">
+The skills and instructions your coding tools already use live in folders on your machine. Point PlayerZero at them and ask it to remember them, so the next run starts with the same guidance without being asked.
+</Accordion>
+
+<Accordion title="Use Local Files to Jumpstart Workflow Context">
+Start a workflow, then ask PlayerZero to find the documents and files on your machine that are good examples of this kind of work, and to put them in that workflow's knowledge base. Every future run of the workflow, by you or anyone on your team, starts with those examples in hand.
+</Accordion>
+
+<Accordion title="Reach Tools That Are Connected to Your Editor">
+If a tool is connected to your local editor but not to PlayerZero directly, your machine is a quick path to bringing it into a thread.
+</Accordion>
+
+<Accordion title="Allow the Engineering Team to Work from a Shared Set of Development Machines">
+Put the machines that already have your build tools, services and test data into one Fleet and give the team access. Anyone can then ask PlayerZero to build or reproduce a problem there, without setting up their own laptop first. Keep the machines attached to a QA or staging environment in their own Fleet, so a reproduction runs against the real services rather than a description of them.
+</Accordion>
+
+<Accordion title="Spread Work Across a Fleet">
+With several machines in one Fleet, separate pieces of work run at the same time on different machines and come back into the same conversation.
+</Accordion>
+</AccordionGroup>
+
+---
+
+## The Local Code Loop
+
+Ask PlayerZero to make the change on your machine. It reports what it changed, in which repository and on which branch, and it does not commit or push. This is the point to have it lint and compile locally, and run the tests for what it touched, against your own toolchain.
+
+When the local work is good, bring it back. With the work in PlayerZero you can run broader validation on it, including scenario and code simulation testing, and bring teammates into the same thread to ask questions about the change before anything is committed.
+
+## Move Code Changes Between a Conversation and a Machine
+
+Open the Player status card in a channel and use **Move code changes**. One entry point covers all three directions: from the conversation to a machine, from a machine into the conversation, or between two machines.
+
+The conversation then shows the work in its Codebases panel, with the branch, the file count and the change count, and the actions to move it back to a machine, pull and sync, or commit and push.
+
+### When Both Ends Have Changed
+
+When the same repository has changes at both ends, PlayerZero reports them and the move waits for your answer. Take the incoming version, keep what is there, or merge with PlayerZero. If a merge cannot be completed cleanly, the result says so rather than reporting the move as done.
+
+### What the Move Leaves Behind
+
+Each move writes a result card into the conversation, repository by repository, naming the source and destination, the repository, how many files it carried, and who ran it and when.
+## Get Started
+
+Read [Bases and Fleets](/features/bases) for what a Base and a Fleet are.
+
+Read [Install and Set Up a Base or Fleet](/developer-guide/configuration-guides/bases-and-fleets/install-and-set-up) to connect a machine.

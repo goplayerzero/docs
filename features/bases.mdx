@@ -1,0 +1,41 @@
+---
+title: "Bases and Fleets"
+sidebarTitle: "Overview"
+description: "Connect your own machines to PlayerZero so work runs with the toolchain, services and configuration you already have."
+---
+
+A Base is a computer you have connected to PlayerZero. A Fleet is a group of shared Bases plus the list of people allowed to use them.
+
+## Your Toolchain and PlayerZero, Working Together
+
+PlayerZero brings context: your codebases, tickets, sessions, past work and the plan for the change. Your machine brings what only a real machine has: local container images, compilers, linters, the full test suite, real credentials and real configuration.
+
+A Base puts the two together. PlayerZero plans the change, your machine writes the code and runs lint, compile and tests against your own toolchain, and the result comes back into the conversation for review and validation. Nothing is committed or pushed along the way.
+
+## What a Fleet Adds
+
+A Fleet is a set of shared Bases. Fleets are for work that should not depend on one laptop. Larger builds and longer test suites can be distributed to a Fleet machine that already has the build tools, services and test data. Work continues when your own laptop is closed.
+
+A Fleet will also manage access to the bases within it based on their business group, such as Engineering, QA, or SRE. Everyone on the Fleet's access list reaches every Base in it at the allowed permission level (read and write or read-only). Only organization admins create a Fleet or change a Fleet's permissions.
+
+## Where They Appear
+
+Bases and Fleets are managed in **Organization Settings → Context → Bases and Fleets**.
+
+In a conversation, the machines you can reach appear in the Player status card, alongside your own. Ask PlayerZero to run work on one of them and it names the machine that ran the command.
+
+## Boundaries You Set
+
+You decide how much reach the work has. Work runs in its own process space and cannot see your other applications, only the folders you share, each folder is read-only unless you make it writable, and resource use is capped per unit of work. The activity view shows what ran and which files moved.
+
+The full set of controls, including the Fleet ceiling and the optional enforcement a Fleet can require, is in [Manage Bases and Fleets](/developer-guide/configuration-guides/bases-and-fleets/manage-bases-and-fleets).
+
+<Note>
+Bases run on macOS on Apple Silicon and on Linux.
+</Note>
+
+## Get Started
+
+Read [Using a Base](/features/using-a-base) for ways to use a machine in a conversation.
+
+Read [Install and Set Up a Base or Fleet](/developer-guide/configuration-guides/bases-and-fleets/install-and-set-up) to connect your first machine.

@@ -1,0 +1,91 @@
+---
+title: "Manage Bases and Fleets"
+sidebarTitle: "Manage Bases and Fleets"
+description: "Keep enrolled machines current, control what they expose, and set the boundaries work runs inside."
+---
+
+Once a machine is enrolled, **Organization Settings → Context → Bases and Fleets**. This page covers ownership, updates, what a machine exposes, the limits on a single job, and the boundaries around the work.
+
+---
+
+## Ownership: A Base Belongs to You or to a Fleet
+
+Every Base is either personal or shared. A personal Base is owned by one person and reachable only by them. A shared Base belongs to a Fleet, and access to that Fleet is what makes the machine usable.
+
+Moving a Base between Fleets changes who may use it, and work authorized under the old Fleet no longer holds. Managing a Fleet is not the same as being able to run work on its machines, so grant yourself access explicitly if you need to use them.
+
+---
+
+## Keeping the Client Current
+
+Each Base reports its version, and the Bases list shows when a machine is behind. PlayerZero updates most machines itself, and they take the new version at their next check-in, so the notice usually clears on its own.
+
+Some machines cannot update themselves and PlayerZero does not ask them to. A machine installed with a package manager is updated the same way it was installed. A machine with automatic updates switched off, or one installed from a build that cannot verify a new version, needs someone with access to it.
+
+To update a machine from its own terminal:
+
+```bash
+pz-base update
+```
+
+Re-running the install command on a machine that already has a Base reports the installed version and points at the update command, rather than overwriting the existing install. If the machine cannot be linked, the installer says so.
+
+---
+
+## Check That a Machine Is Reachable
+
+Select a Base in the list and use **Test connection** at the bottom of the detail panel. A working Base reports that it is connected and how long the round trip took. Use it after a configuration change on the machine, or when a conversation cannot reach it.
+
+---
+
+## What a Machine Exposes
+
+Folders are configured on the machine itself with `pz-base configure`.
+
+A worktree root can be shared instead of a live checkout. Worktrees are created from a mirror of the repository, so untracked files are absent rather than hidden, and each channel writes to its own tree. This matters most when several people share one machine, where a single working tree collides and a shared folder exposes untracked files beside the code. Sharing worktrees is optional.
+
+---
+
+## Limits on a Single Job
+
+The Base detail panel shows the ceiling for one job on that machine: CPU cores, memory, processes, time limit, output size and scratch space. A Fleet ceiling applies on top of it and can only narrow it.
+
+The process count covers every task in a job including its shell, so a single digit leaves no room for the shell to start.
+
+A Fleet can also require a specific enforcement level rather than a cap. Requirements available include network isolation, filesystem isolation, memory, CPU, process and spool limits, and complete-tree cancellation. A machine that cannot provide a required capability is not offered the work at all. Both controls are optional.
+
+Work on a Base inherits the host network. If you are setting up a Fleet, make sure network isolation is already in place at the Fleet level if that matters to you.
+
+---
+
+## Setting Boundaries
+
+You decide how much reach the work has, and the defaults are conservative.
+
+The credential used at setup is short-lived, and the install link itself works only once.
+
+Work runs in its own process space. It cannot see or signal the other applications running on your machine.
+
+You control what is shared, at the folder level. Only the folders you name exist for the work, and each one is read-only unless you make it writable. Cap remote access at read-only and raise it when you are comfortable.
+
+Resource use is capped per unit of work, so one job cannot take the whole machine.
+
+The activity view shows what ran, with per-job detail and a record of every file transferred in or out. It is there so you can see what happened without asking anyone.
+
+The most effective control is which machine you enroll. Prefer a machine whose access is already limited to what the work needs.
+
+---
+
+## Housekeeping and Limits
+
+Deleting a Fleet removes the Bases in it. Whatever those machines are working on is cancelled, each one has to enroll again before anyone can use it, and the access list is discarded.
+
+From the machine, `pz-base pause` and `pz-base resume` stop and restart accepting work without disconnecting, and `pz-base stop` disconnects.
+
+---
+
+## Get Started
+
+Read [Install and Set Up a Base or Fleet](/developer-guide/configuration-guides/bases-and-fleets/install-and-set-up) to enroll a machine or create a Fleet.
+
+Read [Using a Base](/features/using-a-base) for the loop between a conversation and a machine.
