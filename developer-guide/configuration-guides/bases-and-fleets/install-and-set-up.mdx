@@ -1,0 +1,93 @@
+---
+title: "Install and Set Up a Base or Fleet"
+sidebarTitle: "Install and Set Up"
+description: "Connect a machine you own to PlayerZero as a Base, and group shared machines into a Fleet."
+---
+
+A Base is a computer you have connected to PlayerZero, so work can run where your toolchain, your services and your configuration already are. A Fleet is a group of shared Bases plus the list of people allowed to use them.
+
+Setting up a personal Base takes three steps: add the Base in Settings, install the client, and finish setup on the machine. A Fleet adds three more: create it, put Bases in it, and decide who can use it.
+
+<Note>
+Bases currently run on macOS on Apple Silicon and on Linux. Linux is the preferred platform for Fleet machines because of the available resource enforcement controls.
+</Note>
+
+---
+
+## Set Up a Personal Base
+
+A personal Base is reachable only by you, and it is available in any PlayerZero thread where you are working.
+
+<Steps>
+<Step title="Add a Base from Settings">
+Open **Organization Settings → Context → Bases and Fleets** and choose **Add a base**.
+
+Choose **Personal base** so that only you can reach this machine through PlayerZero.
+</Step>
+
+<Step title="Install the Client on Your Machine">
+Copy the install command from the dialog, under **Copy and paste in your terminal**, and run it in your terminal. The install link works once and expires five minutes after it is issued. Request a new one if it lapses.
+
+The installer downloads the current PlayerZero client, registers the machine with your organization, and installs the `pz-base` client. It does not give PlayerZero access to anything yet.
+</Step>
+
+<Step title="Finish Setup in the Terminal">
+Run `pz-base` on the machine. It asks whether PlayerZero may work on git repositories there and where those repositories live, then runs in the background.
+
+```bash
+pz-base
+```
+
+Run `pz-base help` to see the rest of the commands. The ones to know are `status`, which shows whether PlayerZero is connected and what the machine is doing, `pause` and `resume`, which stop and restart accepting work without disconnecting, `configure`, which changes settings including folders and limits, and `stop`, which disconnects.
+
+<Tip>
+In the `pz-base configure` menu, use `j` and `k` or the arrow keys to move up and down, `enter` to select, and `escape` to go back.
+</Tip>
+</Step>
+
+<Step title="Confirm It Works">
+Once setup finishes, the machine appears in the Bases list with its type, owner, version and state. Select its row to open the detail panel, which shows what the machine can do, the folders it exposes and whether each is writable or read-only, and the ceiling for a single job.
+
+Use **Test connection** at the bottom of that panel. A working Base reports that it is connected and how long the round trip took.
+
+Then try a first prompt in a channel that has to read the machine to answer, such as asking which branches are checked out across your local repositories.
+</Step>
+</Steps>
+
+---
+
+## Set Up a Fleet
+
+A Fleet is how a team shares machines, rather than each person enrolling their own. Everyone on the access list gets the same access to every Base in the Fleet. A shared Base belongs to one Fleet at a time, and a Fleet with no Bases in it waits for Bases to be added before it can do any work. Only organization admins can create or change a Fleet.
+
+<Steps>
+<Step title="Create a Fleet from Settings">
+Open **Organization Settings → Context → Bases and Fleets**, select the **Fleets** tab, and choose **New fleet**. Give it a name and a description of what the machines are for. Access and Bases are added afterwards.
+</Step>
+
+<Step title="Add Bases to the Fleet">
+Enroll a new machine straight into the Fleet by choosing **Add to a fleet** in the **Add a base** dialog and picking the Fleet before you run the install command.
+
+Or move machines that are already enrolled. Open the Fleet and choose Bases under **Bases in this fleet**. Adding a Base here moves it out of the Fleet that holds it now. Adding a personal Base to a Fleet makes it a Fleet base that is visible to everyone in that Fleet.
+</Step>
+
+<Step title="Decide Who Can Use It">
+Open the Fleet and choose **Edit** next to **Who has access**. Access is granted to people or to business groups. A business group entry covers anyone whose group is set to it, now or later.
+
+Each entry is read and write, or read-only. Read-only still runs commands on the machine. It withholds writable folders.
+</Step>
+
+<Step title="Set the Ceiling for Every Base">
+Open the Fleet and choose **Edit** next to **Ceiling on every base here**. The ceiling caps what any single job may use on any Base in the Fleet. It applies on top of what each machine already allows, so it can only narrow a job and never widen one. Leave a field empty to defer to the machine.
+
+See [Manage Bases and Fleets](/developer-guide/configuration-guides/bases-and-fleets/manage-bases-and-fleets) for what the ceiling covers and for the optional controls a Fleet can require.
+</Step>
+</Steps>
+
+---
+
+## Get Started
+
+Read [Bases and Fleets](/features/bases) for what a Base is good for, and [Using a Base](/features/using-a-base) for the loop between a conversation and a machine.
+
+Read [Manage Bases and Fleets](/developer-guide/configuration-guides/bases-and-fleets/manage-bases-and-fleets) for ownership, updates, shared folders and boundaries.

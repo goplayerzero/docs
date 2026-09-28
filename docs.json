@@ -52,6 +52,13 @@
             "pages": [
               "developer-guide/configuration-guides/general-settings-and-membership",
               {
+                "group": "Bases and Fleets",
+                "pages": [
+                  "developer-guide/configuration-guides/bases-and-fleets/install-and-set-up",
+                  "developer-guide/configuration-guides/bases-and-fleets/manage-bases-and-fleets"
+                ]
+              },
+              {
                 "group": "Import Git Setup Guides",
                 "pages": [
                   "developer-guide/configuration-guides/importing-code/import-git-setup-guide",
@@ -160,16 +167,23 @@
                   "features/memories"
                 ]
               },
+              {
+                "group": "Fleets and Bases",
+                "pages": [
+                  "features/bases",
+                  "features/using-a-base"
+                ]
+              },
               "features/code-sim",
               "features/code-reviews",
-              "features/debug-reports",
-              "features/monitors",
               {
                 "group": "Additional Features",
                 "pages": [
                   "features/additional-features/api-triggers",
                   "features/additional-features/chrome-extension",
-                  "features/additional-features/usage-analytics"
+                  "features/additional-features/usage-analytics",
+                  "features/debug-reports",
+                  "features/monitors"
                 ]
               }
             ]
