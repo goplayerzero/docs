@@ -210,7 +210,8 @@
   },
   "logo": {
     "light": "/logo/light-logo.svg",
-    "dark": "/logo/dark-logo.svg"
+    "dark": "/logo/dark-logo.svg",
+    "href": "https://playerzero.ai/docs/introduction"
   },
   "background": {
     "color": {
@@ -232,7 +233,7 @@
   },
   "footer": {
     "socials": {
-      "website": "https://www.playerzero.ai/",
+      "website": "https://playerzero.ai/",
       "linkedin": "https://www.linkedin.com/company/playerzero/",
       "twitter": "https://twitter.com/goplayerzero",
       "slack": "https://playerzerocom-uhb1146.slack.com/join/shared_invite/zt-1i4nsidth-bmObDACsU_Ci8Lw2ttExXg#/shared-invite/email"
