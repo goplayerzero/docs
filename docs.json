@@ -239,6 +239,132 @@
       "slack": "https://playerzerocom-uhb1146.slack.com/join/shared_invite/zt-1i4nsidth-bmObDACsU_Ci8Lw2ttExXg#/shared-invite/email"
     }
   },
+  "redirects": [
+    {
+      "source": "/docs/domain-controls",
+      "destination": "/developer-guide/configuration-guides/capturing-user-sessions/domain-settings"
+    },
+    {
+      "source": "/how-to-guides/prompting-basics",
+      "destination": "/user-guides/prompting-basics"
+    },
+    {
+      "source": "/connector/pm/azure-devops",
+      "destination": "/connector/azure-devops"
+    },
+    {
+      "source": "/developer-guide/configuration-guides/link-project-management-tools/azure-devops",
+      "destination": "/connector/azure-devops"
+    },
+    {
+      "source": "/user-guides/go.playerzero.app/settings",
+      "destination": "https://playerzero.ai/current-org/settings"
+    },
+    {
+      "source": "/user-guides/accelerate-environment-setup",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/accelerate-fixes-with-guidance",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/backend-engineer",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/business-analyst",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/code-conventions-and-patterns",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/codebase/high-level-overviews",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/data-analyst",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/detailed-api-and-module-documentation",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/detect-quality-vulnerabilities",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/explore-system-architecture",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/frontend-developer",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/identify-test-scenarios",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/learn-business-rules-and-patterns",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/migrate-frameworks-languages",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/qa-engineer",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/refactor-for-performance",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/sdlc",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/support",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/trace-integration-risks",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/trace-issues-to-code",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/understand-legacy-code",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/visualize-system-architecture",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/user-guides/workflows",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/use-cases/retrieve-insights-from-code/ask-codebase-questions",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/developer-guide/api/:slug*",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/developer-guide/configuration-guides/integrating-with-opentelemetry/:slug*",
+      "destination": "/introduction"
+    }
+  ],
   "integrations": {
     "gtm": {
       "tagId": "GTM-5T6DH5S"
