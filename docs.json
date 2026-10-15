@@ -258,9 +258,8 @@
     },
     {
       "source": "/user-guides/go.playerzero.app/settings",
-      "destination": "https://go.playerzero.app/settings"
-    }
-,
+      "destination": "https://playerzero.ai/current-org/settings"
+    },
     {
       "source": "/user-guides/accelerate-environment-setup",
       "destination": "/introduction"
