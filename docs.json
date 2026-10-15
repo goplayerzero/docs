@@ -354,6 +354,10 @@
       "destination": "/introduction"
     },
     {
+      "source": "/use-cases/retrieve-insights-from-code/ask-codebase-questions",
+      "destination": "/introduction"
+    },
+    {
       "source": "/developer-guide/api/:slug*",
       "destination": "/introduction"
     },
