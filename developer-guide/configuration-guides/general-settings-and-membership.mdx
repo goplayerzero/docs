@@ -1,7 +1,7 @@
 ---
 title: "General Settings and Membership"
 sidebarTitle: "General & Membership"
-description: "Configure your organization's name and URL namespace, control how people join, enable features, and manage member roles and access."
+description: "Configure your organization's name and URL namespace, control how people join, enable features, manage member roles and access, and manage Business Groups."
 ---
 
 Organization-level settings live under **Organization Settings**. The **General** page holds your organization's identity, how people join, and which features are enabled; **Members** is where you invite people and set their roles.
@@ -84,35 +84,59 @@ Only organization owners can change public sharing.
 
 ## Membership
 
-Invite people and manage their access from **Organization Settings → Members**. You can invite one or more people at once, assigning each an **Org Permission** and a **User Type**, and choose which projects they join. Up to ten people can be invited in a single batch.
+Invite people and manage their access from **Organization Settings → Members**. You can invite one or more people at once, assigning each an **Org Permission** and a **Business Group**, and choose which projects they join. Up to ten people can be invited in a single batch.
 
-The two settings do different jobs: Org Permission controls what someone is allowed to change, while User Type describes the kind of work they do.
+The two settings do different jobs: Org Permission controls what someone is allowed to change, while Business Group describes the kind of work they do.
 
 ### Org Permissions
 
 | Org Permission | What they can do |
 |---|---|
-| **Viewer** | View the organization and projects, but cannot make any changes |
+| **Guest** | View existing channels and threads, respond to collaboration questions or approve workflow transitions, but cannot start new chats or view project settings |
+| **Viewer** | View the organization and projects, start or continue a conversation with PlayerZero, but cannot make any changes |
 | **Editor** | Make changes to the organization, and invite new members |
 | **Owner** | Make changes, invite members, and delete the organization |
 
-### User Types
+### Editing a Member
 
-User Type does not grant or restrict access. It tailors the experience to the work someone does, including which default workflow is preselected for them when they start something new.
+To change a member's name, Business Group, or role, open the menu at the end of the member's row and choose **Edit member**. **Manage projects** in the same menu changes which projects they belong to.
 
-| User Type |
+### New Member Profiles
+
+A member who joins the organization is asked once, on their first visit, to **Complete your profile** with their name, Business Group, and display role. Organizations with no Business Groups skip the group question. A member who chooses **Other** as their group describes their role in their own words. Members who joined before this prompt was introduced are not asked.
+
+---
+
+## Business Groups
+
+Business Group does not grant or restrict access to projects or settings. It tailors the experience to the work someone does, including which default workflow is preselected for them when they start something new, and it can limit which models members use in chat. Manage groups from **Organization Settings → Business Groups**, which lists each group's **Name**, **Members**, and **Models**.
+
+PlayerZero provides these built-in groups:
+
+| Business Group |
 |---|
+| Documentation |
 | Engineering |
 | Product |
 | Design |
-| QA |
 | SRE |
+| Quality Assurance (QA/QE) |
 | Data Science |
-| Sales |
+| Go To Market/Sales |
 | Marketing |
 | Support |
-| Documentation |
 | Other |
+
+### Limiting Models by Group
+
+Edit a group and select its **Models** to choose which model classes its members can use in chat. The limits do not apply to workflow stages. See [Models](/features/models).
+
+### Creating and Archiving Groups
+
+Once PlayerZero turns on group editing for your organization, org owners can also create, rename, describe, archive, and restore groups. Contact your PlayerZero account team to turn it on. Renaming a group keeps its members, workflows, and memories.
+
+- A group that members or workflows still use cannot be archived, and the message names them
+- The fallback group cannot be renamed or archived
 
 ---
 
@@ -120,14 +144,16 @@ User Type does not grant or restrict access. It tailors the experience to the wo
 
 Access to each setting is determined by Org Permission.
 
-| Setting | Viewer | Editor | Owner |
-|---|---|---|---|
-| Organization name, slug, auto-join, allowed domains | View only | Yes | Yes |
-| Code simulations, privileged action approval | View only | Yes | Yes |
-| [Slack MCP tool policy](/connector/slack-mcp) | View only | View only | Yes |
-| SSO configuration | No | No | Yes |
-| Public artifact sharing | No | No | Yes |
-| Organization deletion | Contact PlayerZero support | Contact PlayerZero support | Contact PlayerZero support |
+| Setting | Guest | Viewer | Editor | Owner |
+|---|---|---|---|---|
+| Organization name, slug, auto-join, allowed domains | No | View only | Yes | Yes |
+| Code simulations, privileged action approval | No | View only | Yes | Yes |
+| [Slack MCP tool policy](/connector/slack-mcp) | No | View only | View only | Yes |
+| Business Group models, [Models](/features/models) settings | No | View only | View only | Yes |
+| Create, rename, and archive Business Groups | No | No | No | Yes, once enabled by PlayerZero |
+| SSO configuration | No | No | No | Yes |
+| Public artifact sharing | No | No | No | Yes |
+| Organization deletion | No | Contact PlayerZero support | Contact PlayerZero support | Contact PlayerZero support |
 
 ---
 

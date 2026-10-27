@@ -1,0 +1,92 @@
+---
+title: "Automations"
+sidebarTitle: "Automations"
+description: "Start PlayerZero workflows automatically on a schedule or when an event arrives from Git, a ticketing tool, or your own system."
+---
+
+## What Are Automations?
+
+An automation starts a workflow without anyone opening a thread. It runs on a schedule, or it starts when an event arrives from a connected Git repository, a connected ticketing tool, or a custom event source that your own system sends to.
+
+Automations are managed at the organization level. Open **Organization Settings**, then **Automations**. The page has two tabs: **Automations** lists every automation in the organization, and **Event sources** lists the systems that automations listen to.
+
+---
+
+## Creating an Automation
+
+Click **New automation** and choose what starts it.
+
+| Start | What it listens to |
+|---|---|
+| **Git** | Pull requests, commits, and other events in your connected repositories |
+| **Ticketing** | Ticket events from a ticketing tool you have connected |
+| **Custom event source** | An event your own system sends, such as a finished deploy or an alert |
+| **Schedule** | A repeating time that you choose |
+
+Then fill in the rows of the automation and click save.
+
+| Row | Description |
+|---|---|
+| **When** | The event that starts the workflow, or how often a schedule runs. Required. |
+| **Only if** | *(Optional, events only)* A plain-language filter description of which events should start the workflows, such as, only PRs where the repo matches "webapp" or only tickets with the tag "pzHelp." PlayerZero checks each event against it and skips the ones that do not match. Click **Test on recent events** to see how the condition treats events that have already arrived. |
+| **Collect** | *(Optional, events only)* Groups events into one run. The workflow starts after a maximum number of events or a maximum wait in minutes, whichever comes first. Leave the event count empty to wait for the minutes alone. |
+| **Then** | The workflow to start. Required. |
+| **Until** | *(Optional)* Turns the automation off after a number of runs or at a set time, whichever comes first. |
+| **Once created** | **Turn it on now** or **Keep it off for now**. |
+
+### Schedules
+
+For a scheduled automation, choose a repeating time on the **Presets** tab, or enter a cron expression on the **Manual** tab. A manual cron expression has six fields, starting with seconds. The shortest interval is every 5 minutes. Every schedule runs in UTC.
+
+<Note>
+Creating and editing automations requires **editor** or **owner** permissions. Org editors and owners can create automations for any project. Project editors and owners can create automations for their own projects. Each automation belongs to the project of the workflow it starts.
+</Note>
+
+---
+
+## Event Sources
+
+The **Event sources** tab lists the sources an automation can listen to. Git repositories are connected in Code settings and ticketing tools in Ticketing settings, and both appear here once connected. To let your own system send events, click **New event source** and choose **Custom event source**.
+
+### Creating a Custom Event Source
+
+| Field | Description |
+|---|---|
+| **Name** | A short, descriptive name. Must be at least 3 characters. |
+| **Description** | *(Optional)* What the source sends and when. |
+| **Require token authorization** | *(Optional)* Requires an org token with the API Trigger permission in the `Authorization` header. |
+| **HMAC validation** | *(Optional)* Verifies a signature computed from the request body and a shared secret. Set the **Signature header** (default `X-PZ-Signature`), the **HMAC secret**, the **Algorithm** (**SHA-256** or **SHA-512**), the **Encoding** (**Hex**, **Base64** or **Base64URL**) and an optional **Signature prefix** to strip, such as `sha256=`. |
+| **CIDR blocks** | *(Optional)* Accepts requests only from the listed IP ranges. With no blocks, requests are accepted from any IP address. |
+| **Active** | Turns the source on or off. |
+
+Creating a custom event source requires org **editor** or **owner** permissions.
+
+### Sending Events
+
+Open the source and click **How to send events** to see its endpoint URL and an example request with your settings applied. Send an HTTP `POST` with the body as UTF-8 text, such as JSON. Each request becomes one event, and a `202` response means the event was accepted.
+
+API triggers created before Automations appear on this tab as custom event sources. To start a workflow from one, add an automation to it.
+
+<Note>
+Deleting an event source also deletes the automations that listen to it.
+</Note>
+
+---
+
+## How Automation Runs Work
+
+A workflow started by an automation runs as the PlayerZero system user, not as the person who created the automation. The event that started the run is attached to the channel as a file, so the agent works from the full payload.
+
+A ticketing automation skips a ticket that already has a run in the same workflow, so the same ticket does not start duplicate work.
+
+---
+
+## Replacing Monitors and API Triggers
+
+Automations replace the Monitors and API Triggers settings pages. Existing monitors and trigger rules were not converted. To keep running one, create an automation that starts the workflow it used to start.
+
+---
+
+## Get Started
+
+Design the workflow an automation starts in [Workflows](/features/workflows) and [Configuring Workflows](/features/configuring-workflows). Connect Git repositories and ticketing tools from the [setup guide](/developer-guide/quickstart-guide) and [Ticketing Integrations](/connector/introduction).

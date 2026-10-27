@@ -15,7 +15,7 @@ Each stage defines what the agent does during that phase of work.
 | **Name** | Short identifier (e.g., "Triage", "RCA", "Fix"). Must be unique within a project. |
 | **Instructions** | Detailed prompt for the agent — what to do, what to look for, what outputs to produce. Supports the `/` slash command to insert [Skill](/features/playbooks) instructions. |
 | **Type** | Derived from the transitions you draw: **Entry** (starting point, each workflow may only have one entry stage), **Work** (intermediate), or **Terminal** (end point, may have multiple). Stage types are listed as **Unassigned** if they have no connections to any other stages. |
-| **Model** | How much horsepower the stage's work gets: **Economy**, **Standard** (the default), or **Pro** (unlocks a team of agents). |
+| **Model** | How much horsepower the stage's work gets: **Auto-Optimize**, **Economy**, **Standard**, or **Pro** (unlocks a team of agents). |
 | **Auto-approve** | If enabled, transitions out of this stage happen without human approval. |
 | **Approver config** | Who can approve: **Let PlayerZero decide** (based on available context), **Specific individuals**, or **Someone from a specific role**. |
 | **Run simulations** | Whether the agent validates its work at this stage with scenario simulations. Off by default, with optional guidance on what to simulate. |
@@ -46,6 +46,10 @@ The **Model** setting decides how much horsepower a stage's work gets. Each mode
 - **Pro**: For complex or high-stakes work. Pro is the only mode where the agent can put a team of agents on the task instead of working alone, using [Hive Mode](/features/hive-mode), and it is billed at a higher rate than Standard.
 
 Set it per stage, so a triage stage can run Economy while the stage that investigates or writes a fix runs Pro.
+
+Turn on **Auto-Optimize** next to the model slider to let PlayerZero pick the right model for each task at that stage, balancing speed, accuracy, and cost.
+
+A stage picks from the models turned on in [Models](/features/models) settings. Business Group model limits apply to chat, not to workflow stages.
 
 ### Running Simulations at a Stage
 
@@ -133,7 +137,7 @@ Workflows use a draft and publish lifecycle:
 - **Publish** — When the draft is ready, publish it to make it the active version. New work uses the published version.
 - **Version history** — PlayerZero keeps every published version. Review past versions and **roll back** to a previous one when needed.
 
-The inbox, monitors, and ticketing resolve against the published version of each workflow.
+The inbox and ticketing resolve against the published version of each workflow.
 
 ## Starting from a Template
 
@@ -205,4 +209,4 @@ The inbox is the operational view for managing active threads across your workfl
 
 ## Related
 
-- [Monitors](/features/monitors) — Set up automated checks that can trigger workflow stages on failure
+- [Automations](/features/automations) — Start a workflow on a schedule or when an event arrives from Git, a ticketing tool, or your own system
