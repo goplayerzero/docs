@@ -3,6 +3,8 @@ title: "Salesforce"
 description: "Connect Salesforce to PlayerZero so AI agents can surface CRM insights alongside code, telemetry, and support context."
 ---
 
+import TicketAttachmentImport from '/snippets/ticket-attachment-import.mdx';
+
 Salesforce is a cloud-based CRM platform that helps manage customer relationships and business processes.
 
 ## What You Can Do
@@ -13,12 +15,19 @@ Once connected, PlayerZero AI agents can:
 - **Create and update cases** - Generate support cases from debug sessions or update existing ones
 - **Add case comments** - Post investigation findings and technical details to customer cases
 - **Search records** - Find related accounts, opportunities, or cases when investigating customer-reported issues
+- **Import case files** - Read the files linked directly to a case, such as logs and screenshots
 
 ## Use Cases
 
 - **Customer context** - When debugging a user-reported issue, agents pull in relevant Salesforce account and case history
 - **Support escalation** - Convert technical findings into well-documented Salesforce cases for support teams
 - **Account intelligence** - Understand customer tier, history, and open issues when prioritizing bugs
+
+## Ticket Attachments
+
+<TicketAttachmentImport />
+
+For Salesforce, PlayerZero imports the files linked directly to a case. Files attached to case emails and legacy Attachment records are not imported.
 
 ## Scopes & Permissions
 

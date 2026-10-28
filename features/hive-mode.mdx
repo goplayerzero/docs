@@ -1,14 +1,14 @@
 ---
 title: "Hive Mode"
 sidebarTitle: "Hive Mode"
-description: "Deploy teams of specialist AI agents to tackle complex investigations, debugging, and research — with real-time coordination and cross-checking."
+description: "Workflow stages set to Pro can deploy teams of specialist AI agents to tackle complex investigations, debugging, and research — with real-time coordination and cross-checking."
 ---
 
 ## What Is Hive Mode?
 
 Hive Mode changes how PlayerZero's AI Player approaches your problem. Instead of a single agent working through the task alone, Hive Mode turns the AI into an **orchestrator** that designs and deploys a team of specialist agents — each focused on a specific angle — and then synthesizes their findings into a unified answer.
 
-This is the right choice when accuracy matters more than speed: complex debugging, root cause analysis, deep research across multiple subsystems, or any investigation where you want multiple independent perspectives cross-checked against each other.
+Hive Mode runs in workflow stages whose **Model** is set to **Pro**. It is the right choice when accuracy matters more than speed: complex debugging, root cause analysis, deep research across multiple subsystems, or any investigation where you want multiple independent perspectives cross-checked against each other.
 
 ---
 
@@ -23,19 +23,19 @@ This is the right choice when accuracy matters more than speed: complex debuggin
 
 ---
 
-## Switching Modes
+## Where Hive Mode Runs
 
-Toggle between Agent and Hive using the **mode slider** next to the chat input.
+Hive Mode is part of the **Pro** model setting on a workflow stage.
 
-- The slider appears on the **homepage** when creating a new thread and in the **chat input** of an existing thread
-- Your preference is remembered across sessions
-- Workflow stages can set a **preferred mode** — when you enter a stage, the mode adjusts automatically
+- When a channel reaches a stage set to **Pro**, the agent can put a team of specialists on the work instead of working alone
+- Stages set to **Economy** or **Standard** work as a single agent
+- Set the model for each stage in [Configuring Workflows](/features/configuring-workflows#execution-mode)
 
 ---
 
 ## How Hive Mode Works
 
-When you send a message in Hive Mode, the AI follows a structured approach:
+When a stage runs in Hive Mode, the AI follows a structured approach:
 
 1. **Reconnaissance** — The orchestrator does a few quick tool calls to understand the landscape of the problem
 2. **Team design** — It designs a team of specialists, wiring them into a dependency graph (DAG) so agents that depend on each other's output run in the right order
@@ -122,26 +122,28 @@ When agents need something only a person knows, their questions will be presente
 
 ---
 
-## When to Use Each Mode
+## When to Set a Stage to Pro
 
-| Scenario | Recommended Mode |
+| Stage work | Recommended Model |
 |---|---|
-| "What does this function do?" | Agent |
-| "How does authentication work across all services?" | Hive |
-| "Find the file that handles payment processing" | Agent |
-| "Why are users getting 500 errors on the checkout page?" | Hive |
-| "Add a log statement to this handler" | Agent |
-| "Investigate this production incident — check code, telemetry, and recent changes" | Hive |
-| "Create test scenarios for the new billing feature" | Hive |
-| "What changed in this PR?" | Agent |
-| "Is this bug a regression from a recent change?" | Hive |
+| "What does this function do?" | Standard |
+| "How does authentication work across all services?" | Pro |
+| "Find the file that handles payment processing" | Standard |
+| "Why are users getting 500 errors on the checkout page?" | Pro |
+| "Add a log statement to this handler" | Standard |
+| "Investigate this production incident — check code, telemetry, and recent changes" | Pro |
+| "Create test scenarios for the new billing feature" | Pro |
+| "What changed in this PR?" | Standard |
+| "Is this bug a regression from a recent change?" | Pro |
 
-**Rule of thumb:** If the question has one clear answer in one place, use Agent. If it requires investigating multiple angles, comparing evidence, or cross-referencing systems, use Hive.
+**Rule of thumb:** If the stage's work has one clear answer in one place, Standard is enough. If it requires investigating multiple angles, comparing evidence, or cross-referencing systems, set the stage to Pro.
 
 ---
 
 ## Get Started
 
 👉 [AI Player overview](/features/ai-player)
+
+👉 [Configuring Workflows](/features/configuring-workflows)
 
 👉 [Setup guide](/developer-guide/quickstart-guide)

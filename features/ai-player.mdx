@@ -19,7 +19,7 @@ To use it, navigate to any project in PlayerZero and start a conversation throug
 A PlayerZero **channel** is a shared workspace built around a single objective, such as debugging a single support ticket or scoping a change to a specific product feature. Inside a channel, work happens in **threads** — each thread is its own AI Player conversation with a focus on a single topic, such as understanding steps to reproduce or debating the pros and cons of a technical approach, but threads within a channel all share context with each other to ensure collaborative work happens without context getting lost along the way.
 
 - **Channel** — the shared workspace and objective that threads collaborate within. Context, branches, and referenced files are shared across the channel.
-- **Thread** — an individual agent conversation. A thread can run in Agent Mode or Hive Mode and keeps its own history, context, and sandbox.
+- **Thread** — an individual agent conversation. A thread keeps its own history, context, and sandbox, and in a workflow stage set to Pro it can run in Hive Mode.
 - **Controlling thread** — the most recent thread in the channel manages transitions to new stages and tracks overall progress toward the channel's objective.
 
 The side panel lists every thread in the channel, **grouped by workflow**, so you can see all the work in progress at a glance. Teammate threads created in [Hive Mode](/features/hive-mode) appear here as first-class entries alongside the threads you start yourself.
@@ -80,6 +80,12 @@ The control appears only in browsers that support speech recognition.
 
 ---
 
+## Choose a Model
+
+The model picker in the message box sets which model answers. **Auto** picks a model for each message, optimizing for Intelligence, Balance, or Cost, or you can choose a specific model. See [Models](/features/models).
+
+---
+
 ## Starting Points
 
 <AccordionGroup>
@@ -125,6 +131,7 @@ The control appears only in browsers that support speech recognition.
 - **Purpose:** Multiple specialist agents coordinate to solve complex problems.
 - **Best For:** Debugging, root cause analysis, deep research, multi-system investigations, and test coverage generation.
 - **Behavior:** The AI designs and deploys a team of specialists — code explorers, tracers, cross-checkers, and integration agents — that work in parallel and cross-check each other's findings. You can watch their progress in real time via the **Hive panel** in the side panel.
+- **Where it runs:** Workflow stages whose **Model** is set to **Pro**.
 - **Learn more:** [Hive Mode](/features/hive-mode)
 </Accordion>
 
@@ -253,6 +260,7 @@ Generate structured content to support issue tracking:
 - [Usage Analytics](/features/additional-features/usage-analytics) — Track questions, simulations, and team activity
 - [Knowledge Bases](/features/knowledge-bases) — Upload organizational documents for AI agent reference
 - [Memories](/features/memories) — See what PlayerZero remembers about how your team works
-- [Monitors](/features/monitors) — Set up automated checks that run on a schedule and trigger workflows on failure
+- [Automations](/features/automations) — Start workflows on a schedule or when an event arrives
+- [Models](/features/models) — Choose the model for each message and control which models your organization uses
 
 👉 [Setup guide](/developer-guide/quickstart-guide)

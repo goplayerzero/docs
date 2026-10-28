@@ -1,0 +1,63 @@
+---
+title: "Models"
+sidebarTitle: "Models"
+description: "Choose the model for each message with the model picker, and control which models your organization uses and whose API key pays for them."
+---
+
+## Choosing a Model in Chat
+
+The model picker sits in the message box toolbar. It shows **Auto** with its objective, or the name of the model you chose.
+
+**Auto** picks a model and an effort level for each message from the models your organization has turned on. Choose what Auto optimizes for:
+
+| Objective | What Auto does |
+|---|---|
+| **Intelligence** | Reaches for the most capable models |
+| **Balance** | Weighs quality against cost. The default. |
+| **Cost** | Uses the cheapest model that can do the job |
+
+To use one model instead, choose it from the list. Models are grouped by class, and each shows its effort range. The picker lists only the models you are allowed to use.
+
+A new chat starts on Auto with the objective you last chose in this browser. In an existing thread, the picker starts from the choice recorded on the thread's latest message, and your change applies from your next message.
+
+---
+
+## Model Classes
+
+Every model belongs to one of three classes.
+
+| Class | Use |
+|---|---|
+| **Economy** | Fast and inexpensive for lighter tasks |
+| **Standard** | Everyday engineering and investigations |
+| **Pro** | The hardest problems, at the highest cost |
+
+---
+
+## Models Settings
+
+Open **Organization Settings**, then **Models**.
+
+### Available Models
+
+**Available Models** turns individual models on or off within each class. Auto picks only from the models turned on here. New models are on by default, so you only need to turn off the ones you do not want. At least one model must stay on, and a model whose provider is not configured cannot be turned on.
+
+### Your API Keys
+
+**Your API Keys** accepts your organization's own Anthropic or OpenAI key. Requests to that provider then use your key, and every other provider keeps running on PlayerZero. If the section says that PlayerZero manages your organization's model providers, contact support to change them.
+
+<Note>
+Only organization owners can change model settings. Other members can view **Available Models**, and the **Your API Keys** section is hidden from them.
+</Note>
+
+---
+
+## Limiting Models by Business Group
+
+Org owners can choose which model classes each Business Group may use. Open **Organization Settings**, then **Business Groups**, edit a group, and select its **Models**. Members of the group can then use only those classes in chat. See [Business Groups](/developer-guide/configuration-guides/general-settings-and-membership#business-groups).
+
+---
+
+## Models in Workflow Stages
+
+A workflow stage uses its own **Model** setting of **Economy**, **Standard** or **Pro**. PlayerZero picks a model within that class from the models turned on in **Available Models**. Business Group limits and the model chosen in chat do not apply to stages. A stage set to **Pro** can put a team of agents on the work using [Hive Mode](/features/hive-mode). See [Configuring Workflows](/features/configuring-workflows#execution-mode).

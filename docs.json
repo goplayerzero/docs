@@ -149,6 +149,7 @@
                 "pages": [
                   "features/ai-player",
                   "features/hive-mode",
+                  "features/models",
                   "features/playbooks"
                 ]
               },
@@ -157,7 +158,8 @@
                 "pages": [
                   "features/workflows",
                   "features/workflow-inbox",
-                  "features/configuring-workflows"
+                  "features/configuring-workflows",
+                  "features/automations"
                 ]
               },
               {
@@ -179,11 +181,9 @@
               {
                 "group": "Additional Features",
                 "pages": [
-                  "features/additional-features/api-triggers",
                   "features/additional-features/chrome-extension",
                   "features/additional-features/usage-analytics",
-                  "features/debug-reports",
-                  "features/monitors"
+                  "features/debug-reports"
                 ]
               }
             ]
@@ -240,6 +240,14 @@
     }
   },
   "redirects": [
+    {
+      "source": "/features/monitors",
+      "destination": "/features/automations"
+    },
+    {
+      "source": "/features/additional-features/api-triggers",
+      "destination": "/features/automations"
+    },
     {
       "source": "/docs/domain-controls",
       "destination": "/developer-guide/configuration-guides/capturing-user-sessions/domain-settings"
