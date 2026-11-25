@@ -2,8 +2,12 @@ PlayerZero can read the images, documents, and archives attached to a ticket, so
 
 Whether attachment import is on by default depends on when the integration was connected. Integrations connected on or after June 26, 2026 import attachments by default. Integrations connected before that date do not.
 
-To update it, open the integration's settings, find the project, and under **Ticket Attachment Settings** set **Mode** to **Allow Attachments**. Choose **Do Not Allow** to stop importing. Only Project Owners may update this setting.
+To update it, open **Settings → Context → Ticketing**, open the integration, and find the project under **Ticket attachments**. Set **Mode** to **Allow Attachments**, or choose **Do Not Allow** to stop importing. Only Project Owners may update this setting.
 
 <Note>
 The setting appears only when the integration is connected to that project.
 </Note>
+
+### File Type Overrides
+
+Some tools report evidence files, such as trace or HTML exports, as a generic binary type that PlayerZero does not import. Under **File type overrides** on the same integration page, click **Add override**, enter the file extension, and choose the supported type to treat it as, for example `.log` as `text/plain`. Overrides apply to every project in the organization. Organization editors and owners can change them.

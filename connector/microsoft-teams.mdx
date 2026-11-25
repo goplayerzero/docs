@@ -81,12 +81,19 @@ Setup starts in PlayerZero — no pre-configuration in Microsoft Teams is requir
 
 After setup, the PlayerZero bot is available in all channels within the teams you selected. You can add or remove teams at any time from the Collaboration settings page by clicking **Edit** on the Connection Details card.
 
+### Reconnecting an Existing Connection
+
+To grant PlayerZero new permissions, click **Reconnect** in the header of the Microsoft Teams detail page and complete Microsoft admin consent again. Reconnecting keeps the bot's channel setup and your notification settings. It must use the Microsoft 365 tenant that is already connected. To switch tenants, click **Disable** first, then **Enable** and authorize the new tenant.
+
+<Note>
+Only organization owners can enable, reconnect, or disable the Teams connection.
+</Note>
+
 ### Notification Configuration
 
 Once Teams is connected, you can configure where notifications are delivered at the organization and project level.
 
 **Organization-level defaults:**
-- Set a default Teams channel for notifications from the Collaboration settings page
 - Control which projects are authorized to use the Teams connection — either all projects or a specific set
 
 **Per-project, per-stage channels:**
@@ -102,6 +109,7 @@ Once Teams is connected, you can configure where notifications are delivered at 
 **Direct messages:**
 - Turn on **Send direct messages** for a project to deliver direct questions to individual teammates as Teams messages, alongside the channel notifications above
 - Choose what is sent as a direct message with the scope setting: **All questions**, **Direct questions only**, or **Workflow approval questions only**
+- With direct messages on, **DM people who are @mentioned** sends a teammate a Teams message with a snippet and a link when someone @mentions them in a Player thread. It is on by default. Only teammates who can open the project receive one, and at most 10 people are messaged for one message
 - Configure it at **Organization settings → Collaboration → Teams**, then select the project, turn on **Send direct messages**, and click **Save**
 
 ## Get Started

@@ -4,6 +4,7 @@ description: "Connect Azure DevOps to PlayerZero so AI agents can triage work it
 ---
 
 import TicketAttachmentImport from '/snippets/ticket-attachment-import.mdx';
+import ReconnectIntegration from '/snippets/reconnect-integration.mdx';
 
 Azure DevOps provides development services for teams to plan work, collaborate on code, and build applications.
 
@@ -71,19 +72,19 @@ You can change this selection at any time after setup from the integration detai
 3. Review the permissions PlayerZero is requesting and click **Accept**
 4. After authorization, you'll be redirected back to PlayerZero
 
-### Step 4: Configure Workflows (Optional)
+### Step 4: Start Workflows from Work Items (Optional)
 
-Once connected, you can configure automated workflows for each enabled project:
-
-- **Ticket routing** — Automatically create work items from Player threads
-- **Filters** — Specify which issues should trigger the integration based on title, description, or tags
+To start a workflow when a work item event arrives, create an [automation](/features/automations) that listens to Azure DevOps. Use its **Only if** filter to choose which work items start the workflow.
 
 ### Managing the Integration
 
 After setup, you can:
 - **Edit project access** — Add or remove projects that can use this integration
+- **Reconnect** — Sign in again without losing the integration's automations and settings
 - **Disable/enable** — Temporarily pause the integration without disconnecting
 - **Disconnect** — Remove the integration entirely (requires re-authorization to reconnect)
+
+<ReconnectIntegration />
 
 ### Organization URL for PAT Connections
 

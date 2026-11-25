@@ -142,18 +142,22 @@ Once PlayerZero turns on group editing for your organization, org owners can als
 
 ## Who Can Change What
 
-Access to each setting is determined by Org Permission.
+Access to each setting is determined by Org Permission. Controls you cannot use are shown disabled, with a note explaining the access you need.
 
 | Setting | Guest | Viewer | Editor | Owner |
 |---|---|---|---|---|
 | Organization name, slug, auto-join, allowed domains | No | View only | Yes | Yes |
 | Code simulations, privileged action approval | No | View only | Yes | Yes |
+| Ticketing integrations, [External MCP Servers](/connector/remote-mcp-servers), knowledge bases | No | View only | Yes | Yes |
+| [Slack](/connector/slack) and [Microsoft Teams](/connector/microsoft-teams) connection and organization settings | No | View only | View only | Yes |
 | [Slack MCP tool policy](/connector/slack-mcp) | No | View only | View only | Yes |
 | Business Group models, [Models](/features/models) settings | No | View only | View only | Yes |
 | Create, rename, and archive Business Groups | No | No | No | Yes, once enabled by PlayerZero |
 | SSO configuration | No | No | No | Yes |
 | Public artifact sharing | No | No | No | Yes |
 | Organization deletion | No | Contact PlayerZero support | Contact PlayerZero support | Contact PlayerZero support |
+
+Project-level settings follow the member's project role. Creating and editing [workflows](/features/configuring-workflows) and [automations](/features/automations) needs editor or owner access to the project. Setting how [ticket attachments](/connector/jira#ticket-attachments) are imported needs owner access to the project.
 
 ---
 

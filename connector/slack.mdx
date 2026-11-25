@@ -145,16 +145,16 @@ Once connected, all Slack capabilities are immediately available — the `/ask_p
 
 ### Reconnecting an Existing Connection
 
-Slack tools need workspace permissions that connections made before their release did not request. If the Slack MCP row on the Slack detail page asks you to reconnect, an organization owner can grant them by disconnecting and reconnecting:
+Reconnect when PlayerZero needs permissions the connection does not have yet, for example if the Slack MCP row on the Slack detail page asks you to reconnect because the connection was made before Slack tools were released:
 
 1. Navigate to **Settings → Collaboration** and click the **Slack** card
-2. Click **Disable** in the page header and confirm
-3. Click **Enable** and complete Slack authorization again
+2. Click **Reconnect** in the page header
+3. Complete Slack authorization again
 
-Disabling stops PlayerZero from sending messages to Slack and clears the stored Slack credentials. Your organization and project notification settings are kept, so you do not need to configure them again after reconnecting.
+Reconnecting keeps the bot's channel setup and your notification settings. It must use the Slack workspace that is already connected. To switch to a different workspace, click **Disable** first, then **Enable** and authorize the new workspace.
 
 <Note>
-Only organization owners can enable or disable the Slack connection.
+Only organization owners can enable, reconnect, or disable the Slack connection.
 </Note>
 
 ### Channel Access
@@ -168,7 +168,6 @@ For **private channels**, you need to manually invite the bot by typing `/invite
 Once Slack is connected, you can configure where notifications are delivered at the organization and project level.
 
 **Organization-level defaults:**
-- Set a default Slack channel for notifications from the Collaboration settings page
 - Control which projects are authorized to use the Slack connection — either all projects or a specific set
 
 **Per-project, per-stage channels:**
@@ -184,6 +183,7 @@ Once Slack is connected, you can configure where notifications are delivered at 
 - Turn on **Send direct messages** for a project to deliver direct questions to individual teammates as Slack DMs, alongside the channel notifications above
 - Choose what is sent as a direct message with the scope setting: **All questions**, **Direct questions only**, or **Workflow approval questions only**
 - A question card updates when its question is reassigned, answered, or withdrawn, so an outdated card cannot answer someone else's question
+- With direct messages on, **DM people who are @mentioned** sends a teammate a Slack DM with a snippet and a link when someone @mentions them in a Player thread. It is on by default. Only teammates who can open the project receive one, and at most 10 people are messaged for one message
 - Configure it at **Organization settings → Collaboration → Slack**, then select the project, turn on **Send direct messages**, and click **Save**
 
 ## Get Started
