@@ -1,0 +1,75 @@
+---
+title: "November 2026"
+sidebarTitle: "November 2026"
+description: "November 2026 Changelog"
+---
+
+## Auto-Optimize Learns From Workflow Runs
+
+Auto-Optimize is now the default model setting for new workflow stages. It learns from a workflow's past runs which model and guidance suit each stage, and applies them to later runs. Auto-Optimize sits alongside Economy, Standard and Pro in each stage's Model setting, and the Edit workflow dialog can switch every stage of a workflow to Auto-Optimize at once.
+
+Workflow authors get a model choice drawn from each stage's own run history, and can still set a fixed model on any stage.
+
+---
+
+## Start Work From Pull Requests and Branch Changes
+
+Automations can start a workflow when a pull request is opened or merged, or when a branch is created or updated in a connected repository. Pull request events include the repository, branches and merge details.
+
+Review and post-merge work can start as soon as code changes.
+
+---
+
+## Let Players Follow Up Automatically
+
+A Player can set up its own automation to continue work later, on a schedule or when an event arrives from a connected tool. You can see and edit a thread's automations in the Automations section of the Player status rail.
+
+Long investigations can not only be started by specific events, but now can also wait for specific external system updates, then automatically continue their work. For example, when the Jira ticket that started the investigation gets a fresh comment or set of logs attached, or when the PR that created the review gets a new label or block put on it.
+
+---
+
+## Edit Local Files and Run Longer Jobs
+
+On a Base, a Player can now read, write and edit files directly, if the appropriate permissions are granted to it. Any edit applies only if the file has not changed since the Player read it, so changes made on the machine in the meantime are kept. Long jobs, such as builds and test suites, run in the background, and the Player receives the output when the job finishes. Bases are generally available on Mac and Linux. Windows is not yet supported.
+
+Work on local code is more reliable, and long builds and tests finish instead of being cut off.
+
+---
+
+## Keep the Conversation in View
+
+The Player status rail collapses to a narrow strip of icons for progress, codebases, computers, automations, files and uploads, and expands to the full panel when you need it.
+
+More of the screen goes to the conversation and the files you are working with.
+
+---
+
+## Notify Teammates When You Mention Them
+
+When you @mention a teammate in a Player chat, they receive a Slack or Microsoft Teams direct message with a snippet and a link, and the thread appears in their Inbox. Each project controls these messages with the "DM people who are @mentioned" chat notification setting, which is on by default.
+
+Mentions reach people who are not watching the thread.
+
+---
+
+## Reconnect Integrations Without Losing Settings
+
+Slack, Microsoft Teams and ticketing integrations have a Reconnect button. Reconnecting Slack or Teams keeps the bot's channel setup, for example after granting new permissions, and cannot switch the organization to a different workspace or tenant. Reconnecting a ticketing integration keeps its automations and settings, and restores automations that stopped when its credential expired.
+
+Admins can refresh a connection without rebuilding its setup.
+
+---
+
+## Bring More Ticket Evidence Into Investigations
+
+Admins can add file type overrides to a ticketing integration's attachment settings. An override tells PlayerZero how to read a file extension that the ticketing tool reports as a generic binary file, for example reading a trace file as plain text. Overrides apply to every project in the organization that imports attachments.
+
+Evidence files in custom formats reach the investigation instead of being skipped.
+
+---
+
+## Connect MCP Servers With Other Token Formats
+
+MCP connections that use an auth token have an Authorization prefix setting. It defaults to Bearer. You can change it to the format a server expects, such as the one PagerDuty uses for API keys, or leave it empty to send the token alone.
+
+MCP servers that do not accept Bearer tokens can now be connected.
