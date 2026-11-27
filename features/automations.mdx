@@ -10,6 +10,8 @@ An automation starts a workflow without anyone opening a thread. It runs on a sc
 
 Automations are managed at the organization level. Open **Organization Settings**, then **Automations**. The page has two tabs: **Automations** lists every automation in the organization, and **Event sources** lists the systems that automations listen to.
 
+A Player can also set up its own automation to pick up work in the thread it is already in. See [Player Follow-Ups](#player-follow-ups).
+
 ---
 
 ## Creating an Automation
@@ -18,7 +20,7 @@ Click **New automation** and choose what starts it.
 
 | Start | What it listens to |
 |---|---|
-| **Git** | Pull requests, commits, and other events in your connected repositories |
+| **Git** | A pull request opened or merged, or a branch created or updated, in your connected repositories |
 | **Ticketing** | Ticket events from a ticketing tool you have connected |
 | **Custom event source** | An event your own system sends, such as a finished deploy or an alert |
 | **Schedule** | A repeating time that you choose |
@@ -78,6 +80,20 @@ Deleting an event source also deletes the automations that listen to it.
 A workflow started by an automation runs as the PlayerZero system user, not as the person who created the automation. The event that started the run is attached to the channel as a file, so the agent works from the full payload.
 
 A ticketing automation skips a ticket that already has a run in the same workflow, so the same ticket does not start duplicate work.
+
+### When a Workflow Is Deleted
+
+Deleting a workflow turns off the automations that start it, and they show a **Deleted** label. Restoring the workflow does not turn them back on, so turn on each one you still want. When the deleted workflow is permanently removed, its automations are removed with it.
+
+---
+
+## Player Follow-Ups
+
+A Player can set up an automation for itself, so it can wait for something and resume on its own instead of stalling until someone returns. For example, it can check back on a schedule, or wake when a pull request is merged, a branch is updated, a ticket changes, or one of your custom event sources sends an event.
+
+A Player follow-up differs from a workflow automation in two ways. It always messages the thread that created it rather than starting a workflow, and it must have an end time.
+
+Follow-ups appear in the **Automations** section of that thread's [status rail](/features/ai-player#the-status-rail), not on the Automations settings page. From there, people with editor access to the project can rename, edit, or stop one. Stopping a follow-up is permanent.
 
 ---
 

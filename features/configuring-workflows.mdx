@@ -41,13 +41,16 @@ A stage's type is read from the transition graph. Every workflow keeps exactly o
 
 The **Model** setting decides how much horsepower a stage's work gets. Each mode runs an ordered set of models that PlayerZero refines and updates over time, so a stage keeps its intent as the underlying models change.
 
+- **Auto-Optimize**: The default for new stages. PlayerZero picks the right model for each task at that stage, balancing speed, accuracy, and cost.
 - **Economy**: Its own set of faster, less expensive models, for routine, low-risk work.
-- **Standard**: The default. A balance of quality, speed, and cost for everyday work.
+- **Standard**: A balance of quality, speed, and cost for everyday work.
 - **Pro**: For complex or high-stakes work. Pro is the only mode where the agent can put a team of agents on the task instead of working alone, using [Hive Mode](/features/hive-mode), and it is billed at a higher rate than Standard.
 
 Set it per stage, so a triage stage can run Economy while the stage that investigates or writes a fix runs Pro.
 
-Turn on **Auto-Optimize** next to the model slider to let PlayerZero pick the right model for each task at that stage, balancing speed, accuracy, and cost.
+An Auto-Optimize stage learns from the workflow's past runs. PlayerZero reviews how earlier runs of the stage went and applies what it learned, such as the model tier the stage's tasks need, to later runs. What it learned applies only while the stage stays set up the way it was when PlayerZero reviewed it.
+
+To put a whole workflow on Auto-Optimize, open the workflow's edit dialog and select **Switch N stages to Auto-Optimize**. Choosing Economy, Standard, or Pro on an Auto-Optimize stage asks you to confirm, because that stage then always runs on the mode you chose, whatever the task.
 
 A stage picks from the models turned on in [Models](/features/models) settings. Business Group model limits apply to chat, not to workflow stages.
 

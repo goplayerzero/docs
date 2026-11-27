@@ -60,7 +60,7 @@ The external MCP server must be **remote and hosted** — PlayerZero connects vi
 
 | Method | When to Use | What You Provide |
 |--------|------------|-----------------|
-| **Auth Token** | Server requires a Bearer token | A single access token, sent as `Authorization: Bearer <token>` |
+| **Auth Token** | Server requires a token in the `Authorization` header | A single access token, plus an optional **Authorization prefix**. The prefix defaults to `Bearer`, so the token is sent as `Authorization: Bearer <token>`. Use `Token token=` for PagerDuty API keys, or leave the prefix empty to send the token alone. |
 | **OAuth** | Server supports OAuth 2.0 | Nothing for auto-registration — PlayerZero handles the OAuth flow automatically. For pre-configured OAuth, provide a client ID, client secret, and auth method. Optionally specify **OAuth scopes** — if left blank, PlayerZero uses the scopes advertised by the server. |
 | **No authentication** | Server is publicly accessible or uses header-based auth only | Nothing |
 

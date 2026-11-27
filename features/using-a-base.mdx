@@ -40,13 +40,15 @@ With several machines in one Fleet, separate pieces of work run at the same time
 
 Ask PlayerZero to make the change on your machine. It reports what it changed, in which repository and on which branch, and it does not commit or push. This is the point to have it lint and compile locally, and run the tests for what it touched, against your own toolchain.
 
+PlayerZero reads and edits files on your machine directly, and it will not overwrite a file that changed after it read it. For a long build or test run, ask it to run the job in the background. It continues from the result when the job ends.
+
 When the local work is good, bring it back. With the work in PlayerZero you can run broader validation on it, including scenario and code simulation testing, and bring teammates into the same thread to ask questions about the change before anything is committed.
 
 ## Move Code Changes Between a Conversation and a Machine
 
-Open the Player status card in a channel and use **Move code changes**. One entry point covers all three directions: from the conversation to a machine, from a machine into the conversation, or between two machines.
+Open the **Bases** section of the Player status rail in a channel and use **Move code changes**. One entry point covers all three directions: from the conversation to a machine, from a machine into the conversation, or between two machines.
 
-The conversation then shows the work in its Codebases panel, with the branch, the file count and the change count, and the actions to move it back to a machine, pull and sync, or commit and push.
+The conversation then shows the work in the **Codebases** section of the status rail, with the branch, the file count and the change count, and the actions to move it back to a machine, pull and sync, or commit and push.
 
 ### When Both Ends Have Changed
 

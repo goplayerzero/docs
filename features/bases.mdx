@@ -22,7 +22,13 @@ A Fleet will also manage access to the bases within it based on their business g
 
 Bases and Fleets are managed in **Organization Settings → Context → Bases and Fleets**.
 
-In a conversation, the machines you can reach appear in the Player status card, alongside your own. Ask PlayerZero to run work on one of them and it names the machine that ran the command.
+In a conversation, the machines you can reach appear in the **Bases** section of the Player status rail, alongside your own. Ask PlayerZero to run work on one of them and it names the machine that ran the command.
+
+## What PlayerZero Can Do on a Base
+
+PlayerZero can run commands on a Base, and it can read, write, and edit files there directly. An edit applies only if the file is unchanged since PlayerZero read it, so a change made on the machine in the meantime is never overwritten. Permissions to read, write, and edit must be granted to the Base and can be managed for each Base independently.
+
+Long jobs, such as a full build or test suite, can run in the background. PlayerZero picks the work back up with the result when the job ends, so a long run is not cut off partway.
 
 ## Boundaries You Set
 
@@ -31,7 +37,7 @@ You decide how much reach the work has. Work runs in its own process space and c
 The full set of controls, including the Fleet ceiling and the optional enforcement a Fleet can require, is in [Manage Bases and Fleets](/developer-guide/configuration-guides/bases-and-fleets/manage-bases-and-fleets).
 
 <Note>
-Bases run on macOS on Apple Silicon and on Linux.
+Bases are generally available on macOS on Apple Silicon and on Linux. Windows is not yet supported.
 </Note>
 
 ## Get Started
